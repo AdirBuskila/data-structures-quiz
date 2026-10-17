@@ -1,0 +1,1168 @@
+{
+ "examCode": "24B-B",
+ "examLabel": "מבני נתונים, סמסטר ב תשפ\"ד, מועד ב (8.8.24)",
+ "year": 2024,
+ "examDate": "8.8.2024",
+ "sourceFile": "ds-2024-B-B-forms",
+ "solutionFile": "ds-2024-B-B-forms-keys",
+ "questions": [
+  {
+   "num": 1,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהסדרות הבאות יכולה להיות פלט בסריקת preorder של עץ AVL",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$10,3,5,6,7,13,11,12,14$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$10,5,6,3,7,13,11,12,14$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$10,5,3,6,7,14,13,11,12$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$10,5,3,6,7,12,11,13,14$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהסדרות הבאות **אינה** יכולה להיות פלט בסריקת preorder של עץ AVL",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$10,5,3,6,7,12,11,13,14$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$10,5,3,7,6,12,11,14,13$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$10,5,3,6,7,14,13,11,12$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$10,5,3,6,7,12,11,14,13$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 3,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהסדרות הבאות **אינה** יכולה להיות פלט בסריקת preorder של עץ AVL",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$11,6,4,7,8,13,12,14,15$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$11,6,4,8,7,13,12,15,14$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$11,6,4,7,8,13,12,15,14$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$11,6,4,7,8,15,14,12,13$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהסדרות הבאות יכולה להיות פלט בסריקת preorder של עץ AVL",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$11,6,4,7,13,8,12,14,15$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$11,6,4,8,7,13,12,14,15$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$13,6,4,7,8,11,14,12,15$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$15,12,7,6,48,11,13,14$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 5,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "יהי $T$ עץ החלטה המתאר את השאילתות באלגוריתם מיון ל-$n$ מספרים שונים. מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא יתכן שקיים עלה שעומקו $n^2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כמות הקודקודים בעץ הוא $n!$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יתכן שקיים מסלול בעץ שאורכו $n-1$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "יתכן שלפחות חצי מהמסלולים בעץ אורכם $n-1$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 6,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "יהי $T$ עץ החלטה המתאר את השאילתות באלגוריתם מיון ל-$n$ מספרים שונים. מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "יתכן שקיים עלה שעומקו $n^2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כמות הקודקודים בעץ הוא $n!-1$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יתכן שקיים מסלול באורך $1$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "יתכן שלפחות חצי מהמסלולים בעץ אורכם $n-1$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 7,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "יהי $T$ עץ החלטה המתאר את השאילתות באלגוריתם מיון ל-$n$ מספרים שונים. מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "יתכן שקיים מסלול שאורכו $n$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "יתכן שלפחות חצי מהמסלולים בעץ אורכם $n-1$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יתכן שקיים מסלול באורך $1$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "כמות העלים בעץ קטנה מכמות הקודקודים הפנימיים"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 8,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "יהי $T$ עץ החלטה המתאר את השאילתות באלגוריתם מיון ל-$n$ מספרים שונים. מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "יתכן שלפחות חצי מהמסלולים בעץ אורכם $n-1$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כמות העלים בעץ שווה לכמות הקודקודים הפנימיים"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא יתכן שקיים מסלול באורך $1$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "יתכן שגובה העץ הוא $\\Omega(n^3)$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "acceptedIds": [
+    "c",
+    "d"
+   ],
+   "explanation": "בטופס זה מסומנות כנכונות שתי תשובות (ג' ו-ד'); שתיהן מתקבלות."
+  },
+  {
+   "num": 9,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "נתונה הנוסחה הרקורסיבית הבאה: $T(n) = 6T\\left(\\frac{n}{2}\\right) + n^2$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה הראשון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השני"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השלישי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לפתור בעזרת שיטת האב"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: a=6, b=2, log_2 6 = 2.something, case 1: n^2 = O(n^(2.x-eps))"
+  },
+  {
+   "num": 10,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "נתונה הנוסחה הרקורסיבית הבאה: $T(n) = T\\left(\\frac{n}{3}\\right) + n^2$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה הראשון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השני"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השלישי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לפתור בעזרת שיטת האב"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: a=1, b=3, log_3 1 = 0, case 3: n^2 = Omega(n^(0+eps)); a*f(n/b) <= c*f(n): 1*f(n/3) <= c*f(n), n^2/9 <= c*n^2, 1/9 <= c"
+  },
+  {
+   "num": 11,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "נתונה הנוסחה הרקורסיבית הבאה: $T(n) = T\\left(\\frac{n}{4}\\right) + 1024$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה הראשון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השני"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השלישי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לפתור בעזרת שיטת האב"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: a=1, b=4, log_4 1 = 0, case 2: f(n)=1024=Theta(1), T(n)=logn"
+  },
+  {
+   "num": 12,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "נתונה הנוסחה הרקורסיבית הבאה: $T(n) = 3T\\left(\\frac{3n}{2}\\right) + \\frac{3n}{2}$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה הראשון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השני"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ניתן לפתור בעזרת משפט האב – לפי המקרה השלישי"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לפתור בעזרת שיטת האב"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: a=3, b=2/3 < 1 not possible"
+  },
+  {
+   "num": 13,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/2)+n^2$.\nמי מבין הערכים הבאים של המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n^2$ אך קטנה מ-$n^3$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$3$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$4$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$8$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: log_2 a: a=4, log_2 4 = 2, case 2, f(n)=n^2=Theta(n^2), T(n)=n^2 logn"
+  },
+  {
+   "num": 14,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/2)+n^3$.\nמי מבין הערכים הבאים של המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n^3$ אך קטנה מ-$n^4$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$29.1$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$6.5$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$9.3$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$7.5$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: a=9.3, b=2, log_2 9.3 = 3.something, case 1: f(n)=n^3 = O(n^(3.x-eps)), T(n)=Theta(n^3.x)"
+  },
+  {
+   "num": 15,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/2)+n$.\nמי מבין הערכים הבאים של המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n$ אך קטנה מ-$n^2$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$8$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$4$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$2$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$1$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: a=2, b=2, log_2 2 = 1, case 2: f(n)=n=Theta(n), T(n)=Theta(nlogn)"
+  },
+  {
+   "num": 16,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/4)+n^2$.\nמי מבין הערכים הבאים של המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n^2$ אך קטנה מ-$n^3$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$64$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$128$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$16$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$2$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: a=16, b=4, log_4 16 = 2, f(n)=n^2=Theta(n^2), case 2, T(n)=n^2 logn"
+  },
+  {
+   "num": 17,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$5,8,42,4,9,7,3,6$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $42$ נמצא באחד מעלי העץ"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי אינו עלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הגלגולים שהתבצעו בתהליך ההכנסה היא $1$ בלבד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $7$ נמצא בשורש העץ"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 18,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$5,8,4,9,7,3,6,42$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $42$ נמצא באחד מעלי העץ"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי אינו עלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הגלגולים שהתבצעו בתהליך ההכנסה היא $1$ בלבד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $7$ נמצא בשורש העץ"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 19,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$5,8,4,9,7,3,6,42$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $42$ אינו אחד מעלי העץ"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי אינו עלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $7$ נמצא בשורש העץ"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא התבצעו גלגולים בתהליך ההכנסה"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 20,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$9,5,8,4,7,3,6,42$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $42$ נמצא בעומק $2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי נמצא בעומק $3$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הגלגולים שהתבצעו בתהליך ההכנסה היא $2$ בלבד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $7$ נמצא בשורש העץ"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 21,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$11,5,6,22,7,13$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 7) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $13$ ייכנס לתא באינדקס $2$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $5$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $7$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $22$ ייכנס לתא באינדקס $2$ במערך."
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: 22 mod 11=0 occupied, 1+22mod7=1+1=2, 0+2=2 vacant; 13 mod 11=2 occupied, 1+13mod7=1+6=7, 2+7=9 vacant"
+  },
+  {
+   "num": 22,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$11,5,6,22,7,13$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 7) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $7$ ייכנס לתא באינדקס $9$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $5$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $13$ ייכנס לתא באינדקס $9$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $22$ ייכנס לתא באינדקס $0$ במערך."
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: 22 mod 11=0 occupied, 1+22mod7=1+1=2, 0+2=2 vacant; 13 mod 11=2 occupied, 1+13mod7=1+6=7, 2+7=9 vacant"
+  },
+  {
+   "num": 23,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$11,5,6,22,7,13$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 7) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $7$ ייכנס לתא באינדקס $5$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $5$ ייכנס לתא באינדקס $5$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $13$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $22$ ייכנס לתא באינדקס $0$ במערך."
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: 22 mod 11=0 occupied, 1+22mod7=1+1=2, 0+2=2 vacant; 13 mod 11=2 occupied, 1+13mod7=1+6=7, 2+7=9 vacant"
+  },
+  {
+   "num": 24,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת הגיבוב הלינארי, המשתמשת בפונקציית הגיבוב הבאה: $h(x) = x \\bmod 10$\n\nהטבלה הנתונה (אינדקס: ערך): $A[1]$: $61$, $A[2]$: $52$, $A[3]$: $93$, $A[4]$: $11$, $A[5]$: $85$, $A[6]$: $44$, $A[7]$: $73$. שאר התאים ($A[0]$, $A[8]$, $A[9]$) ריקים.\n\nאילו מהסדרות הבאות **אינה** יכולה להיות סדרת הכנסה לטבלה (יש לקרוא את הסדרות משמאל לימין):",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$52,93,61,85,73,11,44$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$52,93,61,85,11,44,73$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$93,52,61,11,85,44,73$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$93,61,85,52,11,44,73$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: 73 - index 4 was free"
+  },
+  {
+   "num": 25,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת הגיבוב הלינארי, המשתמשת בפונקציית הגיבוב הבאה: $h(x) = x \\bmod 10$\n\nהטבלה הנתונה (אינדקס: ערך): $A[1]$: $61$, $A[2]$: $52$, $A[3]$: $93$, $A[4]$: $11$, $A[5]$: $85$, $A[6]$: $44$, $A[7]$: $73$. שאר התאים ($A[0]$, $A[8]$, $A[9]$) ריקים.\n\nאילו מהסדרות הבאות יכולה להיות סדרת הכנסה לטבלה (יש לקרוא את הסדרות משמאל לימין):",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$52,93,11,85,65,44,73$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$61,93,52,85,73,44,11$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$93,52,61,85,11,73,44$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$93,61,85,52,11,44,73$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: Option A: index 1 was free when 11 entered. Option B: index 4 was free when 73 entered. Option C: index 6 was free when 73 entered"
+  },
+  {
+   "num": 26,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת הגיבוב הלינארי, המשתמשת בפונקציית הגיבוב הבאה: $h(x) = x \\bmod 10$\n\nהטבלה הנתונה (אינדקס: ערך): $A[1]$: $61$, $A[2]$: $52$, $A[3]$: $93$, $A[4]$: $73$, $A[5]$: $85$, $A[6]$: $44$, $A[7]$: $11$. שאר התאים ($A[0]$, $A[8]$, $A[9]$) ריקים.\n\nאילו מהסדרות הבאות יכולה להיות סדרת הכנסה לטבלה (יש לקרוא את הסדרות משמאל לימין):",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$52,93,61,85,73,11,44$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$52,93,61,85,11,44,73$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$93,52,61,11,85,44,73$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$93,61,85,52,73,44,11$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: Option A: index 6 was free when 11 entered. Option B: index 4 was free when 11 entered. Option C: index 4 was free when 11 entered"
+  },
+  {
+   "num": 27,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת הגיבוב הלינארי, המשתמשת בפונקציית הגיבוב הבאה: $h(x) = x \\bmod 10$\n\nהטבלה הנתונה (אינדקס: ערך): $A[1]$: $61$, $A[2]$: $52$, $A[3]$: $93$, $A[4]$: $73$, $A[5]$: $85$, $A[6]$: $44$, $A[7]$: $11$. שאר התאים ($A[0]$, $A[8]$, $A[9]$) ריקים.\n\nאילו מהסדרות הבאות **אינה** יכולה להיות סדרת הכנסה לטבלה (יש לקרוא את הסדרות משמאל לימין):",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$93,61,85,52,73,44,11$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$52,93,73,85,44,61,11$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$52,73,61,93,85,44,11$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$93,85,61,52,73,44,11$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: index 3 was free when 73 entered"
+  },
+  {
+   "num": 28,
+   "kind": "mcq",
+   "topic": "linear_ds",
+   "points": 7.5,
+   "question": "להלן הגדרת הפעולות במבנה הנתונים \"מי בראש\" הממומש על המספרים הטבעים מ-1 עד $n$:\n\n- `Init(n)`: מאתחלת את המבנה עם כל המספרים מ-1 עד $n$. פעולת האיתחול מתבצעת פעם אחת בלבד.\n- `Delete(x)`: מוחק את הערך $x$ מהמבנה. אם $x$ כבר אינו במבנה, הפעולה לא עושה כלום.\n- `DeleteMin()`: מוחק ומחזיר את הערך המינימלי כרגע במבנה.\n\nמי מתוך המבנים הבאים יאפשר לממש את המבנה \"מי בראש\" בזמן ריצה הטוב ביותר לכל פעולה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ערימה מינימום"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "טבלת גיבוב עם ערימת מינימום"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "עץ AVL"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "רשימה מקושרת דו כיוונית ומערך"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: רשימה מקושרת דו כיוונית ומערך שמצביע לצמתי הרשימה (לדוגמה n=3: המערך מצביע לצמתים 1, 2, 3 ברשימה L)."
+  },
+  {
+   "num": 29,
+   "kind": "mcq",
+   "topic": "ds_design",
+   "points": 7.5,
+   "question": "רוצים לממש מילון התומך בפעולות הבאות: חיפוש המפתח $k$ במבנה, הכנסת מפתח $k$ למבנה, הוצאת המפתח $k$ מהמבנה, החזרת האיבר ה-$i$ בגודלו במבנה בזמן $O(\\log n)$, כאשר $n$ כמות הנתונים במבנה.\n\nלדוגמה: עבור קבוצת המפתחות הבאה: $10,2,8,3,7,5,12$ ועבור $i=3$ הפעולה של החזרת האיבר ה-$i$ בגודלו תחזיר $5$. (כלומר, האיבר השלישי בגודלו בקבוצת המפתחות הנתונה הוא $5$, כי שני המפתחות $2,3$ קטנים ממנו ושאר המפתחות $7,8,10,12$ גדולים ממנו)\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא ניתן לממש מבנה שיעמוד בדרישות אלו"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "עץ AVL שבכל קודקוד נוסף שדה של כמות הקודקודים בתת העץ המושרש של קודקוד זה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "עץ AVL שבכל קודקוד נוסף שדה של גובה תת העץ המושרש של קודקוד זה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "עץ AVL שבכל קודקוד נוסף שדה של עומק הקודקוד"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 30,
+   "kind": "mcq",
+   "topic": "heaps",
+   "points": 7.5,
+   "question": "בייצוג ערימה בעזרת עץ בינארי (ולא במערך), מה כמות הקודקודים המינימלית בערימה בגובה $h$ ?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2^h + 1$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$2^h$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$2^h - 1$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$2(2^h + 1)$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: Total = 2^h - 1 + 1 = 2^h"
+  },
+  {
+   "num": 31,
+   "kind": "mcq",
+   "topic": "complexity",
+   "points": 7.5,
+   "question": "נתון קטע הפסודוקוד הבא, בחר את סיבוכיות זמן הריצה שלו:\n\n```\nSTAM(A[1..n])\n    for (i = sqrt(n); i <= n/2; i++)\n        for (j = 1; j <= n/4; j = j*2)\n            A[i]++\n```",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\theta(n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\theta(\\log n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\theta(\\sqrt{n} \\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\theta(n \\log \\sqrt{n})$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: n/2 - sqrt2 = Theta(n); logn; Theta(nlogn)"
+  },
+  {
+   "num": 32,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים שרק $\\log n$ מספרים מהם שונים זה מזה, ומחזירה את המערך ממוין.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\theta(n \\log(\\log n))$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log^2 n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: We will use an AVL tree with a counter for each node = how many of each key are in the tree. The AVL size is logn, then h=loglogn. We'll insert all n numbers to the AVL tree O(nloglogn), we'll print all in inorder O(n)"
+  },
+  {
+   "num": 33,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים שרק $\\log n$ מספרים מהם שונים זה מזה, ומחזירה את המערך ממוין.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n\\sqrt{n})$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(n \\log(\\log n))$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 34,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים שרק $\\log n$ מספרים מהם שונים זה מזה, ומחזירה את המערך ממוין.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(n\\sqrt{n})$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\theta(n \\log n)$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: possible in O(nloglogn)"
+  },
+  {
+   "num": 100,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "points": 25,
+   "question": "עליכם לממש מבנה נתונים התומך בפעולות הבאות על מספרים בסיבוכיות הזמן הנדרשת.\n\nתארו תחילה מה כולל מבנה הנתונים שלכם, ואח\"כ הסבירו כיצד תתבצע כל אחת מהפעולות (שימו לב, $n$ מציין את מספר הנתונים במבנה).\n\n- `Insert(k)` – הכנסת המפתח $k$ למבנה. סיבוכיות הזמן הנדרשת: $O(\\log n)$.\n- `ExtractMin()` – החזרת המפתח המינימלי במבנה. סיבוכיות הזמן הנדרשת: $O(1)$.\n- `DeleteMin()` – מחיקת המפתח המינימלי במבנה. סיבוכיות הזמן הנדרשת: $O(\\log n)$.\n- `Delete(x)` – מחיקת המפתח ש-$x$ מצביע עליו במבנה. סיבוכיות הזמן הנדרשת: $O(\\log n)$.",
+   "solution": "**אפשרות ראשונה:** נשתמש במבנה נתונים ערימת מינימום.\n\nמימוש הפעולות:\n\n- `Insert(k)` – הכנסת המפתח $k$ לערימה – פעולה שהערימה תומכת בה ב-$O(\\log n)$.\n- `ExtractMin()` – החזרת המפתח המינימלי במבנה פעולה שהערימה תומכת בה ב-$O(1)$.\n- `DeleteMin()` – מחיקת המפתח המינימלי מהערימה – פעולה שהערימה תומכת בה ב-$O(\\log n)$.\n- `Delete(x)` – זו פעולה שלא מוגדרת בערימה ולכן נסביר איך לבצע אותה: נחליף את המפתח שנמצא בתא ש-$x$ מצביע עליו עם המפתח באיבר האחרון בערימה שמייצג את הערימה. נקטין את גודל הערימה ב-$1$, ונקרא גם ל-`heapifyup` וגם ל-`heapifydown` לביצוע תיקון הערכים, אבל לכל היותר אחד מהם באמת יתבצע. סה\"כ עלות הפעולות $O(\\log n)$.\n\n**אפשרות שנייה:** נשתמש במבנה נתונים עץ AVL עם מצביע `min_ptr` לאיבר המינימלי בעץ / משתנה MIN המשמר את ערך המינימום.\n\nמימוש הפעולות:\n\n- `Insert(k)` – הכנסת המפתח $k$ לעץ ה-AVL. זו פעולה שנתמכת ע\"י העץ ב-$O(\\log n)$. נבדוק האם $k$ קטן מהערך שעליו מצביע `min_ptr`, ואם כן אז נעדכן את מצביע `min_ptr` / משתנה MIN על ידי הצבעה על הקודקוד השמאלי ביותר בעץ. את הבדיקה והעדכון ניתן לעשות ב-$O(1)$.\n- `ExtractMin()` – החזרת המפתח עליו מצביע `min_ptr` / המשתנה MIN ב-$O(1)$.\n- `DeleteMin()` – מחיקת המפתח עליו מצביע `min_ptr` / מחיקת הקודקוד השמאלי ביותר בעץ AVL. פעולה שניתן לבצע בעץ AVL ב-$O(\\log n)$. יש לעדכן את המצביע `min_ptr` להצביע על האיבר המינימלי החדש בעץ, זאת נעשית ע\"י ירידה מהשורש עד לעלה הכי שמאלי (הוא מכיל את הערך המינימלי), ונעדכן את `min_ptr` להצביע עליו / באופן דומה נעדכן את המשתנה MIN. עדכון זה גם כן נעשה בזמן $O(\\log n)$.\n- `Delete(x)` – מחיקת המפתח עליו מצביע $x$ – פעולה שניתן לבצע בעץ AVL ב-$O(\\log n)$. אם $x$ = `min_ptr`, יש לעדכן את המצביע `min_ptr` להצביע על האיבר המינימלי החדש בעץ, זאת נעשית ע\"י ירידה מהשורש עד לעלה הכי שמאלי (הוא מכיל את הערך המינימלי), ונעדכן את `min_ptr` להצביע עליו / באופן דומה נעדכן את המשתנה MIN. עדכון זה גם כן נעשה בזמן $O(\\log n)$.\n\n**הערה:** היו שהשתמשו בעץ AVL וערימה עם פוינטרים הדדיים ביניהם. זה כמובן מיותר, אבל קיבלנו את הפתרון כל עוד היתה התייחסות נכונה לעדכון הפוינטרים ההדדיים בפעולות ההכנסה והמחיקה.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  }
+ ]
+}
