@@ -1,6 +1,6 @@
 # STATUS - data-structures
 
-Resume here: phase 0 - not started
+Resume here: phase 2 - flagship 25S-A transcribed (13 items, no steps yet); next: steps + refuter
 Opus sessions: 0 of 2
 Engine: open   Format: unknown   Cutoff: unknown
 
@@ -18,7 +18,7 @@ Gates 1, 2 and 7 always stop for Adir.
   - [ ] config.overlay.json written, app repo scaffolded (triage stays in the factory)
 - [ ] Phase 2 - flagship  (GATE 2: Adir tries it in the browser)
   - [ ] topic taxonomy chosen
-  - [ ] flagship sitting transcribed + validated
+  - [x] flagship sitting transcribed + validated (25S-A, 20.10.25: 13 items; verify harness tools/verify/25S-A; validate/build/verify_dom green)
   - [ ] steps (if open questions) + refuter pass
   - [ ] smoke / verify_dom green, running locally
   - [ ] Adir tried it

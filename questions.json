@@ -1,0 +1,423 @@
+{
+ "meta": {
+  "course": {
+   "slug": "data-structures",
+   "title": "מבני נתונים",
+   "description": "תרגול מבחנים - מבני נתונים",
+   "accent": "#2dd4bf",
+   "accent2": "#7c3aed",
+   "storePrefix": "data-structures",
+   "needHelp": [
+    {
+     "id": "recurrences",
+     "titleHe": "נוסחאות נסיגה וסדר גודל",
+     "icon": "📐",
+     "topic": "recurrences",
+     "entryLabelHe": "צריך עזרה בנוסחאות נסיגה?"
+    },
+    {
+     "id": "avl",
+     "titleHe": "עצי AVL: הכנסה, מחיקה וגלגולים",
+     "icon": "🌳",
+     "topic": "avl",
+     "entryLabelHe": "צריך עזרה בעצי AVL?"
+    },
+    {
+     "id": "hashing",
+     "titleHe": "טבלאות גיבוב",
+     "icon": "🗂️",
+     "topic": "hashing",
+     "entryLabelHe": "צריך עזרה בטבלאות גיבוב?"
+    },
+    {
+     "id": "heaps",
+     "titleHe": "ערימות ותור עדיפויות",
+     "icon": "⛰️",
+     "topic": "heaps",
+     "entryLabelHe": "צריך עזרה בערימות?"
+    }
+   ]
+  },
+  "topics": [
+   {
+    "key": "complexity",
+    "label": "סיבוכיות וחסמים אסימפטוטיים"
+   },
+   {
+    "key": "recurrences",
+    "label": "נוסחאות נסיגה ומשפט האב"
+   },
+   {
+    "key": "linear_ds",
+    "label": "מערך, מחסנית, תור ורשימה מקושרת"
+   },
+   {
+    "key": "trees_induction",
+    "label": "עצים בינאריים, סריקות והוכחות באינדוקציה"
+   },
+   {
+    "key": "bst",
+    "label": "עצי חיפוש בינאריים"
+   },
+   {
+    "key": "avl",
+    "label": "עצי AVL"
+   },
+   {
+    "key": "hashing",
+    "label": "טבלאות גיבוב"
+   },
+   {
+    "key": "heaps",
+    "label": "ערימות ותור עדיפויות"
+   },
+   {
+    "key": "sorting_selection",
+    "label": "מיונים, חסם תחתון ובחירה"
+   },
+   {
+    "key": "union_find",
+    "label": "קבוצות זרות"
+   },
+   {
+    "key": "ds_design",
+    "label": "תכנון אלגוריתם ומבנה נתונים"
+   }
+  ],
+  "kinds": [
+   "computation",
+   "proof",
+   "algorithm",
+   "truefalse"
+  ],
+  "built": "2026-10-17T13:41:52Z",
+  "exams": [
+   {
+    "examCode": "25S-A",
+    "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+    "year": 2025,
+    "source": "exam",
+    "examDate": "20.10.2025"
+   }
+  ],
+  "counts": {
+   "total": 13,
+   "contexts": 2,
+   "math": 66,
+   "steps": 0
+  }
+ },
+ "contexts": {
+  "25S-A-c1": {
+   "kind": "image",
+   "title": "עץ לדוגמה לשאלה 1",
+   "image": "images/exams/25S-A-c1.png",
+   "caption": "המרחק בין 4 לבין 13 הוא 3.",
+   "id": "25S-A-c1",
+   "captionHtml": "המרחק בין 4 לבין 13 הוא 3.",
+   "titleHtml": "עץ לדוגמה לשאלה 1"
+  },
+  "25S-A-c3": {
+   "kind": "text",
+   "title": "מערכת הנתונים של שאלה 3",
+   "text": "הציעו מבנה נתונים לניהול מערכת הכוללת $n$ **משתנים**, שבכל אחד מהם מספר.\nהמערכת צריכה לתמוך בפעולות הבאות:\n1. `init(n)` – אתחול המבנה עם $n$ נתונים התחלתיים.\n2. `set(i, x)` – משנה את ערך המשתנה ה-$i$ ל-$x$.\n3. `undo(i)` – מבטל את השינוי האחרון שנעשה למשתנה ה-$i$ אם קיים.\n4. `redo(i)` – מחזיר את המשתנה ה-$i$ למצבו לפני קריאת `undo` האחרונה. אם התבצעו כמה פעולות `undo` אז ניתן לבצע כמה פעולות `redo` בהתאם. אם התבצעה פעולת `set` בין פעולות ה-`undo` לבין פעולת ה-`redo` הבאה אז לא ניתן יהיה להחזיר את הערך הקודם ונתייחס לזה כאילו לא היו פעולות `undo` לפניו.\n\nאפשר להניח שפעולת `init(n)` מתבצעת פעם אחת בלבד בזמן אתחול המערכת בסיבוכיות $O(n)$. שאר הפעולות צריכות להתבצע בסיבוכיות $O(1)$ כל אחת.",
+   "id": "25S-A-c3",
+   "textHtml": "הציעו מבנה נתונים לניהול מערכת הכוללת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> <strong>משתנים</strong>, שבכל אחד מהם מספר.<br>המערכת צריכה לתמוך בפעולות הבאות:<br>1. <code class=\"tok\" dir=\"ltr\">init(n)</code> – אתחול המבנה עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> נתונים התחלתיים.<br>2. <code class=\"tok\" dir=\"ltr\">set(i, x)</code> – משנה את ערך המשתנה ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>i</mi></mrow><annotation encoding=\"application/x-tex\">i</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">x</annotation></semantics></math></span>.<br>3. <code class=\"tok\" dir=\"ltr\">undo(i)</code> – מבטל את השינוי האחרון שנעשה למשתנה ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>i</mi></mrow><annotation encoding=\"application/x-tex\">i</annotation></semantics></math></span> אם קיים.<br>4. <code class=\"tok\" dir=\"ltr\">redo(i)</code> – מחזיר את המשתנה ה-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>i</mi></mrow><annotation encoding=\"application/x-tex\">i</annotation></semantics></math></span> למצבו לפני קריאת <code class=\"tok\" dir=\"ltr\">undo</code> האחרונה. אם התבצעו כמה פעולות <code class=\"tok\" dir=\"ltr\">undo</code> אז ניתן לבצע כמה פעולות <code class=\"tok\" dir=\"ltr\">redo</code> בהתאם. אם התבצעה פעולת <code class=\"tok\" dir=\"ltr\">set</code> בין פעולות ה-<code class=\"tok\" dir=\"ltr\">undo</code> לבין פעולת ה-<code class=\"tok\" dir=\"ltr\">redo</code> הבאה אז לא ניתן יהיה להחזיר את הערך הקודם ונתייחס לזה כאילו לא היו פעולות <code class=\"tok\" dir=\"ltr\">undo</code> לפניו.<br><br>אפשר להניח שפעולת <code class=\"tok\" dir=\"ltr\">init(n)</code> מתבצעת פעם אחת בלבד בזמן אתחול המערכת בסיבוכיות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(n)</annotation></semantics></math></span>. שאר הפעולות צריכות להתבצע בסיבוכיות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(1)</annotation></semantics></math></span> כל אחת.",
+   "titleHtml": "מערכת הנתונים של שאלה 3"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "kind": "algorithm",
+   "topic": "bst",
+   "question": "\"מרחק\" בין שני צמתים בעץ מוגדר כמספר הצלעות במסלול הקצר ביותר ביניהם בעץ. (שימו לב שההגדרה הזו רלוונטית לכל שלושת הסעיפים א, ב, ג.)\n\nציירו **עץ חיפוש בינארי** שבו המרחק בין האיבר הגדול ביותר בעץ לבין השני בגודלו **גדול ממש מ-1**.\n\nלדוגמה בעץ בציור הנתון האיבר הגדול ביותר הוא $18$, והשני בגודלו הוא $15$.",
+   "solution": "בדוגמה שבפתרון הרשמי: הגדול ביותר הוא $6$, השני בגודלו הוא $5$, והצומת $4$ נמצא ביניהם בציור (הצמתים $6$, $4$, $5$ מחוברים בצלעות). המרחק ביניהם הוא $2$, שזה גדול מ-$1$, והעץ הוא עץ חיפוש בינארי.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "med",
+   "points": 7,
+   "part": "א",
+   "contextId": "25S-A-c1",
+   "id": "25S-A-Q1a",
+   "partKey": "a",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "עצי חיפוש בינאריים",
+   "questionHtml": "\"מרחק\" בין שני צמתים בעץ מוגדר כמספר הצלעות במסלול הקצר ביותר ביניהם בעץ. (שימו לב שההגדרה הזו רלוונטית לכל שלושת הסעיפים א, ב, ג.)<br><br>ציירו <strong>עץ חיפוש בינארי</strong> שבו המרחק בין האיבר הגדול ביותר בעץ לבין השני בגודלו <strong>גדול ממש מ-1</strong>.<br><br>לדוגמה בעץ בציור הנתון האיבר הגדול ביותר הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>18</mn></mrow><annotation encoding=\"application/x-tex\">18</annotation></semantics></math></span>, והשני בגודלו הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>15</mn></mrow><annotation encoding=\"application/x-tex\">15</annotation></semantics></math></span>.",
+   "solutionHtml": "בדוגמה שבפתרון הרשמי: הגדול ביותר הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">6</annotation></semantics></math></span>, השני בגודלו הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">5</annotation></semantics></math></span>, והצומת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">4</annotation></semantics></math></span> נמצא ביניהם בציור (הצמתים <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">6</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">4</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">5</annotation></semantics></math></span> מחוברים בצלעות). המרחק ביניהם הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>, שזה גדול מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>, והעץ הוא עץ חיפוש בינארי.",
+   "pointsTotal": 7
+  },
+  {
+   "num": 1,
+   "kind": "proof",
+   "topic": "bst",
+   "question": "נתון **עץ חיפוש בינארי בעל $n$ צמתים**. מהו המרחק בעץ בין האיבר הגדול ביותר לבין האיבר השני בגודלו **במקרה הגרוע**? הסבירו את תשובתכם.\n\n(כלומר, מה יכול להיות **המרחק הגדול ביותר** בין האיבר הגדול ביותר לבין האיבר השני בגודלו בעץ חיפוש בינארי בעל $n$ צמתים).",
+   "solution": "המרחק הגדול ביותר הוא $n-1$.\n\nבציור הרשמי: בראש העץ $n$, מתחתיו $1$, ומשם שרשרת $2, 3, \\dots, n-1$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 9,
+   "part": "ב",
+   "contextId": "25S-A-c1",
+   "id": "25S-A-Q1b",
+   "partKey": "b",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "עצי חיפוש בינאריים",
+   "questionHtml": "נתון <strong>עץ חיפוש בינארי בעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> צמתים<strong>. מהו המרחק בעץ בין האיבר הגדול ביותר לבין האיבר השני בגודלו </strong>במקרה הגרוע<strong>? הסבירו את תשובתכם.<br><br>(כלומר, מה יכול להיות </strong>המרחק הגדול ביותר</strong> בין האיבר הגדול ביותר לבין האיבר השני בגודלו בעץ חיפוש בינארי בעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> צמתים).",
+   "solutionHtml": "המרחק הגדול ביותר הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n-1</annotation></semantics></math></span>.<br><br>בציור הרשמי: בראש העץ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, מתחתיו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>, ומשם שרשרת <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mo>…</mo><mo separator=\"true\">,</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">2, 3, \\dots, n-1</annotation></semantics></math></span>.",
+   "pointsTotal": 9
+  },
+  {
+   "num": 1,
+   "kind": "proof",
+   "topic": "avl",
+   "question": "נתון **עץ AVL בעל $n$ צמתים**. מהו המרחק בעץ בין האיבר הגדול ביותר לבין האיבר השני בגודלו **במקרה הגרוע**? הסבירו את תשובתכם.\n\n(כלומר, מה יכול להיות **המרחק הגדול ביותר** בין האיבר הגדול ביותר לבין האיבר השני בגודלו בעץ AVL בעל $n$ צמתים).",
+   "solution": "כדי שהאיזון יתקיים, האיבר המקסימלי יכול להיות או עלה הכי ימני בעץ, או שיש לו רק בן שמאלי. אם יש לו בן שמאלי אז לא יכול להיות לבן הזה עוד ילד, כי אז האיזון יופר.\n\nלכן המרחק הגדול ביותר יכול להיות $1$. יכולים להיות $2$ מצבים בלבד: ($n$ ומתחתיו בן $n-1$) או ($n-1$ ומתחתיו בן $n$).",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 9,
+   "part": "ג",
+   "contextId": "25S-A-c1",
+   "id": "25S-A-Q1c",
+   "partKey": "c",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "עצי AVL",
+   "questionHtml": "נתון <strong>עץ AVL בעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> צמתים<strong>. מהו המרחק בעץ בין האיבר הגדול ביותר לבין האיבר השני בגודלו </strong>במקרה הגרוע<strong>? הסבירו את תשובתכם.<br><br>(כלומר, מה יכול להיות </strong>המרחק הגדול ביותר</strong> בין האיבר הגדול ביותר לבין האיבר השני בגודלו בעץ AVL בעל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> צמתים).",
+   "solutionHtml": "כדי שהאיזון יתקיים, האיבר המקסימלי יכול להיות או עלה הכי ימני בעץ, או שיש לו רק בן שמאלי. אם יש לו בן שמאלי אז לא יכול להיות לבן הזה עוד ילד, כי אז האיזון יופר.<br><br>לכן המרחק הגדול ביותר יכול להיות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>. יכולים להיות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span> מצבים בלבד: (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> ומתחתיו בן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n-1</annotation></semantics></math></span>) או (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">n-1</annotation></semantics></math></span> ומתחתיו בן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>).",
+   "pointsTotal": 9
+  },
+  {
+   "num": 2,
+   "kind": "algorithm",
+   "topic": "heaps",
+   "question": "נגדיר: ערימה \"שומרת סדר\" היא ערימת מינימום בה לכל קודקוד יש שני בנים, והערך של הבן השמאלי קטן מהערך של הבן הימני. לדוגמה:\n\nדנה הציעה אלגוריתם לפתרון הבעיה הבאה:\n**קלט:** מערך לא ממוין של $n$ מספרים ממשיים.\n**פלט:** ערימה שומרת סדר (במימוש ע\"י **עץ כמעט שלם** בייצוג מערך כפי שלמדנו).\n\nהאלגוריתם של דנה:\n- הפוך את המערך לערימת מינימום בעזרת `buildheap()`\n- סרוק את הערימה בסריקת רוחב, ולכל צומת, אם יש לו 2 בנים, השווה בין ערכי הבנים שלו - אם הערך הבן השמאלי גדול מהערך בבן הימני הפוך בין הערכים.\n\nהאם האלגוריתם של דנה יחזיר ערימה \"שומרת סדר\"?\nאם כן, הסבירו את נכונות האלגוריתם ונתחו את סיבוכיותו, אחרת תנו דוגמא עבורה האלגוריתם לא יחזיר תשובה נכונה והסבירו את הדוגמא.",
+   "solution": "ניתן למצוא דוגמה נגדית. בשלב הראשון, אחרי `buildheap` נקבל ערימת מינימום חוקית, אבל אחרי הפיכת הערכים בבנים הערימה כבר לא תהיה חוקית.\n\nלדוגמה: אחרי `buildheap` מתקבלת ערימה שבה השורש $3$, ילדיו $21$ (משמאל) ו-$7$ (מימין), ילדיו של $21$ הם $22$ ו-$25$, וילדיו של $7$ הם $15$ ו-$10$.\n\nאחרי ההחלפה בין $21$ ל-$7$ הערימה לא חוקית, כי $21$ לא יהיה קטן מהבנים החדשים שלו $15, 10$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 12,
+   "part": "א",
+   "image": "images/exams/25S-A-Q2a.png",
+   "id": "25S-A-Q2a",
+   "partKey": "a",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "ערימות ותור עדיפויות",
+   "questionHtml": "נגדיר: ערימה \"שומרת סדר\" היא ערימת מינימום בה לכל קודקוד יש שני בנים, והערך של הבן השמאלי קטן מהערך של הבן הימני. לדוגמה:<br><br>דנה הציעה אלגוריתם לפתרון הבעיה הבאה:<br><strong>קלט:</strong> מערך לא ממוין של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> מספרים ממשיים.<br><strong>פלט:</strong> ערימה שומרת סדר (במימוש ע\"י <strong>עץ כמעט שלם</strong> בייצוג מערך כפי שלמדנו).<br><br>האלגוריתם של דנה:<br>- הפוך את המערך לערימת מינימום בעזרת <code class=\"tok\" dir=\"ltr\">buildheap()</code><br>- סרוק את הערימה בסריקת רוחב, ולכל צומת, אם יש לו 2 בנים, השווה בין ערכי הבנים שלו - אם הערך הבן השמאלי גדול מהערך בבן הימני הפוך בין הערכים.<br><br>האם האלגוריתם של דנה יחזיר ערימה \"שומרת סדר\"?<br>אם כן, הסבירו את נכונות האלגוריתם ונתחו את סיבוכיותו, אחרת תנו דוגמא עבורה האלגוריתם לא יחזיר תשובה נכונה והסבירו את הדוגמא.",
+   "solutionHtml": "ניתן למצוא דוגמה נגדית. בשלב הראשון, אחרי <code class=\"tok\" dir=\"ltr\">buildheap</code> נקבל ערימת מינימום חוקית, אבל אחרי הפיכת הערכים בבנים הערימה כבר לא תהיה חוקית.<br><br>לדוגמה: אחרי <code class=\"tok\" dir=\"ltr\">buildheap</code> מתקבלת ערימה שבה השורש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>, ילדיו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>21</mn></mrow><annotation encoding=\"application/x-tex\">21</annotation></semantics></math></span> (משמאל) ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7</annotation></semantics></math></span> (מימין), ילדיו של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>21</mn></mrow><annotation encoding=\"application/x-tex\">21</annotation></semantics></math></span> הם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>22</mn></mrow><annotation encoding=\"application/x-tex\">22</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>25</mn></mrow><annotation encoding=\"application/x-tex\">25</annotation></semantics></math></span>, וילדיו של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7</annotation></semantics></math></span> הם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>15</mn></mrow><annotation encoding=\"application/x-tex\">15</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">10</annotation></semantics></math></span>.<br><br>אחרי ההחלפה בין <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>21</mn></mrow><annotation encoding=\"application/x-tex\">21</annotation></semantics></math></span> ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7</annotation></semantics></math></span> הערימה לא חוקית, כי <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>21</mn></mrow><annotation encoding=\"application/x-tex\">21</annotation></semantics></math></span> לא יהיה קטן מהבנים החדשים שלו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>15</mn><mo separator=\"true\">,</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">15, 10</annotation></semantics></math></span>.",
+   "pointsTotal": 12
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "hashing",
+   "question": "(שימו לב שיש לסעיף ב' שני תתי סעיפים)\n\nנתונה סדרת המספרים הבאה (משמאל לימין): $11, 5, 6, 22, 7, 13$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n$h(x,i) = (h_1(x) + i \\cdot h_2(x)) \\bmod 11$\n\nכאשר:\n$h_1(x) = x \\bmod 11$\n$h_2(x) = 1 + (x \\bmod 7)$\n\nהציגו את **כל** שלבי ההכנסה של המספרים לטבלת הגיבוב.",
+   "solution": "הטבלה הסופית (אינדקס: ערך): $0$: $11$, $2$: $22$, $5$: $5$, $6$: $6$, $7$: $7$, $9$: $13$. שאר התאים ($1, 3, 4, 8, 10$) ריקים.\n\n- $11 \\bmod 11 = 0$ (פנוי).\n- $5 \\bmod 11 = 5$ (פנוי).\n- $6 \\bmod 11 = 6$ (פנוי).\n- $22 \\bmod 11 = 0$: תפוס. צעד: $1 + 22 \\bmod 7 = 1 + 1 = 2$. פנוי: $0 + 1 \\cdot 2 = 2$.\n- $7 \\bmod 11 = 7$ (פנוי).\n- $13 \\bmod 11 = 2$: תפוס. צעד: $1 + 13 \\bmod 7 = 1 + 6 = 7$. $2 + 1 \\cdot 7 = 2 + 7 = 9$ (פנוי).",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7,
+   "part": "ב",
+   "id": "25S-A-Q2b",
+   "partKey": "b",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "טבלאות גיבוב",
+   "questionHtml": "(שימו לב שיש לסעיף ב' שני תתי סעיפים)<br><br>נתונה סדרת המספרים הבאה (משמאל לימין): <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>11</mn><mo separator=\"true\">,</mo><mn>5</mn><mo separator=\"true\">,</mo><mn>6</mn><mo separator=\"true\">,</mo><mn>22</mn><mo separator=\"true\">,</mo><mn>7</mn><mo separator=\"true\">,</mo><mn>13</mn></mrow><annotation encoding=\"application/x-tex\">11, 5, 6, 22, 7, 13</annotation></semantics></math></span><br><br>השתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>11</mn></mrow><annotation encoding=\"application/x-tex\">11</annotation></semantics></math></span>:<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>h</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo separator=\"true\">,</mo><mi>i</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mo stretchy=\"false\">(</mo><msub><mi>h</mi><mn>1</mn></msub><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>+</mo><mi>i</mi><mo>⋅</mo><msub><mi>h</mi><mn>2</mn></msub><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo stretchy=\"false\">)</mo><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn></mrow><annotation encoding=\"application/x-tex\">h(x,i) = (h_1(x) + i \\cdot h_2(x)) \\bmod 11</annotation></semantics></math></span><br><br>כאשר:<br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>h</mi><mn>1</mn></msub><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>x</mi><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn></mrow><annotation encoding=\"application/x-tex\">h_1(x) = x \\bmod 11</annotation></semantics></math></span><br><span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>h</mi><mn>2</mn></msub><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mo stretchy=\"false\">(</mo><mi>x</mi><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>7</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">h_2(x) = 1 + (x \\bmod 7)</annotation></semantics></math></span><br><br>הציגו את <strong>כל</strong> שלבי ההכנסה של המספרים לטבלת הגיבוב.",
+   "solutionHtml": "הטבלה הסופית (אינדקס: ערך): <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">0</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>11</mn></mrow><annotation encoding=\"application/x-tex\">11</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">2</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>22</mn></mrow><annotation encoding=\"application/x-tex\">22</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">5</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">5</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">6</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">6</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">9</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>13</mn></mrow><annotation encoding=\"application/x-tex\">13</annotation></semantics></math></span>. שאר התאים (<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>4</mn><mo separator=\"true\">,</mo><mn>8</mn><mo separator=\"true\">,</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">1, 3, 4, 8, 10</annotation></semantics></math></span>) ריקים.<br><br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>11</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">11 \\bmod 11 = 0</annotation></semantics></math></span> (פנוי).<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">5 \\bmod 11 = 5</annotation></semantics></math></span> (פנוי).<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">6 \\bmod 11 = 6</annotation></semantics></math></span> (פנוי).<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>22</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding=\"application/x-tex\">22 \\bmod 11 = 0</annotation></semantics></math></span>: תפוס. צעד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>+</mo><mn>22</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>7</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">1 + 22 \\bmod 7 = 1 + 1 = 2</annotation></semantics></math></span>. פנוי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>0</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>2</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">0 + 1 \\cdot 2 = 2</annotation></semantics></math></span>.<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7 \\bmod 11 = 7</annotation></semantics></math></span> (פנוי).<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>13</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">13 \\bmod 11 = 2</annotation></semantics></math></span>: תפוס. צעד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>+</mo><mn>13</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>7</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>6</mn><mo>=</mo><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">1 + 13 \\bmod 7 = 1 + 6 = 7</annotation></semantics></math></span>. <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>2</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>7</mn><mo>=</mo><mn>2</mn><mo>+</mo><mn>7</mn><mo>=</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">2 + 1 \\cdot 7 = 2 + 7 = 9</annotation></semantics></math></span> (פנוי).",
+   "pointsTotal": 7
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "hashing",
+   "question": "בהנתן טבלת הגיבוב שקיבלתם בסעיף ב1, הראו דוגמה להכנסת מספר חדש לטבלה שהכנסתו תגרום ל-$3$ התנגשויות **בדיוק**. (פרטו את **כל** שלבי הכנסת המספר החדש).",
+   "solution": "דוגמה: `insert(31)`.\n\n- $31 \\bmod 11 = 9$: תפוס. צעד: $1 + 31 \\bmod 7 = 1 + 3 = 4$.\n- $i=1$: $9 + 1 \\cdot 4 = 13$, $13 \\bmod 11 = 2$: תפוס.\n- $i=2$: $9 + 2 \\cdot 4 = 9 + 8 = 17$, $17 \\bmod 11 = 6$: תפוס.\n- $i=3$: $9 + 3 \\cdot 4 = 9 + 12 = 21$, $21 \\bmod 11 = 10$: פנוי.\n\nהמספר $31$ נכנס לתא $10$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 6,
+   "part": "ג",
+   "id": "25S-A-Q2c",
+   "partKey": "c",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "טבלאות גיבוב",
+   "questionHtml": "בהנתן טבלת הגיבוב שקיבלתם בסעיף ב1, הראו דוגמה להכנסת מספר חדש לטבלה שהכנסתו תגרום ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span> התנגשויות <strong>בדיוק</strong>. (פרטו את <strong>כל</strong> שלבי הכנסת המספר החדש).",
+   "solutionHtml": "דוגמה: <code class=\"tok\" dir=\"ltr\">insert(31)</code>.<br><br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>31</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>9</mn></mrow><annotation encoding=\"application/x-tex\">31 \\bmod 11 = 9</annotation></semantics></math></span>: תפוס. צעד: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn><mo>+</mo><mn>31</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>7</mn><mo>=</mo><mn>1</mn><mo>+</mo><mn>3</mn><mo>=</mo><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">1 + 31 \\bmod 7 = 1 + 3 = 4</annotation></semantics></math></span>.<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">i=1</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9</mn><mo>+</mo><mn>1</mn><mo>⋅</mo><mn>4</mn><mo>=</mo><mn>13</mn></mrow><annotation encoding=\"application/x-tex\">9 + 1 \\cdot 4 = 13</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>13</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">13 \\bmod 11 = 2</annotation></semantics></math></span>: תפוס.<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>i</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">i=2</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9</mn><mo>+</mo><mn>2</mn><mo>⋅</mo><mn>4</mn><mo>=</mo><mn>9</mn><mo>+</mo><mn>8</mn><mo>=</mo><mn>17</mn></mrow><annotation encoding=\"application/x-tex\">9 + 2 \\cdot 4 = 9 + 8 = 17</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>17</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">17 \\bmod 11 = 6</annotation></semantics></math></span>: תפוס.<br>- <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>i</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">i=3</annotation></semantics></math></span>: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>9</mn><mo>+</mo><mn>3</mn><mo>⋅</mo><mn>4</mn><mo>=</mo><mn>9</mn><mo>+</mo><mn>12</mn><mo>=</mo><mn>21</mn></mrow><annotation encoding=\"application/x-tex\">9 + 3 \\cdot 4 = 9 + 12 = 21</annotation></semantics></math></span>, <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>21</mn><mtext> </mtext><mo lspace=\"0.22em\" rspace=\"0.22em\"><mrow><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">d</mi></mrow></mo><mtext> </mtext><mn>11</mn><mo>=</mo><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">21 \\bmod 11 = 10</annotation></semantics></math></span>: פנוי.<br><br>המספר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>31</mn></mrow><annotation encoding=\"application/x-tex\">31</annotation></semantics></math></span> נכנס לתא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">10</annotation></semantics></math></span>.",
+   "pointsTotal": 6
+  },
+  {
+   "num": 3,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "question": "הציעו מבנה נתונים לניהול המערכת שבהקשר. יש להסביר את מבנה הנתונים ואיך נממש כל אחת מהפעולות.",
+   "solution": "**מבנה הנתונים:** מערך $A$ בגודל $n$, ובכל תא: ערך, מחסנית `undo`, מחסנית `redo`.\n\n**תיאור הפעולות:**\n1. **אתחול** – מעבר על $n$ הנתונים והכנסה לפי הסדר למערך לשדה \"ערך\"; המחסניות מאותחלות כריקות. סה\"כ $O(n)$.\n2. **`Set(i,x)`** – הכנסת הערך בתא $A[i]$ למחסנית ה-`undo` (פעולת `push`), ועדכון $A[i]=x$.\n3. (המשך `Set`) אפס את מחסנית ה-`redo`. שימו לב שאם ממשמשים מחסנית ע\"י מערך ניתן לאפס את כל המחסנית בפעולה אחת רק ע\"י איפוס אינדקס ראש המחסנית; במימוש ע\"י רשימה מקושרת צריך למחוק אחד אחד וזה לא יהיה בזמן קבוע. סה\"כ $O(1)$.\n4. **`Undo(i)`** – הכנסת הערך בתא $A[i]$ למחסנית ה-`redo` (פעולת `push`); הוצאת ערך מראש מחסנית ה-`undo` (פעולת `pop`): `y=pop(undoStack)`; עדכון $A[i]=y$. סה\"כ $O(1)$.\n5. **`Redo(i)`** – הכנסת הערך בתא $A[i]$ למחסנית ה-`undo` (פעולת `push`); הוצאת ערך מראש מחסנית ה-`redo` (פעולת `pop`): `y=pop(redoStack)`; עדכון $A[i]=y$. סה\"כ $O(1)$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 12,
+   "part": "א",
+   "contextId": "25S-A-c3",
+   "id": "25S-A-Q3a",
+   "partKey": "a",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "תכנון אלגוריתם ומבנה נתונים",
+   "questionHtml": "הציעו מבנה נתונים לניהול המערכת שבהקשר. יש להסביר את מבנה הנתונים ואיך נממש כל אחת מהפעולות.",
+   "solutionHtml": "<strong>מבנה הנתונים:</strong> מערך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> בגודל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, ובכל תא: ערך, מחסנית <code class=\"tok\" dir=\"ltr\">undo</code>, מחסנית <code class=\"tok\" dir=\"ltr\">redo</code>.<br><br><strong>תיאור הפעולות:</strong><br>1. <strong>אתחול</strong> – מעבר על <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> הנתונים והכנסה לפי הסדר למערך לשדה \"ערך\"; המחסניות מאותחלות כריקות. סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(n)</annotation></semantics></math></span>.<br>2. <strong><code class=\"tok\" dir=\"ltr\">Set(i,x)</code></strong> – הכנסת הערך בתא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">A[i]</annotation></semantics></math></span> למחסנית ה-<code class=\"tok\" dir=\"ltr\">undo</code> (פעולת <code class=\"tok\" dir=\"ltr\">push</code>), ועדכון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo><mo>=</mo><mi>x</mi></mrow><annotation encoding=\"application/x-tex\">A[i]=x</annotation></semantics></math></span>.<br>3. (המשך <code class=\"tok\" dir=\"ltr\">Set</code>) אפס את מחסנית ה-<code class=\"tok\" dir=\"ltr\">redo</code>. שימו לב שאם ממשמשים מחסנית ע\"י מערך ניתן לאפס את כל המחסנית בפעולה אחת רק ע\"י איפוס אינדקס ראש המחסנית; במימוש ע\"י רשימה מקושרת צריך למחוק אחד אחד וזה לא יהיה בזמן קבוע. סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(1)</annotation></semantics></math></span>.<br>4. <strong><code class=\"tok\" dir=\"ltr\">Undo(i)</code></strong> – הכנסת הערך בתא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">A[i]</annotation></semantics></math></span> למחסנית ה-<code class=\"tok\" dir=\"ltr\">redo</code> (פעולת <code class=\"tok\" dir=\"ltr\">push</code>); הוצאת ערך מראש מחסנית ה-<code class=\"tok\" dir=\"ltr\">undo</code> (פעולת <code class=\"tok\" dir=\"ltr\">pop</code>): <code class=\"tok\" dir=\"ltr\">y=pop(undoStack)</code>; עדכון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo><mo>=</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">A[i]=y</annotation></semantics></math></span>. סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(1)</annotation></semantics></math></span>.<br>5. <strong><code class=\"tok\" dir=\"ltr\">Redo(i)</code></strong> – הכנסת הערך בתא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">A[i]</annotation></semantics></math></span> למחסנית ה-<code class=\"tok\" dir=\"ltr\">undo</code> (פעולת <code class=\"tok\" dir=\"ltr\">push</code>); הוצאת ערך מראש מחסנית ה-<code class=\"tok\" dir=\"ltr\">redo</code> (פעולת <code class=\"tok\" dir=\"ltr\">pop</code>): <code class=\"tok\" dir=\"ltr\">y=pop(redoStack)</code>; עדכון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo><mo>=</mo><mi>y</mi></mrow><annotation encoding=\"application/x-tex\">A[i]=y</annotation></semantics></math></span>. סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(1)</annotation></semantics></math></span>.",
+   "pointsTotal": 12
+  },
+  {
+   "num": 3,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "question": "למערכת שהצעתם בסעיף א' הוחלט להוסיף פעולה נוספת:\n\n`max()` – מחזיר את **הערך הגדול ביותר** מבין כל המשתנים שנמצאים במערכת ברגע זה.\n\nהסבירו מה צריך להוסיף למבני הנתונים שלכם כדי לתמוך בפעולה החדשה, ואיך לממש את כל אחת מהפעולות לאחר שינוי מבנה הנתונים (פעולות 1-4 מהסעיף הקודם + הפעולה הנוספת `max`).\n\nיש להציע מבנה שיתמוך בכל הפעולות **בסיבוכיות הטובה ביותר**, ולהסביר מה תהיה סיבוכיות כל פעולה לאחר השינוי.",
+   "solution": "**מבנה הנתונים – נוסף למבנה:** ערימת מקסימום שמסודרת לפי הערכים, ופוינטרים הדדיים בין כל איבר בערימה לכל איבר במערך.\n\n**תיאור הפעולות:**\n1. **אתחול** – בנוסף לאתחול הקודם, יצירת ערימה מכל הערכים ההתחלתיים בעזרת `buildheap()` ועדכון המצביעים ההדדיים. סה\"כ $O(n)$.\n2. **`Set(i,x)`** – עדכון הערך בערימה עליו מצביע $A[i]$ לערך החדש וביצוע `heapifyup()`, `heapifydown()` כי אחד מהם יכול להיות נחוץ. (או מחיקת הערך הישן מהערימה והוספת החדש). סה\"כ $O(\\log n)$.\n3. **`Undo(i)`** – עדכון הערך בערימה עליו מצביע $A[i]$ לערך החדש וביצוע `heapifyup()`, `heapifydown()` כי אחד מהם יכול להיות נחוץ. (או מחיקת הערך הישן מהערימה והוספת החדש). סה\"כ $O(\\log n)$.\n4. **`Redo(i)`** – עדכון הערך בערימה עליו מצביע $A[i]$ לערך החדש וביצוע `heapifyup()`, `heapifydown()` כי אחד מהם יכול להיות נחוץ. (או מחיקת הערך הישן מהערימה והוספת החדש). סה\"כ $O(\\log n)$.\n5. **`Max()`** – נחזיר את הערך בראש ערימת המקסימום – $O(1)$.\n\n**הערה:** ניתן גם לפתור ע\"י הוספת עץ AVL עם מצביע לאיבר המקסימלי, מצביעים הדדיים לכל תא במערך לאיבר המתאים בעץ, ועדכונים בהתאם בכל אחת מהפעולות.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 13,
+   "part": "ב",
+   "contextId": "25S-A-c3",
+   "id": "25S-A-Q3b",
+   "partKey": "b",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "תכנון אלגוריתם ומבנה נתונים",
+   "questionHtml": "למערכת שהצעתם בסעיף א' הוחלט להוסיף פעולה נוספת:<br><br><code class=\"tok\" dir=\"ltr\">max()</code> – מחזיר את <strong>הערך הגדול ביותר</strong> מבין כל המשתנים שנמצאים במערכת ברגע זה.<br><br>הסבירו מה צריך להוסיף למבני הנתונים שלכם כדי לתמוך בפעולה החדשה, ואיך לממש את כל אחת מהפעולות לאחר שינוי מבנה הנתונים (פעולות 1-4 מהסעיף הקודם + הפעולה הנוספת <code class=\"tok\" dir=\"ltr\">max</code>).<br><br>יש להציע מבנה שיתמוך בכל הפעולות <strong>בסיבוכיות הטובה ביותר</strong>, ולהסביר מה תהיה סיבוכיות כל פעולה לאחר השינוי.",
+   "solutionHtml": "<strong>מבנה הנתונים – נוסף למבנה:</strong> ערימת מקסימום שמסודרת לפי הערכים, ופוינטרים הדדיים בין כל איבר בערימה לכל איבר במערך.<br><br><strong>תיאור הפעולות:</strong><br>1. <strong>אתחול</strong> – בנוסף לאתחול הקודם, יצירת ערימה מכל הערכים ההתחלתיים בעזרת <code class=\"tok\" dir=\"ltr\">buildheap()</code> ועדכון המצביעים ההדדיים. סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(n)</annotation></semantics></math></span>.<br>2. <strong><code class=\"tok\" dir=\"ltr\">Set(i,x)</code></strong> – עדכון הערך בערימה עליו מצביע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">A[i]</annotation></semantics></math></span> לערך החדש וביצוע <code class=\"tok\" dir=\"ltr\">heapifyup()</code>, <code class=\"tok\" dir=\"ltr\">heapifydown()</code> כי אחד מהם יכול להיות נחוץ. (או מחיקת הערך הישן מהערימה והוספת החדש). סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(\\log n)</annotation></semantics></math></span>.<br>3. <strong><code class=\"tok\" dir=\"ltr\">Undo(i)</code></strong> – עדכון הערך בערימה עליו מצביע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">A[i]</annotation></semantics></math></span> לערך החדש וביצוע <code class=\"tok\" dir=\"ltr\">heapifyup()</code>, <code class=\"tok\" dir=\"ltr\">heapifydown()</code> כי אחד מהם יכול להיות נחוץ. (או מחיקת הערך הישן מהערימה והוספת החדש). סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(\\log n)</annotation></semantics></math></span>.<br>4. <strong><code class=\"tok\" dir=\"ltr\">Redo(i)</code></strong> – עדכון הערך בערימה עליו מצביע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi><mo stretchy=\"false\">[</mo><mi>i</mi><mo stretchy=\"false\">]</mo></mrow><annotation encoding=\"application/x-tex\">A[i]</annotation></semantics></math></span> לערך החדש וביצוע <code class=\"tok\" dir=\"ltr\">heapifyup()</code>, <code class=\"tok\" dir=\"ltr\">heapifydown()</code> כי אחד מהם יכול להיות נחוץ. (או מחיקת הערך הישן מהערימה והוספת החדש). סה\"כ <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(\\log n)</annotation></semantics></math></span>.<br>5. <strong><code class=\"tok\" dir=\"ltr\">Max()</code></strong> – נחזיר את הערך בראש ערימת המקסימום – <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>O</mi><mo stretchy=\"false\">(</mo><mn>1</mn><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">O(1)</annotation></semantics></math></span>.<br><br><strong>הערה:</strong> ניתן גם לפתור ע\"י הוספת עץ AVL עם מצביע לאיבר המקסימלי, מצביעים הדדיים לכל תא במערך לאיבר המתאים בעץ, ועדכונים בהתאם בכל אחת מהפעולות.",
+   "pointsTotal": 13
+  },
+  {
+   "num": 4,
+   "kind": "proof",
+   "topic": "sorting_selection",
+   "question": "נתון מערך $A$ בגודל $n$ של מספרים טבעיים עם התכונה הבאה:\n\nכל אחד מהמפתחות במערך, מופיע בו שלוש פעמים לכל היותר.\n\nשלומית טוענת כי ישנו חסם תחתון $\\Omega(n \\log n)$ לבעיית המיון של מערך כזה.\n\nהאם שלומית צודקת בטענתה? אם כן הוכיחו את הטענה, אחרת הראו אלגוריתם יעיל יותר למיון המערך, הסבירו אותו ונתחו את סיבוכיותו.",
+   "solution": "**הסבר למה צריך להוכיח בסעיף הזה:**\nלא ניתן להסיק מהנתונים לגבי טווח של המספרים, לכן זה בעצם כמו מיון רגיל מבוסס השוואות שלוקח לפי המשפט שלמדנו לפחות $n \\log n$ ולכן זו הוכחה.\nניתן כמובן למצוא מה הטווח ע\"י מעבר על המספרים ומציאת המינימלי והמקסימלי, אבל אם הטווח לא קטן ממש מסדר גודל של $n \\log n$ אז מיון מניה לא יהיה יעיל יותר ממיון מבוסס השוואות.\nמיון מניה יוצא יעיל רק כאשר טווח המספרים הוא בסדר גודל של כמות האיברים למיון למשל, ובכל מקרה לכל היותר סדר גודל שעדיין קטן ממש מ-$n \\log n$.\n\n**הוכחה:**\nנניח בשלילה שניתן למיין מערך בן $n$ איברים שמקיים את התנאי הנתון בסדר גודל **קטן ממש** מ-$n \\log n$ (כלומר בזמן $o(n \\log n)$), ונראה שניתן למיין כל מערך כלשהו בן $n$ איברים בסיבוכיות הזו וזו סתירה לחסם תחתון שלמדנו.\n\n**איך נמיין מערך כלשהו בן $n$ איברים?**\nאפשרות אחת – ניקח מערך בן $n$ איברים שכל ערך מופיע פעם אחת בלבד. מערך זה מקיים את התנאי כי מופיע אחד קטן מ-$3$ מופעים לכל ערך. אז אם נמיין אותו בזמן קטן ממש מ-$n \\log n$ אז זו סתירה לחסם תחתון.\n\nאפשרות שניה – ניקח מערך בן $n$ איברים שבו כל ערך מופיע פעם אחת בלבד, נעבור עליו ונכפיל כל ערך כך שיופיע $3$ פעמים, ואז נמיין את המערך בזמן קטן ממש מ-$n \\log n$ ואז נמחק את כל המופעים המיותרים, ונקבל מיון של המערך המקורי בזמן קטן מ-$n \\log n$ שזו סתירה לחסם התחתון שלמדנו בכיתה.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 12.5,
+   "part": "א",
+   "id": "25S-A-Q4a",
+   "partKey": "a",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "מיונים, חסם תחתון ובחירה",
+   "questionHtml": "נתון מערך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> בגודל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> של מספרים טבעיים עם התכונה הבאה:<br><br>כל אחד מהמפתחות במערך, מופיע בו שלוש פעמים לכל היותר.<br><br>שלומית טוענת כי ישנו חסם תחתון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Ω</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\Omega(n \\log n)</annotation></semantics></math></span> לבעיית המיון של מערך כזה.<br><br>האם שלומית צודקת בטענתה? אם כן הוכיחו את הטענה, אחרת הראו אלגוריתם יעיל יותר למיון המערך, הסבירו אותו ונתחו את סיבוכיותו.",
+   "solutionHtml": "<strong>הסבר למה צריך להוכיח בסעיף הזה:</strong><br>לא ניתן להסיק מהנתונים לגבי טווח של המספרים, לכן זה בעצם כמו מיון רגיל מבוסס השוואות שלוקח לפי המשפט שלמדנו לפחות <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n \\log n</annotation></semantics></math></span> ולכן זו הוכחה.<br>ניתן כמובן למצוא מה הטווח ע\"י מעבר על המספרים ומציאת המינימלי והמקסימלי, אבל אם הטווח לא קטן ממש מסדר גודל של <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n \\log n</annotation></semantics></math></span> אז מיון מניה לא יהיה יעיל יותר ממיון מבוסס השוואות.<br>מיון מניה יוצא יעיל רק כאשר טווח המספרים הוא בסדר גודל של כמות האיברים למיון למשל, ובכל מקרה לכל היותר סדר גודל שעדיין קטן ממש מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n \\log n</annotation></semantics></math></span>.<br><br><strong>הוכחה:</strong><br>נניח בשלילה שניתן למיין מערך בן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> איברים שמקיים את התנאי הנתון בסדר גודל <strong>קטן ממש</strong> מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n \\log n</annotation></semantics></math></span> (כלומר בזמן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>o</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">o(n \\log n)</annotation></semantics></math></span>), ונראה שניתן למיין כל מערך כלשהו בן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> איברים בסיבוכיות הזו וזו סתירה לחסם תחתון שלמדנו.<br><br><strong>איך נמיין מערך כלשהו בן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> איברים?</strong><br>אפשרות אחת – ניקח מערך בן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> איברים שכל ערך מופיע פעם אחת בלבד. מערך זה מקיים את התנאי כי מופיע אחד קטן מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span> מופעים לכל ערך. אז אם נמיין אותו בזמן קטן ממש מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n \\log n</annotation></semantics></math></span> אז זו סתירה לחסם תחתון.<br><br>אפשרות שניה – ניקח מערך בן <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> איברים שבו כל ערך מופיע פעם אחת בלבד, נעבור עליו ונכפיל כל ערך כך שיופיע <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span> פעמים, ואז נמיין את המערך בזמן קטן ממש מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n \\log n</annotation></semantics></math></span> ואז נמחק את כל המופעים המיותרים, ונקבל מיון של המערך המקורי בזמן קטן מ-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n \\log n</annotation></semantics></math></span> שזו סתירה לחסם התחתון שלמדנו בכיתה.",
+   "pointsTotal": 12.5
+  },
+  {
+   "num": 4,
+   "kind": "algorithm",
+   "topic": "sorting_selection",
+   "question": "נתון מערך $A$ בגודל $n$ של מספרים טבעיים עם התכונה הבאה:\n\nהערך המוחלט של ההפרש בין כל שני איברים סמוכים במערך הוא שלוש לכל היותר.\n\nבני טוען כי ישנו חסם תחתון $\\Omega(n \\log n)$ לבעיית המיון של מערך כזה.\n\nהאם בני צודק בטענתו? אם כן הוכיחו את הטענה, אחרת הראו אלגוריתם יעיל יותר למיון המערך, הסבירו אותו ונתחו את סיבוכיותו.",
+   "solution": "הסעיף הזה שונה כי אם הערכים של המערך מקיימים את התנאי אז ההפרש בין הערך המקסימלי במערך למינימלי במערך הוא לכל היותר $3n$.\nאז הטווח שלנו הוא $3n$ ולכן ניתן להשתמש במיון מניה כך שזמן המיון יהיה לינארי, ולא יהיה צורך במיון מבוסס השוואות.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 12.5,
+   "part": "ב",
+   "id": "25S-A-Q4b",
+   "partKey": "b",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "מיונים, חסם תחתון ובחירה",
+   "questionHtml": "נתון מערך <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>A</mi></mrow><annotation encoding=\"application/x-tex\">A</annotation></semantics></math></span> בגודל <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span> של מספרים טבעיים עם התכונה הבאה:<br><br>הערך המוחלט של ההפרש בין כל שני איברים סמוכים במערך הוא שלוש לכל היותר.<br><br>בני טוען כי ישנו חסם תחתון <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi mathvariant=\"normal\">Ω</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">\\Omega(n \\log n)</annotation></semantics></math></span> לבעיית המיון של מערך כזה.<br><br>האם בני צודק בטענתו? אם כן הוכיחו את הטענה, אחרת הראו אלגוריתם יעיל יותר למיון המערך, הסבירו אותו ונתחו את סיבוכיותו.",
+   "solutionHtml": "הסעיף הזה שונה כי אם הערכים של המערך מקיימים את התנאי אז ההפרש בין הערך המקסימלי במערך למינימלי במערך הוא לכל היותר <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">3n</annotation></semantics></math></span>.<br>אז הטווח שלנו הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">3n</annotation></semantics></math></span> ולכן ניתן להשתמש במיון מניה כך שזמן המיון יהיה לינארי, ולא יהיה צורך במיון מבוסס השוואות.",
+   "pointsTotal": 12.5
+  },
+  {
+   "num": 5,
+   "kind": "truefalse",
+   "topic": "union_find",
+   "question": "בשאלה זאת 3 סעיפים, יש לסמן נכון או לא נכון בכל סעיף (על ידי הקפת התשובה), **ללא נימוק**.\n\nמשתמשים במבנה נתונים לייצוג קבוצות זרות בייצוג ע\"י עצים הפוכים עם קיצור מסלולים. האם ייתכן שסדרה של פעולות `makeset`, `union`, `find` יכולה לייצור קבוצה בה 16 איברים וגובה העץ המייצג את הקבוצה הוא $3$.",
+   "solution": "נכון.\n\nבפתרון הרשמי מצויר עץ הפוך עם $10$ איברים (השורש $1$; מצביעים אליו $10, 9, 2, 3, 5$; $4$ מצביע ל-$3$; $6$ ו-$7$ מצביעים ל-$5$; $8$ מצביע ל-$7$), שגובהו $3$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "verdict": true,
+   "id": "25S-A-Q5a",
+   "partKey": "a",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "קבוצות זרות",
+   "questionHtml": "בשאלה זאת 3 סעיפים, יש לסמן נכון או לא נכון בכל סעיף (על ידי הקפת התשובה), <strong>ללא נימוק</strong>.<br><br>משתמשים במבנה נתונים לייצוג קבוצות זרות בייצוג ע\"י עצים הפוכים עם קיצור מסלולים. האם ייתכן שסדרה של פעולות <code class=\"tok\" dir=\"ltr\">makeset</code>, <code class=\"tok\" dir=\"ltr\">union</code>, <code class=\"tok\" dir=\"ltr\">find</code> יכולה לייצור קבוצה בה 16 איברים וגובה העץ המייצג את הקבוצה הוא <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>.",
+   "solutionHtml": "נכון.<br><br>בפתרון הרשמי מצויר עץ הפוך עם <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>10</mn></mrow><annotation encoding=\"application/x-tex\">10</annotation></semantics></math></span> איברים (השורש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>1</mn></mrow><annotation encoding=\"application/x-tex\">1</annotation></semantics></math></span>; מצביעים אליו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>10</mn><mo separator=\"true\">,</mo><mn>9</mn><mo separator=\"true\">,</mo><mn>2</mn><mo separator=\"true\">,</mo><mn>3</mn><mo separator=\"true\">,</mo><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">10, 9, 2, 3, 5</annotation></semantics></math></span>; <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>4</mn></mrow><annotation encoding=\"application/x-tex\">4</annotation></semantics></math></span> מצביע ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>; <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>6</mn></mrow><annotation encoding=\"application/x-tex\">6</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7</annotation></semantics></math></span> מצביעים ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>5</mn></mrow><annotation encoding=\"application/x-tex\">5</annotation></semantics></math></span>; <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>8</mn></mrow><annotation encoding=\"application/x-tex\">8</annotation></semantics></math></span> מצביע ל-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>7</mn></mrow><annotation encoding=\"application/x-tex\">7</annotation></semantics></math></span>), שגובהו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">3</annotation></semantics></math></span>.",
+   "pointsTotal": 0
+  },
+  {
+   "num": 5,
+   "kind": "truefalse",
+   "topic": "hashing",
+   "question": "בשאלה זאת 3 סעיפים, יש לסמן נכון או לא נכון בכל סעיף (על ידי הקפת התשובה), **ללא נימוק**.\n\nעבור גיבוב בשיטת הקוקייה, הוצאת אלמנט והכנסתו מחדש מייד אחרי הוצאתו תמיד תביא את מבנה הנתונים בדיוק למצב שהיה בו לפני שתי פעולות אלה.",
+   "solution": "לא נכון.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "verdict": false,
+   "id": "25S-A-Q5b",
+   "partKey": "b",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "טבלאות גיבוב",
+   "questionHtml": "בשאלה זאת 3 סעיפים, יש לסמן נכון או לא נכון בכל סעיף (על ידי הקפת התשובה), <strong>ללא נימוק</strong>.<br><br>עבור גיבוב בשיטת הקוקייה, הוצאת אלמנט והכנסתו מחדש מייד אחרי הוצאתו תמיד תביא את מבנה הנתונים בדיוק למצב שהיה בו לפני שתי פעולות אלה.",
+   "solutionHtml": "לא נכון.",
+   "pointsTotal": 0
+  },
+  {
+   "num": 5,
+   "kind": "truefalse",
+   "topic": "recurrences",
+   "question": "בשאלה זאת 3 סעיפים, יש לסמן נכון או לא נכון בכל סעיף (על ידי הקפת התשובה), **ללא נימוק**.\n\nזמן הריצה של אלגוריתם כלשהו נתון כך: $T(n) = T(\\frac{n}{3}) + T(\\frac{n}{2}) + n$\n\nאזי: $T(n) = \\Theta(n)$",
+   "solution": "נכון.\n\nבפתרון הרשמי מצויר תחילת עץ הרקורסיה: השורש $n$, ובניו $n/3$ ו-$n/2$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ג",
+   "verdict": true,
+   "id": "25S-A-Q5c",
+   "partKey": "c",
+   "examCode": "25S-A",
+   "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ה, מועד א (20.10.25)",
+   "year": 2025,
+   "source": "exam",
+   "topicLabel": "נוסחאות נסיגה ומשפט האב",
+   "questionHtml": "בשאלה זאת 3 סעיפים, יש לסמן נכון או לא נכון בכל סעיף (על ידי הקפת התשובה), <strong>ללא נימוק</strong>.<br><br>זמן הריצה של אלגוריתם כלשהו נתון כך: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi>T</mi><mo stretchy=\"false\">(</mo><mfrac><mi>n</mi><mn>3</mn></mfrac><mo stretchy=\"false\">)</mo><mo>+</mo><mi>T</mi><mo stretchy=\"false\">(</mo><mfrac><mi>n</mi><mn>2</mn></mfrac><mo stretchy=\"false\">)</mo><mo>+</mo><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">T(n) = T(\\frac{n}{3}) + T(\\frac{n}{2}) + n</annotation></semantics></math></span><br><br>אזי: <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>T</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo><mo>=</mo><mi mathvariant=\"normal\">Θ</mi><mo stretchy=\"false\">(</mo><mi>n</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\">T(n) = \\Theta(n)</annotation></semantics></math></span>",
+   "solutionHtml": "נכון.<br><br>בפתרון הרשמי מצויר תחילת עץ הרקורסיה: השורש <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi></mrow><annotation encoding=\"application/x-tex\">n</annotation></semantics></math></span>, ובניו <span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi mathvariant=\"normal\">/</mi><mn>3</mn></mrow><annotation encoding=\"application/x-tex\">n/3</annotation></semantics></math></span> ו-<span class=\"math-inline\"><math dir=\"ltr\" xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>n</mi><mi mathvariant=\"normal\">/</mi><mn>2</mn></mrow><annotation encoding=\"application/x-tex\">n/2</annotation></semantics></math></span>.",
+   "pointsTotal": 0
+  }
+ ]
+}
