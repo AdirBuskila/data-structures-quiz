@@ -1,0 +1,132 @@
+{
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Official page solution matches (head 5 tail 1; head 1 tail 7)."
+  },
+  "1b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "1c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "2b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "3c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "4c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree"
+   ],
+   "note": ""
+  },
+  "5c": {
+   "verdict": "disagree",
+   "steps": [
+    "disagree",
+    "disagree"
+   ],
+   "note": "Steps 1,2: deleting leftmost leaf of F4 gives 2 rotations (double counted once, as the prompt states), F6 gives 3; claim says 3 and 4 because verify.py used the raw rotation counter (a double rotation = 2). Also depends on F1's child side (unspecified): with a right child F4 raw count would be 2. Verdict (more than one rotation, False) still holds."
+  }
+ },
+ "examCode": "25B-A",
+ "method": "independent python sims in tools/verify/25B-A/refute_*.py"
+}
