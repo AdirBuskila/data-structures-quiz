@@ -1,0 +1,120 @@
+{
+ "examCode": "22S-C",
+ "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ב, מועד ג",
+ "year": 2022,
+ "examDate": "2022",
+ "sourceFile": "ds-2022-summer-C-exam",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "הוראות שאלה 1",
+   "text": "ציינו לכל אחת מהטענות הבאות נכון או לא נכון. נמקו תשובתכם."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "trees_induction",
+   "question": "יהי $T$ עץ מלא בגודל $n$. אם סריקת in-order על העץ תדפיס סדרה ממויינת בסדר עולה וגם כל העלים בעץ באותו מרחק מהשורש אז העץ הוא AVL.",
+   "points": 8,
+   "hold": "no-key",
+   "part": "א",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "avl",
+   "question": "הכנסת איבר חדש לעץ AVL בגודל $n$ היא בסיבוכיות $\\Theta(1)$ במקרה הטוב.",
+   "points": 8,
+   "hold": "no-key",
+   "part": "ב",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "sorting_selection",
+   "question": "נתונים $\\sqrt{n}$ מערכים, כל מערך הוא בגודל $\\sqrt{n}$. רוצים לבנות מכל המערכים מערך אחד ממוין בגודל $n$ ע\"י שימוש באלגוריתם מבוסס השוואות. ניתן למצוא פתרון לבעיה בסיבוכיות $\\Theta(\\sqrt{n}\\log n)$ במקרה הגרוע.",
+   "points": 8,
+   "hold": "no-key",
+   "part": "ג",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "heaps",
+   "question": "בכל ערימת מינימום במימוש ע\"י מערך ניתן למצוא את האיבר המקסימלי בסיבוכיות $O(\\log n)$ במקרה הגרוע.",
+   "points": 8,
+   "hold": "no-key",
+   "part": "ד",
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "complexity",
+   "question": "אם $f(n) = \\Omega(h(n))$ וגם $f(n) = O(g(n))$ אז $g(n) = \\Theta(h(n))$.",
+   "points": 8,
+   "hold": "no-key",
+   "part": "ה",
+   "contextId": "c1"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "avl",
+   "question": "תנו דוגמא לעץ AVL בגובה $4$ כך שהוצאת אחד מהמפתחות תגרום לשני גלגולים בעץ בעת הוצאתו.\nיש לצייר את העץ ולהדגים את הוצאת המפתח הגורם לשני גלגולים אלו.",
+   "points": 13,
+   "hold": "no-key",
+   "part": "א"
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "trees_induction",
+   "question": "הוכח באינדוקציה על מבנה העץ: מספר העלים בעץ בינארי שלם הוא $2^h$ כאשר $h$ הוא גובה העץ.",
+   "points": 12,
+   "hold": "no-key",
+   "part": "ב"
+  },
+  {
+   "num": 3,
+   "kind": "algorithm",
+   "topic": "linear_ds",
+   "question": "תארו אלגוריתם יעיל המקבל שתי רשימות מקושרות חד-כיווניות ממוינות $L_1, L_2$ ומוחק ערכים שמופיעים בשתיהן.\nניתן להניח שאין חזרות בתוך כל אחת מהרשימות, שתיהן באורך $N$.\nהסבירו את נכונות האלגוריתם שכתבתם ונתחו את סיבוכיותו.\n\nלדוגמה:\n\nקלט:\n\n`L1 = a->b->c->d->f->g`\n`L2 = b->e->g->h->i->j`\n\nפלט:\n\n`L1 = a-> c->d->f`\n`L2 = e->h->i->j`",
+   "points": 13,
+   "hold": "no-key",
+   "part": "א"
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "recurrences",
+   "question": "להלן פסודו קוד של הפונקציה `WHAT`, רשמו את פונקציית זמן הריצה של הפונקציה `WHAT` עבור הקריאה `WHAT(A[1..n])`, ז\"א הקלט לפונקציה הוא מערך בגודל $n$ של מספרים טבעיים. נמקו תשובתכם וציירו את עץ הרקורסיה של הפונקציה שקיבלתם (3 רמות ראשונות).\n\n```\nWHAT(A[i..j])\n    if i<j then\n        For k=i to j  print(A[i])\n        WHAT(A[i..((i+j)/4)]\n        WHAT(A[((i+j)/4+1)..j]\n```",
+   "points": 12,
+   "hold": "no-key",
+   "part": "ב"
+  },
+  {
+   "num": 4,
+   "kind": "algorithm",
+   "topic": "heaps",
+   "question": "נתונה ערימת **מקסימום** בגודל $n$ ומספר כלשהו $x$.\nכתבו אלגוריתם שמחזיר את האיברים בערימה **שגדולים מ-$x$**.\nדרוש זמן ריצה $O(m)$ כאשר $m$ הוא מספר האיברים שמוחזרים.\nהסבירו את נכונות האלגוריתם שכתבתם ונתחו את סיבוכיותו.",
+   "points": 13,
+   "hold": "no-key",
+   "part": "א"
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "hashing",
+   "question": "נתונה פונקציית הגיבוב הבאה:\n\n$h(x, i) = ((x \\bmod 5) + i \\cdot (1 + x \\bmod 4)) \\bmod 5$\n\nהראה דוגמא להכנסת $3$ איברים למערך בגודל $5$ בשיטת הגיבוב הכפול שתגרום ל-$3$ התנגשויות. נמק תשובתך.",
+   "points": 12,
+   "hold": "no-key",
+   "part": "ב"
+  }
+ ]
+}

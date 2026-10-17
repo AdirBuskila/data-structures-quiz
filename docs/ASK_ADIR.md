@@ -62,4 +62,18 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: none unless you want the solution-file wording kept.
 - Status: flagged
 
+### 22B-B and 22S-C - no answer source (all items held "no-key")
+- Path: sitting 22B-B, the "+ solution" PDF and its second copy; sitting 22S-C, the exam PDF
+- Page: 22B-B p.2-9 (every answer box empty); 22S-C p.2-10
+- Question: the format triage lists an official solution for 22B-B, but both 22B-B files are the bare exam booklet with blank answer boxes. 22S-C was already known to have no key. All 9 items of 22B-B and all 11 of 22S-C are held.
+- Needed: route both sittings to the solver (no-key), or supply a key for 22B-B if one exists elsewhere.
+- Status: open
+
+### 22S-B Q3b - official answer has no complexity analysis
+- Path: sitting 22S-B, solution box
+- Page: p.9
+- Question: the question asks to analyse the running time, but the official answer gives only the code and a prose outline (no stated complexity). Transcribed as is, confidence med.
+- Needed: none unless you want a complexity line added by the solver.
+- Status: flagged
+
 ## Resolved
