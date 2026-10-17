@@ -76,4 +76,11 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: none unless you want a complexity line added by the solver.
 - Status: flagged
 
+### 25B-B Q4b - intermediate slip in official explanation (fixed silently)
+- Path: sitting 25B-B, official solution booklet
+- Page: Q4 part b answer box
+- Question: the official text says inorder gives ascending order as right subtree, node, left subtree; correct order is left, node, right. Corrected in transcription, no student-facing label. (Q4a final-answer mismatch, key(Node) < a returned keys >= a against the printed 'greater than a', is shipped labelled as corrected, solved, official false.)
+- Needed: none
+- Status: flagged
+
 ## Resolved

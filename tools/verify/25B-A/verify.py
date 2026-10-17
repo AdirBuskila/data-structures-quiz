@@ -1,6 +1,6 @@
 import sys, math, itertools, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
-from avl import AVL, N, up
+from avl import AVL, N, up, rotations
 # Q1a MASHU on a circular array of size 10 (head=index of front, tail=index of next free slot)
 def run_mashu(items, head0=5, size=10):
     q = list(items)
@@ -110,9 +110,10 @@ def label(n, c):
 res = {}
 for i in (2, 3, 4, 5, 6, 7, 8):
     t = AVL(); t.root = fib(i); label(t.root, [0])
-    t.dele(0); res[i] = t.rot
+    t.dele(0); res[i] = rotations(t)  # double rotation counts once; F1 child is left
 print("Q5c rotations on deleting leftmost leaf of F_i:", res)
 assert res[4] > 1 and res[6] > 1
+assert res[4] == 2 and res[6] == 3, res
 print("all ok")
 
 # =====================  STEP CHECKS (step-author phase)  =====================
@@ -268,4 +269,5 @@ assert [math.floor(math.log2(n)) for n in (15, 7)] == [3, 2]   # complete trees:
 # --- Q5c rotations ---
 print("Q5c rotations on deleting leftmost leaf:", res)
 assert res[4] > 1 and res[6] > 1
+assert res[4] == 2 and res[6] == 3, res   # step answers: double rotation counts once
 print("STEPS OK")

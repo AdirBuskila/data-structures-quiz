@@ -54,7 +54,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתת ל-`Tail` את אינדקס האיבר האחרון ($10$) ולא את המקום הפנוי הבא ($1$ אחרי העטיפה).",
     "לשכוח ש-`MASHU` מוציאה את כל האיברים ומכניסה אותם בסדר הפוך, ולכן גם `Head` זז קדימה ב-$6$ תאים."
@@ -89,7 +89,7 @@
      "explain": "המקום הפנוי הבא אחרי תא $6$ הוא תא $7$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -117,7 +117,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $2T(n-1)$ רק כי יש שתי פעולות על התור: הקריאה הרקורסיבית היא אחת בלבד.",
     "לכתוב $O(n)$ כעבודה הלא רקורסיבית: הוצאה והכנסה בתור הן $O(1)$."
@@ -161,7 +161,7 @@
      "explain": "$n+1$ קריאות עם עבודה קבועה בכל אחת: $O(n)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -192,7 +192,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שכל העלים באותו עומק: הענף השמאלי נגמר ב-$\\log_4 n$ והימני ב-$\\log_2 n$.",
     "להפעיל את המסטר ישירות על הנוסחה: יש בה שני תתי-עצים בגדלים שונים."
@@ -241,7 +241,7 @@
      "explain": "חישוב מספרי של $T(n)$ עד $n=2^{30}$: היחס $T(n)/n^2$ חסום בין $1$ ל-$\\frac{16}{11}$. היחס ל-$n^2\\log n$ שואף ל-$0$ והיחס ל-$n\\log n$ גדל בלי גבול."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -269,7 +269,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בנוסחאות של ערימה בינארית ($2i+1$ ו-$\\lfloor (i-1)/2\\rfloor$) בלי להחליף את $2$ ב-$d$.",
     "לחשב הורה כ-$\\lfloor i/d\\rfloor$, שנכון רק למספור מ-$1$ בערימה בינארית."
@@ -325,7 +325,7 @@
      "explain": "$\\lfloor 22/5\\rfloor=4$, ואכן $23$ הוא בין ילדיו של $4$ ($21$ עד $25$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -357,7 +357,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב ש-`Extract-Max` הוא $O(\\log_d n)$ ולשכוח שבכל רמה משווים את כל $d$ הילדים.",
     "להשוות רק לילד הראשון בעת התיקון כלפי מטה, ולא לבחור את הגדול מבין $d$ הילדים."
@@ -463,7 +463,7 @@
      "explain": "ממשיכים כל עוד ההורה קטן מהצומת. כל אחת מהחלופות האחרות מפיקה ערימה שגויה: בהרצה על קלטים אקראיים `Extract-Max` חזר שוב ושוב בסדר לא יורד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -487,7 +487,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לצייר את $F_3$ ו-$F_4$ כתתי-עצים של $F_4$ במקום $F_2$ ו-$F_3$."
    ],
@@ -507,7 +507,7 @@
      "explain": "$1+4+7=12$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -531,7 +531,7 @@
      "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את ה-$+1$ של השורש, וכך לקבל סדרת פיבונאצ'י רגילה."
    ],
@@ -579,7 +579,7 @@
      "explain": "$F(6)=F(4)+F(5)+1=12+20+1=33$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -611,7 +611,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להוכיח רק בסיס אחד ($h=0$): הצעד נשען על שני ערכים קודמים.",
     "לשכוח שההנחה נדרשת גם עבור $h-1$ ולא רק עבור $h$."
@@ -669,7 +669,7 @@
      "explain": "ההנחה נותנת חסם תחתון ($\\ge$), לא עליון. עבור $h=3$: $F(2)+F(3)+1=12$ גדול מ-$2+2^{1.5}+1\\approx 5.83$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -697,7 +697,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את המודולו $10$ בצעד ולהגיד שאין מקום ל-$25$ (תא $10$).",
     "לחשב $h_2(k)=1+k\\bmod 7$ בלי ה-$1$."
@@ -732,7 +732,7 @@
      "explain": "$(5+5)\\bmod 10=0$. הסימולציה נותנת את הטבלה $0{:}25,\\ 5{:}5,\\ 7{:}15$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -764,7 +764,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להראות שהטבלה מלאה: בשאלה מבקשים שתהיה טבלה שאינה מלאה.",
     "לבחור מפתח שבו $\\gcd(h_2,10)=1$, שמגיע לכל התאים."
@@ -792,7 +792,7 @@
      "explain": "מחלק משותף גדול מ-$1$, ולכן הרצף לא מכסה את הטבלה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -820,7 +820,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לדרוש רק $h_2(k)<m$: הצעד $5$ בטבלה בגודל $10$ מקיים זאת ועדיין נתקע.",
     "לשכוח שצעד $0$ בודק תא אחד בלבד."
@@ -869,7 +869,7 @@
      "explain": "כל הבדיקות באותו תא, ולכן מוסיפים $1$ לצעד."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -885,18 +885,10 @@
    "rubric": [
     {
      "text": "קביעה: לא נכון",
-     "points": 1
-    },
-    {
-     "text": "עץ כמעט שלם עם $7$ צמתים: $4$ עלים וגובה $2$",
-     "points": 2
-    },
-    {
-     "text": "עץ כמעט שלם עם $8$ צמתים: $4$ עלים וגובה $3$",
-     "points": 2
+     "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להסיק גובה מכמות עלים כאילו העץ שלם."
    ],
@@ -923,7 +915,7 @@
      "explain": "$\\lfloor\\log_2 8\\rfloor=3$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -939,14 +931,10 @@
    "rubric": [
     {
      "text": "קביעה: לא נכון",
-     "points": 1
-    },
-    {
-     "text": "דוגמה נגדית: שרשרת ארוכה שמסתיימת בשני עלים באותו עומק",
-     "points": 4
+     "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק עצים מלאים, שבהם הטענה נכונה."
    ],
@@ -987,7 +975,7 @@
      "explain": "$5$ צמתים בשרשרת, אחריהם הצומת עם שני העלים בעומק $5$, והעלים בעומק $6$ (נבנה ונמדד)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1003,34 +991,30 @@
    "rubric": [
     {
      "text": "קביעה: לא נכון",
-     "points": 1
-    },
-    {
-     "text": "דוגמה נגדית: עץ פיבונאצ'י בגובה זוגי $\\ge 4$, מחיקת העלה השמאלי ביותר",
-     "points": 4
+     "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לזכור שבהכנסה מספיק גלגול אחד, ולהחיל זאת על מחיקה."
    ],
    "steps": [
     {
      "type": "numeric",
-     "prompt": "מוחקים את העלה השמאלי ביותר מעץ פיבונאצ'י $F_4$ (עץ AVL). כמה גלגולים מתבצעים בסך הכול? (גלגול כפול נספר כגלגול אחד)",
-     "answer": 3,
+     "prompt": "מוחקים את העלה השמאלי ביותר מעץ פיבונאצ'י $F_4$ (עץ AVL). כמה גלגולים מתבצעים בסך הכול? (גלגול כפול נספר כגלגול אחד; בכל $F_i$ הילד של $F_1$ הוא ילד שמאלי)",
+     "answer": 2,
      "tol": 0,
-     "explain": "בסימולציה של AVL: $3$ גלגולים, כלומר יותר מאחד."
+     "explain": "בסימולציה של AVL, כשגלגול כפול נספר כאחד ו-$F_1$ בנוי עם ילד שמאלי: $2$ גלגולים, כלומר יותר מאחד."
     },
     {
      "type": "numeric",
-     "prompt": "אותה מחיקה בעץ $F_6$: כמה גלגולים?",
-     "answer": 4,
+     "prompt": "אותה מחיקה בעץ $F_6$: כמה גלגולים? (אותה מוסכמה: גלגול כפול נספר כאחד, והילד של $F_1$ שמאלי)",
+     "answer": 3,
      "tol": 0,
-     "explain": "בסימולציה: $4$ גלגולים, עדות נוספת שמחיקה אחת עלולה לדרוש גלגול בכל רמה."
+     "explain": "בסימולציה (אותה מוסכמה): $3$ גלגולים, עדות נוספת שמחיקה אחת עלולה לדרוש גלגול בכל רמה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

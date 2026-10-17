@@ -90,13 +90,13 @@ def inorder_from(node, a):
     global visits
     if node is None: return []
     visits += 1
-    if node.k < a: return inorder_from(node.r, a)
+    if node.k <= a: return inorder_from(node.r, a)   # statement: keys strictly greater than a
     return inorder_from(node.l, a) + [node.k] + inorder_from(node.r, a)
 for n in (1, 2, 7, 100, 1000, 4095):
     keys = sorted(random.sample(range(10*n+10), n)); root = build(keys)
     for a in random.sample(range(10*n+10), min(20, 10*n+10)) + [-1, 10**9]:
         visits = 0; out = inorder_from(root, a)
-        assert out == [k for k in keys if k >= a]
+        assert out == [k for k in keys if k > a]
         k = len(out)
         assert visits <= 2*(math.log2(n+1)+1) + 2*k + 2, (n, a, visits, k)
 print("Q4 ok")
