@@ -1,0 +1,20 @@
+{
+ "examCode": "25S-A",
+ "refuter": "independent; scripts tools/verify/25S-A/refute_*.py",
+ "items": {
+  "1a": {"verdict": "agree", "steps": "n/a (no steps)", "note": "root 6, left 4, 4.right 5 gives distance 2; rubric 4+3=7"},
+  "1b": {"verdict": "agree", "steps": ["agree","agree","agree"], "note": "brute force over all BSTs n=2..9: max distance n-1; rubric 3+4+2=9"},
+  "1c": {"verdict": "agree", "steps": ["agree","agree","agree"], "note": "brute force over AVL shapes n=2..9: always 1; rubric 9"},
+  "2a": {"verdict": "agree", "steps": ["agree","agree (2 violations)","agree"], "note": "counterexample [3,21,7,22,25,15,10] is a valid heap, after swap 21 > 15,10; full BFS still leaves 2 violations; rubric 12"},
+  "2b": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "table 0:11 2:22 5:5 6:6 7:7 9:13; empty 1,3,4,8,10; rubric 7"},
+  "2c": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "31 probes 9,2,6,10 = exactly 3 collisions (39,49,64 also work); rubric 6"},
+  "3a": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "Minor: Undo order step accepts only push-then-pop; pop-then-push before the assignment is equally valid. Pitfall 2 (linked-list clear not O(1)) is technically debatable in a GC language but matches the official solution text. Rubric 12"},
+  "3b": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "max-heap + mutual pointers; set/undo/redo O(log n), max O(1), init O(n); O(log n) update is optimal (set-to--inf + max sorts); rubric 13"},
+  "4a": {"verdict": "agree", "steps": ["agree","agree","agree","agree","agree (bugIndex 2 unique)"], "note": "right in the comparison model (distinct-key arrays are a subset); rubric 12.5"},
+  "4b": {"verdict": "agree", "steps": ["agree","agree (15)","agree","agree"], "note": "range <= 3(n-1), counting sort O(n); rubric 12.5"},
+  "5a": {"verdict": "agree", "steps": ["agree (3)","agree (10)","agree"], "note": "true; official tree height 3, 10 nodes verified; 6 more leaves under root gives 16"},
+  "5b": {"verdict": "agree", "note": "false; cuckoo simulation found a state change after delete + reinsert"},
+  "5c": {"verdict": "agree", "steps": ["agree (0.8333)","agree","agree"], "note": "true; 1/3+1/2=5/6<1, T(n)/n converges to about 6 numerically"}
+ },
+ "counts": {"agree": 13, "disagree": 0, "unclear": 0}
+}
