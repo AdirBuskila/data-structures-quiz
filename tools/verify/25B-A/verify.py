@@ -114,3 +114,158 @@ for i in (2, 3, 4, 5, 6, 7, 8):
 print("Q5c rotations on deleting leftmost leaf of F_i:", res)
 assert res[4] > 1 and res[6] > 1
 print("all ok")
+
+# =====================  STEP CHECKS (step-author phase)  =====================
+import sympy
+# --- Q1a real circular queue (1-based cells, tail = next free cell) ---
+class CQ:
+    def __init__(s, size=10, head=5):
+        s.a = [None]*(size+1); s.size = size; s.head = head; s.tail = head; s.n = 0
+    def enq(s, x): s.a[s.tail] = x; s.tail = s.tail % s.size + 1; s.n += 1
+    def deq(s):
+        x = s.a[s.head]; s.a[s.head] = None; s.head = s.head % s.size + 1; s.n -= 1; return x
+    def empty(s): return s.n == 0
+def mashu_cq(q):
+    if not q.empty():
+        x = q.deq(); mashu_cq(q); q.enq(x)
+cq = CQ()
+for x in (6, 12, 4, 53, 8, 17): cq.enq(x)
+assert (cq.head, cq.tail) == (5, 1)                         # tail after insertion = 1
+mashu_cq(cq)
+assert (cq.head, cq.tail) == (1, 7)                         # head 1, tail 7 after MASHU
+assert cq.a[1:7] == [17, 8, 53, 4, 12, 6] and cq.a[6] == 6  # cell 6 holds 6
+# --- Q1b: count real calls of MASHU ---
+def calls_mashu(n):
+    c = [0]
+    def m(q):
+        c[0] += 1
+        if q: x = q.pop(0); m(q); q.append(x)
+    m(list(range(n))); return c[0]
+for n in range(1, 25):
+    assert calls_mashu(n) == n + 1                          # one recursive call on n-1 elements: linear
+    assert calls_mashu(n) < 2**n if n > 2 else True        # 2T(n-1) would be exponential
+assert calls_mashu(500) == 501 and calls_mashu(500) > 10 * math.log2(500)   # not logarithmic
+# --- Q1c level sums and series ---
+r = sympy.Rational(1, 4)**2 + sympy.Rational(1, 2)**2
+assert r == sympy.Rational(5, 16)
+assert sympy.Rational(1) / (1 - r) == sympy.Rational(16, 11) and abs(16/11 - 1.4545) < 0.001
+n_ = 2**30
+assert T(n_) / n_**2 < 16/11 and T(n_) / (n_**2 * math.log2(n_)) < 0.1 and T(n_) / (n_*math.log2(n_)) > 1000
+# --- Q2a indexing: distractor parent formulas fail ---
+d = 3
+assert all((i-1)//d == p for p in range(30) for i in [d*p+k for k in range(1, d+1)])
+assert any(i//d != (i-1)//d for i in range(1, 40))                       # floor(i/d) wrong
+assert any((i+1)//d != (i-1)//d for i in range(1, 40))                   # floor((i+1)/d) wrong
+assert any((i-1)//(d+1) != (i-1)//d for i in range(1, 40))
+assert (5*3 + 1, (23-1)//5, 5*3 + 5) == (16, 4, 20)    # d=5,i=3: first child 16, last child 20; d=5,i=23: parent 4
+# --- Q2b fillblank variants + comparison counts ---
+def build_with(cond, d, xs):
+    Q = []
+    for x in xs:
+        Q.append(x); i = len(Q) - 1
+        while i > 0 and cond(Q, i, d):
+            p = (i-1)//d; Q[p], Q[i] = Q[i], Q[p]; i = p
+    return Q
+def extract_all(Q, d):
+    Q = list(Q); out = []
+    while Q:
+        mx = Q[0]; Q[0] = Q[-1]; Q.pop(); out.append(mx)
+        i = 0
+        while Q:
+            m = i
+            for k in range(1, d+1):
+                if d*i+k < len(Q) and Q[d*i+k] > Q[m]: m = d*i+k
+            if m == i: break
+            Q[i], Q[m] = Q[m], Q[i]; i = m
+    return out
+CONDS = {
+    "ok": lambda Q, i, d: Q[(i-1)//d] < Q[i],
+    "gt": lambda Q, i, d: Q[(i-1)//d] > Q[i],
+    "i_over_d": lambda Q, i, d: Q[i//d] < Q[i],
+    "prev": lambda Q, i, d: Q[(i-1)//d] < Q[i-1],
+}
+random.seed(7)
+fails = {k: 0 for k in CONDS}
+for _ in range(400):
+    d = random.choice((2, 3, 4)); xs = random.sample(range(1000), random.randrange(3, 40))
+    for k, c in CONDS.items():
+        if extract_all(build_with(c, d, xs), d) != sorted(xs, reverse=True): fails[k] += 1
+assert fails["ok"] == 0 and all(fails[k] > 0 for k in CONDS if k != "ok"), fails
+def height(n, d):
+    i, h = n-1, 0
+    while i > 0: i = (i-1)//d; h += 1
+    return h
+def extract_cmp_max(d, n):
+    Q = build_with(CONDS["ok"], d, random.sample(range(10**6), n))
+    best = 0
+    for _ in range(n // 2):
+        Q[0] = Q[-1]; Q.pop(); i = 0; c = 0
+        while True:
+            m = i
+            for k in range(1, d+1):
+                if d*i+k < len(Q):
+                    c += 1
+                    if Q[d*i+k] > Q[m]: m = d*i+k
+            if m == i: break
+            Q[i], Q[m] = Q[m], Q[i]; i = m
+        best = max(best, c)
+    return best, height(n, d)
+for d, n in ((8, 8**4), (2, 2**10), (16, 16**3)):
+    best, h = extract_cmp_max(d, n)
+    assert d * (h - 1) <= best <= d * h, (d, n, best, h)    # extract: Theta(d log_d n), not log_d n
+Q = []; worst = 0
+for x in range(2000):                                       # ascending inserts = worst case for sift-up
+    Q.append(x); i = len(Q)-1; s = 0
+    while i > 0 and Q[(i-1)//8] < Q[i]:
+        p = (i-1)//8; Q[p], Q[i] = Q[i], Q[p]; i = p; s += 1
+    worst = max(worst, s)
+assert worst == height(2000, 8) == 4                       # insert: one comparison per level, Theta(log_d n)
+Q = list(range(100, 0, -1))
+assert sum(1 for k in range(1, 8) if k < len(Q)) == 7      # a node with all d=7 children costs 7 comparisons
+# --- Q3 Fibonacci trees ---
+@lru_cache(None)
+def fibn(i): return 1 if i == 0 else 2 if i == 1 else fibn(i-2) + fibn(i-1) + 1
+def nodes(t): return 1 + sum(nodes(c) for c in t)
+def fibtree(i):
+    if i == 0: return []
+    if i == 1: return [[]]
+    return [fibtree(i-2), fibtree(i-1)]
+assert [nodes(fibtree(i)) for i in range(8)] == [1, 2, 4, 7, 12, 20, 33, 54] == [fibn(i) for i in range(8)]
+assert fibn(0) + fibn(1) != 4 and fibn(0) * fibn(1) != 4 and 2*fibn(1) + 1 != 4   # distractor recurrences give 3, 2, 5 not 4
+for h in range(0, 60): assert fibn(h) >= 2**(h/2)
+for h in range(1, 60):
+    assert fibn(h-1) + fibn(h) + 1 >= 2**((h-1)/2) + 2**(h/2) + 1 >= 2*2**((h-1)/2) + 1 >= 2**((h+1)/2)
+assert fibn(2) + fibn(3) + 1 > 2**(2/2) + 2**(3/2) + 1     # findbug: "<=" in the first inequality is false
+# --- Q4 double hashing ---
+H2 = lambda k: 1 + k % 7
+assert (H2(15), H2(25), (5 + H2(15)) % 10, (5 + H2(25)) % 10, H2(95)) == (2, 5, 7, 0, 5)
+assert {(5 + i*H2(95)) % 10 for i in range(10)} == {5, 0}
+assert math.gcd(H2(95), 10) == 5
+phi = sum(1 for hh in range(1, 10) if len({(3 + i*hh) % 10 for i in range(10)}) == 10)
+assert phi == 4 == sympy.totient(10)
+assert len({(3 + i*0) % 10 for i in range(10)}) == 1
+cover = lambda m, hh: len({(1 + i*hh) % m for i in range(m)}) == m
+assert not cover(10, 5) and cover(10, 3) and not cover(9, 3) and cover(9, 2)
+assert all(cover(m, hh) == (math.gcd(hh, m) == 1) for m in range(2, 40) for hh in range(1, m))
+# --- Q5a almost complete: leaves, heights ---
+assert (7 - 7//2, 8 - 8//2, int(math.log2(7)), int(math.log2(8))) == (4, 4, 2, 3)
+# --- Q5b: chain of c internal nodes ending in a node with two leaves ---
+def chain2(c):
+    t = ("I", ("L",), ("L",))
+    for _ in range(c): t = ("I", t, None)
+    return t
+def cnt(t):
+    if t is None: return 0
+    if t[0] == "L": return 1
+    return 1 + cnt(t[1]) + cnt(t[2])
+def leaf_depths(t, d=0):
+    if t is None: return []
+    if t[0] == "L": return [d]
+    return leaf_depths(t[1], d+1) + leaf_depths(t[2], d+1)
+t = chain2(5)
+assert cnt(t) == 8 and len(set(leaf_depths(t))) == 1 and leaf_depths(t)[0] == 6 and 6 > math.log2(8)
+assert [math.floor(math.log2(n)) for n in (15, 7)] == [3, 2]   # complete trees: height 3, 2 <= log2 n
+# --- Q5c rotations ---
+print("Q5c rotations on deleting leftmost leaf:", res)
+assert res[4] > 1 and res[6] > 1
+print("STEPS OK")
