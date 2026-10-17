@@ -34,4 +34,18 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: confirm the forms belong to moed B, and that both options of that question should count.
 - Status: flagged
 
+### 24S-A Q13 and form B Q5 - no key, a doubtful bound, a typo
+- Path: sitting 24S-A, the three forms
+- Page: Q13 pages (p.7, p.20, p.33); form B Q5 (p.16)
+- Question: Q13 (Search / Insert / Sum) has no printed solution on any form (answer box blank). Its table prints Insert as O(n log n) while Search and Sum are O(log n), which may be a typo for O(log n); transcribed as printed. Form B Q5 prints the preorder as "...,45,100.105" (period instead of comma); transcribed as 100,105.
+- Needed: route Q13 to the solver (no-key); confirm the Insert bound and the form B sequence.
+- Status: hold (Q13); flagged
+
+### 25A-A - student paper: partly unreadable handwriting
+- Path: sitting 25A-A (graded student paper, scan)
+- Page: p.5-23 (answer boxes)
+- Question: answers are transcribed as text only (no crops), labelled student solution. Some lines could not be read and were left out (4.2 to 4.5, 5.1 to 5.3 are paraphrases with confidence low). 1.5: the student's algorithm checks only the value at rank 0.2n, which is not sufficient (counter-example in tools/verify/25A-A/verify.py), although the chosen answer (n) is right.
+- Needed: solver and refuter pass; do not ship the low-confidence items as correct without it.
+- Status: flagged
+
 ## Resolved

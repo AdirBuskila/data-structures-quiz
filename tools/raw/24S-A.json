@@ -1,0 +1,921 @@
+{
+ "examCode": "24S-A",
+ "examLabel": "מבני נתונים, סמסטר קיץ תשפ\"ד, מועד א (14.10.24)",
+ "year": 2024,
+ "examDate": "14.10.2024",
+ "sourceFile": "ds-2024-summer-A-forms-and-key",
+ "solutionFile": "ds-2024-summer-A-forms-and-key",
+ "contexts": {
+  "c1": {
+   "kind": "image",
+   "title": "רשימה דו ראשית (שאלה 1)",
+   "image": "images/exams/24S-A-c1.png",
+   "caption": "שתי רשימות מקושרות המתחברות לרשימה אחת."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "kind": "mcq",
+   "topic": "linear_ds",
+   "question": "נגדיר מבנה של רשימה דו ראשית כמבנה המורכב משתי רשימות המתחברות לרשימה אחת: (ראו דוגמא באיור)\n\nלהלן תאור סכמטי של אלגוריתם שמדפיס את כל האיברים ברשימה דו ראשית:\n\n- אתחל שני מצביעים לתחילת הרשימות.\n- כל עוד המצביעים לא מצביעים על אותו איבר, בצע את הפעולות הבאות:\n- ◦ הדפס את האיבר שהמצביע הראשון מצביע עליו וקדם אותו קדימה.\n- ◦ הדפס את האיבר שהמצביע השני מצביע עליו וקדם אותו קדימה.\n- עבור רק על המצביע הראשון, כל עוד הוא לא `Null` קדם אותו קדימה והדפס את האיבר המוצבע.\n\nלהלן מספר קביעות לגבי האלגוריתם, מי מהן הנכונה ביותר?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "האלגוריתם נכון ומדוייק"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האלגוריתם שגוי לחלוטין"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ישנם מקרים ספציפיים בהם האלגוריתם יעבוד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות האלגוריתם תלויה ביחס בין אורכי החלקים של ראשי הרשימה"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5,
+   "contextId": "c1"
+  },
+  {
+   "num": 2,
+   "kind": "mcq",
+   "topic": "bst",
+   "question": "נתונה סריקת preorder של עץ בינארי (משמאל לימין):\n10,5,2,8,6,100,50,45,47,105\n\nמהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ייתכן שהעץ הוא עץ חיפוש, אך לא ייתכן שהוא עץ AVL"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ייתכן שהעץ הוא עץ AVL"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא ייתכן שהעץ הוא עץ חיפוש"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לדעת על פי סריקת preorder בלבד האם העץ הוא עץ חיפוש"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 3,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "question": "משתמשים באלגוריתם select כדי למצוא האם קיימים שני איברים במערך נתון בגודל $n$, כך שהאיבר הראשון מופיע לפחות $\\frac{n}{a}$ פעמים והאיבר השני מופיע לפחות $\\frac{n}{b}$ פעמים במערך, כאשר $a < b$.\n\nלדוגמה:\nעבור $a=4$, $b=5$ אנחנו מחפשים האם קיימים 2 איברים במערך הנתון, כך שאחד מהם מופיע לפחות $\\frac{n}{4}$ פעמים, כלומר לפחות 25% מערכי המערך שווים לו. והאיבר השני מופיע לפחות $\\frac{n}{5}$ פעמים במערך, כלומר לפחות 20% מערכי המערך שווים לו.\n\nכמה פעמים נצטרך לקרוא ל-select במקרה הגרוע באלגוריתם ה**יעיל** ביותר, כך שנוכל לאתר האם קיימים שני איברים כאלה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$a - 1$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$b - 1$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$(a - 1)*(b - 1)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$a + b + 1$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 4,
+   "kind": "mcq",
+   "topic": "avl",
+   "question": "נתון עץ חיפוש בינרי שיש בו עלה בעומק $4$. מהו המספר ה**מינימלי** של **צמתים** בעץ הנתון כך שיהיה עץ AVL?\n(כלומר, שיהיה עץ בינרי מאוזן)",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "10"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "12"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "14"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "20"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 5,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "question": "תהי `print_smaller_k` פונקציה המקבלת מערך בן $n$ איברים, ומדפיסה את $k$ האיברים הקטנים ביותר במערך הנתון לפי הסדר מקטן לגדול.\nמי מהאמירות הבאות נכונה למימוש ה**יעיל ביותר** של `print_smaller_k`:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה היא $\\theta(k\\log n + n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה היא $\\theta(k\\log k + n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה היא $\\theta(n\\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה היא $\\theta(k\\log k)$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 6,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "question": "תנו חסם אסימפטוטי הדוק (\"תטא\") לנוסחת הנסיגה הבאה (עבור $n$ מספיק קטן מתקיים $T(n)=O(1)$):\n\n$T(n) = T\\left(\\frac{n}{4}\\right) + T\\left(\\frac{n}{2}\\right) + n$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\Theta(n^2)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\Theta(n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\Theta(n(\\log n)^2)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\Theta(n\\log n)$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 7,
+   "kind": "mcq",
+   "topic": "heaps",
+   "question": "נתונה ערימת מינימום $A$ עם $n$ מספרים שונים זה מזה.\nרוצים להפוך את הערימה לעץ AVL.\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(\\sqrt{n})$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(n\\log\\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(n\\log n)$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 8,
+   "kind": "mcq",
+   "topic": "union_find",
+   "question": "משתמשים במבנה נתונים לייצוג קבוצות זרות בייצוג ע\"י עצים הפוכים, כך שבפעולת האיחוד מחברים את הקבוצה הקטנה לגדולה.\nנתון העץ הבא:\n\nנתונות אפשרויות שונות לסדרת פעולות `Union` שיצרו את העץ הנתון.\n\n- יש לקרוא את סדרת הפעולות הבאות משמאל לימין.\n- הניחו שלפני כל סדרה התבצעו הפעולות הבאות:\n\n`Makeset(1), Makeset(2), Makeset(3), Makeset(4), Makeset(5), Makeset(6)`\n\nמי מבין הסדרות הבאות יכלה ליצור את העץ הנתון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "`Union(1,3)`, `Union(5,3)`, `Union(4,3)`, `Union(2,1)`, `Union(6,5)`"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "`Union(1,2)`, `Union(3,4)`, `Union(5,6)`, `Union(4,2)`, `Union(6,2)`"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "`Union(1,2)`, `Union(3,4)`, `Union(5,6)`, `Union(6,2)`, `Union(4,2)`"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא קיימת סדרת פעולות Union שיכולה ליצור את העץ הנתון"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5,
+   "image": "images/exams/24S-A-Q8.png"
+  },
+  {
+   "num": 9,
+   "kind": "mcq",
+   "topic": "hashing",
+   "question": "עבור פונקציות הגיבוב הבאות, מי מהן יכולה לשמש פונקציית גיבוב טובה עבור גיבוב כפול?\n\n(כלומר, אנחנו מחפשים פונקציית גיבוב בשיטת הגיבוב הכפול, כך שטבלת הגיבוב תעבוד באופן שלמדנו בכיתה, ולא ייווצרו בעיות עבור מפתחות מסויימים).",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 14 + i\\left((x \\bmod 5)+1\\right)\\right) \\bmod 14$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 13 + i\\left(x \\bmod 5\\right)\\right) \\bmod 13$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 13 + i\\left((x \\bmod 7)+1\\right)\\right) \\bmod 13$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$h(x,i) = \\left(random(x) \\bmod 13 + i\\left((x \\bmod 7)+1\\right)\\right) \\bmod 13$ כאשר $random(x)$ מקבלת את המספר $x$ ומחזירה מספר בין $0$ ל-$x$."
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 10,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "question": "מהו הפתרון לנוסחת הנסיגה הבאה:\n\n$T(n) = 2T\\left(\\frac{n}{\\sqrt{2}}\\right) + n + \\sqrt{n}$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\theta(\\sqrt{n}\\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\theta(n^2)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\theta(n\\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\theta(n)$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 11,
+   "kind": "mcq",
+   "topic": "hashing",
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין\n$\\{13,17,20,24,39,88,28\\}$\n\nאילו מהערכים יהיו בטבלה השניה $T_2$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "13,17,24,39"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "17,24,39"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "13,20,28"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "13,17,20,28"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 12,
+   "kind": "mcq",
+   "topic": "complexity",
+   "question": "נתונים שני אלגוריתמים לפתרון אותה הבעיה, אחד מבצע את הפעולה בזמן $\\theta\\left(\\frac{1}{100}n^2\\right)$ והשני בזמן $\\theta(5n\\log n)$\n\nמה ניתן לומר על האלגוריתמים?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם הראשון עדיפה בכל גודל קלט"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם השני עדיפה בכל גודל קלט"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם השני עדיפה, אך בקלטים קטנים עדיף האלגוריתם הראשון"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם הראשון עדיפה אך בקלטים קטנים עדיף האלגוריתם השני"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 21,
+   "kind": "mcq",
+   "topic": "avl",
+   "question": "נתון עץ חיפוש בינרי שיש בו עלה בעומק $5$. מהו המספר ה**מינימלי** של **צמתים** בעץ הנתון כך שיהיה עץ AVL?\n(כלומר, שיהיה עץ בינרי מאוזן)",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "12"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "18"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "20"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "22"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 23,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "question": "תנו חסם אסימפטוטי הדוק (\"תטא\") לנוסחת הנסיגה הבאה (עבור $n$ מספיק קטן מתקיים $T(n)=O(1)$):\n\n$T(n) = T\\left(\\frac{n}{6}\\right) + T\\left(\\frac{n}{3}\\right) + n$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\Theta(n^2\\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\Theta(n\\log n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\Theta(n^2)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\Theta(n)$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 25,
+   "kind": "mcq",
+   "topic": "bst",
+   "question": "נתונה סריקת preorder של עץ בינארי (משמאל לימין):\n10,6,5,2,8,50,47,45,100,105\n\nמהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ייתכן שהעץ הוא עץ חיפוש, אך לא ייתכן שהוא עץ AVL"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ייתכן שהעץ הוא עץ AVL"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא ייתכן שהעץ הוא עץ חיפוש"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לדעת על פי סריקת preorder בלבד האם העץ הוא עץ חיפוש"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 28,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "question": "מהו הפתרון לנוסחת הנסיגה הבאה:\n\n$T(n) = 2T\\left(\\frac{n}{\\sqrt{2}}\\right) + \\sqrt{n}$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\theta(\\sqrt{n}\\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\theta(n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\theta(n\\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\theta(n^2)$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 29,
+   "kind": "mcq",
+   "topic": "union_find",
+   "question": "משתמשים במבנה נתונים לייצוג קבוצות זרות בייצוג ע\"י עצים הפוכים, כך שבפעולת האיחוד מחברים את הקבוצה הקטנה לגדולה.\nנתון העץ הבא:\n\nנתונות אפשרויות שונות לסדרת פעולות `Union` שיצרו את העץ הנתון.\n\n- יש לקרוא את סדרת הפעולות הבאות משמאל לימין.\n- הניחו שלפני כל סדרה התבצעו הפעולות הבאות:\n\n`Makeset(1), Makeset(2), Makeset(3), Makeset(4), Makeset(5), Makeset(6)`\n\nמי מבין הסדרות הבאות יכלה ליצור את העץ הנתון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "`Union(1,3)`, `Union(5,1)`, `Union(4,3)`, `Union(2,1)`, `Union(6,5)`"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "`Union(1,2)`, `Union(3,4)`, `Union(5,6)`, `Union(3,6)`, `Union(2,4)`"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "`Union(1,2)`, `Union(3,4)`, `Union(5,6)`, `Union(2,4)`, `Union(2,6)`"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא קיימת סדרת פעולות Union שיכולה ליצור את העץ הנתון"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5,
+   "image": "images/exams/24S-A-Q9b.png"
+  },
+  {
+   "num": 30,
+   "kind": "mcq",
+   "topic": "hashing",
+   "question": "עבור פונקציות הגיבוב הבאות, מי מהן יכולה לשמש פונקציית גיבוב טובה עבור גיבוב כפול?\n\n(כלומר, אנחנו מחפשים פונקציית גיבוב בשיטת הגיבוב הכפול, כך שטבלת הגיבוב תעבוד באופן שלמדנו בכיתה, ולא ייווצרו בעיות עבור מפתחות מסויימים).",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 14 + i\\left((x \\bmod 5)+1\\right)\\right) \\bmod 12$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 11 + i\\left((x \\bmod 5)+1\\right)\\right) \\bmod 11$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 11 + i\\left(x \\bmod 7\\right)\\right) \\bmod 11$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$h(x,i) = \\left(random(x) \\bmod 11 + i\\left((x \\bmod 7)+1\\right)\\right) \\bmod 11$ כאשר $random(x)$ מקבלת את המספר $x$ ומחזירה מספר בין $0$ ל-$x$."
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 31,
+   "kind": "mcq",
+   "topic": "complexity",
+   "question": "נתונים שני אלגוריתמים לפתרון אותה הבעיה, אחד מבצע את הפעולה בזמן $\\theta(5n\\log n)$ והשני בזמן $\\theta\\left(\\frac{1}{100}n^2\\right)$\n\nמה ניתן לומר על האלגוריתמים?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם הראשון עדיפה בכל גודל קלט"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם השני עדיפה בכל גודל קלט"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם השני עדיפה, אך בקלטים קטנים עדיף האלגוריתם הראשון"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "הסיבוכיות של האלגוריתם הראשון עדיפה אך בקלטים קטנים עדיף האלגוריתם השני"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 32,
+   "kind": "mcq",
+   "topic": "hashing",
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין\n$\\{24,39,88,28,13,17,20\\}$\n\nאילו מהערכים יהיו בטבלה הראשונה $T_1$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "13,17,24,39"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "17,24,39"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "13,20,28"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "88,24,17,20"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 41,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "question": "מהו הפתרון לנוסחת הנסיגה הבאה:\n\n$T(n) = 3T\\left(\\frac{n}{\\sqrt{3}}\\right) + n^2 + \\sqrt{n}$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\theta(n^2\\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\theta(n^2)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\theta(n\\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\theta(n)$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 42,
+   "kind": "mcq",
+   "topic": "hashing",
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין\n$\\{13,17,20,24,39,88,28\\}$\n\nאילו מהערכים יהיו בטבלה הראשונה $T_1$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "13,20,28,88"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "17,24,39"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "13,20,28"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "13,17,20,28"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 45,
+   "kind": "mcq",
+   "topic": "bst",
+   "question": "נתונה סריקת preorder של עץ בינארי (משמאל לימין):\n50,47,6,5,8,10,100,45,105\n\nמהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ייתכן שהעץ הוא עץ חיפוש, אך לא ייתכן שהוא עץ AVL"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ייתכן שהעץ הוא עץ AVL"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא ייתכן שהעץ הוא עץ חיפוש"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לדעת על פי סריקת preorder בלבד האם העץ הוא עץ חיפוש"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 47,
+   "kind": "mcq",
+   "topic": "avl",
+   "question": "נתון עץ חיפוש בינרי שיש בו עלה בעומק $6$. מהו המספר ה**מינימלי** של **צמתים** בעץ הנתון כך שיהיה עץ AVL?\n(כלומר, שיהיה עץ בינרי מאוזן)",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "20"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "28"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "31"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "33"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 50,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "question": "תנו חסם אסימפטוטי הדוק (\"תטא\") לנוסחת הנסיגה הבאה (עבור $n$ מספיק קטן מתקיים $T(n)=O(1)$):\n\n$T(n) = T\\left(\\frac{n}{3}\\right) + T\\left(\\frac{n}{2}\\right) + n$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\Theta(n\\log\\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\Theta(n\\log n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\Theta(n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\Theta(n^2)$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 51,
+   "kind": "mcq",
+   "topic": "union_find",
+   "question": "משתמשים במבנה נתונים לייצוג קבוצות זרות בייצוג ע\"י עצים הפוכים, כך שבפעולת האיחוד מחברים את הקבוצה הקטנה לגדולה.\nנתון העץ הבא:\n\nנתונות אפשרויות שונות לסדרת פעולות `Union` שיצרו את העץ הנתון.\n\n- יש לקרוא את סדרת הפעולות הבאות משמאל לימין.\n- הניחו שלפני כל סדרה התבצעו הפעולות הבאות:\n\n`Makeset(1), Makeset(2), Makeset(3), Makeset(4), Makeset(5), Makeset(6)`\n\nמי מבין הסדרות הבאות יכלה ליצור את העץ הנתון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "`Union(1,2)`, `Union(3,4)`, `Union(5,6)`, `Union(6,4)`, `Union(4,2)`"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "`Union(1,2)`, `Union(3,4)`, `Union(5,6)`, `Union(4,2)`, `Union(6,4)`"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "`Union(5,3)`, `Union(5,6)`, `Union(3,4)`, `Union(1,2)`, `Union(5,1)`"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא קיימת סדרת פעולות Union שיכולה ליצור את העץ הנתון"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5,
+   "image": "images/exams/24S-A-Q11c.png"
+  },
+  {
+   "num": 52,
+   "kind": "mcq",
+   "topic": "hashing",
+   "question": "עבור פונקציות הגיבוב הבאות, מי מהן יכולה לשמש פונקציית גיבוב טובה עבור גיבוב כפול?\n\n(כלומר, אנחנו מחפשים פונקציית גיבוב בשיטת הגיבוב הכפול, כך שטבלת הגיבוב תעבוד באופן שלמדנו בכיתה, ולא ייווצרו בעיות עבור מפתחות מסויימים).",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 13 + i\\left((x \\bmod 9)+1\\right)\\right) \\bmod 13$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 14 + i\\left((x \\bmod 9)+1\\right)\\right) \\bmod 14$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$h(x,i) = \\left(x \\bmod 13 + i\\left(x \\bmod 7\\right)\\right) \\bmod 13$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$h(x,i) = \\left(random(x) \\bmod 13 + i\\left((x \\bmod 7)+1\\right)\\right) \\bmod 13$ כאשר $random(x)$ מקבלת את המספר $x$ ומחזירה מספר בין $0$ ל-$x$."
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "points": 7.5
+  },
+  {
+   "num": 13,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "points": 25,
+   "hold": "no-key",
+   "question": "עליכם לממש מבנה נתונים התומך בפעולות הבאות על מספרים בסיבוכיות הזמן הנדרשת.\nתארו תחילה מה כולל מבנה הנתונים שלכם, ואח\"כ הסבירו כיצד תתבצע כל אחת מהפעולות (שימו לב, $n$ מציין את מספר הנתונים במבנה).\n\n- `Search(k)`: חיפוש איבר בעל מפתח $k$. סיבוכיות הזמן הנדרשת: $O(\\log n)$.\n- `Insert(k)`: הכנסת המפתח $k$ למבנה, אם אינו קיים כבר במבנה (במקרה ש-$k$ נמצא במבנה, הפעולה לא תשנה את המבנה). סיבוכיות הזמן הנדרשת: $O(n\\log n)$.\n- `Sum(x)`: החזרת שני מספרים שנמצאים במבנה וסכומם שווה ל-$x$. אם לא קיים כזה זוג, החזירו הודעה שלא קיים. אם קיימים יותר מזוג מספרים אחד כזה, החזירו רק אחד מהם. סיבוכיות הזמן הנדרשת: $O(\\log n)$."
+  }
+ ]
+}
