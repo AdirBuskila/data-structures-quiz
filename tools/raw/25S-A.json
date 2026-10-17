@@ -41,7 +41,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לצייר עץ שבו השני בגודלו הוא ההורה או הבן הישיר של הגדול ביותר, ואז המרחק הוא $1$ ולא גדול ממש מ-$1$.",
     "לצייר עץ שמפר את סדר החיפוש, למשל מפתח קטן בתת-העץ הימני."
@@ -73,7 +73,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לענות $\\log n$ או $n-2$: לא לספור נכון את הצלעות במסלול, או להניח שהעץ מאוזן.",
     "לתת רק את התשובה ללא עץ לדוגמה שמראה שהמרחק $n-1$ אכן מושג."
@@ -126,7 +126,7 @@
      "explain": "קודם בונים את העץ ורק אחר כך סופרים את הצלעות במסלול."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 1,
@@ -154,7 +154,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש בתשובה של עץ חיפוש רגיל ($n-1$) ולשכוח שאיזון ה-AVL מגביל את המבנה.",
     "לשכוח את האפשרות שהמקסימום הוא ההורה של השני בגודלו (יש לו בן שמאלי)."
@@ -224,7 +224,7 @@
      "explain": "שני המצבים מופיעים בעצי AVL אמיתיים (נבדק בסימולציה), ובשניהם המרחק הוא $1$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -256,7 +256,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שהאלגוריתם נכון כי כל בן שמאלי הפך לקטן מהימני, ולשכוח שההחלפה לא נעשית מעל תת-העצים של הילדים.",
     "לתת דוגמה שאינה ערימת מינימום חוקית עוד לפני ההחלפה."
@@ -309,7 +309,7 @@
      "explain": "מהדוגמה החוקית מגיעים להפרה אחרי ההחלפה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -340,7 +340,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשב $h_2(x) = x \\bmod 7$ בלי להוסיף $1$.",
     "לשכוח להוריד מודולו $11$ אחרי חיבור $i \\cdot h_2(x)$.",
@@ -397,7 +397,7 @@
      "explain": "התפוסים הם $0, 2, 5, 6, 7, 9$, ולכן הריקים הם $1, 3, 4, 8, 10$ (הטבלה נבנתה בסימולציה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -428,7 +428,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבחור מספר שמתנגש פחות או יותר מ-$3$ פעמים, בלי לבדוק את כל הבדיקות עד התא הפנוי.",
     "לספור את ההכנסה לתא הפנוי כהתנגשות."
@@ -467,7 +467,7 @@
      "explain": "שלוש ההתנגשויות הן בתאים $9, 2, 6$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -503,10 +503,10 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשמור מחסנית אחת משותפת לכל המשתנים במקום מחסניות לכל משתנה.",
-    "לאפס את מחסנית `redo` בעזרת מחיקה איבר-איבר ברשימה מקושרת, שאינה בזמן קבוע; במערך מספיק לאפס את מצביע הראש.",
+    "לאפס את מחסנית `redo` בעזרת מחיקה איבר-איבר ברשימה מקושרת (בשפה ללא איסוף זבל, כמו C), שאינה בזמן קבוע; במערך מספיק לאפס את מצביע הראש.",
     "לא לאפס את `redo` בפעולת `Set`, כך ש-`redo` מחזיר ערך ישן אחרי שינוי חדש."
    ],
    "steps": [
@@ -551,20 +551,9 @@
      "answer": 8,
      "tol": 0,
      "explain": "ה-`Set` איפס את מחסנית `redo`, ולכן `Redo` כבר אינו מחזיר את $7$ והערך נשאר $8$."
-    },
-    {
-     "type": "order",
-     "prompt": "סדרו את שורות `Undo(i)` לפי הפתרון.",
-     "code": true,
-     "lines": [
-      "push(A[i].redo, A[i].val)",
-      "y = pop(A[i].undo)",
-      "A[i].val = y"
-     ],
-     "explain": "קודם שומרים את הערך הנוכחי ב-`redo`, ואז מוציאים מ-`undo` ומעדכנים."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -600,7 +589,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחפש את הערך הישן בערימה לינארית, בלי מצביעים הדדיים, ואז העדכון עולה $O(n)$.",
     "לעדכן רק `heapifyup` או רק `heapifydown`, אבל הערך החדש יכול להיות גדול או קטן מהישן.",
@@ -663,7 +652,7 @@
      "explain": "`buildheap` על $n$ הערכים לוקח $O(n)$, כמו האתחול המקורי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -694,7 +683,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעות ולהשתמש במיון מניה: טווח המפתחות אינו חסום, ולכן אין הצדקה לזמן לינארי.",
     "להוכיח רק למערכים עם מפתחות שונים בלי לציין שהם מקיימים את התנאי, או להכפיל ל-$4$ מופעים ולהפר את התנאי."
@@ -789,7 +778,7 @@
      "explain": "ארבעה מופעים מפרים את התנאי (לכל היותר שלושה), ולכן המערך אינו מהסוג שהנחנו עליו מיון מהיר."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -820,7 +809,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לטעון שחסם $\\Omega(n \\log n)$ חל כאן: החסם מניח השוואות בלבד, ופה הטווח קטן.",
     "להשתמש במיון מניה בלי להסביר שהטווח הוא $O(n)$."
@@ -899,7 +888,7 @@
      "explain": "מיון מניה על טווח בגודל $O(n)$ לוקח $O(n)$ (נבדק: המיון נכון והטווח קטן מ-$3n$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -959,7 +948,7 @@
      "explain": "עלים שנתלים מתחת לשורש הם בעומק $1$, ולכן הגובה נשאר $3$ ויש $16$ איברים (נבדק בקוד)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -1035,7 +1024,7 @@
      "explain": "סדרה הנדסית עם מנה $5/6$ נותנת $\\Theta(n)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
