@@ -1,0 +1,87 @@
+{
+  "slug": "data-structures",
+  "titleHe": "מבני נתונים",
+  "descriptionHe": "תרגול מבחנים - מבני נתונים",
+  "accent": "#2dd4bf",
+  "accent2": "#7c3aed",
+  "sourceFolder": "C:/Users/Adir/Desktop/BSC/שנה א/סמסטר ב/מבני נתונים",
+  "topics": [
+    [
+      "complexity",
+      "סיבוכיות וחסמים אסימפטוטיים"
+    ],
+    [
+      "recurrences",
+      "נוסחאות נסיגה ומשפט האב"
+    ],
+    [
+      "linear_ds",
+      "מערך, מחסנית, תור ורשימה מקושרת"
+    ],
+    [
+      "trees_induction",
+      "עצים בינאריים, סריקות והוכחות באינדוקציה"
+    ],
+    [
+      "bst",
+      "עצי חיפוש בינאריים"
+    ],
+    [
+      "avl",
+      "עצי AVL"
+    ],
+    [
+      "hashing",
+      "טבלאות גיבוב"
+    ],
+    [
+      "heaps",
+      "ערימות ותור עדיפויות"
+    ],
+    [
+      "sorting_selection",
+      "מיונים, חסם תחתון ובחירה"
+    ],
+    [
+      "union_find",
+      "קבוצות זרות"
+    ],
+    [
+      "ds_design",
+      "תכנון אלגוריתם ומבנה נתונים"
+    ]
+  ],
+  "briefs": [],
+  "needHelp": [
+    {
+      "id": "recurrences",
+      "titleHe": "נוסחאות נסיגה וסדר גודל",
+      "icon": "📐",
+      "topic": "recurrences",
+      "entryLabelHe": "צריך עזרה בנוסחאות נסיגה?"
+    },
+    {
+      "id": "avl",
+      "titleHe": "עצי AVL: הכנסה, מחיקה וגלגולים",
+      "icon": "🌳",
+      "topic": "avl",
+      "entryLabelHe": "צריך עזרה בעצי AVL?"
+    },
+    {
+      "id": "hashing",
+      "titleHe": "טבלאות גיבוב",
+      "icon": "🗂️",
+      "topic": "hashing",
+      "entryLabelHe": "צריך עזרה בטבלאות גיבוב?"
+    },
+    {
+      "id": "heaps",
+      "titleHe": "ערימות ותור עדיפויות",
+      "icon": "⛰️",
+      "topic": "heaps",
+      "entryLabelHe": "צריך עזרה בערימות?"
+    }
+  ],
+  "storePrefix": "data-structures",
+  "includeDrafts": false
+}
