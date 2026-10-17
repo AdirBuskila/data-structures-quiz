@@ -1,0 +1,1873 @@
+{
+ "examCode": "24B-A",
+ "examLabel": "מבני נתונים, סמסטר ב תשפ\"ד, מועד א (16.7.24)",
+ "year": 2024,
+ "examDate": "16.7.2024",
+ "sourceFile": "ds-2024-B-A-forms",
+ "solutionFile": "ds-2024-B-A-forms-keys",
+ "questions": [
+  {
+   "num": 1,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $20$ שקיים בו עלה בעומק $12$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $34$ שקיים לו עלה בעומק $15$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $13$ שקיים לו עלה בעומק $8$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $57$ שקיים לו עלה בעומק $29$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 2,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $32$ שקיים לו עלה בעומק $15$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $42$ שקיים לו עלה בעומק $21$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $15$ שקיים לו עלה בעומק $8$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $76$ שקיים בו עלה בעומק $39$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 3,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות **אינה** נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $33$ שקיים לו עלה בעומק $15$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $80$ שקיים לו עלה בעומק $39$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $71$ שקיים לו עלה בעומק $38$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $9$ שקיים בו עלה בעומק $6$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 4,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $34$ שקיים לו עלה בעומק $16$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $51$ שקיים לו עלה בעומק $25$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $33$ שקיים לו עלה בעומק $15$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $13$ שקיים בו עלה בעומק $8$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 5,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $12$ שקיים לו עלה בעומק $4$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $99$ שקיים לו עלה בעומק $53$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $79$ שקיים לו עלה בעומק $40$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $21$ שקיים בו עלה בעומק $12$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 6,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $16$ שקיים לו עלה בעומק $10$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא קיים עץ AVL שגובהו $103$ שקיים לו עלה בעומק $60$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $81$ שקיים לו עלה בעומק $40$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "קיים עץ AVL שגובהו $82$ שקיים בו עלה בעומק $41$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 7,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "בהנתן עץ בינארי (לא בהכרח עץ חיפוש) ורשימות המייצגות סריקות שונות, מהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בסריקת inorder הרשימה תהיה ממוינת מהקטן לגדול"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בסריקת postorder השורש יופיע תמיד באמצע הסריקה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סריקת preorder ו-postorder שונות בהכרח"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "בסריקת preorder השורש יופיע ראשון"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 8,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "בהנתן עץ בינארי (לא בהכרח עץ חיפוש) ורשימות המייצגות סריקות שונות, מהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בסריקת postorder השורש יופיע אחרון"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בסריקת inorder השורש יופיע תמיד באמצע הסריקה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סריקת preorder ו-postorder שונות בהכרח"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "בסריקת preorder הרשימה תהיה ממוינת מהגדול לקטן"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 9,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "בהנתן עץ חיפוש בינארי ורשימות המייצגות סריקות שונות, מהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "עלות הסריקה $\\theta(n \\log n)$ כאשר $n$ מייצג את כמות הקודקודים בעץ."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "עלות הסריקה $\\Omega(n)$ כאשר $n$ מייצג את כמות הקודקודים בעץ."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "הרשימה שתתקבל אינה בהכרח ממוינת"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לשחזר את העץ בהינתן תוצאת סריקת ה-preorder בלבד"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 10,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "בהנתן עץ בינארי (לא בהכרח עץ חיפוש) ורשימות המייצגות סריקות שונות, מהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בסריקת preorder הרשימה תהיה ממוינת מהקטן לגדול"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בסריקת preorder השורש יופיע תמיד באמצע הסריקה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "יתכן וסריקת preorder ו-postorder יצאו זהות"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "בסריקת inorder השורש יסרק אחרי סריקת חצי מאברי העץ"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 11,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "בהנתן עץ חיפוש בינארי ורשימות המייצגות סריקות שונות, מהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "בסריקת preorder הרשימה תהיה ממוינת מהקטן לגדול"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהינתן סריקת ה-inorder ניתן לשחזר את העץ"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "בסריקת postorder הרשימה תהיה ממוינת מהגדול לקטן"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "ניתן לשחזר את העץ בהינתן תוצאת סריקת ה-preorder בלבד"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 12,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "בהנתן עץ חיפוש בינארי ורשימות המייצגות סריקות שונות, מהו המשפט הנכון?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "עלות הסריקה $\\Omega(n \\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "בהינתן סריקת ה-preorder ניתן לשחזר את העץ"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "בסריקת postorder האיבר הגדול ביותר יופיע באמצע הסריקה"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לשחזר את העץ בהינתן תוצאת סריקת ה-postorder בלבד"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 13,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "נתון עץ החלטות $T$, המתאר את השאלות הנשאלות באלגוריתם חיפוש המקבל מפתח $k$ (ז\"א, איבר שערכו $k$) ומערך $A$ עם $n$ איברים ומחזיר את האינדקס $i$ (אם קיים) כך ש: $A[i]=k$, אחרת מחזיר $n+1$.\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "גובה העץ הוא בהכרח $\\Omega(n \\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כמות העלים בעץ היא $n+1$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הקודקודים בעץ היא $\\theta(n!)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא יתכן שקיים בעץ $T$ מסלול משורש העץ לעלה באורך $1$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 14,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "נתון עץ החלטות $T$, המתאר את השאלות הנשאלות באלגוריתם חיפוש המקבל מפתח $k$ (ז\"א, איבר שערכו $k$) ומערך $A$ עם $n$ איברים ומחזיר את האינדקס $i$ (אם קיים) כך ש: $A[i]=k$, אחרת מחזיר $n+1$.\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "גובה העץ הוא בהכרח $\\Omega(n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כמות העלים בעץ היא $n!$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הקודקודים בעץ היא $O(n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא יתכן שקיים בעץ $T$ מסלול משורש העץ לעלה באורך $\\frac{n}{2}$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 15,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "נתון עץ החלטות $T$, המתאר את השאלות הנשאלות באלגוריתם חיפוש המקבל מפתח $k$ (ז\"א, איבר שערכו $k$) ומערך $A$ עם $n$ איברים ומחזיר את האינדקס $i$ (אם קיים) כך ש: $A[i]=k$, אחרת מחזיר $n+1$.\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "עץ ההחלטות $T$ הוא בהכרח עץ בינארי מלא"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כמות העלים בעץ היא $n!$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הקודקודים בעץ היא $\\Omega(n^2)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "עץ ההחלטות $T$ הוא עם $2n$ קודקודים"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 16,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "נתון עץ החלטות $T$, המתאר את השאלות הנשאלות באלגוריתם חיפוש המקבל מפתח $k$ (ז\"א, איבר שערכו $k$) ומערך $A$ עם $n$ איברים ומחזיר את האינדקס $i$ (אם קיים) כך ש: $A[i]=k$, אחרת מחזיר $n+1$.\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "עץ ההחלטות $T$ הוא בהכרח עץ מאוזן"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "כמות העלים בעץ היא $n! + 1$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הקודקודים בעץ היא $\\Omega(n \\log \\sqrt{n})$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "יתכן שהמסלול הקצר ביותר הוא באורך $1$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 17,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "תנו חסם אסימפטוטי הדוק (\"תטא\") לנוסחת הנסיגה הבאה (עבור $n$ מספיק קטן מתקיים $T(n)=O(1)$):\n\n$T(n) = T(n/4) + T(3n/4) + n$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\Theta(n^2)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\Theta(n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\Theta(n(\\log n)^2)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\Theta(n \\log n)$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 18,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "תנו חסם אסימפטוטי הדוק (\"תטא\") לנוסחת הנסיגה הבאה (עבור $n$ מספיק קטן מתקיים $T(n)=O(1)$):\n\n$T(n) = T(n/5) + T(4n/5) + n$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\Theta(n \\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\Theta(n (\\log \\sqrt{n})^2)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\Theta(n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\Theta(n^2 \\log n)$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 19,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "תנו חסם אסימפטוטי הדוק (\"תטא\") לנוסחת הנסיגה הבאה (עבור $n$ מספיק קטן מתקיים $T(n)=O(1)$):\n\n$T(n) = T(3n/5) + T(2n/5) + n$",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$\\Theta(n \\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$\\Theta(\\sqrt{n} (\\log n)^2)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$\\Theta(n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$\\Theta(n^2 \\log \\sqrt{n})$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 20,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/2)+n^2$.\nמהו הערך הנמוך ביותר מבין הערכים הבאים עבור המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n^2$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$3$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$4$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$6.5$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: log_2 a = 2 -> for a=4 case 2 will be correct and we'll get Theta(n^2 logn)"
+  },
+  {
+   "num": 21,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/2)+n^3$.\nמהו הערך הנמוך ביותר מבין הערכים הבאים עבור המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n^3$?\n\n(כלומר, מהו הערך הנמוך ביותר עבור המשתנה $a$ עבורו נקבל $T(n) > \\theta(n^2)$)",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$9$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$8$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$9.3$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$7.5$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: for a=8 case 2 will be correct and we'll get Theta(n^3 logn). (בטופס זה נשארה בסוגריים הנוסחה הישנה $T(n) > \\theta(n^2)$; המפתח הרשמי מתאים לנוסח השאלה הראשי.)"
+  },
+  {
+   "num": 22,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/2)+n$.\nמהו הערך הנמוך ביותר מבין הערכים הבאים עבור המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$8$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$4$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$2$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$6.5$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: log_2 a: for a=2 case 2 will be correct and we'll get Theta(n logn)"
+  },
+  {
+   "num": 23,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/4)+n$.\nמהו הערך הנמוך ביותר מבין הערכים הבאים עבור המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n$?\n\n(כלומר, מהו הערך הנמוך ביותר עבור המשתנה $a$ עבורו נקבל $T(n) > \\theta(n^2)$)",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$3.5$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$4$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$6$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: log_4 a: for a=4 in case 2 we'll get T(n)=Theta(nlogn). (בטופס זה נשארה בסוגריים הנוסחה הישנה $T(n) > \\theta(n^2)$; המפתח הרשמי מתאים לנוסח השאלה הראשי.)"
+  },
+  {
+   "num": 24,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/3)+n^2$.\nמהו הערך הנמוך ביותר מבין הערכים הבאים עבור המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n^2$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$1$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$2$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$4$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$9$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: log_3 a: for a=9 and case 2 we'll get T(n)=n^2 logn"
+  },
+  {
+   "num": 25,
+   "kind": "mcq",
+   "topic": "recurrences",
+   "points": 7.5,
+   "question": "בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/5)+n^2$.\nמהו הערך הנמוך ביותר מבין הערכים הבאים עבור המשתנה $a$ עבורו נקבל סיבוכיות גדולה מ-$n^2$?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$25$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$2.5$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$50$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$5$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "הערת הפתרון הרשמי: log_5 a: for a=25 we'll get case 2 and T(n)=Theta(n^2 logn)"
+  },
+  {
+   "num": 26,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$4,7,41,3,8,6,2,5$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $41$ נמצא באחד מעלי העץ"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי אינו עלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הגלגולים שהתבצעו בתהליך ההכנסה היא $1$ בלבד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $6$ נמצא בשורש העץ"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 27,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$4,7,3,8,6,2,5,41$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $41$ נמצא באחד מעלי העץ"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי אינו עלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הגלגולים שהתבצעו בתהליך ההכנסה היא $1$ בלבד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $6$ נמצא בשורש העץ"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 28,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$4,7,3,8,6,2,5,41$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $41$ אינו אחד מעלי העץ"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי אינו עלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $6$ נמצא בשורש העץ"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא התבצעו גלגולים בתהליך ההכנסה"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 29,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$8,4,7,3,6,2,5,41$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $41$ נמצא בעומק $2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי נמצא בעומק $3$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הגלגולים שהתבצעו בתהליך ההכנסה היא $2$ בלבד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $6$ נמצא בשורש העץ"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 30,
+   "kind": "mcq",
+   "topic": "avl",
+   "points": 7.5,
+   "question": "יהי $T$ עץ ריק. מכניסים את האיברים הבאים לעץ $T$ בהתאם לפעולות ההכנסה לעץ AVL (יש לקרוא את הנתונים משמאל לימין):\n\n$7,8,4,2,5,41,3,6$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $8$ נמצא בעומק $2$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "האיבר המינימלי אינו עלה"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "כמות הגלגולים שהתבצעו בתהליך ההכנסה היא $1$ בלבד"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $8$ נמצא בשורש העץ"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 31,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$1,6,18,16,5,22$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 7) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $5$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $22$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $16$ ייכנס לתא באינדקס $8$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $18$ ייכנס לתא באינדקס $8$ במערך."
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 32,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$1,6,18,16,5,22$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 5) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $5$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $22$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $16$ ייכנס לתא באינדקס $8$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $18$ ייכנס לתא באינדקס $8$ במערך."
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 33,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$1,6,18,16,5,22$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 9) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות **אינה** נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $5$ ייכנס לתא באינדקס $0$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $22$ ייכנס לתא באינדקס $10$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $16$ ייכנס לתא באינדקס $8$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $18$ ייכנס לתא באינדקס $7$ במערך."
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 34,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$1,6,18,16,5,22$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 3) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $22$ ייכנס לתא באינדקס $2$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $16$ ייכנס לתא באינדקס $8$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $5$ ייכנס לתא באינדקס $8$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $18$ ייכנס לתא באינדקס $2$ במערך."
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 35,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$7,1,6,16,14,8,21,12$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 7) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $8$ ייכנס לתא באינדקס $2$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $16$ ייכנס לתא באינדקס $8$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $21$ ייכנס לתא באינדקס $1$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $12$ ייכנס לתא באינדקס $2$ במערך."
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 36,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה סדרת המספרים הבאה (משמאל לימין):\n\n$7,1,6,16,14,8,21,12$\n\nהשתמשו בפונקציית הגיבוב הבאה כדי להכניס אותה למערך ריק בגודל $11$:\n\n$h(x,i) = \\left(x \\bmod 11 + i((x \\bmod 9) + 1)\\right) \\bmod 11$\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "המפתח $8$ ייכנס לתא באינדקס $2$ במערך."
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "המפתח $16$ ייכנס לתא באינדקס $8$ במערך."
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "המפתח $12$ ייכנס לתא באינדקס $9$ במערך."
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "המפתח $21$ ייכנס לתא באינדקס $0$ במערך."
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 37,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין:\n\n$3,105,67,100,75,53$\n\nאילו מהערכים יהיו בטבלה השנייה T2?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$75,100$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$67,100$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$53,105,100$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$105,53,75$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 38,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין:\n\n$3,105,67,100,75,53$\n\nאילו מהערכים יהיו בטבלה הראשונה T1?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$3,100,105,67$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$75,100$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$3,53,67,105$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$67,53,105,100$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 39,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין:\n\n$3,67,75,105,53,100$\n\nאילו מהערכים יהיו בטבלה השנייה T2?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$75,100,105,3$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$53,67$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$3,100,105$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$105,100$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 40,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין:\n\n$3,67,75,105,53,100$\n\nאילו מהערכים יהיו בטבלה הראשונה T1?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$75,100,105,3$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$53,67$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$3,100,105$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$105,100$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 41,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין:\n\n$100,75,6,53,105,67$\n\nאילו מהערכים יהיו בטבלה הראשונה T1?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$75,100,105$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$67,100,105$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$105,100$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$67,105,53$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 42,
+   "kind": "mcq",
+   "topic": "hashing",
+   "points": 7.5,
+   "question": "נתונה טבלת גיבוב בשיטת גיבוב קוקיה, המשתמשת בשתי הפונקציות הבאות:\n\n$h_1(x) = x \\bmod 11$\n\n$h_2(x) = \\left\\lfloor \\frac{x}{11} \\right\\rfloor \\bmod 11$\n\nלטבלה הוכנסו הערכים הבאים: משמאל לימין:\n\n$100,75,6,53,105,67$\n\nאילו מהערכים יהיו בטבלה השנייה T2?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$75,100,105$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$67,100,105$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$6,75,100$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$67,105,53$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 43,
+   "kind": "mcq",
+   "topic": "heaps",
+   "points": 7.5,
+   "question": "נתונה ערימת מינימום $A$ עם $n$ מספרים שונים זה מזה.\nרוצים להוסיף לכל איבר ב-$A$ שדה נוסף, שיכיל את האינדקס של האיבר העוקב לו (האיבר המינימלי שגדול ממנו מבין אברי הערימה). באיבר המקסימלי שדה זה יכיל NULL.\n\nמי מהטענות הבאות נכונה:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(\\sqrt{n})$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(n \\log \\sqrt{n})$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(\\sqrt{n} \\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "ניתן לבצע את הנ\"ל בזמן $\\theta(n)$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 44,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים, ומחזירה קבוצה ממוינת של $\\sqrt{n}$ הערכים הנמוכים ביותר במערך.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log(\\log n))$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(n)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(\\sqrt{n})$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 45,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים, ומחזירה קבוצה ממוינת של $\\sqrt{n}$ הערכים הנמוכים ביותר במערך.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log n)$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(n \\log(\\log n))$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(\\sqrt{n})$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 46,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים, ומחזירה קבוצה ממוינת של $\\sqrt{n}$ הערכים הנמוכים ביותר במערך.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log(\\log n))$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\theta(n \\sqrt{n})$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $O(n + \\log(\\sqrt{n}))$"
+    }
+   ],
+   "correctId": "d",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 47,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים, ומחזירה קבוצה ממוינת של $\\sqrt{n}$ הערכים הנמוכים ביותר במערך.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n + \\log(\\sqrt{n}))$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\theta(n \\log \\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log n)$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 48,
+   "kind": "mcq",
+   "topic": "sorting_selection",
+   "points": 7.5,
+   "question": "תהי sortsub פונקציה המקבלת מערך לא ממוין של $n$ מספרים ממשים, ומחזירה קבוצה ממוינת של $\\sqrt{n}$ הערכים הנמוכים ביותר במערך.\n\nמי מהאמירות הבאות נכונה למימוש היעיל ביותר של sortsub:",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n + \\sqrt{n})$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "לא ניתן לומר דבר על הסיבוכיות של sortsub"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log \\log n)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "סיבוכיות זמן הריצה הוא $\\Omega(n \\log n)$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 49,
+   "kind": "mcq",
+   "topic": "complexity",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $T_1(n)=O(f(n))$ וגם $T_2(n)=O(f(n))$ אז $T_1(n)=O(T_2(n))$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(f(n))$ וגם $T_2(n)=\\theta(f(n))$ אז $T_2(n)=O(T_1(n)+f(n))$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $T_1(n)=O(f(n))$ וגם $T_2(n)=O(g(f(n)))$ אז $T_2(n)=O(g(T_1(n)))$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(\\sqrt{f(n)})$ וגם $T_2(n)=O(f(n))$ אז $T_2(n)=O(T_1(n))$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "explanation": "Option A: No, for example T1=n^2, T2=n, f=n^2. Option C: No, T1=n, T2=n^2, f=n, g=n"
+  },
+  {
+   "num": 50,
+   "kind": "mcq",
+   "topic": "complexity",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $T_1(n)=O(g(n))$ וגם $T_2(n)=O(g(n))$ אז $T_1(n)=O(T_2(n))$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(g(n))$ וגם $T_2(n)=O(g(n))$ אז $T_2(n)=O(T_1(n))$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $T_1(n)=O(g(n))$ וגם $T_2(n)=O(g(f(n)))$ אז $T_2(n)=O(g(T_1(n)))$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(g(n))$ וגם $T_2(n)=\\theta(g(n))$ אז $T_2(n)=O(T_1(g(n)))$"
+    }
+   ],
+   "correctId": "b",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 51,
+   "kind": "mcq",
+   "topic": "complexity",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $T_1(n)=O(f(n))$ וגם $T_2(n)=O(f(n))$ אז $T_1(n)=O(T_2(n))$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $T_1(n)=O(f(n))$ וגם $T_2(n)=O(g(f(n)))$ אז $T_2(n)=O(g(T_1(n)))$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(f(n))$ וגם $T_2(n)=O(f(n))$ אז $T_2(n)=O(23 \\cdot T_1(n))$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(f(n))$ וגם $T_2(n)=\\theta(f(n))$ אז $T_2(n)=O(T_1(f(n)))$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 52,
+   "kind": "mcq",
+   "topic": "complexity",
+   "points": 7.5,
+   "question": "מי מהטענות הבאות נכונה?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "אם $T_1(n)=O(g(n))$ וגם $T_2(n)=O(g(n))$ אז $T_1(n)=O(T_2(n))$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "אם $T_1(n)=O(g(n))$ וגם $T_2(n)=O(g(f(n)))$ אז $T_2(n)=O(g(T_1(n)))$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(g(n))$ וגם $T_2(n)=O(g(n))$ אז $T_2(n)=O\\left(\\frac{T_1(n)}{2}\\right)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "אם $T_1(n)=\\theta(g(n))$ וגם $T_2(n)=\\theta(g(n))$ אז $T_2(n)=O(T_1(g(n)))$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 53,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "מה כמות הקודקודים המינימלית בעץ מלא בגובה $h$ ?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2h$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$2^h$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$2h+1$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$2(h+1)$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 54,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "מה כמות הקודקודים המינימלית בעץ בינארי בגובה $h$ ?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2^h$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$2+h$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$1+h$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$2h$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 55,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "מה כמות הקודקודים המינימלית בעץ שלם בגובה $h$ ?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2^h$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$2(h+1)$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$2^{h+1}-1$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$2(h-1)$"
+    }
+   ],
+   "correctId": "c",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 56,
+   "kind": "mcq",
+   "topic": "trees_induction",
+   "points": 7.5,
+   "question": "מה כמות העלים המקסימלית בעץ מלא בגובה $h$ ?",
+   "options": [
+    {
+     "id": "a",
+     "type": "text",
+     "value": "$2^h$"
+    },
+    {
+     "id": "b",
+     "type": "text",
+     "value": "$2h+1$"
+    },
+    {
+     "id": "c",
+     "type": "text",
+     "value": "$2(h+1)$"
+    },
+    {
+     "id": "d",
+     "type": "text",
+     "value": "$2h$"
+    }
+   ],
+   "correctId": "a",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high"
+  },
+  {
+   "num": 100,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "points": 25,
+   "question": "עליכם לממש מבנה נתונים התומך בפעולות הבאות על מספרים בסיבוכיות הזמן הנדרשת.\n\nתארו תחילה מה כולל מבנה הנתונים שלכם, ואח\"כ הסבירו כיצד תתבצע כל אחת מהפעולות (שימו לב, $n$ מציין את מספר הנתונים במבנה).\n\n- `Search(k)` – חיפוש איבר בעל מפתח $k$. סיבוכיות הזמן הנדרשת: $O(\\log n)$.\n- `Insert(k)` – הכנסת המפתח $k$ למבנה, אם אינו קיים כבר במבנה (במקרה ש-$k$ נמצא במבנה, הפעולה לא תשנה את המבנה). סיבוכיות הזמן הנדרשת: $O(\\log n)$.\n- `Delete(x)` – מחיקת האיבר עליו מצביע $x$ מהמבנה. סיבוכיות הזמן הנדרשת: $O(\\log n)$.\n- `Add(d)` – הוספת הערך $d$ לכל המפתחות הנמצאים במבנה. סיבוכיות הזמן הנדרשת: $O(1)$.",
+   "hold": "no-key"
+  }
+ ]
+}

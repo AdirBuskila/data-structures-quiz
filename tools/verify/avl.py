@@ -4,7 +4,7 @@ class N:
 def H(n): return -1 if n is None else n.h
 def up(n): n.h = 1 + max(H(n.l), H(n.r))
 class AVL:
-    def __init__(s): s.root = None; s.rot = 0
+    def __init__(s): s.root = None; s.rot = 0; s.dbl = 0
     def _rr(s, y):
         x = y.l; y.l = x.r; x.r = y; up(y); up(x); s.rot += 1; return x
     def _rl(s, x):
@@ -12,10 +12,10 @@ class AVL:
     def _fix(s, n):
         up(n); b = H(n.l) - H(n.r)
         if b > 1:
-            if H(n.l.l) < H(n.l.r): n.l = s._rl(n.l)
+            if H(n.l.l) < H(n.l.r): n.l = s._rl(n.l); s.dbl += 1
             return s._rr(n)
         if b < -1:
-            if H(n.r.r) < H(n.r.l): n.r = s._rr(n.r)
+            if H(n.r.r) < H(n.r.l): n.r = s._rr(n.r); s.dbl += 1
             return s._rl(n)
         return n
     def ins(s, k): s.root = s._ins(s.root, k)
@@ -36,6 +36,7 @@ class AVL:
             while m.l: m = m.l
             n.k = m.k; n.r = s._del(n.r, m.k)
         return s._fix(n)
+def rotations(t): return t.rot - t.dbl  # a double rotation counts once
 def depth_of(n, k, d=0):
     if n is None: return None
     if k == n.k: return d
