@@ -48,4 +48,18 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: solver and refuter pass; do not ship the low-confidence items as correct without it.
 - Status: flagged
 
+### 23A-A Q1-Q5 - handwritten official solution read by eye
+- Path: sitting 23A-A, solution booklet
+- Page: p.2-13 (answer boxes)
+- Question: the lecturer solution is handwritten on a tablet; a few words were hard to read (Q1c matrix-multiplication wording, Q2a/Q2c wording, Q3 "check the second film", Q5a first line). Q4b, Q4c, Q2d and Q5a only say "see above". Transcribed in typed form, confidence med/low.
+- Needed: a quick eye check of the flagged items (Q1c, Q3, Q5a) against the handwriting.
+- Status: flagged
+
+### 23B-A Q3 and Q1 - solution file differs from the exam booklet
+- Path: sitting 23B-A, solution file vs exam booklet
+- Page: Q3 intro (solution file p.7 vs exam p.7), Q1 header
+- Question: the solution file says the ternary heap children are larger than the parent (min-heap wording) while the exam booklet and the example figure define a max-heap (children smaller); Q1 header says 2 parts in the solution file and 3 parts in the booklet. The exam booklet text was used.
+- Needed: none unless you want the solution-file wording kept.
+- Status: flagged
+
 ## Resolved
