@@ -1,0 +1,185 @@
+{
+ "examCode": "21S-A",
+ "refuter": "data-structures refuter (22B-A, 21B-B, 21S-A, 21B-A batch)",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "note": "Two-pointer merge, O(N) time, O(1) space. Steps agree (b,g -> 2; '<' is the only valid operator). Rubric 3+3+1+3=10. Note: deleting from singly linked lists needs prev pointers (still O(1)).",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "1b": {
+   "verdict": "agree",
+   "note": "Stack algorithm tested against the definition (matching pair whose content is exactly another matching pair) on 20000 random valid expressions, 0 mismatches. Steps agree (3rd closing bracket; FALSE; O(N)). Rubric 3+3+2+2=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "2a": {
+   "verdict": "agree",
+   "note": "Postorder deletion O(N). Root is deleted 7th of 7. findbug index 2 correct.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "2b": {
+   "verdict": "agree",
+   "note": "Induction correct; findbug index 2 (missing +1 root) correct; 15 nodes at h=3.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "3a": {
+   "verdict": "agree",
+   "note": "Postorder with true heights compared with stored factor; steps agree (height 2). Official wording 'height of the leaf is -1' means the null child; leaf height is 0 under the same formula (wording slip, no effect on algorithm).",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "3b": {
+   "verdict": "agree",
+   "note": "Own brute force over all AVL pairs (heights up to 5): node at -2, right child -1 or 0 -> single left rotation always yields AVL; right child +1 -> double always; double on right child 0 fails for 213k of 1.49M cases; single on right child +1 never works. Steps agree. Rubric 2+3+2+1+2=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "4a": {
+   "verdict": "agree",
+   "note": "Insertion O(N log log N) / sort-then-merge O(N) both right. Steps agree (4; Theta(N loglogN); Theta(N)). Rubric 2+4+3+1=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "4b": {
+   "verdict": "agree",
+   "note": "Two-pointer partition; own sim on the example: 3 swaps, result [56,8,2,4,2,31,99,7,233,47] identical to the sample output; random arrays correct. Fillblank 'is even' unique. Rubric 3+4+2+1=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "5a": {
+   "verdict": "agree",
+   "note": "Own heap sim: delete-max -> [7,5,6,4,1,2,3] (2 swaps), re-insert 8 -> [8,7,6,5,1,2,3,4] (3 swaps). Page images (sol pages 9-10) match: 2 sifts 7 then 6; 8 sifts over 4, 5, 7. Steps all agree. Rubric 2+3+2+3=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "5b": {
+   "verdict": "disagree",
+   "note": "FIRST DIVERGENCE: the stored (official) algorithm 'for each (a,b) look up key b and output (a,b) if data==a' outputs BOTH members of every symmetric couple: on the example S it returns (30,40),(5,10),(40,30),(10,5), but the question's expected output is R=([30,40],[5,10]) (one per couple). It also outputs a pair (7,7) matched with itself (own sim), although symmetry is defined for two pairs. The complexity and technique (hash, theta(n) average) are right. Needs a הערה or a fixed rule (output only when a<b, or the first occurrence). Steps agree (hash keyed by first element; look up b; one pair has no key; O(n)). Rubric 3+4+2+1=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   },
+   "needs_note": true
+  }
+ },
+ "points": {
+  "printed": "Cover page: 5 questions, each 20 + 2 bonus points, up to 110, capped at 100. No per-part points printed.",
+  "rubric_sums": {
+   "each question": "10+10=20 ok (all five)"
+  },
+  "split_estimated": [
+   "all a/b splits"
+  ],
+  "note": "No rubric item corresponds to the 2 bonus points per question."
+ }
+}

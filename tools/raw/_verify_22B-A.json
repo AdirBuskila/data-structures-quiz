@@ -1,0 +1,141 @@
+{
+ "examCode": "22B-A",
+ "refuter": "data-structures refuter (22B-A, 21B-B, 21S-A, 21B-A batch)",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "note": "Own AVL sim (insert/delete with rebalancing, both successor and predecessor deletion): 70 AVL shapes with 11 nodes, 38 satisfy (b) no insertion raises height and (c) no ordered pair of deletions lowers height by 1; all have height 3. Both official trees (page 1) are valid AVL, height 3, and satisfy b and c. Steps: N(4)=12, max nodes at h=2 is 7, h=3: all agree.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "1b": {
+   "verdict": "agree",
+   "note": "Leaves = 1 + sum(children-1) >= 1 + internal. Coin proof correct. Steps agree: 3 children -> 2 coins; order OK; findbug index 2 (0-based) is the only wrong line.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "2": {
+   "verdict": "agree",
+   "note": "Corrected solution (Y!=X / Z!=X) re-derived. Exhaustive test: all sorted run-structures n<=40 and all 4-valued arrays n<=9. Algorithm 'false iff (C1<=n/3 or Y=X) and (C2<=n/3 or Z=X)' matches ground truth with threshold >n/3 and ranks 0-indexed floor(n/3), floor(2n/3) (equivalently 1-indexed ceil). Printed 'as is' official (no Y!=X) fails e.g. n=1 [0] (returns true). The stored counterexample [1x7,2x3] is right: returns false, uncorrected returns true. NOTES: (1) rank n/3 must be rounded consistently: 1-indexed floor(n/3) fails (e.g. [0,0,0,1,1] returns false though 0 is majority and 1 has 40%); (2) 'more than 33%' is taken as >n/3; literal 0.33n breaks the SELECT-position argument; (3) the hash solution code keeps the official >= n/2 and 0.3n; the stored 'הערה' fixes this. Rubric 6+5+4+6+4=25 = printed 25. Steps all agree (Y=1,C1=7; returns false; condition a; O(n log n)).",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    },
+    "5": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "3": {
+   "verdict": "agree",
+   "note": "Heap/pairwise merge O(n log m) correct. Steps agree (16 -> 4 rounds, heap size <= m, 2+3+4 = 9 extractions, O(n log m)). Rubric 7+7+7+4=25 = printed 25. Official pairwise loop ignores odd m (leftover array), harmless.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "4a": {
+   "verdict": "agree",
+   "note": "Counterexample f=x,g=x^2,h=log valid (ratio 1/2). Other h in step 2 (x, x^2, 2^x) preserve o, so only log is correct. Limit 0.5 agree. Rubric 2+3+3+2=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "4b": {
+   "verdict": "agree",
+   "note": "Max collisions for 3 inserts is 3 (probe sequences are permutations, so k-th insert collides <= k-1 times); brute force over keys <30 gives max 3; 15,30,45 gives cells 0,1,2, 3 collisions. NOTE: official says three numbers 'whose remainders mod 5 and mod 3 are equal' are NEEDED; they are only sufficient (e.g. 0,5,13 also gives 3 collisions). Rubric 4+6+5=15; with 4a=10 the question totals 25 = printed.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "5": {
+   "verdict": "agree",
+   "note": "Answer 'not possible' is right ONLY under union by size/rank. My exhaustive search over union sequences of 7 elements: naive (arbitrary link direction) reaches height 3 (even 6), union by size/rank max height 2 (8 elements: 3). The question text does not state union by size. NEEDS a הערה stating the assumption (or the stated answer is wrong for naive union). Path compression alone does not help (no finds needed). Steps agree (small-into-large; 8 -> 3; 7 -> 2). Rubric 3+5+4+3=15 = printed 15.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   },
+   "needs_note": true
+  }
+ },
+ "points": {
+  "printed": "22B-A pages print: Q1 25 (two parts, no split), Q2 25 (full 25 / 15 / 10 tiers), Q3 25, Q4 25 (two parts, no split), Q5 bonus 15. No per-part points printed.",
+  "rubric_sums": {
+   "1a+1b": "10+15=25 ok",
+   "2": "25 ok",
+   "3": "25 ok",
+   "4a+4b": "10+15=25 ok",
+   "5": "15 ok"
+  },
+  "split_estimated": [
+   "1a/1b",
+   "4a/4b"
+  ]
+ }
+}

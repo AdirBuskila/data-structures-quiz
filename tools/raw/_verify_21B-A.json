@@ -1,0 +1,138 @@
+{
+ "examCode": "21B-A",
+ "refuter": "data-structures refuter (22B-A, 21B-B, 21S-A, 21B-A batch)",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "note": "true: a left-only chain gives inorder = postorder for every n.",
+   "steps": {}
+  },
+  "1b": {
+   "verdict": "agree",
+   "note": "false: insertion sort on sorted input has a leaf at depth n-1 (shortest path n-1 exists).",
+   "steps": {}
+  },
+  "1c": {
+   "verdict": "agree",
+   "note": "false: own AVL sim, orders 4,2,5,1,3 and 4,5,2,1,3 from the empty tree give the same tree.",
+   "steps": {}
+  },
+  "1d": {
+   "verdict": "agree",
+   "note": "false: 9(8(5,4),7) is a valid max-heap with left>right but the minimum 4 is not at the end of the rightmost path (page 3 figure matches).",
+   "steps": {}
+  },
+  "1e": {
+   "verdict": "agree",
+   "note": "false: own sim of H(x,i)=(x+((1+x)*i mod 4)) mod 13, ops ins1, ins14, del1, del14, ins14: after op 3 14 sits in cell 4 and cell 1 is a tombstone, after op 5 14 sits in cell 1 and cell 4 is a tombstone. Differs also with the other reading of the formula. The stored text has the typo 'הרייק'.",
+   "steps": {}
+  },
+  "1f": {
+   "verdict": "agree",
+   "note": "false: f1=g1=log n, f2=n, g2=n^2 gives ratio 1/2, not o.",
+   "steps": {}
+  },
+  "2": {
+   "verdict": "disagree",
+   "note": "FIRST DIVERGENCE: the third solution (the O(log^2 n) one, the only full-credit tier) is wrong as printed. Own sim on near-complete trees n<400: (i) the step 3 test 'left-mid length = right-mid length = h returns 0' fires for incomplete trees (n=6, 12, 13, 14, 24, ...); (ii) step 10 compares h1 with h0 AFTER step 9 decrements h0, off by one: it needs the compare before the decrement. With the completeness test replaced by 'rightmost path length = h' AND the compare before the decrement, 0 mismatches for n<400; with either printed error 136 to 383 mismatches. The linear solution (h from left path, n by inorder, 2^(h+1)-1-n) is correct; the O(min(n,d log n)) solution is correct if the path encoding is read as (h-1)-bit padded, bit 0 = right, bit 1 = left, i from 0 (stated: 'depth = length-1' is not literally consistent). Rubric 5+5+8+7=25 awards the full 25 to the O(n) solution, but the question gives full marks only to O(log^2 n) and reduced marks to O(n). Steps agree (left path, 2^4-1-10=5, 2^4-1-8=7, Theta(n)).",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   },
+   "needs_note": true
+  },
+  "3a": {
+   "verdict": "agree",
+   "note": "Own AVL sim: no rotation for 3,1,7,0,6,9,5,8,10 (height 3); inserting 11 gives balance -2 at the root, right child 7 has -1 -> single left rotation, new root 7: 7(3(1(0),6(5)),9(8,10(.,11))). Matches pages 7-8 of the official solution. Steps agree (0 rotations, -2, option a, root 7). Rubric 4+3+3=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "3b": {
+   "verdict": "disagree",
+   "note": "FIRST DIVERGENCE (statement level): the printed 'levels 0..ceil(h/2) are full' is FALSE for every odd h (h=1: root plus one child, level 1 has 1 node, not 2; h=3, 5, 7, 9 likewise). Own exhaustive level-count DP over all AVL trees, heights 0..9: the guaranteed full prefix is exactly levels 0..floor(h/2), which is the exam's own formal clause 'for all 0<=i<=h/2'. So the exam question is internally inconsistent (prose ceil vs formal i<=h/2), and the official proof, which carries ceil all the way (1+ceil((h-1)/2)=ceil((h+1)/2), arithmetic correct) proves a false statement: base case h=0 only, and the step breaks at h+1=1 (lighter subtree can be empty) and so every odd height inherits the false bound. This is a final-answer error in the official solution, not an intermediate slip; the true theorem needs floor(h/2) (step: 1+floor((h-1)/2)=floor((h+1)/2) for h>=1, handle h+1=1 separately). Needs a הערה explaining that the formal clause i<=h/2 (floor) is what is proven; the stored solution/steps (order, findbug, numeric) teach the false ceil version. Arithmetic in each step is itself correct. Rubric 2+2+4+3+4=15.",
+   "steps": {
+    "1": {
+     "verdict": "disagree",
+     "note": "order step teaches the ceil version of the induction"
+    },
+    "2": {
+     "verdict": "disagree",
+     "note": "findbug is arithmetically consistent but built on the false ceil statement (the real error is the statement, not line 3)"
+    },
+    "3": {
+     "verdict": "agree",
+     "note": "1+ceil(5/2)=4 correct arithmetic"
+    }
+   },
+   "needs_note": true
+  },
+  "4a": {
+   "verdict": "agree",
+   "note": "Figure rendered and checked (page 10 and images/exams/21B-A-Q4a-sol.png): own textbook max-heapsort on all 6 permutations of 3 reproduces the tree EXACTLY: comparisons a1<a2, then a2<a3 (or a1<a3), then a1<a2 / a3<a1 / a3<a2, leaves [a1,a2,a3],[a3,a1,a2],[a1,a3,a2],[a2,a1,a3],[a3,a2,a1],[a2,a3,a1]; all 6 paths have 3 comparisons. Steps agree (6, 3, 3). Rubric 3+4+3=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "4b": {
+   "verdict": "agree",
+   "note": "Sort + two pointers, O(n log n); steps agree (5 checks for [8,3,5,1,9,2] k=13; '<' unique). Note: mergesort on a doubly linked list must re-link prev pointers (official ignores). Rubric 4+3+5+3=15.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    },
+    "4": {
+     "verdict": "agree"
+    }
+   }
+  }
+ },
+ "points": {
+  "printed": "Cover page: 4 questions; Q1 has 6 parts of 8 points (=48); Q2-Q4 25 each (=75); +1 bonus; 'up to 116 points'. 48+75+1=124, so the printed maximum 116 does not match the printed item points. No per-part points for Q3/Q4.",
+  "rubric_sums": {
+   "Q1 each": "8 ok",
+   "Q2": "25 ok",
+   "Q3a+Q3b": "10+15=25 ok",
+   "Q4a+Q4b": "10+15=25 ok"
+  },
+  "split_estimated": [
+   "3a/3b",
+   "4a/4b"
+  ]
+ }
+}

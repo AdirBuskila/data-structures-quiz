@@ -1,0 +1,138 @@
+{
+ "examCode": "21B-B",
+ "refuter": "data-structures refuter (22B-A, 21B-B, 21S-A, 21B-A batch)",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "note": "false; sorting-via-AVL argument valid.",
+   "steps": {}
+  },
+  "1b": {
+   "verdict": "agree",
+   "note": "true; descending-sorted array makes sift-down take floor(log2 n) swaps (own sim n=7..1023).",
+   "steps": {}
+  },
+  "1c": {
+   "verdict": "agree",
+   "note": "false; lim 2^n/2^(n/3) = infinity, not a positive constant.",
+   "steps": {}
+  },
+  "1d": {
+   "verdict": "agree",
+   "note": "false; average deletion needs the predecessor, Theta(n), not log n.",
+   "steps": {}
+  },
+  "1e": {
+   "verdict": "agree",
+   "note": "true; gcd(9,20)=1, probe sequence hits all 20 cells (own check). Page says {1..20}, cells are 0..19, cosmetic.",
+   "steps": {}
+  },
+  "1f": {
+   "verdict": "agree",
+   "note": "false; [3,5,6] after raising A[0] 1->3 is still a min-heap.",
+   "steps": {}
+  },
+  "2a": {
+   "verdict": "agree",
+   "note": "MM(A,1,4) = (1,9): MM(1,2)=(2,3), MM(3,4)=(1,9). Steps agree (2, 1, 9). Rubric 2+1+2=5. NOTE: pseudocode drops the array argument in the recursive calls and has no base case for sizes that are not powers of two (n=3,5,6,7 recurse forever, own sim); official T(2), T(n)=2T(n/2)+O(1) only fits n = power of 2.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "2b": {
+   "verdict": "agree",
+   "note": "Own count: T(2)=1, T(n)=2T(n/2)+2 gives 3n/2-2 comparisons (n=4:4, 8:10, 16:22, 32:46). Official T(2)=O(1), 2T(n/2)+O(1) is a correct asymptotic recurrence but not the exact comparison count; stored solution copies it. Steps agree (2T(n/2)+O(1); n-1 = 15 calls for n=16; O(n)). Rubric 2+2+1=5.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "3a": {
+   "verdict": "agree",
+   "note": "5 rotations confirmed by own AVL delete-min simulation on F10 (232 nodes, h=10): 5 rebalancing events, one at each of the 5 ancestors on the leftmost path; the bottom event is a double rotation when F1 hangs its child left (counted as one, matching the step) and single when right; all give 5 events. If a double were counted as 2 single rotations the answer would be 6 (so the stored 'double counts as one' wording in step 3 is needed). Leftmost path of F10 has 5 edges, balance -1 at every F_i, i>=2, height(F_i)=i. Rubric 1+2+1+1=5.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "3b": {
+   "verdict": "agree",
+   "note": "Proof by structure correct (full = 0 or 2 children). Order OK; findbug index 3 (0-based) is the only wrong line; choice a correct (choice c is a true but weaker hypothesis, only 'official' disambiguates). Rubric 2+2+3+3=10. Official typos (עת, בך) are in the stored text.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "4a": {
+   "verdict": "agree",
+   "note": "Copy + build-heap O(n), optimal. Own sim: C=[9,5,8,7,6,4] one swap -> [9,7,8,5,6,4]. Rubric 1+3+4+2=10.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  },
+  "4b": {
+   "verdict": "agree",
+   "note": "Corrected line log(2n-1)=Theta(log n) is right (limit ratio to log n is 1). Real argument: >= n leaves so height >= log2 n. n=16 -> 31 nodes, min height 4 agree. Rubric 3+3+2+2=10. Official typo 'index where the ARRAY is found' (should be the element) still in stored text.",
+   "steps": {
+    "1": {
+     "verdict": "agree"
+    },
+    "2": {
+     "verdict": "agree"
+    },
+    "3": {
+     "verdict": "agree"
+    }
+   }
+  }
+ },
+ "points": {
+  "printed": "The 21B-B pages print NO points anywhere (no question totals, no part splits).",
+  "rubric_sums": {
+   "2a": 5,
+   "2b": 5,
+   "3a": 5,
+   "3b": 10,
+   "4a": 10,
+   "4b": 10
+  },
+  "note": "All rubric totals are invented; unequal per question (Q2=10, Q3=15, Q4=20) and cannot be checked against the pages."
+ }
+}
