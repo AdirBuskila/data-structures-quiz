@@ -1,0 +1,144 @@
+{
+ "examCode": "19B-A",
+ "refuter": "data-structures refuter (19B-A/19B-B/SAMP-1)",
+ "scripts": "tools/verify/19B-A/refute_sim1.py, refute_sim2.py, refute_bst.py, refute_struct.py; tools/verify/19B-B/refute_sim3.py",
+ "answers": {
+  "1a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own derivation: each call shrinks the range by 2 (k+1, m-1), one recursive call, constant work: T(n)=T(n-2)+c, base n<=1. Stored T(1)=1, T(n)=T(n-2)+3 agrees. Steps: size after first call for n=10 is 8, T(7)=10, O(n): all agree."
+  },
+  "1b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "True; product of the two c*g bounds with c=c1*c2, n0=max(n1,n2), positivity needed. Steps (12, 9, order, findbug index 1 = the min line) agree."
+  },
+  "1c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False; f1=g1=n, f2=2, g2=1 gives n^2 vs n. Step numeric n=64 -> 64 agrees; distractors checked (b: n^2 vs n^2, c: n^2 vs n^4 conclusion holds, d: f1=n^2 is not O(n))."
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Derived independently: no, the forest is not reachable. Without finds nodes only attach to roots, so 12's subtree (5 nodes) is complete when attached to 4, and 4's other nodes total 4 (4,9,11,8) < 5, violating small-into-large. Tree-buildability recursion confirmed: tree of 4 not buildable, tree of 5 buildable. All steps (5, 4, choice 12->4) agree."
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "k=5. Nodes at depth >=2: 11,2,7,1,3,6; Find(3) fixes both 3 and 2; exhaustive search over all find sequences of length <=4 found no solution, length 5 works. Steps agree (6, 2, 5)."
+  },
+  "2c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Find(11),Find(3),Find(7),Find(1),Find(6) leaves max height 1 (simulated); distractors (Find(2), missing Find(6), Find(9)) fail as claimed. Steps agree."
+  },
+  "3a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Postorder reconstruction by my own recursive parser: valid BST (chain 505-56-402-100-309-154-201), not AVL. Steps 505, diff 6, choice agree."
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Not a BST (309 precedes 154,100 yet exceeds root 201). Steps agree."
+  },
+  "3c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "BST and perfect tree of 7 nodes: AVL. Steps (201, 452, 0) agree."
+  },
+  "3d": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Inorder of both into arrays, compare: Theta(n). Agrees. Note: n is the total/each tree size; accepted. Step choices agree."
+  },
+  "3e": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Recursive structural compare; base cases and and-composition correct; 7-node trees give 15 calls (7+8). Preorder/postorder alternative is also valid for BSTs (both determine the tree). Steps agree."
+  },
+  "4a": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "ruling": "intermediate slip (official code, indexing)",
+   "note": "Official find_miss mixes 0-based and 1-based indexing: it tests A[0]<>B[0] (0-based) but returns B[n+1] when the range empties. 0-based B has indices 0..n, so the missing-at-end case must return B[n]. I ran the official pseudocode literally on 4000 random sorted inputs: 1036 failed, every one the missing-at-end case (B[n+1] out of range); the other 2964 correct. Correct answer: binary search for the first index i with A[i]!=B[i] (monotone since A distinct); return B[i], or B[n] if none. Theta(log n) time, O(1) space. Stored solution reproduces the slip verbatim. Steps (choice, 3, 7, fillblank 'A[middle+1..j],B[middle+1..l]') themselves agree.",
+   "firstDivergence": "solution line 'If i>j return B[n+1]' (should be B[n] in 0-based indexing)"
+  },
+  "4b": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "ruling": "final-answer error (typo ruling) + flawed-but-defensible condensed node",
+   "note": "Rendered page image 19B-A-Q4b-sol.png and checked: 6 leaves, only 4 distinct outputs (<a,b,c> x2, <a,c,b> x2, <b,a,c>, <b,c,a>); <c,a,b> and <c,b,a> never appear, so it cannot be a sorting tree. The structure is fine; only the two leftmost leaves are mislabeled. Subtree 'not (a<b,c)' -> 'not b<c' (so c<b, c is the minimum) -> 'a<b?': yes must be <c,a,b>, no must be <c,b,a>; the figure shows <a,c,b> and <a,b,c>. All other four leaves check out. I also ran real heapsort (max-heap) on all 6 permutations: 6 distinct leaves, every path 3 comparisons (naive tree has 8 leaf slots, 2 infeasible). Second flaw: node 'a<b,c' is a compound (two comparisons), not a single binary comparison, so the drawing is a condensed tree; defensible, needs a הערה. Correct full answer: same tree, but under node 'a<b' (left-left) the 'no' leaf is <c,b,a> and the 'yes' leaf is <c,a,b>; final leaves left-to-right: <c,b,a>, <c,a,b>, <b,a,c>, <b,c,a>, <a,b,c>, <a,c,b> (6 distinct permutations).",
+   "firstDivergence": "two leftmost leaves of the picture (labels <a,b,c>/<a,c,b> should be <c,b,a>/<c,a,b>)",
+   "steps": [
+    {
+     "step": 1,
+     "agrees": true,
+     "note": "6 leaves matches the picture but the picture is defective (4 distinct outputs); the step entrenches the flaw, fine once the figure is corrected (still 6 leaves)."
+    },
+    {
+     "step": 2,
+     "agrees": true,
+     "note": "3 comparisons on the longest path, counting 'a<b,c' as one node."
+    },
+    {
+     "step": 3,
+     "agrees": true,
+     "note": "yes at root -> root + c<b = 2 nodes."
+    }
+   ]
+  },
+  "4c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False; any comparison sort has >= n! leaves so height >= log2(n!) = Omega(n log n), not O(n); linear BuildHeap does not help because the n extractions cost n log n. Steps (24 leaves, ceil(log2 8!)=16, ratios 2.18/5.25/8.53) agree."
+  },
+  "5a": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "ruling": "intermediate slip (official Buy, month rollover)",
+   "note": "AVL by barcode + two FIFO queues is correct and meets all bounds (Find/Buy O(log n), Purchase O(1), Supply O(log n)). Slip: in the official Buy, when the month differs it sets amount_month_buy to 0 and does NOT count the current sale, so the first sale of every month is lost and the >49 threshold is off by one for that month; it should set it to 1 (or reset then increment). Also the struct is named tree_Node but typedef'd List_Node (cosmetic) and 'sold at least 50 products' is read per-product (defensible). Steps (queues over stacks, O(log n), 49->queue 2, 50->queue 1) agree.",
+   "firstDivergence": "Buy: 'else set amount_month_buy = 0' (should be 1)"
+  },
+  "5b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Q1 first, else Q2, dequeue, find in AVL, amount+=50: correct, O(log n). Steps agree (Q1 tested first; third call serves 5)."
+  },
+  "6a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "True. Two keys with the same hash suffice (i=0 same cell, i=1: T1 +1 vs T2 +6). Official example 1,14,27,... lists 6 keys although the question says 5 (cosmetic; only 1 and 14 matter): 14 -> T1 cell 2, T2 cell 7. Steps (2, 6, 7) agree."
+  },
+  "6b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "True. Linear probing with 6 occupied cells: the longest occupied run is <= 6, so the 7th probe is free; exhaustive check over all C(13,6)=1716 sets and all start cells: always within 7. Steps agree."
+  },
+  "6c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False. h2 offsets (i^2+5i) mod 13 for i=0..6 are 0,6,1,11,10,11,1: only 5 distinct cells, so 6 keys can block all 7 attempts. Brute force found blocking 6-sets; official table (0,26,2,13,52,39 at cells 0,1,2,6,10,11) with hash(65)=0 blocks i=0..6 and the first free cell is 9 at attempt 10. Realizable with a custom hash function (each stored key's hash = its cell). Steps (10, 5, 10) agree."
+  }
+ }
+}

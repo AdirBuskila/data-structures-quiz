@@ -1,0 +1,104 @@
+{
+ "examCode": "SAMP-1",
+ "refuter": "data-structures refuter (19B-A/19B-B/SAMP-1)",
+ "scripts": "tools/verify/19B-A/refute_sim1.py, refute_sim2.py, refute_bst.py, refute_struct.py; tools/verify/19B-B/refute_sim3.py",
+ "answers": {
+  "1a": {
+   "answer": true,
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Official key 'false' is WRONG; correct key is TRUE. Sorted ascending array is already a min-heap; Floyd BuildHeap does, per internal node, one child-vs-child comparison (only if a right child exists) plus one parent-vs-smaller-child comparison. For odd n: (n-1)/2 nodes x 2 = n-1. For even n: n/2 internal nodes, but the last one has only a left child (1 comparison), so 2(n/2-1)+1 = n-1. Official claims n for even n by charging 2 comparisons to the one-child node. Simulated BuildHeap comparison counts on sorted arrays for n=2..13: always n-1 (also n-1 for insertion-based build and for merely verifying the heap property). Correct answer: True, n-1 for every n.",
+   "ruling": "final-answer error (official key wrong)",
+   "correctVerdict": true
+  },
+  "1b": {
+   "answer": false,
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False. Official counterexample verified: T=10(8(7,.),11), insert 6 -> LL rotation at 8 -> 10(7(6,8),11); delete 6 -> 10(7(.,8),11) != T. Independent brute force over all AVL trees from insertion permutations of 2..7 keys also finds T=2(1,.), x=0 (insert rotates to 1(0,2), delete gives 1(.,2))."
+  },
+  "1c": {
+   "answer": false,
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False: all keys in 3 home cells gives 3 chains of n/3 (linear search); double hashing (second hash independent of the first) spreads them, load 1/2 gives O(1) expected. Agrees."
+  },
+  "1d": {
+   "answer": true,
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "True (Theta(n)), agree on the key. The keys of the two small halves interleave with the other tree's large half, so the result needs a sorted merge and rebuild (O(n)); lower bound by information (~log C(2n,n) = Omega(n) bits). The official lower-bound sentence 'removing n/2 certainly takes linear time' is hand-waving (cutting a subtree is not linear), so the justification is weak: suggest a הערה that the Omega(n) comes from the interleaving/merge, not from the removal.",
+   "ruling": "flawed-but-defensible (needs a הערה on the lower-bound argument)"
+  },
+  "1e": {
+   "answer": false,
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False. Simulated BST: 29 is the right child of 6, 29's right child is empty, 48's left child is 6. Official reasoning (48 inserted before 29, so cannot be its child) is valid. Agrees."
+  },
+  "1f": {
+   "answer": false,
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False. f1=g1=2, f2=2n, g2=n gives 2^(2n) vs 2^n. Agrees."
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "True. 13 then 26 (hash 0 for both): T1 cell 1, T2 cell 6. Steps (0, 1, 6) agree."
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "True (linear probing, <=6 occupied run, exhaustive over 1716 sets). Steps agree."
+  },
+  "2c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Re-confirmed: the corrected key FALSE is right. h2 offsets for i=0..6 are 0,6,1,11,10,11,1, only 5 distinct cells, so 6 keys can occupy {0,6,1,11,10} plus one more and a new key with that hash needs more than 7 probes. I re-ran the stored counter-example by hand and by script: hash=k mod 13, inserting 0,13,26,39,52,2 gives cells 0,6,1,11,10,2, i.e. table 0@0, 26@1, 2@2, 13@6, 52@10, 39@11; inserting 65 probes 0,6,1,11,10,11,1 (all occupied) and succeeds first at i=9 (cell 9), attempt 10. Also a brute force over every 6-subset of cells confirms a blocking set exists. 'Constant hash: 7th key needs attempt 11' also verified (cells 0,6,1,11,10 then 9 for the 6th key at attempt 10; 7th reaches cell 7 at i=10). Steps (choice a, 11, 5, 10) agree. This item deviates from the official PDF (which says true) and the same claim in 19B-A 6c is official FALSE, confirming the correction."
+  },
+  "3a": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "ruling": "intermediate slip (official code, indexing)",
+   "note": "Same defect as 19B-A 4a: official find_miss tests A[0]<>B[0] (0-based) but returns B[n+1] on an empty range; literal run fails on the missing-at-end case (1036/4000 random inputs, all end cases). Correct: return B[n] (0-based). Steps agree.",
+   "firstDivergence": "'If i>j return B[n+1]'"
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own heapsort trace and exhaustive enumeration: the max-heap sort comparison tree has 8 leaf slots of which 6 are feasible (one per permutation) and every path has exactly 3 comparisons; the stored ASCII tree matches it node by node, including the two (X) infeasible branches (repeat of b>a). Leaf labels all correct: a<b<c, c<a<b, a<c<b, b<a<c, c<b<a, b<c<a. Steps (3, 6, choice a>c) agree."
+  },
+  "3c": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "False; >= n! leaves => height >= log2(n!) = Omega(n log n). Steps agree."
+  },
+  "4a": {
+   "agrees": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "ruling": "intermediate slip (official Buy, month rollover)",
+   "note": "Same as 19B-A 5a: structure correct; official Buy sets amount_month_buy=0 on a new month without counting the current sale (should be 1). Steps agree.",
+   "firstDivergence": "Buy: 'אחרת מציבה בו 0'"
+  },
+  "4b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Supply as stored is correct (Q1 first, else Q2; O(log n)). Steps agree."
+  }
+ }
+}
