@@ -1,0 +1,121 @@
+{
+ "examCode": "25S-B",
+ "refuter": "independent, blind; scripts tools/verify/25S-B/refute_*.py",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Brute force over all min-heaps n=2..9: distance-1 arrangement exists exactly for even n (n=3,5,7,9 impossible). Argument (2nd max must have a single child; only node n/2 when n even) is right; sorted-array swap construction fine.",
+   "myAnswer": "even n only; n=3 counterexample"
+  },
+  "1b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Brute force n<=9 and exhaustive pair analysis to n=256: worst = 2*floor(log2 n) if n >= 3*2^(h-1), else 2*floor(log2 n)-1; n=11 -> 5 matches. Theta(log n).",
+   "myAnswer": "2h or 2h-1, Theta(log n); n=11 -> 5"
+  },
+  "1c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Brute force odd n<=9: 1 for n=5,7,9; 2 for n=3; 0 for n=1; randomized search n=11..21 found 1; the stored construction verified valid for all odd n=5..201. Minor wording: 'for every n>=4' includes even n, where a median is undefined; should say odd n>=5.",
+   "myAnswer": "1 for odd n>=5 (2 for n=3)"
+  },
+  "2a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Own AVL: 80 -> RR at 10; 30,70,90 none; 75 -> RL at 40 (70 rises); 2,100 none. Final 20(10(5(2,.),15),70(40(30,.),80(75,90(.,100)))) height 4, 2 rebalances. Matches; start tree matches the image.",
+   "myAnswer": "same tree"
+  },
+  "2b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Table 1 reachable (verified exhaustively over insertion orders): 6,75,100,105,53,67 gives exactly the table; options b,c,d do not. 3 evictions.",
+   "myAnswer": "Yes: 6,75,100,105,53,67"
+  },
+  "2c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Table 2 unreachable (exhaustive): 53 sits in T2[4] but T1[h1(53)=9] is empty and insertion-only never empties a cell.",
+   "myAnswer": "No"
+  },
+  "3": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "AVL with size field; Rank(27)=5 on 20,10,30,5,15,25,40; fillblank blank index 6 unique.",
+   "myAnswer": "AVL + sizes"
+  },
+  "4a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Min-extraction rounds: sizes n,(n-1)/2,... sum < 2n, simulated k=2..9 (work < 4n). n=15 -> 8 copies and 15+7+3+1=26. Caveat: findbug (bugIndex 2, 'maximum') only fails because ascending order is assumed; the question does not state the sort direction, and the O(n) cost is identical. Step 1 prompt-free but explain fine.",
+   "myAnswer": "O(n) time, O(1) space"
+  },
+  "4b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Impossible via comparison-sort lower bound; order lines in real order; findbug 2 changes exactly one line; ceil(log2 8!)=16. Step 1 prompt says 'הפתרון הרשמי' though official=false.",
+   "myAnswer": "Impossible"
+  },
+  "5a": {
+   "verdict": "agree",
+   "steps": [],
+   "note": "False: 912 > 911 after going left at 911.",
+   "myAnswer": "False"
+  },
+  "5b": {
+   "verdict": "agree",
+   "steps": [],
+   "note": "False under the course convention (single node = height 0): min AVL nodes at height 4 is 12. (Would be True if height counted levels; the course elsewhere uses edges.)",
+   "myAnswer": "False"
+  },
+  "5c": {
+   "verdict": "agree",
+   "steps": [],
+   "note": "False: log_9 3 = 1/2 < 1, case 3 with regularity, Theta(n).",
+   "myAnswer": "False"
+  }
+ }
+}

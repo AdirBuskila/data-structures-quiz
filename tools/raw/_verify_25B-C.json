@@ -1,0 +1,105 @@
+{
+ "examCode": "25B-C",
+ "refuter": "independent, blind; scripts tools/verify/25B-C/refute_*.py",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Simulated MYSTERY on a 1-based array stack: t=7 after pushes; cells 1,3,5,7 (x=10,8,6,4) re-pushed doubled; final 20,16,12,8 with t=4 (8 calls).",
+   "myAnswer": "t=7; final stack bottom->top 20,16,12,8, t=4"
+  },
+  "1b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree"
+   ],
+   "note": "T(n)=T(n-1)+c, T(0)=c; n+1 calls verified for n<10.",
+   "myAnswer": "T(n)=T(n-1)+O(1) => Theta(n)"
+  },
+  "1c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "log2 3=1.585>1: case 1; T/n^1.585 -> 3 numerically.",
+   "myAnswer": "Theta(n^log2 3)"
+  },
+  "2a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Conclusion and upper bound fine (inorder x2, merge, build balanced BST; heights verified n<300). Caveat: the lower bound 'output is a new tree with n nodes so must create n nodes' is informal (a pointer machine may reuse input nodes); a tight argument for arbitrary BSTs is that T1/T2 can be chains, so an AVL answer needs Omega(n) restructuring. Step 1 explain 'זה החסם התחתון בפתרון' and step prompts that say 'official' when official=false are misleading wording.",
+   "myAnswer": "Theta(n)"
+  },
+  "2b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree"
+   ],
+   "note": "Conclusion (not logarithmic) correct for AVL as taught (no size fields: locating the n/2-th key needs a scan). Caveat for the fixer: the stored 5-point argument 'output has n nodes => Omega(n)' is not airtight, because with subtree-size fields split+join gives O(log n); consider adding the 'AVL as taught stores no sizes, so finding the median is Omega(n)' sentence. Not a wrong key.",
+   "myAnswer": "not O(log n); Theta(n) without size fields"
+  },
+  "3": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "AVL + doubly linked insertion-order list with cross pointers, head/tail: all five bounds hold. get_first after 5,3,8,1 then delete 5 = 3; get_last = 1. Step 1 prompt says 'הפתרון הרשמי' though official=false.",
+   "myAnswer": "AVL by id + DLL by insertion order + head/tail + cross pointers"
+  },
+  "4a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Implemented sort + binary search (0, negatives, v*v==x handled) and compared with brute force on 60000 random cases: 0 mismatches. Fillblank blankIndex 2 unique: option b (x/v > v) returns the same index for A=[2,5],x=4. [3,8,2,6,5],x=30 found on iteration 3. Step 1 prompt says 'official'.",
+   "myAnswer": "sort (value,index), binary search x/v, skip x/v==v, handle 0"
+  },
+  "4b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Max binary-search probes for n=1024 measured 11; total O(n log n).",
+   "myAnswer": "O(n log n)"
+  },
+  "5a": {
+   "verdict": "agree",
+   "steps": [],
+   "note": "True: inserting a value >= max never swaps (exhaustive heaps n<8).",
+   "myAnswer": "True"
+  },
+  "5b": {
+   "verdict": "agree",
+   "steps": [],
+   "note": "False: sorted-insert chain has depth n-1.",
+   "myAnswer": "False"
+  },
+  "5c": {
+   "verdict": "agree",
+   "steps": [],
+   "note": "False: T/(n log n) -> 1/2 (checked to 2^900).",
+   "myAnswer": "False"
+  }
+ }
+}

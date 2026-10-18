@@ -1,20 +1,138 @@
 {
  "examCode": "25S-A",
- "refuter": "independent; scripts tools/verify/25S-A/refute_*.py",
+ "refuter": "independent, blind; scripts tools/verify/25S-A/refute_*.py",
  "items": {
-  "1a": {"verdict": "agree", "steps": "n/a (no steps)", "note": "root 6, left 4, 4.right 5 gives distance 2; rubric 4+3=7"},
-  "1b": {"verdict": "agree", "steps": ["agree","agree","agree"], "note": "brute force over all BSTs n=2..9: max distance n-1; rubric 3+4+2=9"},
-  "1c": {"verdict": "agree", "steps": ["agree","agree","agree"], "note": "brute force over AVL shapes n=2..9: always 1; rubric 9"},
-  "2a": {"verdict": "agree", "steps": ["agree","agree (2 violations)","agree"], "note": "counterexample [3,21,7,22,25,15,10] is a valid heap, after swap 21 > 15,10; full BFS still leaves 2 violations; rubric 12"},
-  "2b": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "table 0:11 2:22 5:5 6:6 7:7 9:13; empty 1,3,4,8,10; rubric 7"},
-  "2c": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "31 probes 9,2,6,10 = exactly 3 collisions (39,49,64 also work); rubric 6"},
-  "3a": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "Minor: Undo order step accepts only push-then-pop; pop-then-push before the assignment is equally valid. Pitfall 2 (linked-list clear not O(1)) is technically debatable in a GC language but matches the official solution text. Rubric 12"},
-  "3b": {"verdict": "agree", "steps": ["agree","agree","agree","agree"], "note": "max-heap + mutual pointers; set/undo/redo O(log n), max O(1), init O(n); O(log n) update is optimal (set-to--inf + max sorts); rubric 13"},
-  "4a": {"verdict": "agree", "steps": ["agree","agree","agree","agree","agree (bugIndex 2 unique)"], "note": "right in the comparison model (distinct-key arrays are a subset); rubric 12.5"},
-  "4b": {"verdict": "agree", "steps": ["agree","agree (15)","agree","agree"], "note": "range <= 3(n-1), counting sort O(n); rubric 12.5"},
-  "5a": {"verdict": "agree", "steps": ["agree (3)","agree (10)","agree"], "note": "true; official tree height 3, 10 nodes verified; 6 more leaves under root gives 16"},
-  "5b": {"verdict": "agree", "note": "false; cuckoo simulation found a state change after delete + reinsert"},
-  "5c": {"verdict": "agree", "steps": ["agree (0.8333)","agree","agree"], "note": "true; 1/3+1/2=5/6<1, T(n)/n converges to about 6 numerically"}
- },
- "counts": {"agree": 13, "disagree": 0, "unclear": 0}
+  "1a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "6,4,5 BST (4 left of 6, 5 right of 4): dist(6,5)=2, valid BST. Figure c1 transcription matches the rendered image (18 and 15 example; dist(4,13)=3); no raw page dir exists for 25S-A, so the 'official drawing' itself cannot be compared but the shape is valid regardless. Step 2/3 verified by brute force over insertion orders.",
+   "myAnswer": "any BST with a right-child-of-left-child under the max"
+  },
+  "1b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Brute force n=2..8: worst distance n-1.",
+   "myAnswer": "n-1"
+  },
+  "1c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Brute force over AVL shapes n=2..8: always 1.",
+   "myAnswer": "1"
+  },
+  "2a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "[3,21,7,22,25,15,10] is a valid heap and Dana's pass leaves 2 violations (21>15, 21>10); Q2a figure transcription matches.",
+   "myAnswer": "Dana fails"
+  },
+  "2b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Table 0:11 2:22 5:5 6:6 7:7 9:13.",
+   "myAnswer": "same"
+  },
+  "2c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "31 gives probes 9,2,6,10 = exactly 3 collisions (also 39,49,64,82,...).",
+   "myAnswer": "31"
+  },
+  "3a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Per-variable undo/redo stacks; both numeric steps re-simulated.",
+   "myAnswer": "ok"
+  },
+  "3b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Max-heap with mutual pointers; set/undo/redo O(log n), max O(1), init O(n). Optimal in the sense that O(1) for both set and max would sort in O(n).",
+   "myAnswer": "ok"
+  },
+  "4a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Shlomit right: log2(n!/6^(n/3)) = Omega(n log n); reduction from distinct keys valid; findbug 2 changes exactly one line.",
+   "myAnswer": "right"
+  },
+  "4b": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Benny wrong: range <= 3(n-1), counting sort Theta(n); 6 elements -> 15.",
+   "myAnswer": "wrong, Theta(n)"
+  },
+  "5a": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "Simulation with union by rank + path compression: single 16-element set with height 3 occurs.",
+   "myAnswer": "True"
+  },
+  "5b": {
+   "verdict": "agree",
+   "steps": [],
+   "note": "False: x displaced to T2, delete+reinsert puts it in T1 and evicts the old T1 occupant.",
+   "myAnswer": "False"
+  },
+  "5c": {
+   "verdict": "agree",
+   "steps": [
+    "agree",
+    "agree",
+    "agree"
+   ],
+   "note": "T/n -> 6.",
+   "myAnswer": "True"
+  }
+ }
 }
