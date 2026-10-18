@@ -35,7 +35,10 @@
    "topic": "complexity",
    "points": 5,
    "question": "הוכח או הפרך: לכל שתי פונקציות $f(n),g(n)$ מתקיים: $f(n)=O(g(n))$ או $g(n)=O(f(n))$.",
-   "hold": "no-key: the official solution is only 'see the first presentation', no answer given"
+   "solutionSource": "solved",
+   "official": false,
+   "confidence": "high",
+   "solution": "הטענה לא נכונה. דוגמה נגדית:\n\n$$f(n) = \\begin{cases} n & n \\text{ even} \\\\ 1 & n \\text{ odd} \\end{cases} \\qquad g(n) = \\begin{cases} 1 & n \\text{ even} \\\\ n & n \\text{ odd} \\end{cases}$$\n\n- $f(n) \\ne O(g(n))$: אילו היו $c, n_0$ כך ש-$f(n) \\le c \\cdot g(n)$ לכל $n \\ge n_0$, אז לכל $n$ זוגי $n \\ge n_0$ היה $n \\le c$, וזה לא נכון כש-$n > c$.\n- $g(n) \\ne O(f(n))$: באותו אופן על $n$ אי-זוגי, שם $g(n) = n$ ו-$f(n) = 1$.\n\nלכן אף אחד מהשניים אינו מתקיים, והטענה מופרכת. (שתי הפונקציות חיוביות; הבעיה היא שהן \"מתחלפות\" במי שגדולה יותר.)"
   },
   {
    "num": 1,

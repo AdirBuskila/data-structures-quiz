@@ -2,8 +2,10 @@
 """Generator for tools/raw/22B-A.json -- data-structures, spring semester 2022 (moed A).
 The exam statement exists only as pasted images inside the official solution file (8 pages); transcribed from the render.
 Official solution is typed in the same file. Rubric and steps are left to the step-author phase.
-Caveats (confidence "med", official text kept as printed, not fixed):
-- Q2: the printed solution has slips (C1/C2 both defined as the count of Y; Z is computed but its count is never named).
+Caveats:
+- Q2: intermediate slips fixed silently (C vs C1 in the first test, C2 counted Y instead of Z, "למשתמש" for "למשתנה").
+  Final-answer error fixed with the "official solution with a fix" label (solved, official false): the last test lacked
+  Y != X / Z != X (tools/verify/22B-A/solve_22B-A_Q2.py shows a counterexample and checks the fixed version).
 - Q5: the official argument assumes union of the smaller set into the larger (union by size), which the question does not state.
 Run: PYTHONUTF8=1 py tools/gen/gen_22B-A.py"""
 import json, pathlib
@@ -56,16 +58,18 @@ c. לא קיימים $2$ מפתחות שהוצאתם מהעץ אחד אחרי ה
 לניקוד מלא, הציעו אלגוריתם לינארי לפתרון הבעיה.
 לניקוד של $15$ נקודות, הציעו אלגוריתם שבהסתברות גבוהה יהיה לינארי.
 לניקוד של $10$ נקודות, הציעו אלגוריתם בזמן ריצה של $\Theta(n\cdot\log n)$.""",
-      r"""**פתרון בניקוד מלא - בזמן לינארי**
+      r"""**הפתרון הרשמי עם תיקון:** בבדיקה האחרונה (בפתרון הלינארי ובפתרון ב-$O(n\log n)$) נוסף התנאי $Y \ne X$ / $Z \ne X$. בלעדיו האלגוריתם טועה: למשל עבור $A = [1,1,1,1,1,1,1,2,2,2]$ הערך $Y$ שווה ל-$X = 1$, $C1 = 7 > n/3$ והאלגוריתם מחזיר אמת, אף שאין פרי שני עם יותר מ-$33\%$.
+
+**פתרון בניקוד מלא - בזמן לינארי**
 
 1. מצא את החציון בעזרת אלג' `SELECT` וסמנו $X$.
 2. מצא את האיבר ה-$n/3$ בגודלו בעזרת אלג' `SELECT` וסמנו $Y$.
 3. מצא את האיבר ה-$2n/3$ בגודלו בעזרת אלג' `SELECT` וסמנו $Z$.
 4. מנה למשתנה $C$ את כמות הפעמים שהאיבר $X$ מופיע במערך $A$.
-5. אם $C1 \le n/2$ החזר שקר.
-6. מנה למשתמש $C1$ את כמות הפעמים שהאיבר $Y$ מופיע במערך $A$.
-7. מנה למשתמש $C2$ את כמות הפעמים שהאיבר $Y$ מופיע במערך $A$.
-8. אם $C1 \le n/3$ and $C2 \le n/3$ החזר שקר.
+5. אם $C \le n/2$ החזר שקר.
+6. מנה למשתנה $C1$ את כמות הפעמים שהאיבר $Y$ מופיע במערך $A$.
+7. מנה למשתנה $C2$ את כמות הפעמים שהאיבר $Z$ מופיע במערך $A$.
+8. אם ($C1 \le n/3$ או $Y = X$) וגם ($C2 \le n/3$ או $Z = X$) החזר שקר.
 9. החזר אמת.
 
 **פתרון על ידי טבלת גיבוב - בהסתברות גבוהה סיבוכיות לינארית (15 נקודות)**
@@ -90,6 +94,8 @@ Else if counter >= 0.3n
 
 סה"כ האלגוריתם כולו ייקח $O(n)$ בממוצע.
 
+**הערה:** בקוד של פתרון הגיבוב הספים צריכים להיות $counter > n/2$ ו-$counter > n/3$ (לא $\ge n/2$ ו-$0.3n$), ויש להחזיר אמת רק אם נמצאו שני פירות שונים שעומדים בשני התנאים.
+
 **אלג' בזמן ריצה של $O(n\log n)$ (10 נקודות)**
 
 1. מיין את המערך $A$.
@@ -97,12 +103,12 @@ Else if counter >= 0.3n
 3. הצב $Y = A[n/3]$.
 4. הצב $Z = A[2n/3]$.
 5. מנה למשתנה $C$ את כמות הפעמים שהאיבר $X$ מופיע במערך $A$.
-6. אם $C1 \le n/2$ החזר שקר.
-7. מנה למשתמש $C1$ את כמות הפעמים שהאיבר $Y$ מופיע במערך $A$.
-8. מנה למשתמש $C2$ את כמות הפעמים שהאיבר $Y$ מופיע במערך $A$.
-9. אם $C1 \le n/3$ and $C2 \le n/3$ החזר שקר.
+6. אם $C \le n/2$ החזר שקר.
+7. מנה למשתנה $C1$ את כמות הפעמים שהאיבר $Y$ מופיע במערך $A$.
+8. מנה למשתנה $C2$ את כמות הפעמים שהאיבר $Z$ מופיע במערך $A$.
+9. אם ($C1 \le n/3$ או $Y = X$) וגם ($C2 \le n/3$ או $Z = X$) החזר שקר.
 10. החזר אמת.""",
-      points=25, confidence="med"),
+      points=25, solutionSource="solved", official=False),
 
     # ---------------- Question 3 (25) ----------------
     Q(3, "algorithm", "heaps",

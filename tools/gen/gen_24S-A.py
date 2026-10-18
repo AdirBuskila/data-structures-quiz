@@ -6,6 +6,8 @@ Machine checks of those keys: tools/verify/24S-A/verify.py.
 Dedupe: a stem that is identical across forms (same option set, only the order differs) is ONE bank item.
 Numbering: num = printed number on the form where the stem first appears, offset by form:
   form A -> 1..12 as printed; form B -> 20 + printed number; form C -> 40 + printed number. Q13 is printed 13.
+Q13 has no printed solution on any form: solved by the solver (solutionSource solved, official false), checked by
+tools/verify/24S-A/solve_24S-A_Q13.py. Insert is O(n log n) as printed (that budget is what the pair-sum tree needs).
 Merged duplicates: A1=B4=C4 (linked list), A3=B6=C6 (select), A5=B2=C8 (print_smaller_k),
   A7=B7=C9 (heap to AVL), A12=C3 (two algorithms, same wording; B swaps first/second).
 Run: PYTHONUTF8=1 py tools/gen/gen_24S-A.py"""
@@ -149,6 +151,21 @@ def rec(head, tail, opts, key):
     return head + "\n\n" + tail, opts, key
 
 
+SOL13 = r"""**המבנה:** שני עצי AVL.
+1. $T$: עץ AVL של המספרים שבמבנה.
+2. $P$: עץ AVL של **סכומי הזוגות**: לכל ערך $s$ שהוא סכום של שני מספרים שונים במבנה, צומת אחד עם המפתח $s$ ועם זוג "עד" $(a, b)$ כך ש-$a + b = s$.
+
+ב-$P$ יש לכל היותר $\binom{n}{2} < n^2$ צמתים, ולכן גובהו $O(\log n^2) = O(2\log n) = O(\log n)$.
+
+- `Search(k)`: חיפוש רגיל של $k$ ב-$T$. $O(\log n)$.
+- `Insert(k)`: מחפשים את $k$ ב-$T$; אם קיים, לא עושים דבר. אחרת, סורקים את $T$ (סריקת inorder, $O(n)$), ולכל מספר $y$ בו מחפשים את $k + y$ ב-$P$; אם אינו קיים, מכניסים ל-$P$ את המפתח $k + y$ עם העד $(k, y)$. לבסוף מכניסים את $k$ ל-$T$. יש $n$ חיפושים והכנסות ל-$P$, כל אחד $O(\log n)$, ולכן סה"כ $O(n \log n)$.
+- `Sum(x)`: מחפשים את $x$ ב-$P$. אם נמצא, מחזירים את זוג העד שלו; אחרת מחזירים שלא קיים זוג. $O(\log n)$.
+
+**נכונות:** שמורה: לכל שני מספרים שונים $a, b$ במבנה, הסכום $a + b$ נמצא ב-$P$ עם עד תקין. הזוג מתווסף בדיוק כשהשני מביניהם מוכנס (אז הראשון כבר ב-$T$ ונסרק). אין מחיקות, ולכן עד שנשמר נשאר תקין. מכאן ש-`Sum(x)` מוצא את $x$ ב-$P$ אם ורק אם יש זוג שסכומו $x$.
+
+(המגבלה $O(n \log n)$ על `Insert` היא שמאפשרת לעדכן מראש את כל הסכומים החדשים, וכך `Sum` הוא חיפוש יחיד.)"""
+
+
 questions = [
     # ================= form A (printed numbers 1-12) =================
     M(1, "linear_ds", LL_Q, LL_OPTS, LL_OPTS[2], contextId="c1"),
@@ -208,7 +225,9 @@ questions = [
       hf(13, S9P1, 13)),
 
     # ================= open question 13 (identical on all forms; the booklet prints no solution) =================
-    {"num": 13, "kind": "algorithm", "topic": "ds_design", "points": 25, "hold": "no-key",
+    {"num": 13, "kind": "algorithm", "topic": "ds_design", "points": 25,
+     "solutionSource": "solved", "official": False, "confidence": "high",
+     "solution": SOL13,
      "question": r"""עליכם לממש מבנה נתונים התומך בפעולות הבאות על מספרים בסיבוכיות הזמן הנדרשת.
 תארו תחילה מה כולל מבנה הנתונים שלכם, ואח"כ הסבירו כיצד תתבצע כל אחת מהפעולות (שימו לב, $n$ מציין את מספר הנתונים במבנה).
 

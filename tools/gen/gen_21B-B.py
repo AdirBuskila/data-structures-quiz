@@ -2,8 +2,9 @@
 """Generator for tools/raw/21B-B.json -- data-structures, spring semester 2021 (moed B).
 Source: a 4-page file that holds the exam statement with the official solution typed in red under each question.
 No separate exam-only file exists. Points per question/part are not printed in the file.
-Caveats (official text kept as printed, not fixed):
-- Q4b: the printed solution ends with "log(2n-1)=Theta(n)" (should read Theta(log n)); the conclusion is the intended one.
+Caveats:
+- Q4b: the printed solution ends with "log(2n-1)=Theta(n)"; shipped with the "official solution with a fix" label as
+  Theta(log n) (solved, official false; log2(2n-1)/log2(n) -> 1 checked in tools/verify/21B-B/solve_21B-B_Q4b.py).
 - Q3b: the solution has the typos "עת" (for "עץ") and "בך" (for "סך"); kept.
 Run: PYTHONUTF8=1 py tools/gen/gen_21B-B.py"""
 import json, pathlib
@@ -119,14 +120,16 @@ $\forall n>2:\ T(n)=2\cdot T(n/2)+O(1)$""",
       r"""הוכח שהחסם התחתון לאלגוריתם חיפוש איבר (המבוסס השוואות) מתוך $n$ נתונים הטוב ביותר הוא בסיבוכיות $\Omega(\log n)$ במקרה הגרוע.
 
 רמז: העזר בעץ החלטות המתאר אלגוריתם חיפוש, בדומה להוכחה שהצגנו שחסם תחתון לאלגוריתם מיון מבוסס השוואות הטוב ביותר על $n$ נתונים הוא $\Omega(n\cdot\log n)$.""",
-      r"""בבעיית החיפוש, הקלט הוא מערך והפלט הוא האינדקס בו נמצא המערך.
+      r"""**הפתרון הרשמי עם תיקון:** בשורה האחרונה של הפתרון הרשמי כתוב $\log(2n-1)=\Theta(n)$; התיקון: $\log(2n-1)=\Theta(\log n)$.
+
+בבעיית החיפוש, הקלט הוא מערך והפלט הוא האינדקס בו נמצא המערך.
 
 עץ החלטה המתאר את הבעיה יכיל $n$ עלים שהם האינדקסים השונים האפשריים שהאלגוריתמים יחזיר במציאת האיבר.
 
 מסלול בעץ מתאר את מספר השאלות שהאלגוריתם ביצע למציאת האיבר ולכן לקבלת אלגוריתם שזמן ריצתו אופטימלי במקרה הגרוע נרצה עץ נמוך ככל הניתן, ז"א, עץ שלם או כמעט שלם.
 
-גובה העץ שלם או כמעט שלם הוא $\log$ כמות האיברים. מדובר בעץ מלא, לפי משפט שלמדנו כמות האיברים (כיוון שיש $n$ עלים): $2n-1$ ולכן גובה העץ $\log(2n-1)=\Theta(n)$""",
-      part="ב"),
+גובה העץ שלם או כמעט שלם הוא $\log$ כמות האיברים. מדובר בעץ מלא, לפי משפט שלמדנו כמות האיברים (כיוון שיש $n$ עלים): $2n-1$ ולכן גובה העץ $\log(2n-1)=\Theta(\log n)$""",
+      part="ב", solutionSource="solved", official=False),
 ]
 
 exam = {

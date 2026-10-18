@@ -6,7 +6,8 @@ order or the distractors differ) is kept once, from the first form that has it. 
 (other hash function, other sequence, other recurrence...) are different questions and all kept.
 Keys = the highlighted option on the form pages (read from the PDF fill rectangles and checked by eye), checked by
 simulation in tools/verify/24B-A/verify.py (which imports the parameter tables below).
-No official solution exists for Q13 (the answer box is blank in every form): held.
+No official solution exists for Q13 (the answer box is blank in every form): solved by the solver (solutionSource solved,
+official false), checked by tools/verify/24B-A/solve_24B-A_Q13.py.
 Run: PYTHONUTF8=1 py tools/gen/gen_24B-A.py"""
 import json, pathlib
 
@@ -265,7 +266,7 @@ mcq("trees_induction", "מה כמות הקודקודים המינימלית בע
 mcq("trees_induction", "מה כמות העלים המקסימלית בעץ מלא בגובה $h$ ?",
     ["$2^h$", "$2h+1$", "$2(h+1)$", "$2h$"], 0)
 
-# ---------------------------------------------------------------- Q13 on the forms = num 100 here (open, held: no official solution anywhere in the PDF)
+# ---------------------------------------------------------------- Q13 on the forms = num 100 here (open, no official solution anywhere in the PDF: solved by the solver)
 questions.append({
     "num": 100, "kind": "algorithm", "topic": "ds_design", "points": 25,
     "question": r"""עליכם לממש מבנה נתונים התומך בפעולות הבאות על מספרים בסיבוכיות הזמן הנדרשת.
@@ -276,7 +277,17 @@ questions.append({
 - `Insert(k)` – הכנסת המפתח $k$ למבנה, אם אינו קיים כבר במבנה (במקרה ש-$k$ נמצא במבנה, הפעולה לא תשנה את המבנה). סיבוכיות הזמן הנדרשת: $O(\log n)$.
 - `Delete(x)` – מחיקת האיבר עליו מצביע $x$ מהמבנה. סיבוכיות הזמן הנדרשת: $O(\log n)$.
 - `Add(d)` – הוספת הערך $d$ לכל המפתחות הנמצאים במבנה. סיבוכיות הזמן הנדרשת: $O(1)$.""",
-    "hold": "no-key"})
+    "solution": r"""**המבנה:** עץ AVL ומשתנה גלובלי $D$ (בהתחלה $D = 0$). בכל צומת שמור מפתח "מוקטן" $k' = k - D$, כאשר $D$ הוא ערך $D$ הנוכחי ברגע השמירה. **המפתח האמיתי** של צומת הוא תמיד $k' + D$ עם $D$ העכשווי.
+
+הוספת קבוע לכל המפתחות לא משנה את הסדר ביניהם, ולכן העץ ממשיך להיות עץ חיפוש תקין לפי המפתחות האמיתיים.
+
+- `Add(d)`: מבצעים $D = D + d$. כל המפתחות האמיתיים גדלים ב-$d$ בלי לגעת בעץ. $O(1)$.
+- `Search(k)`: מחפשים בעץ את המפתח השמור $k - D$ (חיפוש רגיל בעץ AVL). $O(\log n)$.
+- `Insert(k)`: מחפשים את $k - D$; אם הוא קיים לא עושים דבר, אחרת מכניסים לעץ AVL צומת עם המפתח השמור $k - D$ (כולל גלגולים). $O(\log n)$.
+- `Delete(x)`: מוחקים מעץ ה-AVL את הצומת ש-$x$ מצביע עליו, מחיקה רגילה (כולל החלפה בעוקב וגלגולים בדרך לשורש). $D$ לא משתנה. $O(\log n)$.
+
+כל הפעולות עומדות בדרישות כי גובה עץ AVL הוא $O(\log n)$.""",
+    "solutionSource": "solved", "official": False, "confidence": "high"})
 
 exam = {
     "examCode": "24B-A",
@@ -291,4 +302,4 @@ exam = {
 if __name__ == "__main__":
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(exam, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print(f"wrote {OUT.name}: {len(questions)} items ({len(questions) - 1} mcq + 1 held)")
+    print(f"wrote {OUT.name}: {len(questions)} items ({len(questions) - 1} mcq + 1 open)")

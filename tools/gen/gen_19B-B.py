@@ -3,7 +3,7 @@
 Official solution = yellow highlights in the "+ solution" booklet. Rubric and steps are left to the step-author phase.
 Checked by tools/verify/19B-B/verify.py: Q1b recurrence (children mass 1), Q2 (height 4 needs 16 nodes), Q6 hashing table
 with F(i)=i*i, the insertion orders and the search after deletion (4 cells with a deletion marker, 3 without).
-Held: Q1a (official solution is only 'see the first presentation').
+Q1a: the official solution is only "see the first presentation": solved by the solver (solutionSource solved, official false).
 Run: PYTHONUTF8=1 py tools/gen/gen_19B-B.py"""
 import json, pathlib
 
@@ -59,7 +59,15 @@ questions = [
     # ---------------- Question 1 (15) ----------------
     {"num": 1, "part": "א", "kind": "proof", "topic": "complexity", "points": 5,
      "question": r"""הוכח או הפרך: לכל שתי פונקציות $f(n),g(n)$ מתקיים: $f(n)=O(g(n))$ או $g(n)=O(f(n))$.""",
-     "hold": "no-key: the official solution is only 'see the first presentation', no answer given"},
+     "solutionSource": "solved", "official": False, "confidence": "high",
+     "solution": r"""הטענה לא נכונה. דוגמה נגדית:
+
+$$f(n) = \begin{cases} n & n \text{ even} \\ 1 & n \text{ odd} \end{cases} \qquad g(n) = \begin{cases} 1 & n \text{ even} \\ n & n \text{ odd} \end{cases}$$
+
+- $f(n) \ne O(g(n))$: אילו היו $c, n_0$ כך ש-$f(n) \le c \cdot g(n)$ לכל $n \ge n_0$, אז לכל $n$ זוגי $n \ge n_0$ היה $n \le c$, וזה לא נכון כש-$n > c$.
+- $g(n) \ne O(f(n))$: באותו אופן על $n$ אי-זוגי, שם $g(n) = n$ ו-$f(n) = 1$.
+
+לכן אף אחד מהשניים אינו מתקיים, והטענה מופרכת. (שתי הפונקציות חיוביות; הבעיה היא שהן "מתחלפות" במי שגדולה יותר.)"""},
     {"num": 1, "part": "ב", "kind": "mcq", "topic": "recurrences", "points": 10,
      "question": r"""נתונה נוסחת הנסיגה:
 

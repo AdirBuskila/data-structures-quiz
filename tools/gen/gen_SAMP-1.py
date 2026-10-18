@@ -2,8 +2,11 @@
 """Generator for tools/raw/SAMP-1.json -- data-structures, 2021 sample exam with the lecturer solution.
 The official solution is typed in red inside the exam text. Rubric and steps are left to the step-author phase.
 Checked by tools/verify/SAMP-1/verify.py: Q1b counterexample, Q1e BST shape, Q1f exponent counterexample, Q2a indexes,
-Q2b/Q2c probe sequences (Q2c: the official verdict is contradicted by the script, so Q2c is held).
-Q3b has only a video pointer as its official solution, so it is held (no-key).
+Q2b/Q2c probe sequences.
+Q2c: the official verdict ("true") is contradicted by the script and by 19B-A Q6 part 3 (same statement, keyed "false"):
+  shipped as "false" with the "official solution with a fix" label, solutionSource solved, official false.
+Q3b has only a video pointer as its official solution: solved (CLRS heapsort decision tree), solutionSource solved,
+  official false; checked by tools/verify/SAMP-1/solve_SAMP-1.py.
 Run: PYTHONUTF8=1 py tools/gen/gen_SAMP-1.py"""
 import json, pathlib
 
@@ -103,7 +106,23 @@ $50, 4, 48, 6, 87, 29, 81, 56, 11$
       part="ב", contextId="c2"),
     {"num": 2, "part": "ג", "kind": "proof", "topic": "hashing", "contextId": "c2",
      "question": r"""הוכח או הפרך: לכל פונקציית גיבוב $\text{hash}(k)$ כאשר בטבלה $T_2$ יש בדיוק $6$ מפתחות אזי קיימת אפשרות להכנסת מפתח חדש לטבלה $T_2$ תוך $7$ ניסיונות לכל היותר.""",
-     "hold": "official key contradicted by script: the 7 quadratic probes i=0..6 cover only 5 distinct cells (offsets 0,6,1,11,10,11,1), so 6 keys can block them; official says true"},
+     "solutionSource": "solved", "official": False, "confidence": "high",
+     "solution": r"""**הפתרון הרשמי עם תיקון:** בפתרון הרשמי של מבחן הדוגמה הטענה מסומנת "נכון". התיקון: הטענה **לא נכונה** (כך גם בפתרון הרשמי של אותה טענה במבחן 19B-A). ההסבר הרשמי מניח ש-$7$ ניסיונות ההכנסה עוברים ב-$7$ תאים שונים, וזה לא נכון בגיבוב הריבועי הזה.
+
+התזוזות של $h_2$ מהתא $\text{hash}(k)$ בניסיונות $i = 0, 1, \ldots, 6$ הן $(i^2 + 5i) \bmod 13$:
+$$0,\ 6,\ 14 \equiv 1,\ 24 \equiv 11,\ 36 \equiv 10,\ 50 \equiv 11,\ 66 \equiv 1$$
+כלומר $7$ הניסיונות הראשונים מבקרים רק ב-$5$ תאים שונים. $6$ מפתחות יכולים לתפוס את כל $5$ התאים האלה, ואז מפתח חדש עם אותו ערך $\text{hash}$ לא ייכנס ב-$7$ ניסיונות.
+
+**דוגמה נגדית:** $\text{hash}(k) = k \bmod 13$. מכניסים לפי הסדר $0, 13, 26, 39, 52, 2$:
+- $0$ לתא $0$; $13$ לתא $6$ ($i=1$); $26$ לתא $1$ ($i=2$); $39$ לתא $11$ ($i=3$); $52$ לתא $10$ ($i=4$); $2$ לתא $2$.
+
+| ערך | 0 | 26 | 2 |  |  |  | 13 |  |  |  | 52 | 39 |  |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| אינדקס | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+
+בטבלה $6$ מפתחות. מכניסים $65$: $\text{hash}(65) = 0$, וניסיונות $i = 0, \ldots, 6$ פוגעים בתאים $0, 6, 1, 11, 10, 11, 1$, כולם תפוסים. $7$ ניסיונות אינם מספיקים (התא הפנוי הראשון, $9$, מתקבל רק בניסיון העשירי, $i = 9$).
+
+(גם עם $\text{hash}$ קבוע, כשכל המפתחות מגובבים לאותו תא, המפתח השביעי נכנס רק בניסיון ה-$11$.)"""},
 
     # ---------------- Question 3 ----------------
     Q(3, "algorithm", "ds_design",
@@ -124,7 +143,26 @@ Else find_miss(A,i,middle-1,B,k,middle-1)
       part="א", confidence="med"),
     {"num": 3, "part": "ב", "kind": "computation", "topic": "sorting_selection",
      "question": r"""צייר את עץ ההחלטה של מיון ערימה עבור שלושה איברים.""",
-     "hold": "no-key: the official solution is only a pointer to a video (sorting video, solution shortly after minute 6), no drawn tree"},
+     "solutionSource": "solved", "official": False, "confidence": "high",
+     "solution": r"""נריץ את מיון הערימה הרגיל (ערימת מקסימום) על המערך $[a, b, c]$:
+- `BUILD-MAX-HEAP`: `MAX-HEAPIFY` על השורש: משווים את הבן השמאלי לשורש ($b > a$?), ואז את הבן הימני לגדול מביניהם.
+- מחליפים את השורש (המקסימום) עם התא האחרון, ו-`MAX-HEAPIFY` על שני האיברים שנותרו: השוואה אחת.
+
+בכל מסלול יש בדיוק $3$ השוואות. בכל צומת השאלה $x > y$?, הענף השמאלי "כן" והימני "לא". בעלה רשום הסדר הממוין.
+
+```
+                                 b > a ?
+                  yes /                          \ no
+               c > b ?                           c > a ?
+          yes /      \ no                   yes /      \ no
+         b > a ?      a > c ?               b > a ?      b > c ?
+     yes /   \ no   yes /   \ no          yes /  \ no  yes /   \ no
+    a<b<c    (X)    c<a<b    a<c<b        (X)   b<a<c  c<b<a    b<c<a
+```
+
+$(X)$ מסמן ענף שלא יכול לקרות: בשני המקרים האלה מיון הערימה משווה שוב את $a$ ו-$b$ אחרי שהשוואה זו כבר נעשתה בשורש (התשובה ידועה), ולכן רק ענף אחד אפשרי.
+
+בעץ $6$ עלים אפשריים, אחד לכל אחת מ-$3! = 6$ התמורות, וגובהו $3$."""},
     Q(3, "proof", "sorting_selection",
       r"""זרובבל טוען שכיוון שקיים אלגוריתם לינארי היכול להפוך מערך לערימה, בעץ ההחלטה של מיון ערימה ל-$n$ מפתחות נקבל שגובה העץ הוא $O(n)$.
 

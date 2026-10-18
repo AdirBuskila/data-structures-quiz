@@ -25,7 +25,8 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: p.6-7 of form 1 (and the equivalent Q13 page of each form)
 - Question: the 25-pt open question (Search/Insert/Delete in O(log n), Add(d) in O(1)) has no key anywhere in the PDF.
 - Needed: route to the solver (no-key).
-- Status: hold
+- Solver (2026-10-18): solved (AVL with a global offset D), solutionSource solved, official false; checked by tools/verify/24B-A/solve_24B-A_Q13.py.
+- Status: resolved
 
 ### 24B-B forms 2-4 - stale cover and a double-highlighted key
 - Path: sitting 24B-B, forms 2-4 (cover pages)
@@ -39,7 +40,8 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: Q13 pages (p.7, p.20, p.33); form B Q5 (p.16)
 - Question: Q13 (Search / Insert / Sum) has no printed solution on any form (answer box blank). Its table prints Insert as O(n log n) while Search and Sum are O(log n), which may be a typo for O(log n); transcribed as printed. Form B Q5 prints the preorder as "...,45,100.105" (period instead of comma); transcribed as 100,105.
 - Needed: route Q13 to the solver (no-key); confirm the Insert bound and the form B sequence.
-- Status: hold (Q13); flagged
+- Solver (2026-10-18): Q13 solved with Insert O(n log n) as printed (a second AVL of pair sums; that budget is what makes Sum O(log n) possible), solutionSource solved, official false; tools/verify/24S-A/solve_24S-A_Q13.py. If the bound was meant to be O(log n), the solution must change.
+- Status: flagged (Q13 solved)
 
 ### 25A-A - student paper: partly unreadable handwriting
 - Path: sitting 25A-A (graded student paper, scan)
@@ -67,7 +69,8 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: 22B-B p.2-9 (every answer box empty); 22S-C p.2-10
 - Question: the format triage lists an official solution for 22B-B, but both 22B-B files are the bare exam booklet with blank answer boxes. 22S-C was already known to have no key. All 9 items of 22B-B and all 11 of 22S-C are held.
 - Needed: route both sittings to the solver (no-key), or supply a key for 22B-B if one exists elsewhere.
-- Status: open
+- Solver (2026-10-18): all 9 items of 22B-B and 10 of 11 items of 22S-C solved (solutionSource solved, official false), checked by tools/verify/22B-B/solve_22B-B.py and tools/verify/22S-C/solve_22S-C.py.
+- Status: resolved except 22S-C Q3b (see its entry)
 
 ### 22S-B Q3b - official answer has no complexity analysis
 - Path: sitting 22S-B, solution box
@@ -88,14 +91,16 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: p.4 (Q2 part c)
 - Question: official says "true" (a new key can always be inserted into T2 within 7 attempts with 6 keys). The quadratic probes i=0..6 of h2 give offsets 0,6,1,11,10,11,1, only 5 distinct cells, so 6 keys can block all 7 attempts. Sitting 19B-A Q6 part 3 (same statement) has the official key "false" with an example table. Held, not fixed.
 - Needed: decide whether to ship with the verdict "false" (as in 19B-A) or leave held.
-- Status: open
+- Solver (2026-10-18): arbiter ruling: the official "true" is wrong. The 7 probes hit only 5 cells; counterexample hash(k)=k mod 13, keys 0,13,26,39,52,2, then 65 needs 10 probes; matches the official "false" of 19B-A Q6 part 3. Shipped as "false" with the "הפתרון הרשמי עם תיקון" label, solutionSource solved, official false (tools/verify/SAMP-1/solve_SAMP-1.py).
+- Status: resolved (flagged)
 
 ### SAMP-1 Q3b - no solution (held)
 - Path: sitting SAMP-1, solution booklet
 - Page: p.4 (Q3 part b)
 - Question: decision tree of heap sort for 3 elements; the official solution is only a video link, no tree drawn. 19B-A Q4b has a drawn tree for the same question.
 - Needed: route to the solver, or reuse the 19B-A Q4b figure.
-- Status: open
+- Solver (2026-10-18): solved: decision tree of CLRS heapsort (max-heap) on [a,b,c], 3 comparisons per path, 6 reachable leaves and 2 impossible branches (repeated a-b comparison); traced for all 6 orders in tools/verify/SAMP-1/solve_SAMP-1.py.
+- Status: resolved
 
 ### SAMP-1 Q1a - comparison count depends on the model (flagged)
 - Path: sitting SAMP-1, solution booklet
@@ -109,13 +114,35 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: p.1 (Q1 part a)
 - Question: prove or disprove "for any f, g: f=O(g) or g=O(f)"; the official answer is only "see the first presentation".
 - Needed: route to the solver.
-- Status: open
+- Solver (2026-10-18): solved: false, counterexample f=n on even / 1 on odd and g the other way round.
+- Status: resolved
 
 ### 19B-A Q4b - official decision tree has 5 leaves
 - Path: sitting 19B-A, solution booklet
 - Page: p.7 (Q4 part 2)
 - Question: the official figure for 3 elements shows 5 leaves, while 3 elements have 6 orders. Shipped as the official figure, confidence med.
 - Needed: none unless you want it redrawn.
+- Status: flagged
+
+### 22S-C Q3b - printed WHAT code never terminates (held)
+- Path: sitting 22S-C, exam booklet
+- Page: p.8 (Q3 part b)
+- Question: WHAT(A[i..j]) recurses on A[i..(i+j)/4] and A[(i+j)/4+1..j]. Read literally, for i>1 the split (i+j)/4 can be below i, so the second call repeats a range (WHAT(A[3..8]) calls WHAT(A[3..8]) again) and WHAT(A[1..n]) never ends for any n>=8 (tools/verify/22S-C/solve_22S-C.py). The intended split is probably a quarter of the subarray, giving T(n)=T(n/4)+T(3n/4)+n = Theta(n log n).
+- Needed: confirm the intended reading; then it can ship as solved with that note.
+- Status: hold
+
+### 22B-A Q2 - official algorithm: slips fixed silently, plus a final-answer fix (labelled)
+- Path: sitting 22B-A, official solution file
+- Page: Q2 answer (linear and O(n log n) versions)
+- Question: intermediate slips fixed silently: the first test used C1 for the count of X (C), C2 counted Y instead of Z, "למשתמש" for "למשתנה". Also, the last test had no Y != X / Z != X condition, so for A=[1x7, 2x3] it returns true with no second fruit above 33% (tools/verify/22B-A/solve_22B-A_Q2.py). That condition was added with the "הפתרון הרשמי עם תיקון" label (solved, official false). The hash version keeps its text with a visible note (thresholds should be > n/2 and > n/3).
+- Needed: none unless you disagree with the added condition.
+- Status: flagged
+
+### 21B-B Q4b - final line Theta(n) corrected to Theta(log n) (labelled)
+- Path: sitting 21B-B, solution file
+- Page: Q4 part b
+- Question: the official text ends "log(2n-1)=Theta(n)". Shipped with the "הפתרון הרשמי עם תיקון" label as Theta(log n), solved, official false.
+- Needed: none
 - Status: flagged
 
 ## Resolved
