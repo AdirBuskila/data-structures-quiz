@@ -1893,7 +1893,7 @@
      "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לעדכן את כל הצמתים ב-`Add`: זה $O(n)$ ולא $O(1)$.",
     "לשמור בצומת את $k+D$ במקום $k-D$, ואז החיפוש מפספס מפתחות שהוכנסו.",
@@ -1964,7 +1964,7 @@
      "explain": "המפתח האמיתי הוא $k'+D$, ולכן $k'=k-D$. עם $D=3$ ו-`Insert(10)` נשמר $13$ וחיפוש $10$ מחפש את $7$ ולא מוצא (נבדק)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

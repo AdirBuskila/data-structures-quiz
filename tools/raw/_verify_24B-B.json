@@ -1,0 +1,68 @@
+{
+ "examCode": "24B-B",
+ "refuter": "data-structures refuter",
+ "answers": {
+  "100": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own derivation: min-heap with swap-with-last then up+down, or AVL with min pointer. Simulated 20000 random heap deletions. Rubric 5+8+5+4+3=25. Transcription matches page 6 and official solution text."
+  }
+ },
+ "items": {
+  "100": {
+   "solution": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a (never both up and down; 0 of 20000 cases, up-only and down-only each leave bad heaps)",
+    "2": "agree: numeric 4 ([1,4,2,10,12,3])",
+    "3": "agree: text O(log n)",
+    "4": "agree: choice a (leftmost descent; balanced 7-key tree root 5, min after delete 3)"
+   },
+   "firstDivergence": null
+  }
+ },
+ "mcqSpotCheck": {
+  "3": {
+   "answer": "d",
+   "verdict": "agree"
+  },
+  "5": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "7": {
+   "answer": "a",
+   "verdict": "agree"
+  },
+  "10": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "12": {
+   "answer": "d",
+   "verdict": "agree"
+  },
+  "15": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "18": {
+   "answer": "a",
+   "verdict": "agree"
+  },
+  "23": {
+   "answer": "b",
+   "verdict": "agree"
+  },
+  "26": {
+   "answer": "d",
+   "verdict": "agree"
+  },
+  "31": {
+   "answer": "d",
+   "verdict": "agree"
+  }
+ }
+}

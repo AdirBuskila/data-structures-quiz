@@ -1,0 +1,69 @@
+{
+ "examCode": "24B-A",
+ "refuter": "data-structures refuter",
+ "answers": {
+  "100": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own derivation: AVL keyed on k-D with global offset D; Add is D+=d; Search/Insert use k-D; Delete(x) ordinary AVL delete. Python offset-BST vs brute-force set: 300 random runs, no mismatch. Rubric 6+5+4+5+5=25. Transcription matches page 6."
+  }
+ },
+ "items": {
+  "100": {
+   "solution": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a",
+    "2": "agree: numeric 13",
+    "3": "agree: numeric 10",
+    "4": "agree: order 0,1,2",
+    "5": "agree: findbug 0"
+   },
+   "firstDivergence": null
+  }
+ },
+ "mcqSpotCheck": {
+  "12": {
+   "answer": "b",
+   "verdict": "agree"
+  },
+  "13": {
+   "answer": "b",
+   "verdict": "agree"
+  },
+  "29": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "30": {
+   "answer": "b",
+   "verdict": "agree"
+  },
+  "33": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "36": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "38": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "50": {
+   "answer": "b",
+   "verdict": "agree"
+  },
+  "51": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "56": {
+   "answer": "a",
+   "verdict": "agree"
+  }
+ }
+}

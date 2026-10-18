@@ -1,0 +1,68 @@
+{
+ "examCode": "24S-A",
+ "refuter": "data-structures refuter",
+ "answers": {
+  "13": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own derivation: AVL T of keys plus AVL P of distinct pair sums with a witness pair; Insert scans T then inserts k+y when absent, then adds k to T; Sum is one search in P; |P|<n^2 so height O(log n). Python simulation vs brute force over 500 random runs and all x in [-30,90): no mismatch, witnesses always distinct elements. Rubric 6+3+2+7+4+3=25. Transcription matches page 7 (Insert O(n log n) is as printed)."
+  }
+ },
+ "items": {
+  "13": {
+   "solution": "agree",
+   "rubric": "agree",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: numeric 45 (C(10,2); 10 powers of 2 reach 45)",
+    "2": "agree: numeric 5 (P={3,4,5,6,7})",
+    "3": "agree: text O(n log n)",
+    "4": "agree: order 0,1,2 (wrong order records 2:(1,1), confirmed)"
+   },
+   "firstDivergence": null
+  }
+ },
+ "mcqSpotCheck": {
+  "1": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "2": {
+   "answer": "a",
+   "verdict": "agree"
+  },
+  "6": {
+   "answer": "b",
+   "verdict": "agree"
+  },
+  "21": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "25": {
+   "answer": "b",
+   "verdict": "agree"
+  },
+  "29": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "32": {
+   "answer": "d",
+   "verdict": "agree"
+  },
+  "41": {
+   "answer": "a",
+   "verdict": "agree"
+  },
+  "50": {
+   "answer": "c",
+   "verdict": "agree"
+  },
+  "52": {
+   "answer": "a",
+   "verdict": "agree"
+  }
+ }
+}
