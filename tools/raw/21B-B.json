@@ -1,0 +1,175 @@
+{
+ "examCode": "21B-B",
+ "examLabel": "מבני נתונים, סמסטר ב תשפ\"א, מועד ב",
+ "year": 2021,
+ "examDate": "2021",
+ "sourceFile": "ds-2021-spring-B-exam-and-solution",
+ "solutionFile": "ds-2021-spring-B-exam-and-solution",
+ "contexts": {
+  "c1": {
+   "kind": "text",
+   "title": "הוראות שאלה 1",
+   "text": "ציין לכל אחת מהטענות הבאות נכון או לא נכון. נמק תשובתך."
+  },
+  "c2": {
+   "kind": "code",
+   "title": "הפונקציה MM (שאלה 2)",
+   "code": "MM(A,i,j)\n    if j=i+1 then\n        if A[i]>A[j] then return (A[j],A[i])\n        else return (A[i],A[j])\n    else\n        k=floor((i+j)/2)\n        (m1,M1)=MM(i,k)\n        (m2,M2)=MM(k+1,j)\n        Return (min(m1,m2), max(M1,M2))"
+  },
+  "c3": {
+   "kind": "image",
+   "title": "גלגולים בעצי AVL ועצי פיבונאצ'י (שאלה 3)",
+   "image": "images/exams/21B-B-c2.png",
+   "caption": "גלגולים בעצי AVL (אפשרות 1 ואפשרות 2) והגדרת עצי פיבונאצ'י"
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "avl",
+   "question": "ניתן לשפר את אלגוריתמים פעולת ההכנסה לעצי AVL הרץ בזמן $O(\\log\\log n)$.",
+   "solution": "לא נכון.\n\nנניח בשלילה כי ניתן ואז קל להראות שניתן למיין מיון מבוסס השוואות בפחות מסדר $n\\log n$ פעולות. (בהינתן רשימת מספרים, הכנס לעץ AVL עם הפעולה החדשה. סרוק בסריקת `INORDER` וקיבלנו מיון מבוסס השוואות בזמן חסום של $n\\log\\log n$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "verdict": false,
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "heaps",
+   "question": "קיימת ערימת מקסימום בת $n$ איברים שבה פעולת `Delete_Max` דורשת $\\Omega(\\log n)$ פעולות. שימו לב, הטיעון הוא על $n$ כלשהו.",
+   "solution": "נכון.\n\nלמשל ערימת מקסימום של האיברים מ-$1$ עד $n$ ממויינים בסדר הפוך",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "verdict": true,
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "complexity",
+   "question": "$2^n=\\Theta\\left(2^{\\frac{n}{3}}\\right)$",
+   "solution": "לא נכון.\n\nלפי ההגדרה גבול המנה של שני הפונקציות צריך להיות קבוע חיובי אך זה אינו המצב",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ג",
+   "verdict": false,
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "linear_ds",
+   "question": "ברשימה מקושרת חד-כיוונית בת $n$ צמתים. יעילות מחיקה של צומת כלשהו במקרה הממוצע הוא $\\Theta(\\log n)$.",
+   "solution": "לא נכון.\n\nבמסגרת ההרצאה ראינו כי העלות במקרה זה הוא סדר גודל לינארי",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ד",
+   "verdict": false,
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "hashing",
+   "question": "נתונה טבלת `hash` בגודל $m=20$ אשר פועלת בשיטת הגיבוב הכפול. עבור מפתח כלשהו $k$, אם $h_2(k)=9$ אזי מובטח שסדרת הבדיקות אחר תא פנוי עבור $k$ תהווה תמורה של $\\{1,\\ldots,20\\}$.",
+   "solution": "נכון.\n\nכפי שהראנו בהרצאה, כיוון של-$20$ ולמספר $9$ אין מחלק משותף אז התכונה מובטחת.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ה",
+   "verdict": true,
+   "contextId": "c1"
+  },
+  {
+   "num": 1,
+   "kind": "truefalse",
+   "topic": "heaps",
+   "question": "אם $A$ מערך שהוא ערימת מינימום אז הגדלת האיבר $A[0]$ בהכרח תגרום ל-$A$ לא להיות ערימה.",
+   "solution": "לא נכון.\n\nלמשל, עבור ערימת מינימום המיוצגת במערך $A$ עם $n$ נתונים, הגדלת האיבר $A[0]$ כך שערכו יהיה קטן מ-$A[1]$ ו-$A[2]$ תשאיר את המערך ערימת מינימום",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ו",
+   "verdict": false,
+   "contextId": "c1"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "recurrences",
+   "question": "נתון מערך $A$ עם $n>1$ מספרים ונתונה הפונקציה `MM` המקבלת כקלט את תת המערך $A$ מאינדקס $i$ עד אינדקס $j$. הנח כי $i<j$.\n\nהמערך הנתון עבור סעיף א:\n\n$A[1]=3,\\ A[2]=2,\\ A[3]=1,\\ A[4]=9$\n\nכתוב מה מחזירה הפונקציה `MM(A,1,4)` עבור המערך $A$ המצורף, נמק בקצרה.",
+   "solution": "תחזיר את הערך $1$ ו-$9$. ניתן לנמק על ידי טבלת מעקב.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "recurrences",
+   "question": "נגדיר את $T(n)$ להיות מספר ההשוואות בהרצת `MM` על מערך בגודל $n$. הגדר את הפונקציה $T$ באופן רקורסיבי.",
+   "solution": "$T(2)=O(1)$\n\n$\\forall n>2:\\ T(n)=2\\cdot T(n/2)+O(1)$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "contextId": "c2"
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "avl",
+   "question": "מה מספר הגלגולים שיתרחשו בהוצאת המינימום מעץ AVL שהוא גם עץ פיבונאצ'י $F_{10}$? נמק תשובתך.",
+   "solution": "אורך המסלול השמאלי ביותר הוא $5$, מאופן המבנה לאורך כל העלייה במסלול מהעלה לשורש יתבצע גלגול (כי גורם האיזון בכל המסלול השמאלי הוא $-1$) ולכן סה\"כ $5$ גלגולים",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "contextId": "c3"
+  },
+  {
+   "num": 3,
+   "kind": "proof",
+   "topic": "trees_induction",
+   "question": "הוכח **באינדוקציה על מבנה העץ** שלעץ בינארי מלא תמיד מספר הקודקודים אי-זוגי.",
+   "solution": "בסיס האינדוקציה: עבור עץ בגובה $0$, יש רק קודקוד בודד ולכן הטענה מתקיימת.\n\nצעד האינדוקציה: נניח נכונות לכל עץ שגובהו קטן מ-$h$ ונוכיח עבור עת בגובה $h$.\n\nיהי $T$ עץ מלא בגובה $h>0$. כיוון ש-$T$ עץ מלא אזי לעץ שני תתי עצים לא ריקים שגובהם קטן מ-$h$.\n\nלפי הנחת האינדוקציה, בכל תת עץ מספר הקודקודים הוא אי זוגי. ולכן בך הקודקודים בעץ הוא סכום הקודקודים בכל תת עץ + $1$ עבור השורש, ז\"א, אי זוגי + אי זוגי + $1$ = אי זוגי.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב"
+  },
+  {
+   "num": 4,
+   "kind": "algorithm",
+   "topic": "heaps",
+   "question": "יהי $A$ ו-$B$ ערימות בגודל $n$ הצג את האלגוריתם הטוב ביותר ליצירת ערימה בגודל $2n$ המכילה את ערכי $A$ ו-$B$.",
+   "solution": "- הגדר מערך $C$ בגודל $2n$\n- העתק את ערכי המערך $A$ למערך $C$ ולאחריהם את ערכי המערך $B$.\n- הפעל על מערך $C$ את האלגוריתם להפיכת מערך לערימה (הצגנו את האלג' במסגרת ההרצאה).",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א"
+  },
+  {
+   "num": 4,
+   "kind": "proof",
+   "topic": "sorting_selection",
+   "question": "הוכח שהחסם התחתון לאלגוריתם חיפוש איבר (המבוסס השוואות) מתוך $n$ נתונים הטוב ביותר הוא בסיבוכיות $\\Omega(\\log n)$ במקרה הגרוע.\n\nרמז: העזר בעץ החלטות המתאר אלגוריתם חיפוש, בדומה להוכחה שהצגנו שחסם תחתון לאלגוריתם מיון מבוסס השוואות הטוב ביותר על $n$ נתונים הוא $\\Omega(n\\cdot\\log n)$.",
+   "solution": "בבעיית החיפוש, הקלט הוא מערך והפלט הוא האינדקס בו נמצא המערך.\n\nעץ החלטה המתאר את הבעיה יכיל $n$ עלים שהם האינדקסים השונים האפשריים שהאלגוריתמים יחזיר במציאת האיבר.\n\nמסלול בעץ מתאר את מספר השאלות שהאלגוריתם ביצע למציאת האיבר ולכן לקבלת אלגוריתם שזמן ריצתו אופטימלי במקרה הגרוע נרצה עץ נמוך ככל הניתן, ז\"א, עץ שלם או כמעט שלם.\n\nגובה העץ שלם או כמעט שלם הוא $\\log$ כמות האיברים. מדובר בעץ מלא, לפי משפט שלמדנו כמות האיברים (כיוון שיש $n$ עלים): $2n-1$ ולכן גובה העץ $\\log(2n-1)=\\Theta(n)$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב"
+  }
+ ]
+}
