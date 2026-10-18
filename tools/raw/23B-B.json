@@ -50,7 +50,7 @@
      "points": 7
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "למיין את כל המערך: $\\Theta(n\\log n)$ ולא לינארי.",
     "לחשוב שמיון מערך העזר עולה $\\Theta(n\\log n)$: הוא בגודל $\\frac{n}{\\log n}$ בלבד."
@@ -112,7 +112,7 @@
      "explain": "שלושה שלבים לינאריים ומיון של $O(n)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -156,7 +156,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכניס רק $5$ צמתים ולהחמיץ את ה-LR השני.",
     "להכניס את שלושת האיברים הראשונים בסדר שגורם כבר לגלגול (למשל $1,2,3$)."
@@ -233,7 +233,7 @@
      "explain": "הגלגול הכפול סביב $5$ מעלה את $3$ לשורש (נבדק בסימולציה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -265,7 +265,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשתמש ב-$H(k,i)=k+i\\cdot k$ במקום $k+i\\cdot k^2$ בחישוב הצעד.",
     "לשכוח את המודולו $7$ אחרי הוספת הצעד."
@@ -300,7 +300,7 @@
      "explain": "$H(1,6)=(1+6)\\bmod 7=0$; הטבלה הסופית $[1,8,9,3,4,5,2]$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -328,7 +328,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב שהבעיה היא התנגשות רגילה: כאן סדרת הבדיקות כולה קבועה.",
     "לבחור מפתחות שאינם מתחלקים ב-$7$: הם מגיעים לכל תאי הטבלה."
@@ -377,7 +377,7 @@
      "explain": "הסדרה $(3+9i)\\bmod 7$ עוברת על כל התאים (נבדק בקוד)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -412,7 +412,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לעדכן ישירות את כל הצמתים שגדולים או שווים ל-$k$: עלול להיות $O(n)$.",
     "לשכוח לקרוא ל-`UPDATE` לפני השוואה למפתח הצומת: המפתח השמור עלול להיות מיושן."
@@ -519,7 +519,7 @@
      "explain": "יורדים מסלול אחד מהשורש, ועבודה קבועה בכל צומת."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 5,
@@ -545,7 +545,7 @@
      "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לתלות את השני על הראשון כששני העצים שווים בגודל: הכלל הוא הראשון על השני.",
     "לשכוח כיווץ מסלולים בחיפושים, ולהשאיר את $3$ ו-$5$ מתחת ל-$4$."
@@ -601,7 +601,7 @@
      "explain": "$6, 8, 4$ ובעקבות כיווץ המסלולים גם $3$ ו-$5$ (נבדק בסימולציה)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

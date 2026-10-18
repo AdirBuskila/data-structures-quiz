@@ -65,6 +65,27 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: a quick eye check of the flagged items (Q1c, Q3, Q5a) against the handwriting.
 - Status: flagged
 
+### 23A-A post-refute fixes - completed solutions, Q3 correction, inferred point split
+- Path: sitting 23A-A, solution booklet; checks in tools/verify/23A-A/verify_fix.py
+- Page: Q1c, Q2d, Q3, Q4b answer boxes; Q2/Q4/Q5 headers
+- Question: Q1c, Q2d, Q4b official text is a one-line pointer ("see above"); each now carries the official line first, then a complete solved version (solutionSource solved, official false). Q3: labelled "הפתרון הרשמי עם תיקון": threshold "at least 33%" changed to "more than n/3", both candidates checked; select positions written as ceil(n/2), ceil(n/3), ceil(2n/3) with the rounding stated as an assumption (the booklet gives none; floor fails, e.g. [1,2,3,3]). The booklet prints only question totals for Q2 (25), Q4 (25), Q5 (15 bonus); the per-part split Q2 7/6/8/4, Q4 15/5/5, Q5 3/8/4 is inferred.
+- Needed: confirm the point split if the grading sheet has one.
+- Status: flagged
+
+### 23B-A Q5 - path compression gap in the official proof (note added)
+- Path: sitting 23B-A, official solution file, Q5
+- Page: Q5 answer (case 2)
+- Question: the official proof says "the only operation that affects tree height is union"; with path compression find also lowers heights. The conclusion n >= 2^h still holds (find keeps n and never raises h; random simulation in tools/verify/23B-A/verify_fix.py). Kept with a visible "הערה" giving the missing argument. Q4 DELETE (heapifyDown only) was shipped with the "הפתרון הרשמי עם תיקון" label (counterexample [5,3,4,1,2,4]).
+- Needed: none
+- Status: flagged
+
+### 23S-A Q3c, Q4b, Q5b, Q5c - notes added after the refuter
+- Path: sitting 23S-A, official solution file
+- Page: Q3c, Q4b, Q5 answers
+- Question: Q3c official example keeps the root, so it does not delete one node from every level; the example still works with the root blanked (root forced to 1), so it was kept with a "הערה" and a 7-node example. Q4b: the printed WHAT code never terminates (WHAT(4..6) calls itself); "הערה" states the intended thirds reading. Q5b/Q5c: the question gives no tie rule; Q5b assumes "second argument's root under the first", Q5c mixes both directions (per-operation tie choice; with union(7,5), union(7,1) it fits the fixed second-under-first rule; unreachable under a label-based rule). Checks in tools/verify/23S-A/verify_fix.py.
+- Needed: none unless the course states a tie rule.
+- Status: flagged
+
 ### 23B-A Q3 and Q1 - solution file differs from the exam booklet
 - Path: sitting 23B-A, solution file vs exam booklet
 - Page: Q3 intro (solution file p.7 vs exam p.7), Q1 header
