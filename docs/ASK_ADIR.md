@@ -4,6 +4,17 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 
 ## Open
 
+### Short list: what needs Adir (details in the entries below)
+1. **22S-C Q3b** (held, not in bank): printed WHAT code never terminates as written. Give the intended reading, or leave it held.
+2. **25S-A Q1a**: is the official figure (4 joined to both 6 and 5) really a BST, or the path 6-4-5? Shipped as transcribed.
+3. **25A-A Q2a**: Victor vs Sergio, a = 2.5 recursive calls. The course convention decides whether the solution flips.
+4. **24S-A Q13**: the Insert bound as printed is O(n log n); is it a typo for O(log n)? Also form B Q5 sequence (100.105).
+5. **24B-B forms 2-4**: are they moed B (covers say moed A)? Form 4 Q9 accepts both highlighted options; confirm.
+6. **Points that are inferred or inconsistent**: 21B-B (no points printed, Q1 true/false worth 0, sitting totals 45), 21B-A (cover says 116, items sum 123 here), 22B-B (per-part split of whole-question totals), 25S-A Q5 (bonus 15 split 5 + 5 + 5 by QA).
+7. **25A-A** (graded student paper) and **23A-A** (handwritten official solution): read by eye, some lines low confidence; see entries.
+8. **Typo rulings** (labelled "הפתרון הרשמי עם תיקון", official false): 19B-A Q4a, 19B-A Q5a, 19B-B Q3c, 21B-A Q2, 21B-A Q3b, 21B-B Q4b, 22B-A Q2. Say if any ruling should be reversed.
+
+
 <!-- Entry format:
 ### <exam code> Q<number> - <short title>
 - Path: <absolute file path>

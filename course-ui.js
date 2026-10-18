@@ -82,7 +82,7 @@
       return `<button class="${cls}" data-id="${esc(L.id)}" type="button">
         <span class="num">שלב ${L.order}${L.boss ? " · מבחן גמר" : ""}</span>
         <span class="ttl">${esc(L.icon || "")} ${esc(L.title)}</span>
-        <span class="gl">${esc(L.goal || "")}</span>
+        <span class="gl">${L.goalHtml ? html(L.goalHtml) : esc(L.goal || "")}</span>
         <span class="st">${status}</span></button>`;
     }).join("");
     $("#crsMap").querySelectorAll(".crs-lvl").forEach(b => b.onclick = () => openLesson(LV.find(L => L.id === b.dataset.id)));
@@ -97,7 +97,7 @@
     $("#crsLesson").innerHTML =
       `<div class="q-head"><span class="chip">שלב ${L.order} מתוך ${C.levels.length}</span>` +
       `<span class="chip soft">${L.questions.length} שאלות${nReal(L) ? ` · ${nReal(L)} מהמבחנים` : ""}</span></div>` +
-      `<h2 class="learn-h">${esc(L.icon || "")} ${esc(L.title)}</h2><p class="sub crs-goal">${esc(L.goal || "")}</p>` +
+      `<h2 class="learn-h">${esc(L.icon || "")} ${esc(L.title)}</h2><p class="sub crs-goal">${L.goalHtml ? html(L.goalHtml) : esc(L.goal || "")}</p>` +
       `<div class="lesson-body">${lessonHtml(L)}</div>` +
       (NOTE[L.source] ? `<div class="crs-note">${NOTE[L.source]}</div>` : "");
     view("crsLessonView");
@@ -261,7 +261,7 @@
     const hasReal = APP.topicCount(C.meta.topic) > 0;
     $("#crsSum").innerHTML =
       `<div class="q-head" style="justify-content:center"><span class="chip">${esc(levelName(L))}</span></div>` +
-      `<div class="big">${pct}%</div><div><b>${correct} / ${total}</b> תשובות נכונות</div>` +
+      `<div class="big">${pct}%</div><div><b><bdi dir="ltr">${correct} / ${total}</bdi></b> תשובות נכונות</div>` +
       `<p class="msg">${ok ? (L.boss ? `🏆 עברת את מבחן הגמר של ${esc(C.meta.titleHe)}` : "✓ עברת את השלב! אפשר להתקדם.") :
         `עוד לא ${PASS}%. כדאי לקרוא שוב את השיעור ולנסות שוב, זה בדיוק השלב שבו זה נבנה.`}</p>` +
       (wrong.length ? `<div class="crs-review"><div class="crs-review-t">כדאי לחזור על:</div>${

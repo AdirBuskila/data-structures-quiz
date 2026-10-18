@@ -78,6 +78,8 @@ def main():
         w = f"{cid}/{lid}"
         L = {k: lv[k] for k in ("id", "order", "icon", "title", "goal", "source") if k in lv}
         L["boss"] = lv.get("boss") is True
+        if "$" in str(L.get("goal") or ""):
+            L["goalHtml"] = rich_html(str(L["goal"]), bank, w + " goal", errs)
         lesson = dict(lv.get("lesson") or {})
         lesson["html"] = lesson_html(str(lesson.get("html") or ""), bank, w + " lesson", errs)
         L["lesson"] = lesson

@@ -219,9 +219,10 @@ def tag_callouts(h):
         head = m.group(1)[:60]
         for emoji, cls in CALLOUTS:
             if emoji in head:
-                return f'<blockquote class="cal cal-{cls}">{m.group(1)}'
+                # U+1FAA4 (mouse trap, Unicode 13) has no glyph in Segoe UI Emoji on Windows 10: it shows as a tofu box
+                return f'<blockquote class="cal cal-{cls}">' + m.group(1)
         return f'<blockquote class="cal">{m.group(1)}'
-    return re.sub(r"<blockquote>(.{0,80})", sub, h, flags=re.S)
+    return re.sub(r"<blockquote>(.{0,80})", sub, h, flags=re.S).replace("🪤", "⚠️")
 
 
 def isolate_rel(h):

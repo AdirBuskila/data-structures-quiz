@@ -965,6 +965,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
+   "points": 5,
    "part": "א",
    "verdict": true,
    "pitfalls": [
@@ -1025,6 +1026,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
+   "points": 5,
    "part": "ב",
    "verdict": false
   },
@@ -1037,6 +1039,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
+   "points": 5,
    "part": "ג",
    "verdict": true,
    "pitfalls": [
