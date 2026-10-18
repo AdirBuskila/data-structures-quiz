@@ -4,12 +4,25 @@ import math, random, itertools, sys, pathlib
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 from avl import AVL, H
 
-# ---------- Q2a: a recursion must make an integer number of calls ----------
-def T_sergio(n):                       # 3 calls on size n/2.5 (floor): implementable
-    return 1 if n < 3 else 3 * T_sergio(int(n / 2.5)) + n
-assert T_sergio(10 ** 6) > 0
-assert 2.5 != int(2.5) and 3 == int(3)   # 2.5 calls cannot be made; 3 can
-print("Q2a ok")
+# ---------- Q2a (post-refute ruling): master theorem with real a. Victor Theta(n), Sergio Theta(n^log_2.5 3) ----------
+from functools import lru_cache
+@lru_cache(maxsize=None)
+def T_v(n): return 1.0 if n < 3 else 2.5 * T_v(n / 3) + n          # real-valued recurrence
+@lru_cache(maxsize=None)
+def T_s(n): return 1.0 if n < 2.5 else 3 * T_s(n / 2.5) + n
+ev, es = math.log(2.5, 3), math.log(3, 2.5)
+assert abs(ev - 0.834) < 0.001 and abs(es - 1.199) < 0.001 and ev < 1 < es
+assert abs(2.5 / 3 - 5 / 6) < 1e-12 and 5 / 6 < 1                    # regularity for Victor (case 3)
+rv = [T_v(10.0 ** k) / 10.0 ** k for k in (12, 18, 24)]
+assert all(5.5 < r < 6.01 for r in rv) and abs(rv[-1] - rv[-2]) < 0.01, rv        # Theta(n), constant 6
+assert T_v(1e24) / (1e24) ** ev > 1e3                                # not n^0.834 (option b)
+assert T_v(1e24) / (1e24 * math.log(1e24)) < 0.2                     # not n log n (option c)
+rs = [T_s(10.0 ** k) / (10.0 ** k) ** es for k in (12, 18, 24)]
+assert max(rs) / min(rs) < 1.3, rs                                   # Theta(n^1.199) (oscillates, bounded)
+assert T_s(1e24) / 1e24 > 1e3                                        # not Theta(n) (option b)
+assert T_s(1e24) / 1e24 ** 1.199 > 1 and T_s(1e24) / (1e24 * math.log(1e24)) > 1e3   # not n log n
+assert T_v(1e24) / T_s(1e24) < 1e-3                                  # Victor's is asymptotically faster
+print("Q2a ok", [round(r, 3) for r in rv], [round(r, 3) for r in rs])
 
 # ---------- Q2b: T(n)=3T(n/2)+n^2 ----------
 assert abs(math.log2(3) - 1.585) < 0.001 and math.log2(3) < 2
@@ -152,3 +165,104 @@ for _ in range(1000):
     count += 1
 assert moved == 1023 and moved < 2 * 1000
 print("Q4e ok", moved)
+
+# ---------- Q1e (post-refute): four selects at ranks ceil(k n/5), k=1..4, then count ----------
+from collections import Counter
+def truth(A): return any(c > 0.2 * len(A) for c in Counter(A).values())
+def single(A):
+    s = sorted(A); X = s[max(0, math.ceil(0.2 * len(A)) - 1)]; return A.count(X) > 0.2 * len(A)
+def four(A):
+    n = len(A); s = sorted(A)
+    return any(A.count(s[math.ceil(k * n / 5) - 1]) > 0.2 * n for k in (1, 2, 3, 4))
+ex = [1, 2, 3, 3, 3, 4, 5, 6, 7, 8]
+assert truth(ex) and not single(ex) and sorted(ex)[1] == 2 and ex.count(3) == 3
+n_ex = 0
+for n in range(1, 9):                                # exhaustive over all arrays with values 1..4, n <= 8
+    for A in itertools.product(range(1, 5), repeat=n):
+        assert four(list(A)) == truth(list(A)); n_ex += 1
+random.seed(11)
+for _ in range(50000):
+    n = random.randint(1, 60); A = [random.randint(1, random.randint(1, 8)) for _ in range(n)]
+    assert four(A) == truth(A)
+print("Q1e ok", n_ex)
+
+# ---------- Q2b regularity, Q3a inorder output ----------
+assert abs(3 * 0.25 - 0.75) < 1e-12 and 0.75 < 1
+t = AVL()
+for s in pk: t.ins(s)
+def trav(n, kind):
+    if n is None: return []
+    l, r = trav(n.l, kind), trav(n.r, kind)
+    return {"in": l + [n.k] + r, "pre": [n.k] + l + r, "post": l + r + [n.k]}[kind]
+def bfs(root):
+    out, q = [], [root]
+    while q:
+        x = q.pop(0)
+        if x: out.append(x.k); q += [x.l, x.r]
+    return out
+assert trav(t.root, "in") == sorted(pk)
+for other in (trav(t.root, "pre"), trav(t.root, "post"), bfs(t.root)):
+    assert other != sorted(pk), other
+print("Q3a inorder ok", trav(t.root, "pre"), trav(t.root, "post"), bfs(t.root))
+
+# ---------- Q5: orthogonal (cross-linked) lists, simulated ----------
+class Cell:
+    def __init__(s, row, col, value): s.row, s.col, s.value = row, col, value; s.nextInRow = s.nextInCol = None
+class Sparse:
+    def __init__(s, n, m): s.R = [None] * (n + 1); s.C = [None] * (m + 1); s.cells = 0
+    def put(s, i, j, v):
+        c = Cell(i, j, v); s.cells += 1
+        p, q = None, s.R[i]                                   # row list sorted by col
+        while q is not None and q.col < j: p, q = q, q.nextInRow
+        c.nextInRow = q
+        if p is None: s.R[i] = c
+        else: p.nextInRow = c
+        p, q = None, s.C[j]                                   # column list sorted by row
+        while q is not None and q.row < i: p, q = q, q.nextInCol
+        c.nextInCol = q
+        if p is None: s.C[j] = c
+        else: p.nextInCol = c
+    def walk(s, start, ptr):
+        out = []
+        while start is not None: out.append((start.row, start.col, start.value)); start = getattr(start, ptr)
+        return out
+    def get(s, i, j):
+        q = s.R[i]
+        while q is not None and q.col < j: q = q.nextInRow
+        return q.value if q is not None and q.col == j else None
+# example of 5c
+S5 = Sparse(4, 4)
+EX = {(1, 2): 3, (1, 4): 5, (3, 2): 4, (4, 4): 1}
+for (i, j), v in [((4, 4), 1), ((3, 2), 4), ((1, 4), 5), ((1, 2), 3)]: S5.put(i, j, v)   # any insertion order
+assert S5.walk(S5.R[1], "nextInRow") == [(1, 2, 3), (1, 4, 5)]
+assert S5.walk(S5.R[3], "nextInRow") == [(3, 2, 4)] and S5.walk(S5.R[4], "nextInRow") == [(4, 4, 1)]
+assert S5.walk(S5.C[2], "nextInCol") == [(1, 2, 3), (3, 2, 4)]
+assert S5.walk(S5.C[4], "nextInCol") == [(1, 4, 5), (4, 4, 1)]
+assert len(S5.walk(S5.C[2], "nextInCol")) == 2                                    # 5c step 1
+assert S5.R[1].nextInRow.nextInCol.value == 1                                     # 5c step 2: [1,4|5].nextInCol
+empty = [f"R{i}" for i in range(1, 5) if S5.R[i] is None] + [f"C{j}" for j in range(1, 5) if S5.C[j] is None]
+assert empty == ["R2", "C1", "C3"]                                                # 5c step 3
+assert (1, 2) in EX and all(S5.get(i, j) == EX.get((i, j)) for i in range(1, 5) for j in range(1, 5))
+# 5a step 3: product j=4 -- only C[4] + nextInCol gives its ratings
+want = [(1, 4, 5), (4, 4, 1)]
+assert S5.walk(S5.C[4], "nextInCol") == want
+assert S5.walk(S5.R[4], "nextInRow") != want
+assert S5.walk(S5.R[1], "nextInCol") != want and S5.walk(S5.R[1], "nextInCol") == [(1, 2, 3), (3, 2, 4)]
+assert S5.walk(S5.C[4], "nextInRow") != want
+# 5b step 1: row list positions do not give the product number
+assert [c for (_, c, _) in S5.walk(S5.R[1], "nextInRow")] == [2, 4]
+# 5a steps 1-2: n=1000, m=500, k=3000 random distinct ratings
+random.seed(12)
+BIG = Sparse(1000, 500)
+pairs = random.sample([(i, j) for i in range(1, 1001) for j in range(1, 501)], 3000)
+ref = {}
+for (i, j) in pairs:
+    v = random.randint(1, 5); BIG.put(i, j, v); ref[(i, j)] = v
+assert BIG.cells == 3000 and (len(BIG.R) - 1) + (len(BIG.C) - 1) + BIG.cells == 4500 and 1000 * 500 == 500000
+assert sum(len(BIG.walk(BIG.R[i], "nextInRow")) for i in range(1, 1001)) == 3000
+assert sum(len(BIG.walk(BIG.C[j], "nextInCol")) for j in range(1, 501)) == 3000
+for j in random.sample(range(1, 501), 50):
+    col = BIG.walk(BIG.C[j], "nextInCol")
+    assert col == sorted((i, jj, v) for (i, jj), v in ref.items() if jj == j)
+for (i, j) in random.sample(pairs, 200): assert BIG.get(i, j) == ref[(i, j)]
+print("Q5 ok")

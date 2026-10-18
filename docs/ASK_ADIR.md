@@ -48,6 +48,14 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: p.5-23 (answer boxes)
 - Question: answers are transcribed as text only (no crops), labelled student solution. Some lines could not be read and were left out (4.2 to 4.5, 5.1 to 5.3 are paraphrases with confidence low). 1.5: the student's algorithm checks only the value at rank 0.2n, which is not sufficient (counter-example in tools/verify/25A-A/verify.py), although the chosen answer (n) is right.
 - Needed: solver and refuter pass; do not ship the low-confidence items as correct without it.
+- Fixer (2026-10-18): after the refuter, 1.5 (four selects at ranks n/5..4n/5), 2.1 and 5.1-5.3 (orthogonal lists) were replaced by solved solutions with a visible "פתרון הסטודנט תוקן" note; 2.2 (regularity), 3.1 (inorder output) and 1.3 (tie rule stated as an assumption) were completed. All checked in tools/verify/25A-A/steps_verify.py.
+- Status: flagged
+
+### 25A-A Q2a - Victor vs Sergio: is a = 2.5 recursive calls allowed?
+- Path: sitting 25A-A (graded student paper), question 2 part 1
+- Page: Q2 answer box
+- Question: the student answered "Victor is wrong, 2.5 recursive calls are impossible; Sergio is right". By the master theorem (a >= 1 real, b > 1), Victor's T(n)=2.5T(n/3)+n is Theta(n) (case 3) and Sergio's T(n)=3T(n/2.5)+n is Theta(n^1.2) (case 1), so Victor is right. Shipped as solved: Victor right, with a "הערה" that the answer may differ if the course requires an integer number of recursive calls (the exam puts 2.5 once as a and once as b, which suggests that trap may be intended).
+- Needed: the course convention / the grade the student got on 2.1. If the course's answer is the integer-calls argument, the solution and steps must flip.
 - Status: flagged
 
 ### 23A-A Q1-Q5 - handwritten official solution read by eye
