@@ -153,4 +153,25 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: none
 - Status: flagged
 
+### 22S-A Q1e - official page says "counting sort is not stable" (fixed silently)
+- Path: sitting 22S-A, solution booklet
+- Page: p.4 (Q1 part e)
+- Question: the page says counting sort is not stable; it is stable (heapsort is the unstable one). The verdict "not true" is unchanged and right (radix sort needs a stable column sort). The stored solution now says heapsort is not stable (and counting sort is). An intermediate slip, no student-facing label.
+- Needed: none
+- Status: flagged
+
+### 22S-C Q2a - side remark about deleting 11 depends on the replacement convention (note added)
+- Path: sitting 22S-C, solution booklet
+- Page: Q2 part a
+- Question: the official "deleting 11 also gives two rotations" holds with in-order successor replacement (LL at 12, LL at 8) but gives one rotation with predecessor replacement (tools/verify/22S-C/fix_checks.py). The solution now carries a visible "הערה" stating the convention. The main answer (deleting 12, two rotations) does not depend on it.
+- Needed: none
+- Status: flagged
+
+### 22B-B points - page prints whole-question totals only (inferred split)
+- Path: sitting 22B-B, exam booklet
+- Page: p.1-9
+- Question: printed are Q1, Q3, Q4 = 25 each with no per-part split, Q2 = 25 with 2a = 5 (so 2b = 20 by inference) and the bonus Q5 = 15. The schema has no whole-question points, so the rubric weights of Q1, Q3 and Q4 are spread evenly (12.5 + 12.5 per question); they are not printed values. Q2 uses 5 + 20 and Q5 uses 15.
+- Needed: none unless you want a different split.
+- Status: flagged
+
 ## Resolved

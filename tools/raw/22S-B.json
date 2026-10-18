@@ -51,7 +51,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבלבל בין סריקת postorder של ערימה לבין הוצאת האיברים בזה אחר זה."
    ]
@@ -83,7 +83,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח ש-pre-order משחזר את אותו עץ: זה נכון לעץ חיפוש רגיל, אבל ההכנסה הרגילה לעץ AVL עלולה לדרוש גלגול בדרך."
    ]
@@ -115,7 +115,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לענות $\\Theta(\\log n)$, שהוא המקרה הגרוע ולא המקרה הטוב."
    ]
@@ -147,7 +147,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבדוק רק פונקציות שגדלות, כמו $f(n)=n$, שבהן הטענה נכונה."
    ]
@@ -179,7 +179,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לחשוב שהעוקב בערימה הוא אחד מהבנים של האיבר: הוא הקטן מבין הגדולים ממנו בכל הערימה."
    ]
@@ -214,7 +214,7 @@
      "points": 4
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לבצע גלגול יחיד במקום כפול: הבן של הצומת הלא מאוזן נוטה לכיוון ההפוך.",
     "לשכוח לבדוק גורם איזון גם בצמתים שמעל הצומת שממנו נמחק האיבר."
@@ -298,7 +298,7 @@
      "explain": "בגלגול RL עולה הנכד $13$. העץ המתקבל: שורש $13$ עם הבנים $8$ (עם $6$ ו-$10$) ו-$22$ (עם $17$ ו-$25$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
@@ -333,7 +333,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את הצומת של השורש ($+1$) בחישוב.",
     "להפעיל את ההנחה על תתי-עצים בגובה $h+1$ במקום $h$."
@@ -368,7 +368,7 @@
      "explain": "ההנחה מתייחסת לגובה $h$ ולכן בתת-עץ יש $2^{h+1}-1$ צמתים, לא $2^h-1$. עם הערך השגוי מתקבל $2^{h+1}-1\\ne 2^{h+2}-1$ (נבדק לכל $h$ עד $7$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -399,7 +399,7 @@
      "points": 5
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "למיין מחדש את כל המספרים בכל קליטה: $\\Theta(n\\log n)$ במקום ניצול העובדה שהמבנה כבר ממוין.",
     "לשמור במערך לא ממוין ולהדפיס אותו ישירות."
@@ -461,7 +461,7 @@
      "explain": "מיון של $n+k$ איברים הוא $\\Theta((n+k)\\log(n+k))$. כשהאצווה קטנה ($k\\ll n$) שני הפתרונות הרשמיים זולים בהרבה."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -492,7 +492,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להשוות רק את הערכים בלי המבנה, או רק את השורשים.",
     "לשכוח שהערכים שונים זה מזה, ולחפש את שורש $B$ בכל צומת של $A$ שוב ושוב."
@@ -575,7 +575,7 @@
      "explain": "שני עצים ריקים זהים. עם `FALSE` כל זוג עצים זהים נחשבים שונים (נכשל ב-$246$ מתוך $400$ קלטים אקראיים), `key(x1) = key(x2)` ניגש לצומת ריק, ו-`identical(x1,x2)` קורא לעצמו בלי סוף."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -607,7 +607,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את לולאת ההדפסה, שעובדת על כל הקלט, ולכתוב $3T(n/3)+1$.",
     "לחשוב שהלולאה רצה רק על שליש מהקלט."
@@ -665,7 +665,7 @@
      "explain": "$\\log_3 n$ רמות, בכל אחת סכום $n$: $\\Theta(n\\log n)$. היחס $T(n)/(n\\log_3 n)$ נשאר בין $0.9$ ל-$1.6$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -700,7 +700,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את המודולו $10$ בבדיקה הרביעית של $21$ (התא $10$ הוא התא $0$).",
     "לחשב את הצעד כ-$x \\bmod 7$ במקום $\\lfloor x/7\\rfloor$."
@@ -756,7 +756,7 @@
      "explain": "הטבלה הראשונה מתקבלת מהסימולציה של הנוסחה. האחרות מתקבלות מהחלפת החישוב בבדיקה לינארית, בצעד $\\lfloor x/7\\rfloor+1$ ובצעד ריבועי, ולכן שגויות."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }
