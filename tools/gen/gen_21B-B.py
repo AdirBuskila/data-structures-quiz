@@ -5,6 +5,8 @@ No separate exam-only file exists. Points per question/part are not printed in t
 Caveats:
 - Q4b: the printed solution ends with "log(2n-1)=Theta(n)"; shipped with the "official solution with a fix" label as
   Theta(log n) (solved, official false; log2(2n-1)/log2(n) -> 1 checked in tools/verify/21B-B/solve_21B-B_Q4b.py).
+- Q2b: visible note: the analysis assumes n=2^k (MM recurses forever otherwise) and the exact count is T(n)=2T(n/2)+2.
+- Points: the file prints none; the rubric points are the step-author's estimate (ASK_ADIR).
 - Q3b: the solution has the typos "עת" (for "עץ") and "בך" (for "סך"); kept.
 Run: PYTHONUTF8=1 py tools/gen/gen_21B-B.py"""
 import json, pathlib
@@ -90,7 +92,9 @@ $A[1]=3,\ A[2]=2,\ A[3]=1,\ A[4]=9$
       r"""נגדיר את $T(n)$ להיות מספר ההשוואות בהרצת `MM` על מערך בגודל $n$. הגדר את הפונקציה $T$ באופן רקורסיבי.""",
       r"""$T(2)=O(1)$
 
-$\forall n>2:\ T(n)=2\cdot T(n/2)+O(1)$""",
+$\forall n>2:\ T(n)=2\cdot T(n/2)+O(1)$
+
+**הערה:** הניתוח מניח $n=2^k$. בקוד יש בסיס רק לתת-מערך בגודל $2$ ($j=i+1$), ולכן כשהגודל אינו חזקה של $2$ מגיעים לתת-מערך בגודל $1$ ($i=j$) והרקורסיה אינה נעצרת (למשל $n=3$ או $n=6$). ספירה מדויקת של ההשוואות נותנת $T(2)=1$ ו-$T(n)=2T(n/2)+2$ (השוואה אחת למינימום ואחת למקסימום), כלומר $T(n)=\frac{3n}{2}-2$.""",
       part="ב", contextId="c2"),
 
     # ---------------- Question 3 (parts unrelated) ----------------
@@ -158,7 +162,7 @@ add(2, "א",
     rubric=rub((r"""חישוב נכון של שתי הקריאות הפנימיות $MM(1,2)$ ו-$MM(3,4)$""", 2),
                (r"""שילוב: המינימום של המינימומים והמקסימום של המקסימומים""", 1),
                (r"""תשובה סופית: $1$ ו-$9$""", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""להחזיר את הערך הראשון והאחרון במערך ($3$ ו-$9$) במקום המינימום והמקסימום.""",
               r"""לכתוב את הזוג בסדר הפוך: הפונקציה מחזירה קודם את המינימום ואחר כך את המקסימום."""],
     steps=[
@@ -169,14 +173,14 @@ add(2, "א",
         {"type": "numeric", "prompt": r"""מהו המקסימום ש-`MM(A,1,4)` מחזירה, כשהקריאות הפנימיות החזירו $(2,3)$ ו-$(1,9)$?""", "answer": 9, "tol": 0,
          "explain": r"""$\max(3,9)=9$, והמינימום הוא $\min(2,1)=1$ (הרצת הפונקציה נותנת $(1,9)$)."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q2b: recurrence
 add(2, "ב",
     rubric=rub((r"""שתי קריאות רקורסיביות, כל אחת על חצי מהמערך: $2T(n/2)$""", 2),
                (r"""עבודה לא רקורסיבית קבועה (שתי השוואות)""", 2),
                (r"""בסיס $T(2)=O(1)$""", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""לכתוב $T(n/2)$ בלבד: יש שתי קריאות רקורסיביות, לא אחת.""",
               r"""לכתוב $O(n)$ כעבודה לא רקורסיבית: השוואת שני זוגות היא $O(1)$."""],
     steps=[
@@ -189,7 +193,7 @@ add(2, "ב",
         {"type": "text", "prompt": r"""מהו זמן הריצה של `MM`? כתבו בצורה `O(...)`.""", "accept": ["O(n)"], "normalize": "complexity",
          "explain": r"""$n-1$ קריאות, כל אחת עם עבודה קבועה: $O(n)$."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q3a: rotations on deleting the minimum of F10
 add(3, "א",
@@ -197,7 +201,7 @@ add(3, "א",
                (r"""אורך המסלול השמאלי ביותר ב-$F_{10}$ הוא $5$""", 2),
                (r"""גורם האיזון בכל צומת במסלול הוא $-1$, ולכן בכל צומת מתבצע גלגול""", 1),
                (r"""סך הכול $5$ גלגולים""", 1)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""להניח שמחיקה גוררת גלגול אחד לכל היותר, כמו בהכנסה.""",
               r"""לספור את גובה העץ ($10$) במקום את אורך המסלול השמאלי ($5$)."""],
     steps=[
@@ -208,7 +212,7 @@ add(3, "א",
         {"type": "numeric", "prompt": r"""כמה גלגולים מתבצעים בהוצאת המינימום מ-$F_{10}$ (גלגול כפול נספר כאחד)?""", "answer": 5, "tol": 0,
          "explain": r"""בסימולציה של מחיקה בעץ AVL נמצאו $5$ גלגולים, אחד בכל צומת במסלול."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q3b: odd number of nodes in a full binary tree
 FB_ORDER = [r"""לעץ מלא בגובה $h>0$ יש שני תתי-עצים לא ריקים, שגובהם קטן מ-$h$.""",
@@ -222,7 +226,7 @@ add(3, "ב",
                (r"""הנחת האינדוקציה לכל עץ מלא שגובהו קטן מ-$h$""", 2),
                (r"""עץ מלא בגובה $h>0$ מורכב משורש ושני תתי-עצים מלאים לא ריקים""", 3),
                (r"""חישוב הזוגיות: אי-זוגי + אי-זוגי + $1$ = אי-זוגי""", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""לשכוח את $+1$ של השורש: אי-זוגי + אי-זוגי הוא זוגי.""",
               r"""להניח שלשני תתי-העצים אותו גובה, בעוד בעץ מלא הגבהים יכולים להיות שונים."""],
     steps=[
@@ -239,7 +243,7 @@ add(3, "ב",
          "lines": FB_BUG, "bugIndex": 3,
          "explain": r"""סכום שני מספרים אי-זוגיים הוא זוגי, ורק הוספת $1$ של השורש הופכת אותו לאי-זוגי."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q4a: merge two heaps
 add(4, "א",
@@ -247,7 +251,7 @@ add(4, "א",
                (r"""העתקת $A$ ואחריו $B$ אל $C$""", 3),
                (r"""הפעלת אלגוריתם בניית הערימה על $C$""", 4),
                (r"""זמן ריצה לינארי $O(n)$""", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""להכניס את איברי $B$ אחד אחד לערימה $A$: זה $O(n\log n)$, ולא האלגוריתם הטוב ביותר.""",
               r"""להשאיר את $C$ אחרי ההעתקה בלי לתקן: צירוף שתי ערימות כמערך אינו בהכרח ערימה."""],
     steps=[
@@ -263,7 +267,7 @@ add(4, "א",
         {"type": "text", "prompt": r"""מהו זמן הריצה של האלגוריתם? כתבו בצורה `O(...)`.""", "accept": ["O(n)"], "normalize": "complexity",
          "explain": r"""העתקה לינארית ובניית ערימה על $2n$ איברים היא לינארית."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q4b: lower bound for search (corrected final line)
 add(4, "ב",
@@ -271,7 +275,7 @@ add(4, "ב",
                (r"""עץ בינארי מלא עם $n$ עלים מכיל $2n-1$ צמתים""", 3),
                (r"""עץ נמוך ככל האפשר הוא עץ שלם או כמעט שלם, וגובהו הלוג של מספר הצמתים""", 2),
                (r"""$\log(2n-1)=\Theta(\log n)$ ולכן $\Omega(\log n)$""", 2)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""לכתוב $\Theta(n)$ בשורה האחרונה, כפי שמודפס: $\log(2n-1)$ הוא $\Theta(\log n)$.""",
               r"""לטעון שיש $n!$ עלים כמו במיון: בחיפוש הפלט הוא אינדקס, ולכן $n$ עלים."""],
     steps=[
@@ -284,7 +288,7 @@ add(4, "ב",
          "correctId": "a",
          "explain": r"""$\frac{\log(2n-1)}{\log n}\to 1$, ואילו $\frac{\log(2n-1)}{n}\to 0$, ולכן לא $\Theta(n)$ (נבדק סימבולית)."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

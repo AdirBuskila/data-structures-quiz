@@ -5,6 +5,13 @@ carry the same questions. Cover: 4 questions, Q1 six parts x 8 points, Q2-Q4 25 
 Caveats (official text kept as printed, not fixed):
 - Q1e: the hash function is printed with an unbalanced bracket: H(x,i)= (x + (1+x)*i mod 4))mod 13.
 - Q2: the loop bound printed in the min(n, d log n) solution is 2^(h-1) - 1 and the log^2 solution sets n=m=2^(h-1); kept as printed.
+- Q2 (typo ruling, solved/official false): the O(log^2 n) solution's step 3 completeness test (two middle paths of the root
+  both = h) returns 0 for incomplete trees (n=6, 12, 13, ...), and step 10 compares h1 with h0 after the decrement.
+  Fixed to "rightmost path = h" and "h1 = h0+1"; 0 mismatches for n<400 (tools/verify/21B-A/steps_verify.py).
+  Rubric: only the O(log^2 n) tier gets the full 25 (tier split estimated, the question prints none).
+- Q3b (typo ruling, solved/official false): the prose "full up to level ceil(h/2)" is false for odd h; the proof is shipped
+  with floor (matching the formal "0<=i<=h/2") plus the case h+1=1, with a visible note. Checked over all AVL shapes h<=9.
+- Points: the cover says "up to 116" but the printed items sum to 48+75+1=124; item points kept (ASK_ADIR).
 Run: PYTHONUTF8=1 py tools/gen/gen_21B-A.py"""
 import json, pathlib
 
@@ -93,7 +100,9 @@ $g_2(n)=n^2$""",
 הנח שלכל צומת בעץ יש רק $3$ שדות מידע: מפתח (אין חשיבות למידע לפתרון הבעיה), מצביע לבן הימני ומצביע לבן השמאלי.
 
 לדוגמה, עבור העץ הבא האלגוריתם יחזיר $1$.""",
-      r"""**פתרון בזמן לינארי:**
+      r"""**הפתרון הרשמי עם תיקון** בפתרון ב-$O(\log^2(n))$, בשני מקומות: בשלב $3$ בדיקת השלמות היא לפי אורך המסלול הימני ביותר מהשורש (במקום השוואת שני המסלולים האמצעיים של השורש), ובשלב $10$ ההשוואה היא $h_1=h_0+1$ (כלומר מול $h_0$ שלפני ההקטנה בשלב $9$). כפי שהודפס, שלב $3$ מחזיר $0$ גם לעצים שאינם שלמים, למשל לעץ הדוגמה ($n=6$, שבו שני המסלולים האמצעיים של השורש באורך $h=2$), ושלב $10$ מכוון לתת-העץ הלא נכון. עם שני התיקונים האלגוריתם נבדק מול התשובה הנכונה לכל עץ כמעט שלם עם $n<400$ צמתים.
+
+**פתרון בזמן לינארי:**
 
 1. חשב את גובה העץ (על ידי ריצה מהשורש לעלה השמאלי ביותר ומנה את כמות הקודקודים במהלך הריצה. החזר את ערך המונה פחות $1$). נסמן את גובה העץ ב-$h$.
 2. בצע סריקת `inorder` על העץ, ומנה את כמות הקודקודים בעץ. נסמן, את כמות הקוד' ב-$n$.
@@ -119,14 +128,14 @@ $g_2(n)=n^2$""",
    - a. נגדיר "אורך מסלול אמצעי משמאל של קדקוד $x$" על ידי אורך המסלול המתקבל מהליכה על המסלול מהקדקוד $x$ לבנו השמאלי ומשם ירידה רק ימינה עד להגעה לעלה. אם $\text{left}(x)=\text{null}$ אורך המסלול מוגדר להיות $0$.
    - b. נגדיר "אורך מסלול אמצעי מימין של קדקוד $x$" על ידי אורך המסלול המתקבל מהליכה על המסלול מהקדקוד $x$ לבנו הימני ומשם ירידה רק שמאלה עד להגעה לעלה. אם $\text{right}(x)=\text{null}$ אורך המסלול מוגדר להיות $0$.
 2. חשב את גובה העץ (על ידי ריצה מהשורש לעלה השמאלי ביותר ומנה את כמות הקודקודים במהלך הריצה. החזר את ערך המונה פחות $1$). נסמן את גובה העץ ב-$h$.
-3. חשב אורך מסלול אמצעי משמאל של שורש העץ וחשב אורך מסלול אמצעי מימין של שורש העץ. אם אורכי המסלול שווים וערכם שווה לגובה העץ $h$, החזר $0$ וסיים.
+3. חשב את אורך המסלול הימני ביותר מהשורש (ירידה רק ימינה עד שאין בן ימני). אם אורכו שווה לגובה העץ $h$, החזר $0$ וסיים.
 4. יהי $x$ שורש העץ, יהי $n=m=2^{h-1}$ ויהי $h_0=h$
 5. חשב אורך מסלול אמצעי משמאל של קדקוד $x$, סמנו ב-$h_1$
 6. חשב אורך מסלול אמצעי מימין של קדקוד $x$, סמנו ב-$h_2$
 7. אם $h_1\neq h_2$ עבור ל-$12$
 8. $m=\frac{1}{2}m$
 9. $h_0=h_0-1$
-10. אם $h_1=h_0$ אז
+10. אם $h_1=h_0+1$ אז
     - i. $n=n+m$
     - ii. $x=\text{right}(x)$
 
@@ -135,7 +144,7 @@ $g_2(n)=n^2$""",
     - iv. $x=\text{left}(x)$
 11. חזור ל-$5$
 12. החזר: $2^h-n$""",
-      points=25, contextId="c2"),
+      points=25, contextId="c2", solutionSource="solved", official=False),
 
     # ---------------- Question 3 (25, parts unrelated) ----------------
     Q(3, "computation", "avl",
@@ -160,9 +169,13 @@ $3,1,7,0,6,9,5,8,10,11$
       r"""הוכח באינדוקציה על מבנה העץ:
 
 לכל מספר טבעי $h\ge 0$ מתקיים שעץ AVL בגובה $h$ כל הרמות מ-$0$ עד $\left\lceil\frac{h}{2}\right\rceil$ מלאות, ז"א, לכל $0\le i\le h/2$ מתקיים שברמה $i$ יש $2^i$ קודקודים.""",
-      r"""הוכחה באינדוקציה על מבנה העץ:
+      r"""**הפתרון הרשמי עם תיקון:** $\lceil\cdot\rceil$ הוחלף ב-$\lfloor\cdot\rfloor$ לאורך כל ההוכחה, ונוסף בצעד המקרה $h+1=1$.
 
-**בסיס האינדוקציה:** $h=0$, העץ הוא קודקוד השורש והעץ מלא עד רמה $h/2=0$.
+**הערה:** בניסוח המילולי של השאלה כתוב 'מ-$0$ עד $\left\lceil\frac{h}{2}\right\rceil$', אבל טענה זו אינה נכונה לגובה אי-זוגי: עץ AVL בגובה $1$ יכול להיות שורש עם בן יחיד, ואז ברמה $1$ יש קודקוד אחד ולא $2$. הניסוח הפורמלי בשאלה, $0\le i\le h/2$, פירושו $i\le\left\lfloor\frac{h}{2}\right\rfloor$, וזו הטענה הנכונה: בבדיקה על כל צורות עצי AVL עד גובה $9$, הרמה המלאה העמוקה המובטחת היא בדיוק $\left\lfloor\frac{h}{2}\right\rfloor$. הפתרון הרשמי הוכיח את גרסת $\lceil\cdot\rceil$, והצעד שלו נשען על הנחת האינדוקציה גם לתת-עץ ריק כאשר $h+1=1$.
+
+הוכחה באינדוקציה על מבנה העץ:
+
+**בסיס האינדוקציה:** $h=0$, העץ הוא קודקוד השורש והעץ מלא עד רמה $\left\lfloor\frac{0}{2}\right\rfloor=0$.
 
 **הנחת האינדוקציה:** נניח נכונות עד גובה $h$.
 
@@ -172,12 +185,12 @@ $3,1,7,0,6,9,5,8,10,11$
 
 ![עץ AVL בגובה h+1 ושני תתי העצים שלו](images/exams/21B-A-Q3b-sol.png)
 
-לפי הגדרת עץ AVL, או ששני תתי העצים שלו בגובה $h$, או שאחד מהם בגובה $h$ והשני $h-1$.
+אם $h+1=1$: רמה $0$ (השורש) מלאה ו-$\left\lfloor\frac{1}{2}\right\rfloor=0$, כנדרש. אחרת $h\ge 1$, ולפי הגדרת עץ AVL, או ששני תתי העצים שלו בגובה $h$, או שאחד מהם בגובה $h$ והשני $h-1\ge 0$ (בפרט אף אחד מהם אינו ריק).
 
-בשני המקרים, לפי הנחת האינדוקציה, כל אחד מתתי העצים מלאים לפחות עד הגובה $\left\lceil\frac{h-1}{2}\right\rceil$. לכם, העץ הגדול מלא עד גובה: $1+\left\lceil\frac{h-1}{2}\right\rceil=\left\lceil\frac{h+1}{2}\right\rceil$ (כי יש לו רמה מלאה מעל שהיא רמת השורש). מ.ש.ל.
+בשני המקרים, לפי הנחת האינדוקציה, כל אחד מתתי העצים מלא לפחות עד רמה $\left\lfloor\frac{h-1}{2}\right\rfloor$. לכן, העץ הגדול מלא עד רמה: $1+\left\lfloor\frac{h-1}{2}\right\rfloor=\left\lfloor\frac{h+1}{2}\right\rfloor$ (כי יש לו רמה מלאה מעל שהיא רמת השורש). מ.ש.ל.
 
 הערה: ללא השימוש בשוויון האחרון, ניתן היה להיעזר בבדיקת אפשרויות הזוגיות של $h$.""",
-      part="ב"),
+      part="ב", solutionSource="solved", official=False),
 
     # ---------------- Question 4 (25, parts unrelated) ----------------
     Q(4, "computation", "sorting_selection",
@@ -250,13 +263,14 @@ def add(num, part, **kw):
 
 # Q2: nodes to add to an almost complete tree (steps follow the linear solution)
 add(2, None,
-    rubric=rub((r"""חישוב גובה העץ $h$ בירידה לאורך המסלול השמאלי ביותר""", 5),
-               (r"""ספירת מספר הקודקודים $n$ בסריקת `inorder`""", 5),
-               (r"""החזרת $2^{h+1}-1-n$""", 8),
-               (r"""ניתוח זמן: $O(n)$ לפתרון הלינארי (או $O(\log^2 n)$ לניקוד מלא)""", 7)),
-    rubricSource="ai-draft",
+    rubric=rub((r"""חישוב גובה העץ $h$ בירידה לאורך המסלול השמאלי ביותר""", 4),
+               (r"""אלגוריתם נכון שמחזיר את $d$, כולל $0$ לעץ שלם (למשל בפתרון הלינארי: ספירת $n$ והחזרת $2^{h+1}-1-n$)""", 8),
+               (r"""ניתוח זמן ריצה נכון של האלגוריתם שהוצע""", 3),
+               (r"""יעילות לפי מדרגות השאלה: $O(\log^2 n)$ (חיפוש בינארי על הרמה התחתונה בעזרת המסלולים האמצעיים) - $10$; $O(\min(n,d\log n))$ - עד $6$; $O(n)$ - עד $3$. רק פתרון ב-$O(\log^2 n)$ מקבל את כל $25$ הנקודות (החלוקה בין המדרגות משוערת, השאלה אינה מציינת מספרים)""", 10)),
+    rubricSource="ai-verified",
     pitfalls=[r"""לחשב את הגובה לפי המסלול הימני: בעץ כמעט שלם הרמה התחתונה מתמלאת משמאל, והמסלול הימני עשוי להיות קצר יותר.""",
-              r"""למנות צמתים במסלול ולא קשתות, ולקבל גובה גדול ב-$1$."""],
+              r"""למנות צמתים במסלול ולא קשתות, ולקבל גובה גדול ב-$1$.""",
+              r"""לבדוק שלמות לפי שני המסלולים האמצעיים של השורש: בעץ הדוגמה ($n=6$) שניהם באורך $h=2$ אף שהעץ אינו שלם. העץ שלם בדיוק כשהמסלול הימני ביותר באורך $h$."""],
     steps=[
         {"type": "choice", "prompt": r"""כיצד הפתרון הרשמי מחשב את גובה העץ $h$?""",
          "options": opts(r"""בירידה מהשורש לאורך המסלול השמאלי ביותר עד העלה""", r"""בירידה מהשורש לאורך המסלול הימני ביותר""",
@@ -272,14 +286,14 @@ add(2, None,
          "correctId": "a",
          "explain": r"""סריקת `inorder` מבקרת בכל הצמתים ולכן $\Theta(n)$. חישוב הגובה לוקח רק $O(\log n)$. הפתרון ב-$O(\log^2 n)$ הוא פתרון אחר ויעיל יותר."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q3a: AVL insertion trace
 add(3, "א",
     rubric=rub((r"""הכנסת $3,1,7,0,6,9,5,8,10$ בלי גלגולים והצגת העץ""", 4),
                (r"""הכנסת $11$ וזיהוי חוסר איזון בשורש""", 3),
                (r"""ביצוע גלגול (אפשרות $1$) והצגת העץ הסופי""", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""לקרוא את סדרת ההכנסה בסדר הפוך.""",
               r"""לבצע גלגול כפול (אפשרות $2$) במקום גלגול יחיד, או לגלגל כבר באחת ההכנסות הקודמות."""],
     steps=[
@@ -294,40 +308,43 @@ add(3, "א",
         {"type": "numeric", "prompt": r"""מהו המפתח בשורש העץ אחרי הגלגול?""", "answer": 7, "tol": 0,
          "explain": r"""$7$ עולה לשורש, ו-$3$ הופך לבן שלו משמאל (נבדק בסימולציה)."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
-# Q3b: AVL tree is full up to level ceil(h/2)
-AI_ORDER = [r"""לפי הגדרת AVL, שני תתי-העצים של עץ בגובה $h+1$ הם בגובה $h$ שניהם, או בגובה $h$ ו-$h-1$.""",
-            r"""בשני המקרים כל תת-עץ מלא לפחות עד רמה $\left\lceil\frac{h-1}{2}\right\rceil$, לפי הנחת האינדוקציה.""",
-            r"""מעל שני תתי-העצים יש רמת שורש אחת, ולכן העץ כולו מלא לפחות עד רמה $1+\left\lceil\frac{h-1}{2}\right\rceil$.""",
-            r"""ומתקיים $1+\left\lceil\frac{h-1}{2}\right\rceil=\left\lceil\frac{h+1}{2}\right\rceil$, כנדרש."""]
+# Q3b: AVL tree is full up to level floor(h/2) (the printed prose says ceil, false for odd h; typo ruling)
+AI_ORDER = [r"""לפי הגדרת AVL, שני תתי-העצים של עץ בגובה $h+1$ הם בגובה $h$ שניהם, או בגובה $h$ ו-$h-1\ge 0$.""",
+            r"""בשני המקרים כל תת-עץ מלא לפחות עד רמה $\left\lfloor\frac{h-1}{2}\right\rfloor$, לפי הנחת האינדוקציה.""",
+            r"""מעל שני תתי-העצים יש רמת שורש אחת, ולכן העץ כולו מלא לפחות עד רמה $1+\left\lfloor\frac{h-1}{2}\right\rfloor$.""",
+            r"""ומתקיים $1+\left\lfloor\frac{h-1}{2}\right\rfloor=\left\lfloor\frac{h+1}{2}\right\rfloor$, כנדרש."""]
 AI_BUG = list(AI_ORDER)
-AI_BUG[3] = r"""ומתקיים $1+\left\lceil\frac{h-1}{2}\right\rceil=\left\lceil\frac{h}{2}\right\rceil$, כנדרש."""
+AI_BUG[3] = r"""ומתקיים $1+\left\lfloor\frac{h-1}{2}\right\rfloor=\left\lfloor\frac{h}{2}\right\rfloor$, כנדרש."""
 add(3, "ב",
     rubric=rub((r"""בסיס: $h=0$, העץ הוא שורש בלבד""", 2),
                (r"""הנחת האינדוקציה עד גובה $h$""", 2),
-               (r"""פירוק לשני תתי-עצים לפי הגדרת AVL: בגובה $h$ ו-$h$, או $h$ ו-$h-1$""", 4),
-               (r"""כל תת-עץ מלא עד $\left\lceil\frac{h-1}{2}\right\rceil$ ותוספת רמת השורש""", 3),
-               (r"""השוויון $1+\left\lceil\frac{h-1}{2}\right\rceil=\left\lceil\frac{h+1}{2}\right\rceil$""", 4)),
-    rubricSource="ai-draft",
+               (r"""המקרה $h+1=1$, ופירוק לשני תתי-עצים לא ריקים לפי הגדרת AVL: בגובה $h$ ו-$h$, או $h$ ו-$h-1$""", 4),
+               (r"""כל תת-עץ מלא עד $\left\lfloor\frac{h-1}{2}\right\rfloor$ ותוספת רמת השורש""", 3),
+               (r"""השוויון $1+\left\lfloor\frac{h-1}{2}\right\rfloor=\left\lfloor\frac{h+1}{2}\right\rfloor$""", 4)),
+    rubricSource="ai-verified",
     pitfalls=[r"""לשכוח את רמת השורש שמוסיפה $1$ לעומק המלא.""",
-              r"""להניח ששני תתי-העצים באותו גובה, בעוד ב-AVL אחד מהם עשוי להיות נמוך ב-$1$."""],
+              r"""להניח ששני תתי-העצים באותו גובה, בעוד ב-AVL אחד מהם עשוי להיות נמוך ב-$1$.""",
+              r"""להוכיח את הגרסה עם $\left\lceil\frac{h}{2}\right\rceil$: היא נכשלת לכל גובה אי-זוגי (בגובה $1$, שורש עם בן יחיד). המקרה $h+1=1$, שבו תת-העץ הנמוך ריק, הוא בדיוק המקום שבו ההוכחה של גרסה זו נשברת."""],
     steps=[
-        {"type": "order", "prompt": r"""סדרו את צעד האינדוקציה.""", "lines": AI_ORDER,
+        {"type": "numeric", "prompt": r"""לכל עץ AVL בגובה $5$: מהי הרמה העמוקה ביותר שמובטח שכל הרמות עד אליה (כולל) מלאות?""", "answer": 2, "tol": 0,
+         "explain": r"""$\left\lfloor\frac{5}{2}\right\rfloor=2$. בבדיקה על כל צורות עצי AVL בגובה $5$ יש עץ שרמה $3$ בו אינה מלאה, ולכן $\left\lceil\frac{5}{2}\right\rceil=3$ אינו מובטח."""},
+        {"type": "order", "prompt": r"""המקרה $h+1=1$ מיידי (השורש לבדו מלא). סדרו את צעד האינדוקציה עבור $h\ge 1$.""", "lines": AI_ORDER,
          "explain": r"""מפרקים לתתי-עצים, מפעילים את ההנחה עליהם, מוסיפים את רמת השורש ובסוף מפשטים את הביטוי."""},
-        {"type": "findbug", "prompt": r"""בגרסה הבאה של הצעד שורה אחת שונתה והיא שגויה. מצאו אותה.""", "lines": AI_BUG, "bugIndex": 3,
-         "explain": r"""התוצאה הנדרשת עבור גובה $h+1$ היא $\left\lceil\frac{h+1}{2}\right\rceil$. השוויון עם $\left\lceil\frac{h}{2}\right\rceil$ שגוי, למשל עבור $h=2$: $1+1=2$ אבל $\left\lceil 1\right\rceil=1$ (נבדק לכל $h<200$)."""},
-        {"type": "numeric", "prompt": r"""חשבו את $1+\left\lceil\frac{h-1}{2}\right\rceil$ עבור $h=6$.""", "answer": 4, "tol": 0,
-         "explain": r"""$\left\lceil\frac{5}{2}\right\rceil=3$, ולכן $4$, וזה אכן $\left\lceil\frac{7}{2}\right\rceil=4$."""},
+        {"type": "findbug", "prompt": r"""בגרסה הבאה של הצעד (עבור $h\ge 1$) שורה אחת שונתה והיא שגויה. מצאו אותה.""", "lines": AI_BUG, "bugIndex": 3,
+         "explain": r"""התוצאה הנדרשת עבור גובה $h+1$ היא $\left\lfloor\frac{h+1}{2}\right\rfloor$. השוויון עם $\left\lfloor\frac{h}{2}\right\rfloor$ שגוי לכל $h$ אי-זוגי, למשל $h=1$: $1+0=1$ אבל $\left\lfloor\frac{1}{2}\right\rfloor=0$ (נבדק לכל $h<500$)."""},
+        {"type": "numeric", "prompt": r"""חשבו את $1+\left\lfloor\frac{h-1}{2}\right\rfloor$ עבור $h=6$.""", "answer": 3, "tol": 0,
+         "explain": r"""$\left\lfloor\frac{5}{2}\right\rfloor=2$, ולכן $3$, וזה אכן $\left\lfloor\frac{7}{2}\right\rfloor=3$."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q4a: decision tree of heapsort on 3 elements
 add(4, "א",
     rubric=rub((r"""עץ החלטה שצמתיו השוואות בין שני איברים ועליו סדרים ממוינים""", 3),
                (r"""כל $3!=6$ הסדרים האפשריים מופיעים כעלים""", 4),
                (r"""המסלולים תואמים את פעולת מיון הערימה על שלושה איברים""", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""להשמיט עלה לאחד הסדרים: צריך $6$ עלים לשלושה איברים שונים.""",
               r"""לצייר את עץ ההחלטה של מיון אחר (הכנסה או בועות) במקום של מיון ערימה."""],
     steps=[
@@ -338,7 +355,7 @@ add(4, "א",
         {"type": "numeric", "prompt": r"""מהו המספר המינימלי האפשרי של השוואות במקרה הגרוע עבור עץ בינארי עם $6$ עלים, כלומר $\lceil\log_2 6\rceil$?""", "answer": 3, "tol": 0,
          "explain": r"""$\lceil\log_2 6\rceil=3$, ולכן העץ הנתון בגובה אופטימלי."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 # Q4b: pairSum
 PS = ["pairSum(head, k):",
@@ -354,7 +371,7 @@ add(4, "ב",
                (r"""שני מצביעים: `first` בראש הרשימה ו-`second` בסופה""", 3),
                (r"""הלולאה: סכום שווה $k$ מחזיר אמת, סכום קטן מקדם את `first`, סכום גדול מזיז את `second` אחורה""", 5),
                (r"""סיבוכיות זמן $O(n\log n)$""", 3)),
-    rubricSource="ai-draft",
+    rubricSource="ai-verified",
     pitfalls=[r"""לבדוק את כל הזוגות בשתי לולאות מקוננות: $O(n^2)$ מזכה בניקוד חלקי בלבד.""",
               r"""להזיז את המצביע הלא נכון: כשהסכום קטן מ-$k$ צריך להגדיל אותו, ולכן מקדמים את `first`."""],
     steps=[
@@ -371,7 +388,7 @@ add(4, "ב",
         {"type": "text", "prompt": r"""מהי סיבוכיות הזמן של האלגוריתם? כתבו בצורה `O(...)`.""", "accept": ["O(n log n)"], "normalize": "complexity",
          "explain": r"""המיון $O(n\log n)$ והסריקה בשני מצביעים לינארית."""},
     ],
-    stepsSource="ai-draft")
+    stepsSource="ai-verified")
 
 
 exam = {

@@ -25,6 +25,32 @@ for n in range(1, 200):
 assert any(rightmost_depth(n) < height_of(n) for n in range(1, 40))         # the right spine can be shorter (e.g. n=8)
 assert rightmost_depth(8) == 2 and height_of(8) == 3
 assert d_needed(10) == 5 and d_needed(12) == 3 and d_needed(8) == 7 and d_needed(7) == 0
+# O(log^2 n) official solution: as printed vs with the two fixes (step 3: rightmost path = h; step 10: h1 = h0+1)
+def _L(n, i): return 2 * i if 2 * i <= n else None
+def _R(n, i): return 2 * i + 1 if 2 * i + 1 <= n else None
+def _mid(n, x, first, then):
+    c = first(n, x)
+    if c is None: return 0
+    k = 1
+    while then(n, c): c = then(n, c); k += 1
+    return k
+def log2_alg(n, fixed):
+    h = leftmost_depth(n)
+    if fixed:
+        if rightmost_depth(n) == h: return 0
+    elif _mid(n, 1, _L, _R) == _mid(n, 1, _R, _L) == h: return 0
+    x = 1; cnt = m = 2 ** (h - 1); h0 = h
+    for _ in range(64):
+        h1, h2 = _mid(n, x, _L, _R), _mid(n, x, _R, _L)
+        if h1 != h2: return 2 ** h - cnt
+        m /= 2; h0 -= 1
+        if (h1 == h0 + 1) if fixed else (h1 == h0): cnt += m; x = _R(n, x)
+        else: cnt -= m; x = _L(n, x)
+        if x is None: return None
+for n in range(1, 400): assert log2_alg(n, True) == d_needed(n), n
+assert log2_alg(6, False) == 0 and d_needed(6) == 1                                   # exam example: printed version fails
+assert sum(log2_alg(n, False) != d_needed(n) for n in range(1, 400)) > 100
+assert all((rightmost_depth(n) == height_of(n)) == (d_needed(n) == 0) for n in range(1, 400))   # pitfall claim
 print("Q2 ok")
 
 # ---------- Q3a: AVL insertion trace ----------
@@ -45,14 +71,21 @@ t.ins(11)
 assert t.rot == 1 and t.dbl == 0 and t.root.k == 7 and t.root.h == 3
 print("Q3a ok")
 
-# ---------- Q3b: arithmetic of the induction step ----------
-ceil = lambda a, b: -(-a // b)
-for h in range(1, 200):
-    assert 1 + ceil(h - 1, 2) == ceil(h + 1, 2)
-assert any(1 + ceil(h - 1, 2) != ceil(h, 2) for h in range(1, 20))     # the findbug line is wrong
-assert 1 + ceil(5, 2) == 4 == ceil(7, 2)
-# AVL shapes: levels i <= floor(h/2) are full (the printed statement reads "ceil(h/2)" and "i <= h/2" together)
+# ---------- Q3b: floor version (typo ruling) ----------
+for h in range(1, 500):
+    assert 1 + (h - 1) // 2 == (h + 1) // 2
+assert 1 + (1 - 1) // 2 != 1 // 2                                       # the findbug line is wrong (h=1)
+assert 1 + (6 - 1) // 2 == 3 == 7 // 2
 from functools import lru_cache
+# exact set of "deepest fully filled prefix level" over ALL AVL shapes of height h (f(empty)=-1, f=1+min(f(l),f(r)))
+@lru_cache(None)
+def fset(h):
+    if h < 0: return frozenset([-1])
+    return frozenset(1 + min(x, y) for a, b in ((h - 1, h - 1), (h - 1, h - 2), (h - 2, h - 1)) for x in fset(a) for y in fset(b))
+for h in range(0, 10):
+    assert min(fset(h)) == h // 2, h                                     # floor(h/2) guaranteed and tight
+    if h % 2: assert min(fset(h)) < -(-h // 2)                           # ceil(h/2) fails for odd h
+assert min(fset(5)) == 2                                                 # numeric step: h=5 -> 2
 @lru_cache(None)
 def shapes(h):
     if h < 0: return frozenset([None])

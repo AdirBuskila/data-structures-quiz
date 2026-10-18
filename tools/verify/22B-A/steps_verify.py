@@ -179,5 +179,42 @@ def max_height(n):
     return best
 assert max_height(7) == 2 and max_height(8) == 3 and max_height(4) == 2 and max_height(2) == 1
 assert math.floor(math.log2(7)) == 2
+# note: naive union (link either root under the other) reaches height 6 for 7 elements: chain root under a new singleton
+par = {0: None}
+for k in range(1, 7):
+    par[k] = None; par[k - 1] = k                         # union(find(old root), k): old root linked under the new singleton
+def depth(x): return 0 if par[x] is None else 1 + depth(par[x])
+assert max(depth(x) for x in par) == 6 >= 3
 print("Q5 ok")
+
+# ---------- arbiter additions: Q2 rank convention, Q4b sufficiency ----------
+def _gt(A):
+    n = len(A); c = {v: A.count(v) for v in set(A)}
+    return any(c[x] > n / 2 and c[y] > n / 3 for x in c for y in c if x != y)
+def _alg(A, conv):
+    n = len(A); s = sorted(A)
+    pick = {"0floor": lambda f: s[(f * n) // 6], "1ceil": lambda f: s[-(-(f * n) // 6) - 1],
+            "1floor": lambda f: s[max((f * n) // 6 - 1, 0)]}[conv]
+    X, Y, Z = pick(3), pick(2), pick(4)
+    if A.count(X) <= n / 2: return False
+    return not ((A.count(Y) <= n / 3 or Y == X) and (A.count(Z) <= n / 3 or Z == X))
+bad = {c: 0 for c in ("0floor", "1ceil", "1floor")}
+for n in range(1, 10):
+    for A in itertools.combinations_with_replacement(range(4), n):
+        for c in bad:
+            if _alg(list(A), c) != _gt(list(A)): bad[c] += 1
+assert bad["0floor"] == 0 and bad["1ceil"] == 0 and bad["1floor"] > 0, bad
+assert _alg([0, 0, 0, 1, 1], "1floor") is False and _gt([0, 0, 0, 1, 1]) is True
+A10 = sorted([1] * 7 + [2] * 3); assert A10[10 // 3] == A10[-(-10 // 3) - 1] == 1
+def _coll(keys):
+    tab = set(); c = 0
+    for k in keys:
+        i = 0
+        while h(k, i) in tab: i += 1; c += 1
+        tab.add(h(k, i))
+    return c
+assert _coll([15, 30, 45]) == 3 and _coll([0, 5, 13]) == 3
+assert len({(k % 5, k % 3) for k in (0, 5, 13)}) > 1                    # remainders differ: the condition is not necessary
+assert [h(5, 1), h(13, 0), h(13, 1), h(13, 2)] == [3, 3, 0, 2]
+print("Q2 convention / Q4b sufficiency ok")
 print("ALL 22B-A step checks ok")

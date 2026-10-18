@@ -328,5 +328,22 @@ assert missing == 1 and {p[0]: p[1] for p in S}[11] == 20
 for _ in range(300):
     firsts = random.sample(range(15), random.randint(0, 10)); T = [(f, random.randint(0, 14)) for f in firsts]
     assert sym_good(T) == sym_brute(T)
+# the official rule emits both members of each couple and (a,a) with itself; the fixed rule emits only when a<b
+def sym_truth(S):     # one entry per couple of two different pairs
+    return {(min(a, b), max(a, b)) for i, (a, b) in enumerate(S) for j, (c, d) in enumerate(S) if i != j and a == d and c == b}
+def sym_rule(S, r):
+    d = {p[0]: p[1] for p in S}
+    return [(x, y) for (x, y) in S if r(x, y) and y in d and d[y] == x]
+rules = {"a<b": lambda a, b: a < b, "a<=b": lambda a, b: a <= b, "a!=b": lambda a, b: a != b, "always": lambda a, b: True}
+fails = {k: False for k in rules}
+for _ in range(3000):
+    firsts = random.sample(range(1, 9), random.randint(1, 8)); T = [(f, random.randint(1, 8)) for f in firsts]
+    want = sym_truth(T)
+    for k, r in rules.items():
+        got = sym_rule(T, r)
+        if len(got) != len(set(got)) or set(got) != want: fails[k] = True
+assert fails == {"a<b": False, "a<=b": True, "a!=b": True, "always": True}, fails
+S7 = S + [(7, 7)]
+assert sym_rule(S7, rules["a<b"]) == [(30, 40), (5, 10)] and len(sym_rule(S7, rules["always"])) == 5 and (7, 7) in sym_good(S7)
 print("Q5b ok")
 print("ALL 21S-A step checks ok")

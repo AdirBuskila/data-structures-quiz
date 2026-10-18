@@ -127,7 +127,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להחזיר את הערך הראשון והאחרון במערך ($3$ ו-$9$) במקום המינימום והמקסימום.",
     "לכתוב את הזוג בסדר הפוך: הפונקציה מחזירה קודם את המינימום ואחר כך את המקסימום."
@@ -155,14 +155,14 @@
      "explain": "$\\max(3,9)=9$, והמינימום הוא $\\min(2,1)=1$ (הרצת הפונקציה נותנת $(1,9)$)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 2,
    "kind": "computation",
    "topic": "recurrences",
    "question": "נגדיר את $T(n)$ להיות מספר ההשוואות בהרצת `MM` על מערך בגודל $n$. הגדר את הפונקציה $T$ באופן רקורסיבי.",
-   "solution": "$T(2)=O(1)$\n\n$\\forall n>2:\\ T(n)=2\\cdot T(n/2)+O(1)$",
+   "solution": "$T(2)=O(1)$\n\n$\\forall n>2:\\ T(n)=2\\cdot T(n/2)+O(1)$\n\n**הערה:** הניתוח מניח $n=2^k$. בקוד יש בסיס רק לתת-מערך בגודל $2$ ($j=i+1$), ולכן כשהגודל אינו חזקה של $2$ מגיעים לתת-מערך בגודל $1$ ($i=j$) והרקורסיה אינה נעצרת (למשל $n=3$ או $n=6$). ספירה מדויקת של ההשוואות נותנת $T(2)=1$ ו-$T(n)=2T(n/2)+2$ (השוואה אחת למינימום ואחת למקסימום), כלומר $T(n)=\\frac{3n}{2}-2$.",
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
@@ -182,7 +182,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $T(n/2)$ בלבד: יש שתי קריאות רקורסיביות, לא אחת.",
     "לכתוב $O(n)$ כעבודה לא רקורסיבית: השוואת שני זוגות היא $O(1)$."
@@ -233,7 +233,7 @@
      "explain": "$n-1$ קריאות, כל אחת עם עבודה קבועה: $O(n)$."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -264,7 +264,7 @@
      "points": 1
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להניח שמחיקה גוררת גלגול אחד לכל היותר, כמו בהכנסה.",
     "לספור את גובה העץ ($10$) במקום את אורך המסלול השמאלי ($5$)."
@@ -292,7 +292,7 @@
      "explain": "בסימולציה של מחיקה בעץ AVL נמצאו $5$ גלגולים, אחד בכל צומת במסלול."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 3,
@@ -322,7 +322,7 @@
      "points": 3
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לשכוח את $+1$ של השורש: אי-זוגי + אי-זוגי הוא זוגי.",
     "להניח שלשני תתי-העצים אותו גובה, בעוד בעץ מלא הגבהים יכולים להיות שונים."
@@ -379,7 +379,7 @@
      "explain": "סכום שני מספרים אי-זוגיים הוא זוגי, ורק הוספת $1$ של השורש הופכת אותו לאי-זוגי."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -409,7 +409,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "להכניס את איברי $B$ אחד אחד לערימה $A$: זה $O(n\\log n)$, ולא האלגוריתם הטוב ביותר.",
     "להשאיר את $C$ אחרי ההעתקה בלי לתקן: צירוף שתי ערימות כמערך אינו בהכרח ערימה."
@@ -460,7 +460,7 @@
      "explain": "העתקה לינארית ובניית ערימה על $2n$ איברים היא לינארית."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   },
   {
    "num": 4,
@@ -490,7 +490,7 @@
      "points": 2
     }
    ],
-   "rubricSource": "ai-draft",
+   "rubricSource": "ai-verified",
    "pitfalls": [
     "לכתוב $\\Theta(n)$ בשורה האחרונה, כפי שמודפס: $\\log(2n-1)$ הוא $\\Theta(\\log n)$.",
     "לטעון שיש $n!$ עלים כמו במיון: בחיפוש הפלט הוא אינדקס, ולכן $n$ עלים."
@@ -539,7 +539,7 @@
      "explain": "$\\frac{\\log(2n-1)}{\\log n}\\to 1$, ואילו $\\frac{\\log(2n-1)}{n}\\to 0$, ולכן לא $\\Theta(n)$ (נבדק סימבולית)."
     }
    ],
-   "stepsSource": "ai-draft"
+   "stepsSource": "ai-verified"
   }
  ]
 }

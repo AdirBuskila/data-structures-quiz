@@ -25,6 +25,19 @@ for n in (4, 8, 16, 32):
     calls = 0; MM([None] + list(range(n)), 1, n)
     assert calls == n - 1, (n, calls)             # n-1 calls: linear, so T(n)=2T(n/2)+O(1)
 assert calls == 31
+# note: exact comparisons T(2)=1, T(n)=2T(n/2)+2 = 3n/2-2; sizes that are not powers of two never terminate
+def mm_cmp(i, j, depth=0):
+    if depth > 40: raise RecursionError
+    if j == i + 1: return 1
+    k = (i + j) // 2
+    return mm_cmp(i, k, depth + 1) + mm_cmp(k + 1, j, depth + 1) + 2
+ok_sizes = []
+for n in range(2, 70):
+    try:
+        c = mm_cmp(1, n); ok_sizes.append(n); assert c == 3 * n // 2 - 2
+    except RecursionError:
+        pass
+assert ok_sizes == [2, 4, 8, 16, 32, 64], ok_sizes
 print("Q2 ok")
 
 # ---------- Q3a: Fibonacci tree F10, delete the minimum ----------

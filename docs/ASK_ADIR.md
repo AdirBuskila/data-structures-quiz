@@ -227,4 +227,39 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: none unless you want a different split.
 - Status: flagged
 
+### 21B-A Q2 - the O(log^2 n) solution is wrong as printed (labelled fix)
+- Path: sitting 21B-A, solution booklet
+- Page: p.6 (O(log^2(n)) solution)
+- Question: step 3 ("both middle paths of the root have length h -> return 0") returns 0 for incomplete trees, including the exam's own example (n=6, answer 1); step 10 compares h1 with h0 after step 9 has decremented it. Shipped with the "הפתרון הרשמי עם תיקון" label (solved, official false): step 3 tests the rightmost path length = h, step 10 tests h1 = h0+1. Fixed version matches the true answer for every n<400; either printed error alone gives 136-383 mismatches (tools/verify/21B-A/steps_verify.py). Rubric now gives the full 25 only to the O(log^2 n) tier (tier split 10/6/3 estimated, none printed).
+- Needed: none unless you disagree with the fix.
+- Status: flagged
+
+### 21B-A Q3b - "full up to level ceil(h/2)" is false for odd h (labelled fix + note)
+- Path: sitting 21B-A, solution booklet
+- Page: p.9 (Q3 part b)
+- Question: an AVL tree of height 1 can be a root with one child, so ceil fails for every odd h; over all AVL shapes up to h=9 the guaranteed prefix is exactly levels 0..floor(h/2), which is the question's own formal clause "0<=i<=h/2". Shipped with floor throughout plus the case h+1=1 (the official step uses the hypothesis on an empty subtree there), "הפתרון הרשמי עם תיקון" label and a visible note. The order/findbug steps were rewritten to the floor version. Also fixed silently: "לכם" for "לכן".
+- Needed: none unless you disagree.
+- Status: flagged
+
+### 21B-A points - cover says "up to 116" but the items sum to 124
+- Path: sitting 21B-A, cover page
+- Page: p.1
+- Question: Q1 = 6 x 8 = 48, Q2-Q4 = 25 each, +1 bonus: 124, but the cover says "ניתן לצבור עד 116 נקודות". The printed item points are kept (Q1 parts 8 each, Q2 25, Q3/Q4 split 10/15 estimated).
+- Needed: which number is the typo, if it matters.
+- Status: flagged
+
+### 21B-B points - the file prints no points (estimated rubric)
+- Path: sitting 21B-B, exam + solution file
+- Page: p.1-4
+- Question: no question or part points are printed anywhere. The rubric totals (2a 5, 2b 5, 3a 5, 3b 10, 4a 10, 4b 10) are the step-author's estimate and are kept.
+- Needed: the real weights, if you have them.
+- Status: flagged
+
+### 22B-A Q4b - "we need equal remainders mod 5 and mod 3" changed to "it suffices" (fixed silently)
+- Path: sitting 22B-A, official solution file
+- Page: Q4 part b
+- Question: the condition is sufficient, not necessary: 0, 5, 13 (different remainders) also give 3 collisions (tools/verify/22B-A/steps_verify.py). The word "נצטרך" became "מספיק לבחור"; the example 15, 30, 45 and the answer 3 are unchanged. A pitfall shows the 0, 5, 13 example.
+- Needed: none
+- Status: flagged
+
 ## Resolved
