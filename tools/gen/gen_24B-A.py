@@ -126,12 +126,12 @@ APAR = [
 OLD_PAREN = r"""
 
 (כלומר, מהו הערך הנמוך ביותר עבור המשתנה $a$ עבורו נקבל $T(n) > \theta(n^2)$)"""
-ANOTE = {0: "log_2 a = 2 -> for a=4 case 2 will be correct and we'll get Theta(n^2 logn)",
-         1: "for a=8 case 2 will be correct and we'll get Theta(n^3 logn)",
+ANOTE = {0: r"$\log_2 a = 2$ → for $a=4$ case 2 will be correct and we'll get $\Theta(n^2\log n)$",
+         1: r"for $a=8$ case 2 will be correct and we'll get $\Theta(n^3\log n)$",
          2: "log_2 a: for a=2 case 2 will be correct and we'll get Theta(n logn)",
          3: "log_4 a: for a=4 in case 2 we'll get T(n)=Theta(nlogn)",
-         4: "log_3 a: for a=9 and case 2 we'll get T(n)=n^2 logn",
-         5: "log_5 a: for a=25 we'll get case 2 and T(n)=Theta(n^2 logn)"}
+         4: r"$\log_3 a$: for $a=9$ and case 2 we'll get $T(n)=n^2\log n$",
+         5: r"$\log_5 a$: for $a=25$ we'll get case 2 and $T(n)=\Theta(n^2\log n)$"}
 for i, (b, p, opts, key, _) in enumerate(APAR):
     pw = {1: "n", 2: "n^2", 3: "n^3"}[p]
     stem = (f"בהנתן נוסחת הנסיגה הבאה: $T(n)=aT(n/{b})+{pw}$.\n"
@@ -239,7 +239,7 @@ REL = [
       r"אם $T_1(n)=\theta(f(n))$ וגם $T_2(n)=\theta(f(n))$ אז $T_2(n)=O(T_1(n)+f(n))$",
       r"אם $T_1(n)=O(f(n))$ וגם $T_2(n)=O(g(f(n)))$ אז $T_2(n)=O(g(T_1(n)))$",
       r"אם $T_1(n)=\theta(\sqrt{f(n)})$ וגם $T_2(n)=O(f(n))$ אז $T_2(n)=O(T_1(n))$"], 1,
-     "Option A: No, for example T1=n^2, T2=n, f=n^2. Option C: No, T1=n, T2=n^2, f=n, g=n"),
+     "Option A: No, for example $T_1=n^2$, $T_2=n$, $f=n^2$. Option C: No, $T_1=n$, $T_2=n^2$, $f=n$, $g=n$"),
     ([r"אם $T_1(n)=O(g(n))$ וגם $T_2(n)=O(g(n))$ אז $T_1(n)=O(T_2(n))$",
       r"אם $T_1(n)=\theta(g(n))$ וגם $T_2(n)=O(g(n))$ אז $T_2(n)=O(T_1(n))$",
       r"אם $T_1(n)=O(g(n))$ וגם $T_2(n)=O(g(f(n)))$ אז $T_2(n)=O(g(T_1(n)))$",

@@ -665,7 +665,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "explanation": "הערת הפתרון הרשמי: log_2 a = 2 -> for a=4 case 2 will be correct and we'll get Theta(n^2 logn)"
+   "explanation": "הערת הפתרון הרשמי: $\\log_2 a = 2$ → for $a=4$ case 2 will be correct and we'll get $\\Theta(n^2\\log n)$"
   },
   {
    "num": 21,
@@ -699,7 +699,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "explanation": "הערת הפתרון הרשמי: for a=8 case 2 will be correct and we'll get Theta(n^3 logn). (בטופס זה נשארה בסוגריים הנוסחה הישנה $T(n) > \\theta(n^2)$; המפתח הרשמי מתאים לנוסח השאלה הראשי.)"
+   "explanation": "הערת הפתרון הרשמי: for $a=8$ case 2 will be correct and we'll get $\\Theta(n^3\\log n)$. (בטופס זה נשארה בסוגריים הנוסחה הישנה $T(n) > \\theta(n^2)$; המפתח הרשמי מתאים לנוסח השאלה הראשי.)"
   },
   {
    "num": 22,
@@ -801,7 +801,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "explanation": "הערת הפתרון הרשמי: log_3 a: for a=9 and case 2 we'll get T(n)=n^2 logn"
+   "explanation": "הערת הפתרון הרשמי: $\\log_3 a$: for $a=9$ and case 2 we'll get $T(n)=n^2\\log n$"
   },
   {
    "num": 25,
@@ -835,7 +835,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "explanation": "הערת הפתרון הרשמי: log_5 a: for a=25 we'll get case 2 and T(n)=Theta(n^2 logn)"
+   "explanation": "הערת הפתרון הרשמי: $\\log_5 a$: for $a=25$ we'll get case 2 and $T(n)=\\Theta(n^2\\log n)$"
   },
   {
    "num": 26,
@@ -1628,7 +1628,7 @@
    "solutionSource": "official-pdf",
    "official": true,
    "confidence": "high",
-   "explanation": "Option A: No, for example T1=n^2, T2=n, f=n^2. Option C: No, T1=n, T2=n^2, f=n, g=n"
+   "explanation": "Option A: No, for example $T_1=n^2$, $T_2=n$, $f=n^2$. Option C: No, $T_1=n$, $T_2=n^2$, $f=n$, $g=n$"
   },
   {
    "num": 50,

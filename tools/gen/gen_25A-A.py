@@ -333,7 +333,7 @@ add(2, "ב",
          "correctId": "a",
          "explain": r"""$2>1.585$. חישוב מספרי: היחס $T(n)/n^2$ שואף ל-$4$, בעוד היחס ל-$n^{1.585}$ גדל בלי גבול (מקרה ראשון היה נותן $n^{1.585}$) והיחס ל-$n^2\log n$ שואף ל-$0$ (מקרה שני היה נותן $n^2\log n$)."""},
         {"type": "text", "prompt": r"""מהו החסם ההדוק ל-$T(n)$? (כתבו בצורה `O(...)`)""",
-         "accept": ["O(n^2)", "Θ(n^2)"], "normalize": "complexity",
+         "accept": ["O(n²)", "O(n^2)", "Θ(n^2)"], "normalize": "complexity",
          "explain": r"""$T(n)=\Theta(f(n))=\Theta(n^2)$; הקבוע המדוד הוא $4$."""},
     ],
     stepsSource="ai-verified")

@@ -72,8 +72,8 @@ MASTER_OPTS = ["ניתן לפתור בעזרת משפט האב – לפי המק
                "ניתן לפתור בעזרת משפט האב – לפי המקרה השלישי", "לא ניתן לפתור בעזרת שיטת האב"]
 # (a, b-text, f-text, key, annotation)  -- T(n) = a T(n/b) + f
 MASTER = [
-    ("6T\\left(\\frac{n}{2}\\right) + n^2", 0, "a=6, b=2, log_2 6 = 2.something, case 1: n^2 = O(n^(2.x-eps))"),
-    ("T\\left(\\frac{n}{3}\\right) + n^2", 2, "a=1, b=3, log_3 1 = 0, case 3: n^2 = Omega(n^(0+eps)); a*f(n/b) <= c*f(n): 1*f(n/3) <= c*f(n), n^2/9 <= c*n^2, 1/9 <= c"),
+    ("6T\\left(\\frac{n}{2}\\right) + n^2", 0, r"$a=6$, $b=2$, $\log_2 6 = 2.\text{something}$, case 1: $n^2 = O(n^{2.x-\varepsilon})$"),
+    ("T\\left(\\frac{n}{3}\\right) + n^2", 2, r"$a=1$, $b=3$, $\log_3 1 = 0$, case 3: $n^2 = \Omega(n^{0+\varepsilon})$; $a\cdot f(n/b) \le c\cdot f(n)$: $1\cdot f(n/3) \le c\cdot f(n)$, $n^2/9 \le c\cdot n^2$, $1/9 \le c$"),
     ("T\\left(\\frac{n}{4}\\right) + 1024", 1, "a=1, b=4, log_4 1 = 0, case 2: f(n)=1024=Theta(1), T(n)=logn"),
     ("3T\\left(\\frac{3n}{2}\\right) + \\frac{3n}{2}", 3, "a=3, b=2/3 < 1 not possible"),
 ]
@@ -89,10 +89,10 @@ APAR = [
     (2, 1, [8, 4, 2, 1], 2),
     (4, 2, [64, 128, 16, 2], 2),
 ]
-ANOTE = ["log_2 a: a=4, log_2 4 = 2, case 2, f(n)=n^2=Theta(n^2), T(n)=n^2 logn",
-         "a=9.3, b=2, log_2 9.3 = 3.something, case 1: f(n)=n^3 = O(n^(3.x-eps)), T(n)=Theta(n^3.x)",
+ANOTE = [r"$\log_2 a$: $a=4$, $\log_2 4 = 2$, case 2, $f(n)=n^2=\Theta(n^2)$, $T(n)=n^2\log n$",
+         r"$a=9.3$, $b=2$, $\log_2 9.3 = 3.\text{something}$, case 1: $f(n)=n^3 = O(n^{3.x-\varepsilon})$, $T(n)=\Theta(n^{3.x})$",
          "a=2, b=2, log_2 2 = 1, case 2: f(n)=n=Theta(n), T(n)=Theta(nlogn)",
-         "a=16, b=4, log_4 16 = 2, f(n)=n^2=Theta(n^2), case 2, T(n)=n^2 logn"]
+         r"$a=16$, $b=4$, $\log_4 16 = 2$, $f(n)=n^2=\Theta(n^2)$, case 2, $T(n)=n^2\log n$"]
 for (b, p, opts, key), ex in zip(APAR, ANOTE):
     pw = "n" if p == 1 else f"n^{p}"
     pw1 = f"n^{p + 1}"
@@ -188,7 +188,7 @@ mcq("ds_design", OS, ["לא ניתן לממש מבנה שיעמוד בדרישו
 # ---------------------------------------------------------------- minimal number of nodes of a heap of height h
 mcq("heaps", "בייצוג ערימה בעזרת עץ בינארי (ולא במערך), מה כמות הקודקודים המינימלית בערימה בגובה $h$ ?",
     ["$2^h + 1$", "$2^h$", "$2^h - 1$", "$2(2^h + 1)$"], 1,
-    "הערת הפתרון הרשמי: Total = 2^h - 1 + 1 = 2^h")
+    "הערת הפתרון הרשמי: $\\text{Total} = 2^h - 1 + 1 = 2^h$")
 
 # ---------------------------------------------------------------- STAM: sqrt(n) .. n/2 outer loop, doubling inner loop up to n/4
 mcq("complexity", ("נתון קטע הפסודוקוד הבא, בחר את סיבוכיות זמן הריצה שלו:\n\n"
