@@ -1,0 +1,975 @@
+{
+ "courseId": "recurrences",
+ "levels": [
+  {
+   "id": "C01",
+   "order": 1,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C01-Q1",
+     "question": "מהי נוסחת הנסיגה של זמן הריצה של הפונקציה?\n```\ndef f(n):\n    if n <= 1:\n        return 1\n    return f(n // 2) + 1\n```",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(n)=2T(n/2)+O(1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(n)=T(n/2)+O(1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(n)=T(n-1)+O(1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(n)=T(n/2)+O(n)$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q2",
+     "question": "הפונקציה מקבלת מערך $a$ ומחזירה את המקסימום בטווח $[lo,hi)$, כשגודל הקלט הוא $n=hi-lo$. מהי נוסחת הנסיגה?\n```\ndef g(a, lo, hi):\n    if hi - lo <= 1:\n        return a[lo]\n    mid = (lo + hi) // 2\n    x = g(a, lo, mid)\n    y = g(a, mid, hi)\n    return max(x, y)\n```",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(n)=T(n/2)+O(1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(n)=2T(n/2)+O(n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(n)=2T(n/2)+O(1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(n)=T(n-1)+O(1)$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q3",
+     "question": "מהי נוסחת הנסיגה של זמן הריצה של הפונקציה?\n```\ndef h(n):\n    if n <= 1:\n        return 0\n    s = 0\n    for i in range(n):\n        s += i\n    return s + h(n - 1)\n```",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(n)=T(n-1)+O(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(n)=T(n-1)+O(1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(n)=nT(n-1)+O(1)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(n)=T(n/2)+O(n)$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q4",
+     "question": "מהי נוסחת הנסיגה של זמן הריצה של הפונקציה (בגודל $n$)?\n```\ndef p(n):\n    if n <= 1:\n        return\n    p(n // 4)\n    p(3 * n // 4)\n    for i in range(n):\n        pass\n```",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(n)=2T(n/2)+O(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(n)=T(n/4)+T(3n/4)+O(1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(n)=T(n/4)+T(3n/4)+O(n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(n)=T(n/4)+O(n)$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q5",
+     "question": "פונקציה מחלקת את הקלט לשלושה חלקים שווים וקוראת לעצמה על כל חלק, ואז עוברת פעם אחת על כל $n$ האיברים. מהי נוסחת הנסיגה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(n)=T(n/3)+O(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(n)=3T(n/3)+O(1)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(n)=3T(n)+O(n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(n)=3T(n/3)+O(n)$"
+      }
+     ]
+    },
+    {
+     "id": "C01-Q6",
+     "step": {
+      "type": "numeric",
+      "prompt": "נוסחת הנסיגה היא $T(n)=2T(n/2)+n$ עם $T(1)=1$. מהו $T(8)$?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C02",
+   "order": 2,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C02-Q1",
+     "question": "מהו פתרון הנוסחה $T(n)=T(n-1)+5$, עם $T(1)=O(1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(1)$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q2",
+     "question": "מהו פתרון הנוסחה $T(n)=T(n-1)+n$, עם $T(1)=O(1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(2^n)$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q3",
+     "question": "מהו פתרון הנוסחה $T(n)=T(n/2)+1$, עם $T(1)=O(1)$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(\\sqrt{n})$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(1)$"
+      }
+     ]
+    },
+    {
+     "id": "C02-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "נתון $T(n)=T(n-1)+n$ ו-$T(1)=1$. מהו $T(100)$?"
+     }
+    },
+    {
+     "id": "C02-Q5",
+     "step": {
+      "type": "text",
+      "prompt": "פתחו את $T(n)=T(n/2)+n$ ורשמו את הפתרון בצורה $\\Theta(\\cdot)$, באנגלית.",
+      "normalize": "complexity"
+     }
+    },
+    {
+     "id": "C02-Q6",
+     "question": "מהו הסדר הגדול של $T(n)=2T(n-1)+1$, עם $T(1)=1$? (פתחו כמה צעדים: $T(n)=1+2T(n-1)=1+2+4T(n-2)=\\ldots$)",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(2^n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C03",
+   "order": 3,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C03-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "בעץ הרקורסיה של $T(n)=3T(n/2)+n$ עם $n=16$: מהו סכום העבודה ברמה 2 (השורש הוא רמה 0)?"
+     }
+    },
+    {
+     "id": "C03-Q2",
+     "question": "מהו פתרון הנוסחה $T(n)=2T(n/2)+n$ לפי עץ הרקורסיה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q3",
+     "question": "מהו פתרון הנוסחה $T(n)=4T(n/2)+n$ לפי עץ הרקורסיה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^2\\log n)$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q4",
+     "question": "מהו פתרון הנוסחה $T(n)=2T(n/2)+n^2$ לפי עץ הרקורסיה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n^2\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^3)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      }
+     ]
+    },
+    {
+     "id": "C03-Q5",
+     "step": {
+      "type": "numeric",
+      "prompt": "בעץ של $T(n)=4T(n/2)+n$ עם $n=64$ הקלט מגיע לגודל 1 בעומק $\\log_2 64=6$. כמה עלים יש בעץ?"
+     }
+    },
+    {
+     "id": "C03-Q6",
+     "question": "מהו פתרון הנוסחה $T(n)=2T(n/2)+1$ לפי עץ הרקורסיה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(1)$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C04",
+   "order": 4,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C04-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "בנוסחה $T(n)=8T(n/2)+n$: מהו $\\log_b a$ (הרף הוא $n^{\\log_b a}$)?"
+     }
+    },
+    {
+     "id": "C04-Q2",
+     "question": "פתרו בעזרת משפט האב: $T(n)=9T(n/3)+n$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^3)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q3",
+     "question": "פתרו בעזרת משפט האב: $T(n)=2T(n/2)+n$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q4",
+     "question": "פתרו בעזרת משפט האב: $T(n)=T(n/2)+n$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(1)$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q5",
+     "question": "פתרו בעזרת משפט האב: $T(n)=4T(n/2)+n^3$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n^3\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^3)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^5)$"
+      }
+     ]
+    },
+    {
+     "id": "C04-Q6",
+     "question": "פתרו בעזרת משפט האב: $T(n)=7T(n/2)+n^2$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n^2\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^{\\log_2 7})$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^3)$"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C05",
+   "order": 5,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C05-Q1",
+     "question": "פתרו: $T(n)=T(n/4)+1024$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(1)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(\\sqrt{n})$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q2",
+     "question": "פתרו: $T(n)=2T(n/4)+\\sqrt{n}$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(\\sqrt{n})$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(\\sqrt{n}\\log n)$"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q3",
+     "question": "פתרו: $T(n)=2T\\left(\\frac{n}{\\sqrt{2}}\\right)+n+\\sqrt{n}$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(\\sqrt{n}\\log n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      }
+     ]
+    },
+    {
+     "id": "C05-Q4",
+     "step": {
+      "type": "numeric",
+      "prompt": "בנוסחה $T(n)=3T(n/9)+n$: מהו $\\log_b a$, כלומר החזקה של הרף $n^{\\log_b a}$?"
+     }
+    },
+    {
+     "id": "C05-Q5",
+     "step": {
+      "type": "findbug",
+      "prompt": "בפתרון הבא של $T(n)=3T(n/9)+n$ במשפט האב יש שורה אחת שגויה מתמטית. איזו?",
+      "lines": [
+       "$a=3$, $b=9$, ולכן $\\log_9 3=2$ והרף הוא $n^2$.",
+       "$f(n)=n=n^{1/2+1/2}$ גדולה בחזקה מ-$n^{1/2}$.",
+       "סדירות: $3\\cdot f(n/9)=\\tfrac n3\\le\\tfrac13 f(n)$, עם $c=\\tfrac13<1$.",
+       "זה מקרה 3, ולכן $T(n)=\\Theta(n)$."
+      ]
+     }
+    },
+    {
+     "id": "C05-Q6",
+     "question": "בנוסחה $T(n)=aT(n/3)+n^2$, מהו הערך הנמוך ביותר מבין הבאים של $a$ שעבורו הסיבוכיות גדולה מ-$n^2$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "3"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "6"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "12"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "9"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C06",
+   "order": 6,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C06-Q1",
+     "question": "נתונה $T(n)=4T(n/2)+n^2\\log n$. איזו טענה נכונה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אפשר לפתור במשפט האב לפי מקרה 1"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אפשר לפתור במשפט האב לפי מקרה 2"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אפשר לפתור במשפט האב לפי מקרה 3"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אי אפשר לפתור במשפט האב"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q2",
+     "question": "מהו הפתרון של $T(n)=4T(n/2)+n^2\\log n$ לפי עץ הרקורסיה?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n^2\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n^3)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^2\\log^2 n)$"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q3",
+     "step": {
+      "type": "numeric",
+      "prompt": "בעץ של $T(n)=4T(n/2)+n^2\\log_2 n$ עם $n=2^{10}$: מהו סכום העבודה ברמה 3 (השורש הוא רמה 0), מחולק ב-$n^2$?"
+     }
+    },
+    {
+     "id": "C06-Q4",
+     "question": "איזו מהנוסחאות הבאות ניתנת לפתרון במשפט האב?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$T(n)=T(n-1)+n$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$T(n)=T(n/2)+T(n/3)+n$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$T(n)=n\\,T(n/2)+1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$T(n)=3T(n/2)+n$"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q5",
+     "question": "מדוע משפט האב לא חל על $T(n)=T(n-1)+n$?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "כי $f(n)=n$ גדולה מדי"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "כי הקלט מוקטן בחיסור ולא בחילוק בקבוע $b>1$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "כי $a=1$ אסור במשפט"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "כי $f$ חייבת להיות קבועה"
+      }
+     ]
+    },
+    {
+     "id": "C06-Q6",
+     "question": "נתונה $T(n)=T\\left(\\frac{3n}{2}\\right)+n$. מה נכון?",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "אפשר לפתור במשפט האב לפי מקרה 3"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "אפשר לפתור במשפט האב לפי מקרה 1"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "אי אפשר, כי תת-הבעיה ($3n/2$) גדולה מהבעיה, כלומר $b<1$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "אי אפשר, כי $f(n)=n$ קטנה מדי"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "C07",
+   "order": 7,
+   "boss": false,
+   "questions": [
+    {
+     "id": "C07-Q1",
+     "step": {
+      "type": "numeric",
+      "prompt": "בנוסחה $T(n)=T(n/4)+T(n/2)+n^2$: כמה הוא $q$, היחס בין סכום רמה לסכום הרמה שלפניה?"
+     }
+    },
+    {
+     "id": "C07-Q2",
+     "question": "פתרו: $T(n)=T(n/4)+T(3n/4)+n$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n(\\log n)^2)$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q3",
+     "question": "פתרו: $T(n)=T(n/3)+T(n/2)+n$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(\\log n)$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q4",
+     "question": "פתרו: $T(n)=T(n/2)+T(n/3)+T(n/6)+n$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(\\sqrt{n})$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q5",
+     "question": "פתרו: $T(n)=T(n/3)+T(2n/3)+n^2$.",
+     "options": [
+      {
+       "id": "a",
+       "type": "text",
+       "value": "$\\Theta(n^2)$"
+      },
+      {
+       "id": "b",
+       "type": "text",
+       "value": "$\\Theta(n^2\\log n)$"
+      },
+      {
+       "id": "c",
+       "type": "text",
+       "value": "$\\Theta(n\\log n)$"
+      },
+      {
+       "id": "d",
+       "type": "text",
+       "value": "$\\Theta(n^3)$"
+      }
+     ]
+    },
+    {
+     "id": "C07-Q6",
+     "step": {
+      "type": "numeric",
+      "prompt": "עבור $T(n)=T(n/4)+T(n/2)+n^2$ הסכום על כל הרמות הוא $n^2\\sum_{i\\ge0}q^i$. לאיזה מספר מתקרב $T(n)/n^2$ עבור $n$ גדול מאוד? (תשובה עשרונית, סטייה של $0.01$)"
+     }
+    }
+   ]
+  },
+  {
+   "id": "C08",
+   "order": 8,
+   "boss": true,
+   "questions": [
+    {
+     "id": "bank:24B-A-Q17",
+     "bankId": "24B-A-Q17"
+    },
+    {
+     "id": "bank:24B-A-Q20",
+     "bankId": "24B-A-Q20"
+    },
+    {
+     "id": "bank:24B-B-Q9",
+     "bankId": "24B-B-Q9"
+    },
+    {
+     "id": "bank:24S-A-Q41",
+     "bankId": "24S-A-Q41"
+    },
+    {
+     "id": "bank:25B-A-Q1c",
+     "bankId": "25B-A-Q1c"
+    },
+    {
+     "id": "bank:25B-B-Q1c",
+     "bankId": "25B-B-Q1c"
+    }
+   ]
+  }
+ ]
+}
