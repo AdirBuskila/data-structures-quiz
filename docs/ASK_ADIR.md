@@ -83,4 +83,39 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Needed: none
 - Status: flagged
 
+### SAMP-1 Q2c - official key contradicted by a script (held)
+- Path: sitting SAMP-1, solution booklet
+- Page: p.4 (Q2 part c)
+- Question: official says "true" (a new key can always be inserted into T2 within 7 attempts with 6 keys). The quadratic probes i=0..6 of h2 give offsets 0,6,1,11,10,11,1, only 5 distinct cells, so 6 keys can block all 7 attempts. Sitting 19B-A Q6 part 3 (same statement) has the official key "false" with an example table. Held, not fixed.
+- Needed: decide whether to ship with the verdict "false" (as in 19B-A) or leave held.
+- Status: open
+
+### SAMP-1 Q3b - no solution (held)
+- Path: sitting SAMP-1, solution booklet
+- Page: p.4 (Q3 part b)
+- Question: decision tree of heap sort for 3 elements; the official solution is only a video link, no tree drawn. 19B-A Q4b has a drawn tree for the same question.
+- Needed: route to the solver, or reuse the 19B-A Q4b figure.
+- Status: open
+
+### SAMP-1 Q1a - comparison count depends on the model (flagged)
+- Path: sitting SAMP-1, solution booklet
+- Page: p.1 (Q1 part a)
+- Question: official counts 2 comparisons per internal node (n for even n). A careful build-heap does one comparison for a node with a single child, giving n-1 for every n. Transcribed as official, confidence med.
+- Needed: none unless you want a note.
+- Status: flagged
+
+### 19B-B Q1a - no solution (held)
+- Path: sitting 19B-B, solution booklet
+- Page: p.1 (Q1 part a)
+- Question: prove or disprove "for any f, g: f=O(g) or g=O(f)"; the official answer is only "see the first presentation".
+- Needed: route to the solver.
+- Status: open
+
+### 19B-A Q4b - official decision tree has 5 leaves
+- Path: sitting 19B-A, solution booklet
+- Page: p.7 (Q4 part 2)
+- Question: the official figure for 3 elements shows 5 leaves, while 3 elements have 6 orders. Shipped as the official figure, confidence med.
+- Needed: none unless you want it redrawn.
+- Status: flagged
+
 ## Resolved

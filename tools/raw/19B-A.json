@@ -1,0 +1,279 @@
+{
+ "examCode": "19B-A",
+ "examLabel": "מבני נתונים 61104, סמסטר ב תשע\"ט, מועד א",
+ "year": 2019,
+ "examDate": "5.7.2019",
+ "sourceFile": "ds-2019-B-moed-A-exam",
+ "solutionFile": "ds-2019-B-moed-A-solution",
+ "contexts": {
+  "c1b": {
+   "kind": "text",
+   "title": "הפונקציות (שאלה 1, סעיף 2)",
+   "text": "נתונות הפונקציות הבאות $f_1(n), f_2(n), g_1(n), g_2(n)$ המקיימות: $f_1(n)=O(g_1(n))$, $f_2(n)=O(g_2(n))$."
+  },
+  "c2": {
+   "kind": "image",
+   "title": "יער הקבוצות הזרות (שאלה 2)",
+   "image": "images/exams/19B-A-Q2-c1.png",
+   "caption": "נתון מימוש של טיפוס מופשט של קבוצות זרות על ידי עצים הפוכים עם דחיסת מסלולים, כאשר לכל קבוצה יש נציג שהוא שורש העץ, ובשורש נשמר גודל הקבוצה. ידוע שבפעולת Union מאחדים קבוצה קטנה לגדולה. המבנה אותחל על ידי 14 הפעולות makeset(1), ... , makeset(14), כאשר כל הנתונים לקוחים מהתחום {1, 2, ... , 14}. כמו כן, נתון היער הבא."
+  },
+  "c31": {
+   "kind": "text",
+   "title": "סריקות postorder (שאלה 3, סעיף 1)",
+   "text": "נתונות שלוש סדרות המייצגות הדפסה במעבר `postorder` על עץ בינארי. קבע איזו סדרה יתכן שמייצגת: עץ AVL, עץ חיפוש בינארי אך אינו AVL, עץ בינארי אך אינו עץ חיפוש.\n\nאם קבעת שאינה מייצגת עץ חיפוש, הסבר בקצרה מדוע לא. אחרת, צייר עץ מתאים."
+  },
+  "c5": {
+   "kind": "text",
+   "title": "חברת מצליח (שאלה 5)",
+   "text": "חברת \"מצליח\" הקימה חנות אינטרנטית עם $n$ מוצרים. לכל מוצר ברקוד שהינו מספר טבעי. החברה רוצה מבנה נתונים שיתמוך בפעולות הבאות:\n\n`Initialization()`: אתחול מבנה הנתונים (עלות הפעולה $O(1)$).\n\n`Find(k)`: מקבלת ברקוד $k$ ומחזירה האם המוצר קיים במלאי ובאיזו כמות. (עלות הפעולה $O(\\log n)$)\n\n`Purchase(k,i)`: מקבלת ברקוד $k$ ורמת קדימות $1$ או $2$ (כאשר רמת קדימות $1$ היא הגבוהה ביותר). שולחת בקשה לרכישת $50$ פריטים של המוצר $k$ עם עדיפות $i$. (עלות הפעולה $O(1)$).\n\n`Buy(k)`: מקבלת ברקוד $k$. אם המוצר אינו במלאי, מוציאה הודעה ללקוח, \"המוצר אינו במלאי\", אחרת, הפחתת $1$ בכמות המוצר.\n\n- אם כמות המוצר $=3$ שליחת בקשה לרכישת עוד $50$ יחידות מהמוצר עם מקדם עדיפות לרכישה. מקדם העדיפות לרכישה נקבע לפי הכלל הבא: אם מתחילת החודש נמכרו לפחות $50$ מוצרים רמת קדימות $1$, אחרת רמת קדימות $2$. (עלות הפעולה $O(\\log n)$).\n\n`Supply()`: מבצעת רכישת אספקה של $50$ יחידות ממוצר על ידי המחסן. הרכישה תתבצע מרשימת המוצרים הנדרשים לאספקה לפי הכלל הבא: לפי סדר קדימות (ככל שמקדם העדיפות נמוך יותר עדיפות גבוהה יותר), ומוצרים בעלי אותו סדר קדימות לפי סדר בקשת האספקה. מעדכנת במלאי שנוספו $50$ יחידות למוצר. (עלות הפעולה $O(\\log n)$)."
+  },
+  "c6": {
+   "kind": "text",
+   "title": "טבלאות הגיבוב (שאלה 6, בונוס)",
+   "text": "נתונות שתי טבלאות גיבוב בגודל $m=13$, המסומנות על ידי $T_1, T_2$. נשתמש בשתי שיטות גיבוב: הגיבוב הלינארי ($h_1$) והגיבוב הריבועי ($h_2$). להלן פונקציות הגיבוב:\n\n$$h_1(k,i) = (\\text{hash}(k)+i) \\bmod 13$$\n\n$$h_2(k,i) = (\\text{hash}(k)+i^2+5\\cdot i) \\bmod 13$$\n\nכאשר $\\text{hash}(k)$ היא פונקציית גיבוב כלשהי. לטבלה $T_1$ נגבב בעזרת הפונקציה $h_1$ ולטבלה $T_2$ נגבב בעזרת הפונקציה $h_2$."
+  }
+ },
+ "questions": [
+  {
+   "num": 1,
+   "kind": "computation",
+   "topic": "recurrences",
+   "question": "[5 נקודות] להלן פסאודו קוד של הפונקציה `What` המקבלת מערך $A$ בגודל $n$ ושני מספרים טבעיים $k$ ו-$m$:\n\n```\nBool What(int A[], int k, int m){\n    if m-k<1 return 1;\n    if A[k]≠A[m] return 0;\n    return(What(A,k+1,m-1));\n}\n```\n\nכתוב נוסחת נסיגה המתארת את זמן הריצה של הפונקציה `What(A,1,n)` כתלות ב-$n$.",
+   "solution": "$T(1)=1$\n\n$T(n)=T(n-2)+3$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 5
+  },
+  {
+   "num": 1,
+   "kind": "proof",
+   "topic": "complexity",
+   "question": "[5 נקודות] $f_1(n)\\cdot f_2(n)=O\\left(g_1(n)\\cdot g_2(n)\\right)$. הוכח או הפרך.",
+   "solution": "הטענה נכונה.\n\nצ\"ל: שקיימים קבועים $c,n_0$ כך שלכל $n\\ge n_0$ מתקיים $f_1(n)\\cdot f_2(n)\\le c\\cdot g_1(n)\\cdot g_2(n)$.\n\nנתון: $f_1(n)=O(g_1(n))$ ולכן קיימים קבועים $c_1,n_1$ כך שלכל $n\\ge n_1$ מתקיים: $f_1(n)\\le c_1\\cdot g_1(n)$.\n\nנתון: $f_2(n)=O(g_2(n))$ ולכן קיימים קבועים $c_2,n_2$ כך שלכל $n\\ge n_2$ מתקיים: $f_2(n)\\le c_2\\cdot g_2(n)$.\n\nולכן, מהנתון ומכך שמדובר בפונקציות חיוביות נקבל שאם נבחר $c=c_1\\cdot c_2$ ואת $n_0=\\max(n_1,n_2)$ אז יתקיים:\n\n$$f_1(n)\\cdot f_2(n)\\le c\\cdot g_1(n)\\cdot g_2(n)$$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 5,
+   "contextId": "c1b"
+  },
+  {
+   "num": 1,
+   "kind": "proof",
+   "topic": "complexity",
+   "question": "[5 נקודות] $f_1(n)^{f_2(n)}=O\\left(g_1(n)^{g_2(n)}\\right)$. הוכח או הפרך.",
+   "solution": "הטענה אינה נכונה.\n\nדוגמה נגדית:\n\n$f_1(n)=g_1(n)=n$\n\n$f_2(n)=2,\\ g_2(n)=1$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ג",
+   "points": 5,
+   "contextId": "c1b"
+  },
+  {
+   "num": 2,
+   "kind": "proof",
+   "topic": "union_find",
+   "question": "[7 נקודות] האם יתכן שלאחר סדרת הפעולות `makeset(1)`, ... , `makeset(14)` התבצעה סדרת פעולות איחוד בלבד (ללא פעולות חיפוש) והתקבל היער הנתון?\n\nאם כן, ציין את סדרת פעולות האיחוד שהתבצעו. אחרת, הוכח מדוע לא יתכן שקיימת סדרה כזאת.",
+   "solution": "לא קיימת.\n\nהעץ ששורשו $12$ עם $5$ איברים אוחד לעץ ששורשו $4$ עם $4$ איברים, לא עומד בדרישה של איחוד קבוצה קטנה לקבוצה גדולה.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 7,
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "union_find",
+   "question": "[4 נקודות] קיימות $k$ פעולות חיפוש על היער הנתון, כך שאחרי ביצוען גובה העצים ביער יהיה לכל היותר $1$.\n\nמהו ה-$k$ המינימלי?",
+   "solution": "$5$",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 4,
+   "contextId": "c2"
+  },
+  {
+   "num": 2,
+   "kind": "computation",
+   "topic": "union_find",
+   "question": "[4 נקודות] בהתאם ל-$k$ שענית בסעיף הקודם, הצג סדרה של $k$ פעולות חיפוש שיגרמו ביער הנתון שגובה העצים יהיה לכל היותר $1$.",
+   "solution": "`Find(11)`, `Find(3)`, `Find(7)`, `find(1)`, `Find(6)`",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ג",
+   "points": 4,
+   "contextId": "c2"
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "bst",
+   "question": "[3 נקודות] $201, 154, 309, 100, 402, 56, 505$",
+   "solution": "עץ חיפוש אך אינו עץ AVL.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 3,
+   "contextId": "c31"
+  },
+  {
+   "num": 3,
+   "kind": "proof",
+   "topic": "bst",
+   "question": "[3 נקודות] $56, 309, 154, 100, 505, 402, 201$",
+   "solution": "לא עץ חיפוש, נניח בשלילה שזהו עץ חיפוש, לכן לפי סריקת `postorder` $201$ הינו שורש העץ ואז האיברים $56, 309, 154, 100$ נמצאים בתת העץ השמאלי שלו, אבל האיבר $309$ גדול מהשורש $201$ ולכן תכונת החיפוש אינה מתקיימת.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 3,
+   "contextId": "c31"
+  },
+  {
+   "num": 3,
+   "kind": "computation",
+   "topic": "avl",
+   "question": "[3 נקודות] $56, 154, 100, 309, 505, 452, 201$",
+   "solution": "עץ AVL.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ג",
+   "points": 3,
+   "contextId": "c31"
+  },
+  {
+   "num": 3,
+   "kind": "algorithm",
+   "topic": "bst",
+   "question": "[7 נקודות] הצע אלגוריתם יעיל ביותר (מבחינת זמן הריצה) וציין את זמן הריצה שלו:\n\nקלט: עצי חיפוש $T_1, T_2$.\n\nפלט: \"כן\", אם המפתחות המוצגים בעצים $T_1, T_2$ הם אותם מפתחות, אחרת, \"לא\".",
+   "solution": "1. בצע סריקת `inorder` על עץ $T_1$ לתוך מערך $A_1$.\n2. בצע סריקת `inorder` על עץ $T_2$ לתוך מערך $A_2$.\n3. בדוק שהמערכים $A_1, A_2$ זהים.\n\nזמן ריצה: $\\Theta(n)$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ד",
+   "points": 7
+  },
+  {
+   "num": 3,
+   "kind": "algorithm",
+   "topic": "trees_induction",
+   "question": "[7 נקודות] קלט: עצי חיפוש $T_1, T_2$.\n\nפלט: \"כן\", אם העצים $T_1, T_2$ זהים, אחרת, \"לא\".\n\nשים לב: נאמר ששני עצים זהים, אם הם מיוצגים על ידי אותו מבנה של עץ וכן עם אותם מפתחות.",
+   "solution": "$x_1$ מצביע לשורש העץ $T_1$ ו-$x_2$ מצביע לשורש העץ $T_2$\n\n```\nidentical(x1,x2)\nif x1 ≠ null and x2 ≠ null then\n    return(identical(left(x1),left(x2)) and (key(x1) = key(x2)) and\n           identical(right(x1),right(x2)))\nelse if x1 = null and x2 = null then return(true)\nelse return(false)\n```\n\nאפשרות נוספת לפתרון: כמו בסעיף א, אבל עם סריקת `preorder` או `postorder`.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ה",
+   "points": 7
+  },
+  {
+   "num": 4,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "question": "[8 נקודות] נתונים שני מערכים: מערך $A$ בגודל $n$ ומערך $B$ בגודל $n+1$. נתון כי המערך $A$ מכיל את כל האיברים שהמערך $B$ מכיל, פרט לאחד (ז\"א, במערך $B$ קיים איבר שאינו במערך $A$). כמו כן, נתון כי המערכים ממוינים וכל המספרים במערך $A$ שונים.\n\nכתוב פונקציה המוצאת את האיבר החסר ב-$A$ בסיבוכיות זמן של $\\Theta(\\log(n))$ וסיבוכיות מקום של $O(1)$.",
+   "solution": "```\nfind_miss(A[i..j],B[k..l])\nIf A[0]<>B[0] return B[0]\nIf i>j return B[n+1]\nMiddle = (i+j)/2\nIf (A[middle]<> B[middle] and A[middle-1]== B[middle-1]) return B[middle]\nIf (A[middle]== B[middle]) find_miss(A[middle+1..j],B[middle+1..l])\nElse find_miss(A[i...middle-1],B[k..middle-1])\n```",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "med",
+   "part": "א",
+   "points": 8
+  },
+  {
+   "num": 4,
+   "kind": "computation",
+   "topic": "sorting_selection",
+   "question": "[8 נקודות] צייר את עץ ההחלטה של מיון ערימה עבור שלושה איברים.",
+   "solution": "![עץ ההחלטה בפתרון הרשמי](images/exams/19B-A-Q4b-sol.png)",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "med",
+   "part": "ב",
+   "points": 8
+  },
+  {
+   "num": 4,
+   "kind": "proof",
+   "topic": "sorting_selection",
+   "question": "[8 נקודות] זרובבל טוען שכיוון שקיים אלגוריתם לינארי היכול להפוך מערך לערימה, בעץ ההחלטה של מיון ערימה ל-$n$ מפתחות נקבל שגובה העץ הוא $O(n)$.\n\nהאם טענת זרובבל נכונה? הוכח תשובתך.",
+   "solution": "לא. הוכחנו שגובה עץ ההחלטה של מיון מבוסס השוואות הוא $\\Omega(n\\cdot\\log n)$ בפרט עבור מיום ערימה.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ג",
+   "points": 8
+  },
+  {
+   "num": 5,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "question": "[13 נקודות] הצע מבנה נתונים שיתמוך בתכונות ובחמש הפעולות הדרושות. יש לציין בכל מבנה שבחרת מהו המידע המוחזק בכל יחידת מידע שלו (מהם השדות ב-`struct`). ניתן להסתמך על פונקציות של מבנים שלמדנו ורק לציין מהם השינויים הדרושים בהם. אין צורך לפרט מעבר לכך.",
+   "solution": "מבנה הנתונים: עץ AVL ושני תורים של מספר שלם (מייצג את קוד המוצר), כאשר שדות ה-`struct` בעץ הם:\n\n```c\ntypedef struct tree_Node\n{\n    int code;\n    int amount;\n    int last_month_buy;\n    int amount_month_buy;\n    struct tree_Node* parent;\n    struct tree_Node* left;\n    struct tree_Node* right;\n}List_Node;\n```\n\nוהשדה לפיו מתבצע החיפוש הוא `code` המאחסן את ברקוד המוצר.\n\n`Initialization()`: איתחול עץ AVL ושני תורים (ראו פרוט שדות במבנים בהמשך).\n\n`Find(k)`: חיפוש בעץ AVL בדומה לנלמד בהרצאה והחזרת שדה `amount`.\n\n`Purchase(k,i)`: הכנסת הערך $k$ לתור $i$.\n\n`Buy(k)`: מבצעת `find(k)`. אם הפונקציה החזירה $0$ מוציאה נודעה ללקוח \"המוצר אינו במלאי\". אחרת בודקת אם החודש הנוכחי תואם את החודש הנמצא `last_month_buy`: אם כן מגדילה ב-$1$ את המשתנה `amount_month_buy`, אחרת מציבה בו $0$ ומעדכנת את `last_month_buy` לשם החודש הנוכחי. מקטינה ב-$1$ את המשתנה `amount`. אם `amount`$=3$ וגם `amount_month_buy`$>49$ אז `Purchase(k,1)` אחרת `Purchase(k,2)`.\n\n`Supply()`: אם תור $1$ לא ריק הוצא מהתור ובצע חיפוש הברקוד בעץ, הגדל את המשתנה `amount` ב-$50$. אחרת אם תור $2$ לא ריק הוצא מהתור ובצע חיפוש הברקוד בעץ, הגדל את המשתנה `amount` ב-$50$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "med",
+   "part": "א",
+   "points": 13,
+   "contextId": "c5"
+  },
+  {
+   "num": 5,
+   "kind": "algorithm",
+   "topic": "ds_design",
+   "question": "[10 נקודות] כתוב אלגוריתם למימוש `Supply()`. ניתן להשתמש בפונקציות שנלמדו בהרצאות מבלי לממש אותן.",
+   "solution": "```\nSupply()\nIf not(is-empty(Q1)) then\n    k=dequeue(Q1)\n    x=find(k,T)\n    amount(x)=amount(x)+50\nelse if not(is-empty(Q2)) then\n    k=dequeue(Q2)\n    x=find(k,T)\n    amount(x)=amount(x)+50\n```",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 10,
+   "contextId": "c5"
+  },
+  {
+   "num": 6,
+   "kind": "proof",
+   "topic": "hashing",
+   "question": "[5 נקודות] הוכח או הפרך: קיימת פונקציית גיבוב $\\text{hash}(k)$ כך שבהכנסת $5$ מפתחות **באותו סדר** לשתי הטבלאות יתכן וקיים מפתח $k$ שיגובב בטבלה $T_1$ ובטבלה $T_2$ **באינדקסים שונים**.",
+   "solution": "נכון, למשל $\\text{hash}(k)=k \\bmod 13$ ונכניס את המספרים: $1, 14, 27, 40, 53, 66$. המספר $14$ יגובב בגיבוב הלינארי לתא $2$ בעוד שבגיבוב הריבועי יגובב לתא $7$.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "א",
+   "points": 5,
+   "contextId": "c6"
+  },
+  {
+   "num": 6,
+   "kind": "proof",
+   "topic": "hashing",
+   "question": "[5 נקודות] הוכח או הפרך: לכל פונקציית גיבוב $\\text{hash}(k)$ כאשר בטבלה $T_1$ יש בדיוק $6$ מפתחות אז קיימת אפשרות להכנסת מפתח חדש לטבלה $T_1$ תוך $7$ ניסיונות לכל היותר.",
+   "solution": "נכון, כי בגיבוב הלינארי ההכנסה היא חיפוש התא העוקב הריק הראשון מהתא אליו גובב לראשונה. כיוון שבטבלה רק $6$ מפתחות אז במצב הקיצון כולם יהיו ברצף ולכן התא השביעי יהיה העוקב הריק.",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ב",
+   "points": 5,
+   "contextId": "c6"
+  },
+  {
+   "num": 6,
+   "kind": "proof",
+   "topic": "hashing",
+   "question": "[5 נקודות] הוכח או הפרך: לכל פונקציית גיבוב $\\text{hash}(k)$ כאשר בטבלה $T_2$ יש בדיוק $6$ מפתחות אזי קיימת אפשרות להכנסת מפתח חדש לטבלה $T_2$ תוך $7$ ניסיונות לכל היותר.",
+   "solution": "לא נכון.\n\nלמשל הטבלה הבאה עם ניסיון להכניס את המספר $65$:\n\n| ערך | 0 | 26 | 2 |  |  |  | 13 |  |  |  | 52 | 39 |  |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n| אינדקס | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |",
+   "solutionSource": "official-pdf",
+   "official": true,
+   "confidence": "high",
+   "part": "ג",
+   "points": 5,
+   "contextId": "c6"
+  }
+ ]
+}
