@@ -1,0 +1,18 @@
+{
+  "course": "recurrences",
+  "method": "Blind re-solve from tools/verify/needhelp/<id>/dump.json (no keys) with own simulators written for this pass (AVL with in-order-successor deletion, min-heap 0-based, linear/quadratic/double/cuckoo hashing, numeric growth tests for recurrences); compared with the stored keys only afterwards.",
+  "verdict": "agree on all keys; two distractors were defensible",
+  "answers_checked": 42,
+  "disagreements": [],
+  "fixes": [
+    "C01-Q2 option d T(n)=T(n-1)+O(1) has the same growth (Theta(n)) as the correct 2T(n/2)+O(1) and is literally a true identity for the cost function. Replaced by T(n)=T(n-1)+O(n); the prompt now says the formula must match the call structure (number of calls, input size, outside work).",
+    "C01-Q4 option a 2T(n/2)+O(n) has the same growth (Theta(n log n)) as the correct T(n/4)+T(3n/4)+O(n). Replaced by 2T(n/2)+O(n^2); same prompt clarification.",
+    "C01-Q6 recap: '\\to' inside a normal JS string became a tab; escaped.",
+    "check.py: SAME_CLASS_OK is now empty and rec_from_tex parses O(n^2)."
+  ],
+  "notes": [
+    "Numeric growth ratios confirm C05-Q2 (sqrt(n) log n), C05-Q3 (n^2), C06-Q2 (n^2 log^2 n), C07-Q2/Q4 (n log n), C07-Q3 (n), C07-Q5 (n^2); C06-Q3 = 7 and C07-Q6 = 16/11.",
+    "C06-Q1 'master theorem does not apply' follows the course/exam convention (bank 25B-B-Q1c); the extended case 2 with log^k is not taught.",
+    "Boss bank ids exist and match the recaps (24B-A-Q17, 24B-A-Q20, 24B-B-Q9, 24S-A-Q41, 25B-A-Q1c, 25B-B-Q1c)."
+  ]
+}

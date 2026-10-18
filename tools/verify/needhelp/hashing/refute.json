@@ -1,0 +1,15 @@
+{
+  "course": "hashing",
+  "method": "Blind re-solve from tools/verify/needhelp/<id>/dump.json (no keys) with own simulators written for this pass (AVL with in-order-successor deletion, min-heap 0-based, linear/quadratic/double/cuckoo hashing, numeric growth tests for recurrences); compared with the stored keys only afterwards.",
+  "verdict": "agree",
+  "answers_checked": 42,
+  "disagreements": [],
+  "fixes": [
+    "C06-Q5: added '(insertions only, no deletions)' so option d ('yes, if a key was deleted') cannot be defended."
+  ],
+  "notes": [
+    "Quadratic coverage claims verified by brute force: prime m gives (m+1)/2 distinct cells for any c1 and c2!=0 (m=3..19), m=7 i^2 -> {0,1,2,4}, m=10 -> 6 cells, m=13 with i^2+5i -> 7 cells.",
+    "C03-Q6 (alpha=0.3 after a marked deletion) depends on the lesson's convention that tombstones are not counted; the lesson states it explicitly.",
+    "C07-Q5 cycle confirmed by simulation (eviction order 12, 11, 6, 32, 7)."
+  ]
+}

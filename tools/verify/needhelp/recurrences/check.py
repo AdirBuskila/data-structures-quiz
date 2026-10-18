@@ -233,7 +233,7 @@ def rec_from_tex(s):
     for part in body.split("+"):
         mo = re.fullmatch(r"O\((.*)\)", part)
         if mo:
-            f = {"1": one, "n": n_}[mo.group(1)]
+            f = {"1": one, "n": n_, "n^2": lambda n: n * n}[mo.group(1)]
             continue
         mt = re.fullmatch(r"(\d*|n)T\((.*)\)", part)
         assert mt, part
@@ -285,7 +285,9 @@ def code_class(counts, sizes):
 
 # distractors whose recurrence is structurally wrong (one call instead of two, halves instead of 1/4+3/4) but happens to
 # grow like the correct one; they are wrong because the code makes two calls / unequal sizes, which the question shows
-SAME_CLASS_OK = {("C01-Q2", "d"), ("C01-Q4", "a")}
+# (refuter 2026-10-18: a student could defensibly pick such a distractor, since T(n-1)+O(1) and 2T(n/2)+O(n) are also
+# true statements about the cost function; both were replaced by options of a different growth class, so the list is empty)
+SAME_CLASS_OK = set()
 
 
 def c01():

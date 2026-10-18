@@ -236,10 +236,13 @@ numeric("C03-Q6", 3)
 n_checked += 2
 
 # ---------------------------------------------------------------- C04
-n = 8
+n = 16
 order = list(range(n // 2 - 1, -1, -1))
 st = Q["C04-Q1"]["step"]
-assert st["type"] == "order" and [int(re.findall(r"\d+", l)[0]) for l in st["lines"]] == order == [3, 2, 1, 0]
+# the four listed indices form one parent chain 7 <- 3 <- 1 <- 0, so their order is forced (each is the parent of the previous)
+chain = [int(re.findall(r"\d+", l)[0]) for l in st["lines"]]
+assert st["type"] == "order" and chain == [7, 3, 1, 0] and all(order.index(chain[i]) < order.index(chain[i + 1]) for i in range(3))
+assert all(chain[i] == (chain[i - 1] - 1) // 2 for i in range(1, 4))
 n_checked += 1
 B = [12, 5, 9, 3, 8, 7, 1, 15, 2]
 hb = build_heap(B)

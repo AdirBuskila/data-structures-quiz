@@ -1,0 +1,17 @@
+{
+  "course": "heaps",
+  "method": "Blind re-solve from tools/verify/needhelp/<id>/dump.json (no keys) with own simulators written for this pass (AVL with in-order-successor deletion, min-heap 0-based, linear/quadratic/double/cuckoo hashing, numeric growth tests for recurrences); compared with the stored keys only afterwards.",
+  "verdict": "agree on all keys; one order step was not forced",
+  "answers_checked": 48,
+  "disagreements": [],
+  "fixes": [
+    "C04-Q1 (order): on n=8 the indices 3 and 2 could be swapped (independent), contradicting the 'order is forced' rule. Now n=16 and the four lines are the parent chain 7,3,1,0, which is forced; check.py asserts the chain.",
+    "C06-Q6: option c 'O(n log n) always' is a true (loose) upper bound; the question now asks for the tight bound in n and k."
+  ],
+  "notes": [
+    "0-based indexing and min-heap default are used consistently; max-heap is stated explicitly where used (C06, C07-Q6, C08-Q5).",
+    "findbug C02-Q5 (line 3, '<') and C03-Q5 (line 3, '>') each have exactly one wrong line.",
+    "C04-Q2 c (sorted array) is itself a valid heap but is not the build-heap output; the question asks for the algorithm's result, so it stays single-answer.",
+    "C09 boss: 24B-B-Q100 is tagged ds_design in the bank but is a heap-with-index design question, on topic."
+  ]
+}

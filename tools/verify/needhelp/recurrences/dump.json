@@ -34,7 +34,7 @@
     },
     {
      "id": "C01-Q2",
-     "question": "הפונקציה מקבלת מערך $a$ ומחזירה את המקסימום בטווח $[lo,hi)$, כשגודל הקלט הוא $n=hi-lo$. מהי נוסחת הנסיגה?\n```\ndef g(a, lo, hi):\n    if hi - lo <= 1:\n        return a[lo]\n    mid = (lo + hi) // 2\n    x = g(a, lo, mid)\n    y = g(a, mid, hi)\n    return max(x, y)\n```",
+     "question": "הפונקציה מקבלת מערך $a$ ומחזירה את המקסימום בטווח $[lo,hi)$, כשגודל הקלט הוא $n=hi-lo$. מהי נוסחת הנסיגה? (הנוסחה צריכה להתאים בדיוק למבנה הקריאות בקוד: כמה קריאות, על איזה גודל קלט, ומה העבודה מחוץ להן.)\n```\ndef g(a, lo, hi):\n    if hi - lo <= 1:\n        return a[lo]\n    mid = (lo + hi) // 2\n    x = g(a, lo, mid)\n    y = g(a, mid, hi)\n    return max(x, y)\n```",
      "options": [
       {
        "id": "a",
@@ -54,7 +54,7 @@
       {
        "id": "d",
        "type": "text",
-       "value": "$T(n)=T(n-1)+O(1)$"
+       "value": "$T(n)=T(n-1)+O(n)$"
       }
      ]
     },
@@ -86,12 +86,12 @@
     },
     {
      "id": "C01-Q4",
-     "question": "מהי נוסחת הנסיגה של זמן הריצה של הפונקציה (בגודל $n$)?\n```\ndef p(n):\n    if n <= 1:\n        return\n    p(n // 4)\n    p(3 * n // 4)\n    for i in range(n):\n        pass\n```",
+     "question": "מהי נוסחת הנסיגה של זמן הריצה של הפונקציה (בגודל $n$)? (הנוסחה צריכה להתאים בדיוק למבנה הקריאות בקוד: כמה קריאות, על איזה גודל קלט, ומה העבודה מחוץ להן.)\n```\ndef p(n):\n    if n <= 1:\n        return\n    p(n // 4)\n    p(3 * n // 4)\n    for i in range(n):\n        pass\n```",
      "options": [
       {
        "id": "a",
        "type": "text",
-       "value": "$T(n)=2T(n/2)+O(n)$"
+       "value": "$T(n)=2T(n/2)+O(n^2)$"
       },
       {
        "id": "b",

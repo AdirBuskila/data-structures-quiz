@@ -1,0 +1,17 @@
+{
+  "course": "avl",
+  "method": "Blind re-solve from tools/verify/needhelp/<id>/dump.json (no keys) with own simulators written for this pass (AVL with in-order-successor deletion, min-heap 0-based, linear/quadratic/double/cuckoo hashing, numeric growth tests for recurrences); compared with the stored keys only afterwards.",
+  "verdict": "agree",
+  "answers_checked": 41,
+  "disagreements": [],
+  "fixes": [
+    "C07-Q2 explain: '\\rfloor' inside a normal JS string became a carriage return and broke the LaTeX; escaped.",
+    "C07-Q4 explanation: '\\{-1,0,1\\}' lost its backslashes in a normal JS string (rendered without braces); escaped."
+  ],
+  "notes": [
+    "Deletion convention is the in-order successor everywhere (C05-Q1/Q2/Q6, C07-Q1/Q2); predecessor appears only as a labelled distractor (C05-Q2 b).",
+    "C05-Q3 key RR relies on single rotation when B(y)=0, taught in the C05 lesson.",
+    "Fibonacci-tree deletion count floor(h/2) verified for h=1..9.",
+    "Boss bank ids all exist in questions.json (so not held) and are on topic avl; recaps match the real answers (24B-A-Q26: one RR, root 7; 24B-B-Q20: two rotations, root 5)."
+  ]
+}
