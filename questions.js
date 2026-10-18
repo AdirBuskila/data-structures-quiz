@@ -91,7 +91,7 @@ window.OPEN_BANK = {
    "mcq",
    "truefalse"
   ],
-  "built": "2026-10-18T18:23:05Z",
+  "built": "2026-10-18T18:34:06Z",
   "exams": [
    {
     "examCode": "SAMP-1",
