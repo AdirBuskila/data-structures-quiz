@@ -21,6 +21,19 @@ assert F["Q2c_probes"] > 7                      # 7 attempts are not enough: the
 # ---- Q3a / Q3c / Q4
 FM = C.find_miss_facts()
 F["Q3a_idx"], F["Q3a_missing"] = FM["first_mismatch"], 7
+# fix (B[n+1] -> B[n]): missing-at-end case, A=[1,2,3], B=[1,2,3,4]: the answer sits at B[n], n=3
+assert C.find_miss([1, 2, 3], [1, 2, 3, 4], 0, 2) == 4
+F["Q3a_end_idx"] = [1, 2, 3, 4].index(4)
+assert F["Q3a_end_idx"] == 3
+# Buy fix: a new month resets the counter to 1, so 50 sales in that month count 50
+def _month_counter(months, reset):
+    last, cnt = None, 0
+    for mth in months:
+        if mth == last: cnt += 1
+        else: cnt, last = reset, mth
+    return cnt
+F["Q4a_month50"] = _month_counter([1] * 3 + [2] * 50, 1)
+assert F["Q4a_month50"] == 50 and _month_counter([1] * 3 + [2] * 50, 0) == 49
 LB = C.lower_bound_facts()
 F["Q3c_h8"] = LB["height8"]
 assert [round(math.log2(math.factorial(n)) / n, 2) for n in (10, 100, 1000)] == [2.18, 5.25, 8.53]
@@ -67,10 +80,10 @@ EXPECT = {
     "SAMP-1-Q2a": [F["Q2a_hash"], F["Q2a_T1"], F["Q2a_T2"]],
     "SAMP-1-Q2b": [F["Q2b_distinct"], F["Q2b_run"], F["Q2b_worst"]],
     "SAMP-1-Q2c": [F["Q2c_off3"], F["Q2c_distinct"], F["Q2c_probes"]],
-    "SAMP-1-Q3a": [F["Q3a_idx"], F["Q3a_missing"]],
+    "SAMP-1-Q3a": [F["Q3a_idx"], F["Q3a_missing"], F["Q3a_end_idx"]],
     "SAMP-1-Q3b": [F["Q3b_comparisons"], F["Q3b_leaves"]],
     "SAMP-1-Q3c": [F["Q3c_h8"]],
-    "SAMP-1-Q4a": [F["Q4a_pr49"], F["Q4a_pr50"]],
+    "SAMP-1-Q4a": [F["Q4a_pr49"], F["Q4a_pr50"], F["Q4a_month50"]],
     "SAMP-1-Q4b": [F["Q4b_third"]],
 }
 raw = pathlib.Path(__file__).resolve().parents[2] / "raw" / "SAMP-1.json"

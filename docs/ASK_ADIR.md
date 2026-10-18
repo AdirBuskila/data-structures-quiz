@@ -136,7 +136,8 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: p.1 (Q1 part a)
 - Question: official counts 2 comparisons per internal node (n for even n). A careful build-heap does one comparison for a node with a single child, giving n-1 for every n. Transcribed as official, confidence med.
 - Needed: none unless you want a note.
-- Status: flagged
+- Arbiter (2026-10-18): re-read the printed statement (p.1): "the number of comparisons to turn the array into a min-heap is n-1", no counting convention given. The official's own model (2 comparisons per internal node = one per child) gives 1 for the single-child node when n is even, so n-1 for every n (simulated n=2..199, tools/verify/SAMP-1/fix_checks.py). Not a convention question: the key is wrong. Shipped under the typo ruling: verdict true, "הפתרון הרשמי עם תיקון", solved, official false.
+- Status: resolved (flagged)
 
 ### 19B-B Q1a - no solution (held)
 - Path: sitting 19B-B, solution booklet
@@ -151,6 +152,37 @@ Open questions for Adir. One entry per item; the orchestrator moves it to Resolv
 - Page: p.7 (Q4 part 2)
 - Question: the official figure for 3 elements shows 5 leaves, while 3 elements have 6 orders. Shipped as the official figure, confidence med.
 - Needed: none unless you want it redrawn.
+- Arbiter (2026-10-18): the figure has 6 leaves but only 4 distinct orders: the two leftmost leaves (under a<b, in the root-no / b<c-no branch) read <a,b,c>/<a,c,b> and must be <c,b,a> (no) / <c,a,b> (yes). Shipped under the typo ruling (official figure kept, corrected leaves stated in text, solved, official false) plus a visible note that the root "a<b,c" is a compound double comparison (tools/verify/19B-A/fix_checks.py).
+- Status: resolved (flagged)
+
+### 19B-A Q4a / SAMP-1 Q3a - find_miss returns B[n+1] (typo ruling)
+- Path: sittings 19B-A (Q4 part 1) and SAMP-1 (Q3 part a), solution booklets
+- Question: the code is 0-based (tests A[0]) but returns B[n+1] when the range empties; it fails whenever the missing element is the last of B. Shipped with B[n] under the "הפתרון הרשמי עם תיקון" label, solved, official false (fix_checks.py of both sittings: 0 failures in 4000 random inputs).
+- Needed: none
+- Status: flagged
+
+### 19B-A Q5a / SAMP-1 Q4a - Buy resets the month counter to 0 (typo ruling)
+- Path: sittings 19B-A (Q5 part 1) and SAMP-1 (Q4 part a), solution booklets
+- Question: on a new month Buy sets amount_month_buy to 0 without counting the current sale, so 50 sales count as 49. Shipped with reset to 1 under the "הפתרון הרשמי עם תיקון" label, solved, official false.
+- Needed: none
+- Status: flagged
+
+### 19B-B Q3c - official merge loop fails as printed (typo ruling)
+- Path: sitting 19B-B, solution booklet, Q3 part c
+- Question: inverted comparison (fail when A2[j] < A1[i], not >), the last branch advanced j instead of i, and "j<m" skipped the last key of T2 (1250 of 3000 random inputs wrong). Shipped corrected (i<=n and j<=m, return yes iff flag and j>m) under the "הפתרון הרשמי עם תיקון" label, solved, official false, with a note that O(m log n) is also possible (tools/verify/19B-B/fix_checks.py).
+- Needed: none
+- Status: flagged
+
+### 19B-B Q4b / Q5b - official explanation and bound (fixed silently)
+- Path: sitting 19B-B, solution booklet, Q4 part b and Q5 part b
+- Question: Q4b: the key (true) is right, but the official reason ("a minimum element is compared with everything to its left") describes the maximum depth; replaced by the sorted-input argument (n-1 comparisons, and fewer cannot fix the order). Q5b: "at most 3k elements in the helper heap" replaced by the tight m+1 (each round removes 1, adds at most 2), and the k/K/m letters unified to m, "extract max" to "extract min". Intermediate slips, no student-facing label. Also visible notes added on Q2b (answerable only vacuously, since 2a shows no such forest exists) and Q4a (max{r,m-r} holds only as the worst case).
+- Needed: none
+- Status: flagged
+
+### SAMP-1 Q1d - lower-bound sentence (note added)
+- Path: sitting SAMP-1, solution booklet, Q1 part d
+- Question: the official "removing n/2 keys certainly takes linear time" is weak (cutting a subtree is not linear, and non-interleaved ranges allow O(log n) split/join). Kept, with a visible note: the Omega(n) comes from merging interleaved keys, log2 C(n,n/2) comparisons.
+- Needed: none
 - Status: flagged
 
 ### 22S-C Q3b - printed WHAT code never terminates (held)

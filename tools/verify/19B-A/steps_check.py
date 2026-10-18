@@ -237,6 +237,18 @@ def leaves(t): return 1 if isinstance(t, str) else leaves(t[1]) + leaves(t[2])
 def height(t): return 0 if isinstance(t, str) else 1 + max(height(t[1]), height(t[2]))
 F["Q4b_leaves"], F["Q4b_height"], F["Q4b_yes"] = leaves(tree), height(tree), 1 + height(tree[2])
 assert (F["Q4b_leaves"], F["Q4b_height"], F["Q4b_yes"]) == (6, 3, 2)
+# the leaf labels themselves (two leftmost wrong in print) and the new choice step are checked in fix_checks.py
+# Q4a fix (B[n+1] -> B[n]) and Q5a fix (month counter reset to 1)
+assert C.find_miss([1, 2, 3], [1, 2, 3, 4], 0, 2) == 4
+F["Q4a_end_idx"] = 3
+def _month_counter(months, reset):
+    last, cnt = None, 0
+    for mth in months:
+        if mth == last: cnt += 1
+        else: cnt, last = reset, mth
+    return cnt
+F["Q5a_month50"] = _month_counter([1] * 3 + [2] * 50, 1)
+assert F["Q5a_month50"] == 50 and _month_counter([1] * 3 + [2] * 50, 0) == 49
 assert math.factorial(3) == 6
 r = [round(math.log2(math.factorial(n)) / n, 2) for n in (10, 100, 1000)]
 assert r == [2.18, 5.25, 8.53], r
@@ -259,10 +271,10 @@ EXPECT = {
     "19B-A-Q3b": [F["Q3b_root"]],
     "19B-A-Q3c": [F["Q3c_root"], F["Q3c_right"], F["Q3c_maxdiff"]],
     "19B-A-Q3e": [F["Q3e_calls"]],
-    "19B-A-Q4a": [F["Q4a"]["first_mismatch"], 7],
+    "19B-A-Q4a": [F["Q4a"]["first_mismatch"], 7, F["Q4a_end_idx"]],
     "19B-A-Q4b": [F["Q4b_leaves"], F["Q4b_height"], F["Q4b_yes"]],
     "19B-A-Q4c": [F["Q4c_h8"]],
-    "19B-A-Q5a": [SF["pr49"], SF["pr50"]],
+    "19B-A-Q5a": [SF["pr49"], SF["pr50"], F["Q5a_month50"]],
     "19B-A-Q5b": [F["Q5b_third"]],
     "19B-A-Q6a": [F["Q6a_T1"], F["Q6a_off1"], F["Q6a_T2"]],
     "19B-A-Q6b": [F["Q6b_distinct"], F["Q6b_run"], HF["linear_worst_probes"]],
