@@ -1,0 +1,78 @@
+{
+ "examCode": "23B-B",
+ "refuter": "refuter-data-structures-23",
+ "note": "Written BEFORE opening any claim in tools/raw/<CODE>.json. 23A-A booklet pages contain handwritten model solutions that I saw while checking printed points; all else derived blind.",
+ "items": {
+  "1": {
+   "verdict": "agree",
+   "notes": "Correct and Theta(n). Note step 3 assumes distinct values (duplicates could copy more than n/log n) and reuses the name B for element and array. Steps: order, 4096, choice a, O(n) correct.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "select rank n/2 (linear, median of medians) and partition; select rank n/2+n/log n in the upper half and partition; the n/log n middle elements sorted in O((n/log n) log n)=O(n). Total Theta(n)."
+  },
+  "2a": {
+   "verdict": "agree",
+   "notes": "Key False confirmed: perfect tree of height h-1 vs minimal AVL of height h-2 gives difference 1,2,5,11,24,... growing exponentially.",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "FALSE. AVL root with left subtree a perfect tree of height h-1 (~2^(h-1) nodes) and right subtree a minimal AVL tree of height h-2 (Fibonacci ~phi^h). Difference grows exponentially (computed: heights 2..13 diff 1,2,5,11,24,51,107,222,457,935,1904,3863)."
+  },
+  "2b": {
+   "verdict": "agree",
+   "notes": "n=6 minimal by exhaustive search over all permutations of 3..6 (4 solutions: 5,1,6,3,2,4 / 5,1,6,4,2,3 / 5,6,1,3,2,4 / 5,6,1,4,2,3); RL on inserting 2, LR on inserting 4; final root 3 correct.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "brute force over all permutations: minimal n = 6, e.g. 5,1,6,3,2,4 (RL at inserting 2, then LR at the final insertion 4). 4 solutions: (5,1,6,3,2,4),(5,1,6,4,2,3),(5,6,1,3,2,4),(5,6,1,4,2,3). n=3..5 impossible. RL = imbalance at node whose right child is left-heavy."
+  },
+  "3a": {
+   "verdict": "agree",
+   "notes": "Table [1,8,9,3,4,5,2], key 1 needs 7 probes, all steps correct.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "probe H(k,i)=(k+i k^2) mod 7. Final table slots 0..6 = [1,8,9,3,4,5,2]. 9->2, 2 collides at 2 -> slot 6, 5->5, 4->4, 3->3, 8->1, 1: probes 1..6 then 0 -> slot 0."
+  },
+  "3b": {
+   "verdict": "agree",
+   "notes": "Keys divisible by 7 (step k^2 = 0 mod 7); only choice a valid; step counts 1 and 7 correct.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "k = 0 mod 7 (7,14,...): step k^2 = 0 mod 7, sequence always slot 0 -> if slot 0 occupied insertion never finds a free cell although table has room. Other keys have step in {1,2,4} -> full cycle (7 prime). Two keys: 7 and 14 (also 21, 28)."
+  },
+  "4": {
+   "verdict": "agree",
+   "notes": "Lazy-add AVL correct for v>=0 (order preserved); fillblank index 7 = x.right.inc += v, findbug index 4 (< instead of <=) confirmed; rubric 25. Insert/delete rotations must be UPDATE-ed (not shown).",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "AVL tree with lazy add field per node or differences-from-parent key storage; INCREASE: walk path to k, add v to nodes on path with key>=k and to the right subtree lazy field; order preserved for v>=0; push lazies in rotations. O(log n)."
+  },
+  "5": {
+   "verdict": "agree",
+   "notes": "Both forests (2<-1; 7 with 6,8,4,3,5 after finds; before finds 4 has children 3,5) confirmed; depth of 3 = 2, root 7 has 5 children.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "make-set 1..8; union(1,2): tie first->second: 1 under 2 (root 2,size 2). union(3,4): 3 under 4. union(4,5): 5 under 4 (size 3). union(6,7): 6 under 7. union(6,8): find(6)=7, 8 under 7 (size 3). union(3,6): roots 4 and 7 both size 3, tie, first->second: 4 under 7 (size 6). find(3): 3 compresses to 7; find(6): already; find(5): 5 to 7. Final trees: {2<-1} and root 7 with children 6,8,4,3,5 (4 leaf)."
+  }
+ }
+}

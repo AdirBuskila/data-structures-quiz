@@ -1,0 +1,125 @@
+{
+ "examCode": "23S-A",
+ "refuter": "refuter-data-structures-23",
+ "note": "Written BEFORE opening any claim in tools/raw/<CODE>.json. 23A-A booklet pages contain handwritten model solutions that I saw while checking printed points; all else derived blind.",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "notes": "Correct, Theta(n). Steps 400 and 100 correct.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "select element of rank 0.8n (by sales, descending) with linear selection (median of medians worst-case, quickselect expected), partition, return the top n/5 elements; Theta(n)."
+  },
+  "1b": {
+   "verdict": "agree",
+   "notes": "Two selects plus two partitions correct; 2000 -> index 100, middle 1500 correct.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "select rank n/20 from the bottom and partition; then in the remaining n-n/20 elements select the 20% top boundary... i.e. two linear selects over (shrinking) ranges; O(n). Middle section unordered."
+  },
+  "2a": {
+   "verdict": "agree",
+   "notes": "True confirmed (leaf at depth h/2 exists and is the minimum, exhaustive shapes h=0..12).",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "TRUE. Heights in edges: a leaf at depth d forces height <= 2d (ancestor at j above leaf has height <= 2j), so leaf depth h/2 is the minimum and is attainable: build recursively with sibling of height 2j-1 at each ancestor. Exhaustive shape enumeration for h=0..12 confirms leaf at depth h/2 exists and is the minimum."
+  },
+  "2b": {
+   "verdict": "agree",
+   "notes": "False confirmed; also smallest counterexample is 3,1,2,4 (LR on third insert).",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "FALSE. T1: root 3, left 1 (right child 2), right 4. AVL. Preorder 3,1,2,4. Inserting 3,1,2 yields LR rotation. Exhaustive: counterexamples exist for n=4..8."
+  },
+  "2c": {
+   "verdict": "agree",
+   "notes": "Correct. Steps correct (findbug index 3).",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "Induction on structure: base single leaf: 1 leaf (odd). Step: root with three perfect ternary subtrees, leaves = l1+l2+l3, each odd -> sum of three odd numbers is odd."
+  },
+  "3a": {
+   "verdict": "agree",
+   "notes": "FIGURE CHECKED: 12 nodes, blank = root, right child, its left child, that child's left child (a root-to-leaf path); present 2,3,7,10,9,12,11,6; missing {1,4,5,8}; unique valid fill root=1, 4, 5, 8 (enumerated all 24). Matches solution and steps.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "Figure: 12 nodes. Blank = root, right child R, R's left child, that child's left child (a path root->R->RL->RLL). Present: 2,3,7,10,9,12,11,6. Missing {1,4,5,8}. Path must be increasing: root=1, R=4, RL=5, RLL=8. Unique (enumerated all 24 permutations: 1 valid). Heap array [1,2,4,3,7,5,6,10,9,12,11,8]."
+  },
+  "3b": {
+   "verdict": "agree",
+   "notes": "Correct: path monotone so ascending fill unique; O(n). Step 2 gives 6 (checked).",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "YES always: the missing values are determined (set difference 1..n), path positions known (blank cells); a root-to-leaf path in a min-heap is increasing, so assign missing values in sorted order from root down. O(n) to find the missing set (presence bitmap), O(log n) to fill; unique."
+  },
+  "3c": {
+   "verdict": "agree-with-note",
+   "notes": "Conclusion 'cannot always restore' right (7-node strict counterexample: blanks root, left child, one level-2 node; two valid heaps [1,3,2,5,6,4,7] and [1,4,2,5,6,3,7]). Official example (figure checked) keeps the root and deletes only levels 1 and 2, so it does not literally delete one element from EVERY level; strictly it is a weaker example. Fixer may keep it or use the 7-node one.",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "NO: ambiguity. 7-node example: blanks root, left child L, and one level-2 node under R; present R=2, L's children 5,6, other child of R =7; missing {1,3,4}: both [1,3,2,5,6,4,7] and [1,4,2,5,6,3,7] are valid heaps (enumerated). So cannot restore uniquely."
+  },
+  "4a": {
+   "verdict": "agree",
+   "notes": "FIGURE CHECKED. Table 1 impossible (40 in T2[3] but h1(40)=7 and T1[7] empty; all other keys fit their hashes). Table 2 possible; order 17,28,25,14,54,43,16,30 gives exactly the table (brute force found 14,16,30,17,25,28,54,43 etc. too). Steps correct (28 in T1[6]).",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "Table 1: IMPOSSIBLE. 40 sits in T2[3] but h1(40)=7 and T1[7] is empty; a key lands in T2 only by being kicked out of T1[h1(key)], and insert-only never empties a cell. (all other keys are consistent with their hash functions). Table 2: POSSIBLE, e.g. insertion order 14,16,30,17,25,28,54,43 (verified by simulation with standard cuckoo insertion, T1 first)."
+  },
+  "4b": {
+   "verdict": "agree-with-note",
+   "notes": "Intended recurrence T(n)=3T(n/3)+n+1 and Theta(n log n) are right; steps right. DEFECT IN THE QUESTION: the literal pseudo-code does not terminate: for i>1 the second call range ((i+j)/3+1 .. 2(i+j)/3) equals the parent range (e.g. WHAT(4..6) calls WHAT(4..6)); only i=1 splits in thirds. Simulation: WHAT(1..3) 4 calls, WHAT(1..9) infinite. Solution 'n*log3 n' drops the +n of the leaf level (exact n(log3 n +1)); Theta unaffected.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "Intended recurrence T(n)=3T(n/3)+Theta(n) => Theta(n log n) (n log3 n + n for n=3^k with unit base). BUT the literal pseudo-code does not terminate: with floor division WHAT(4..6) recurses into WHAT(4..6) (second call range (i+j)/3+1..2(i+j)/3 equals the parent range whenever i>1 ~ n/3). Only i=1 splits correctly. Simulation: WHAT(1..3) 4 calls, WHAT(1..9) infinite."
+  },
+  "5a": {
+   "verdict": "agree",
+   "notes": "FIGURE CHECKED (1; children 2,3,6; 3: 5,4; 6: 7,8; 8: 9). Exhaustive BFS over all reachable states for 9 labelled elements (3,948,616 states, any tie order) does not contain it: unreachable, as stored. Reasoning in the solution is thin (does not rule out compression) but correct.",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "see reachable-state BFS results (tie any)."
+  },
+  "5b": {
+   "verdict": "agree-with-note",
+   "notes": "FIGURE CHECKED (4; children 1,6,5,7; 1: 2,3; 7: 8). Reachable only if ties may be broken 'second under first' (fixed first-under-second rule: unreachable). Stored sequence is valid exactly under second-under-first. Question states no tie rule.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "see BFS."
+  },
+  "5c": {
+   "verdict": "disagree",
+   "notes": "FIGURE CHECKED (7; children 1,5,6,8; 1: 2,3; 3: 4). Reachable only with mixed tie-breaking (BFS: unreachable under a fixed first-under-second AND under fixed second-under-first, reachable if each tie may go either way). Stored sequence uses second-under-first for union(1,2), union(3,4), union(1,3) but first-under-second for union(5,7) and union(1,7): no single rule produces it. Valid only if the question allows arbitrary tie choice per operation; it states no rule, so the solution should say 'ties broken arbitrarily' (and the explanation of tie choice) or the item should be held.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree"
+   },
+   "myDerivationBeforeClaim": "see BFS."
+  }
+ }
+}

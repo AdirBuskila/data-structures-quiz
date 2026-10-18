@@ -1,0 +1,126 @@
+{
+ "examCode": "23A-A",
+ "refuter": "refuter-data-structures-23",
+ "note": "Written BEFORE opening any claim in tools/raw/<CODE>.json. 23A-A booklet pages contain handwritten model solutions that I saw while checking printed points; all else derived blind.",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "notes": "Solution/rubric (3+4+3=10) match printed 10. Steps: choice a, 1204.2 billion both correct.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree"
+   },
+   "myDerivationBeforeClaim": "dense matrix 5400 x 223e6 = 1.2042e12 cells (223*5400=1,204,200 -> x10^6 x ... = 1.2042e12). Not practical (>=1.2 TB even at 1 byte)."
+  },
+  "1b": {
+   "verdict": "agree",
+   "notes": "4.46e9 = 223e6*20 correct; rubric 3+3+4=10. Solution ignores header arrays (5400+223e6) but official does too.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "sparse: orthogonal linked lists / row-col headers. nonzeros = 223e6*100*0.2 = 4.46e9 (booklet: 223m*20). Space O(nnz + movies + users) = 4.46e9 nodes + 5400 + 223e6 headers."
+  },
+  "1c": {
+   "verdict": "disagree",
+   "notes": "INCOMPLETE (not wrong). Stored text only says 'run over row list of first and matching column of second, sum, store'. Missing: match on shared index k (merge of two sorted lists), skip zero cells, store only nonzero result cells, cost. Correct full solution: A (p x q) and B (q x r) kept as orthogonal sparse lists, each row list sorted by column index, each column list by row index. For every non-empty row i of A and non-empty column j of B walk both lists with two pointers; when A's column index equals B's row index multiply and add to s; if at least one match, create cell (i,j)=s in C (linked into row i / column j lists). Zero cells are never touched. Cost sum over (i,j) of (len(row_i)+len(col_j)), far below dense 5400*5400*223e6 multiply-adds. Alternative (Gustavson): for each nonzero a_ik scan row k of B and accumulate into row i of C. For the Netflix matrix R (movies x users) the product R*R^T costs about 223e6*20^2=8.9e10 pair contributions.",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "product C=A*B over sparse structures: for each nonzero a_ik walk row k of B; cost sum_k nnzcol_A(k)*nnzrow_B(k), instead of 5400^2*223e6 dense. Booklet drawing: two copies of the structure, multiply row of one by column of other along matching indices."
+  },
+  "2a": {
+   "verdict": "agree",
+   "notes": "AVL by ID O(log n) plus cuckoo/hash O(1) with rehash is correct (search worst-case O(1), insert expected/amortised O(1)). Rubric 3+2+2=7 is an assumed split.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "hash table with chaining or open addressing keyed by id (23 customers initially, grows by rehash) ; booklet: AVL by id O(log n) and an additional solution hash table. Insert O(1), search O(1) avg."
+  },
+  "2b": {
+   "verdict": "agree",
+   "notes": "Correct. Rubric 2+4=6 assumed.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree"
+   },
+   "myDerivationBeforeClaim": "compute h(id), probe/walk chain; AVL: O(log n)."
+  },
+  "2c": {
+   "verdict": "agree",
+   "notes": "Correct (evict chain, rehash on cycle/no room; 3 keys sharing the same two cells never terminate - verified by reasoning). Rubric 4+4=8 assumed.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree"
+   },
+   "myDerivationBeforeClaim": "insert: probe until free; if probe sequence exhausted (table full) -> allocate bigger table (double), rehash all, insert. amortised O(1) expected."
+  },
+  "2d": {
+   "verdict": "disagree",
+   "notes": "Stored solution is only the pointer 'we wrote next to each operation'; no standalone content. Full solution: AVL (n customers): search O(log n), insert O(log n). Cuckoo: search O(1) worst case (two cells); insert O(1) expected amortised (worst case a cycle forces rehash, O(n) for that insert). Rehash O(n). No rubric exists.",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "AVL: search/insert O(log n). Hash: search/insert O(1) expected, O(n) worst; rehash O(n) occasionally, amortised O(1)."
+  },
+  "3": {
+   "verdict": "agree-with-fix",
+   "notes": "Algorithm correct and linear; step answers all correct. ROUNDING: brute force n=3..399 shows 1-based k=ceil(n/3), ceil(2n/3) always catches a run > n/3, floor fails for every n not divisible by 3 (264 of 397); same as 0-based floor. Majority probe: 1-based ceil(n/2) (floor fails for odd n). The PRINTED question has no rounding; its n=223e6 is even (n/2 exact) but n mod 3 = 1, so floor-1-based really would miss a block (checked at n=223e6: floor-1-based hides a run of length floor(n/3)+1). So the step-author is right: the n/3, 2n/3 positions hold only with ceil for 1-based select (floor for 0-based). Also solution says 'at least 33%': threshold must be strictly more than n/3 (33.33%), 33% would accept a 33.2% movie; and should test both candidates, excluding the majority movie. Rubric 3+6+4+8+4=25 matches printed 25.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree"
+   },
+   "myDerivationBeforeClaim": "Q3 select positions: brute force over n=3..399: 1-based k=ceil(n/3),ceil(2n/3) always works; floor fails for every n not divisible by 3 (264/397). Equivalent: 0-based index floor. For n=223e6 (n mod 3 = 1) floor 1-based hides a run. Majority probe: 1-based ceil(n/2) (floor fails for odd n; n=223e6 even so irrelevant). Algorithm correct with rounding up: select(n/2), count; select(ceil n/3), select(ceil 2n/3), count each; distinct-from-majority; O(n)."
+  },
+  "4a": {
+   "verdict": "agree",
+   "notes": "Hash-set algorithm correct (needs prev pointer for singly linked deletion, not stated). Rubric 4+4+5+2=15, not 25.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "hash set (or other dedupe); scan lists in category order; for each node: if in set -> unlink from current list (needs prev pointer), else add. Theta(n) expected, n = total entries. First list is kept untouched."
+  },
+  "4b": {
+   "verdict": "disagree",
+   "notes": "Stored 'we wrote above' is a pointer, no proof. Full proof: invariant after handling the first j nodes (categories in order): (i) the table holds exactly the movies seen so far, (ii) each movie seen appears in exactly one list among those nodes processed, at its first occurrence. A node is deleted only if its movie is already in the table, i.e. an earlier node holding that movie was kept (first occurrences are never deleted because they are not found in the table), so no movie disappears. Every later occurrence finds the movie in the table and is unlinked, so no movie remains in two lists (also covers repeats inside one list). Category 1 is never modified. Deletion keeps the list valid (prev pointer, head update). Terminates after one pass.",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "proof by loop invariant: after processing the first j nodes, every movie occurring among them appears in the set exactly once; the first occurrence (in category order) is kept; later ones removed, so each movie in exactly one category; no other movie is removed."
+  },
+  "4c": {
+   "verdict": "agree",
+   "notes": "Theta(n) (n = total entries) with expected O(1) hash ops; worst case O(n^2) adversarial hash, O(n log n) with AVL set. Rubric item sums to 5 only.",
+   "stepVerdicts": {
+    "0": "agree"
+   },
+   "myDerivationBeforeClaim": "Theta(n) expected (O(1) per hash op expected); worst-case O(n^2) with adversarial hash; with sort-based or AVL-based set O(n log n)."
+  },
+  "5a": {
+   "verdict": "agree",
+   "notes": "Union-find trees, union by size. Stored is a pointer; fine. No rubric.",
+   "stepVerdicts": {},
+   "myDerivationBeforeClaim": "disjoint sets via inverted trees (parent pointers), union by size (and path compression)."
+  },
+  "5b": {
+   "verdict": "agree",
+   "notes": "MakeSet O(1), Union O(1) given roots, Find O(log n) with union by size; compression correct. Steps: choice a, order (climb then compress), 1024 -> height 10 all correct. Rubric 2+3+3=8, not 15 (Q5 total).",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "MakeSet(x): parent[x]=x,size=1 O(1). Union(a,b): roots, attach smaller under larger, O(1) given roots. Find(x): follow parents to root (+ path compression)."
+  },
+  "5c": {
+   "verdict": "agree",
+   "notes": "Correct. Rubric 2+2=4.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree"
+   },
+   "myDerivationBeforeClaim": "MakeSet O(1); Union O(1) given roots (O(find) if given elements); Find O(log n) (union by size gives height <= log2 n), amortised ~alpha(n) with compression."
+  }
+ }
+}

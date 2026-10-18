@@ -1,0 +1,108 @@
+{
+ "examCode": "23B-A",
+ "refuter": "refuter-data-structures-23",
+ "note": "Written BEFORE opening any claim in tools/raw/<CODE>.json. 23A-A booklet pages contain handwritten model solutions that I saw while checking printed points; all else derived blind.",
+ "items": {
+  "1a": {
+   "verdict": "agree",
+   "notes": "Correct. Counter array [0,3,1,1] confirmed.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "counting array of size p indexed x-(n+1); O(n+p) time, O(p) space."
+  },
+  "1b": {
+   "verdict": "agree",
+   "notes": "Correct; two values with count>1 (10,13) confirmed.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "count array; for x with C>1 check z-x in range and C[z-x]>1 (a=b=z/2 needs C>=2 which is covered). O(n+p)."
+  },
+  "1c": {
+   "verdict": "agree-with-caveat",
+   "notes": "Answers correct. Caveat: treating zeroing an O(p) array as O(1) needs virtual/lazy initialisation (calloc, or touched-cell stack); official says so. Official claim that cuckoo is unsuitable because insertion costs log n on average is false (expected amortised O(1)), harmless.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "hash table (universal hashing, chaining) keyed by value storing counts: expected O(n) time and space; pairs: scan table entries with count>1, lookup z-x. Alternative O(n) time O(p) space: counting array allocated without initialization (virtual initialization / lazy init with a stack of touched cells), or note that O(n) time with array needs avoid initialising p cells."
+  },
+  "2a": {
+   "verdict": "agree",
+   "notes": "5,3,3,4,4,4,3,5,6,6,6,5 confirmed by simulation (nil children print nothing).",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "BST root5, left 3 (right 4), right 6. neworder prints: 5,3,3,4,4,4,3,5,6,6,6,5 (nil children print nothing)."
+  },
+  "2b": {
+   "verdict": "agree",
+   "notes": "Root 5, leaves 85,33,19,4,2, 11 nodes, all confirmed by parsing the sequence into a tree.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "parse: root 5; left 6 (only left child) -> 22 (left 35, right 19); 35 (left 85, right 33); 5's right 3 (left 4, right 1); 1 (left 2). Root 5. Leaves 85,33,19,4,2. Every leaf prints v,v,v; node with one left child prints v,[L],v,v."
+  },
+  "3a": {
+   "verdict": "disagree",
+   "notes": "Formulas (0-based parent floor((i-1)/3), children 3i+1..3i+3) and steps agree. PITFALL 2 IS FALSE: 'parent = floor(i/3) is correct for numbering from 1'. For 1-based level order the parent is floor((i+1)/3) (children 3i-1,3i,3i+1); floor(i/3) gives 0 for i=2. Replace with: 'using floor((i-1)/3) for a 1-based array' or 'floor((i+1)/3) vs floor((i-1)/3) mix-up'.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "heap array 1-based: children of i are 3i-1,3i,3i+1; parent floor((i+1)/3). (0-based children 3i+1..3i+3, parent floor((i-1)/3)). Figure image 23B-A-Q3a.png not inspected."
+  },
+  "3b": {
+   "verdict": "agree",
+   "notes": "Code correct (loop plus recursion redundant but fine); steps: fillblank a, 2 swaps, A[0]=55 verified by simulation.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "increase(A,i,x): A[i]+=x (x>=0 assumed), while i>1 and A[parent(i)]<A[i] swap; i=parent. O(log3 n)."
+  },
+  "3c": {
+   "verdict": "agree",
+   "notes": "Both proposals correct, linear.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree"
+   },
+   "myDerivationBeforeClaim": "(1) in-order traversal gives sorted ascending; write it into array in DESCENDING order -> max-heap, O(n). (2) copy all nodes into an array in any order and run bottom-up build-max-heap, O(n)."
+  },
+  "4": {
+   "verdict": "disagree",
+   "notes": "DELETE branch 'count==1: swap with last heap element then heapifyDown only' is wrong in general: the moved last element may be larger than the parent at the removed slot and needs heapifyUp. Counterexample heap (1-based) [5,3,4,1,2,4]: remove the count-1 node at index 4 (parent 3), last element 4 moves there, 4>3, heapifyDown does nothing, heap invalid. Correct: after replacement do heapifyUp or heapifyDown as needed. Also heap swaps must update the AVL node's back pointer. Steps 0-4 (including 'decrease -> heapifyDown', 'increase -> heapifyUp') are correct. Rubric sums to 25.",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree",
+    "3": "agree",
+    "4": "agree"
+   },
+   "myDerivationBeforeClaim": "AVL (or any balanced BST) keyed by key with count field; plus pointer-linked max structure by count: either a max-heap with cross pointers (increase/decrease key O(log n)) or a second balanced tree keyed by (count,key) with max pointer. MODE = root/max pointer O(1). Delete = count-1, remove node if 0."
+  },
+  "5": {
+   "verdict": "disagree",
+   "notes": "Proof gap. Solution claims 'the only operation that affects height is union'; with path compression a find also changes (lowers) heights, so the tree T may have been produced by a find, not by a union of T1,T2, and the case analysis misses it. Fix: add 'path compression never raises the height and never changes n, so n >= 2^h is preserved'. Rest of the argument (both cases) is right; invariant confirmed by random simulation. Steps all correct (max height for 1000 nodes is 9; order; findbug index 1).",
+   "stepVerdicts": {
+    "0": "agree",
+    "1": "agree",
+    "2": "agree"
+   },
+   "myDerivationBeforeClaim": "Induction on h. h=0: n>=1=2^0. Step: tree of height h+1 created by a union where the smaller tree (size a<=b) hangs under the larger root, hence new height = height(small)+1 = h; n >= 2a >= 2*2^h. Path compression never increases height or changes n so invariant n>=2^h preserved. (Random simulation confirms invariant.)"
+  }
+ }
+}
