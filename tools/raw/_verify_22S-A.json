@@ -1,0 +1,201 @@
+{
+ "examCode": "22S-A",
+ "refuter": "data-structures refuter (22S-A/B/C, 22B-B batch)",
+ "answers": {
+  "1a": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Sort via buildheap->AVL->inorder would be Theta(n) vs Omega(n log n). Page 2 matches."
+  },
+  "1b": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "9-key AVL on page 2, median 6 is a depth-2 leaf. Re-checked tree is AVL (own sim)."
+  },
+  "1c": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Hash must be deterministic; randomint(k) breaks search."
+  },
+  "1d": {
+   "answer": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Check parents of first n/2 cells: Theta(n). Page 3 pseudocode correct."
+  },
+  "1e": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Final answer 'not true' is right (heapsort is unstable, so radix breaks). The printed official page (p.4) literally says 'counting sort is NOT stable' - that sentence is false (counting sort is stable, heapsort is the unstable one). Ruling: intermediate slip, not a final-answer error. Stored solution copies the slip verbatim while the stored rubric correctly says heapsort is unstable, so solution text and rubric contradict each other."
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Page 5 tree transcribed and image 22S-A-Q2a-sol.png match: 10(5(3(2(1,.),4),6(.,7)),15(11,17(.,18))). 12 nodes, AVL, height 4. Own AVL sim with real delete+rebalance: every deletion drops height 3 (both successor/predecessor conventions); no two insertions raise height. Of 184 AVL shapes with 12 nodes, 56 have height 3 (none qualify) and 128 have height 4 (all qualify)."
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Proof is correct. Step 'order' differs from the official page order (see items)."
+  },
+  "3a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Swap x to front + partition, Theta(n). Example: 5 smaller, rank 6."
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Select on |a_i-x|; 5th smallest difference excluding x is 4; five items {8,10,11,14,15}. Note the official run on all n elements would count x itself (diff 0) so the 5th diff would be 3; solution never says to exclude x."
+  },
+  "4a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Dina: T=4T(n/4)+n -> n log_4 n. Level counts and closed form verified. Official 'coefficient must be an integer' justification is weak but it is the printed one."
+  },
+  "4b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Cuckoo sim: 11,12,32,6 give 0,1,0,3 evictions; inserting 7 evicts 10 times then returns to a seen state (cycle) -> rehash. Matches page 10 (7 collisions shown)."
+  }
+ },
+ "items": {
+  "1a": {
+   "solution": "agree",
+   "rubric": "agree (2+4+2=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1b": {
+   "solution": "agree",
+   "rubric": "agree (2+3+3=8)",
+   "pitfalls": "disagree: 'choose a small tree (3 to 5 nodes) where the median is always the root or a child' is false for 4 and 5 nodes. Own enumeration of AVL shapes: n=3 always root/child, but n=4 has 2 of 4 shapes and n=5 has 2 of 6 shapes where the median is deeper (e.g. 4(2(1,3),5) has median 3 at depth 2). Say 'up to 3 nodes'.",
+   "steps": {},
+   "firstDivergence": "pitfalls[0]"
+  },
+  "1c": {
+   "solution": "agree",
+   "rubric": "agree (2+4+2=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1d": {
+   "solution": "agree",
+   "rubric": "agree (2+3+3=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1e": {
+   "solution": "disagree (intermediate slip): 'counting sort is not stable' is false; the stored text copies the official slip. The verdict 'false' is right.",
+   "rubric": "agree (2+3+3=8; rubric says heapsort is unstable, which is the correct reason)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": "solution sentence 2: counting sort claimed unstable (official p.4 says the same); stored key false is correct"
+  },
+  "2a": {
+   "solution": "agree",
+   "rubric": "agree (3+3+3+3=12)",
+   "pitfalls": "agree: height-3 12-node AVL always has a deletion that keeps height (all 56 checked)",
+   "steps": {
+    "1": "agree: numeric 12 (min AVL height 4: 1,2,4,7,12,20)",
+    "2": "agree: choice 'a' height 4 (56 height-3 shapes fail, 128 height-4 shapes pass; rank of heights 3/4 only)"
+   },
+   "firstDivergence": null
+  },
+  "2b": {
+   "solution": "agree",
+   "rubric": "agree (2+2+2+4+3=13)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: induction on height (official says 'על גובה העץ')",
+    "2": "agree: numeric 16",
+    "3": "disagree (minor): official order is subtree sizes, IH, then n=2^(k+2)-1 and (n+1)/2, and only last 'x1+x2=2^(k+1)'. Stored order puts the leaf-sum line before the n-formula line. Both are logically valid, but 'order = the solution's real order' is not met. Fix: swap lines 3 and 4 or accept both.",
+    "4": "agree: findbug index 1 is the only wrong line"
+   },
+   "firstDivergence": "step 3 order"
+  },
+  "3a": {
+   "solution": "agree",
+   "rubric": "agree (2+2+3+1+2=10)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a (partition)",
+    "2": "agree: 5",
+    "3": "agree: 6",
+    "4": "agree: O(n)"
+   },
+   "firstDivergence": null
+  },
+  "3b": {
+   "solution": "agree (note: does not state to exclude x itself)",
+   "rubric": "agree (5+4+3+3=15)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a",
+    "2": "agree: 4 (sorted diffs excl x: 1,2,2,3,4,7,8,13,20,33)",
+    "3": "agree: 5",
+    "4": "agree: O(n)"
+   },
+   "firstDivergence": null
+  },
+  "4a": {
+   "solution": "agree",
+   "rubric": "agree (3+3+3+3=12)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: dina",
+    "2": "agree: 64",
+    "3": "agree: 5",
+    "4": "agree: O(n log n)"
+   },
+   "firstDivergence": null
+  },
+  "4b": {
+   "solution": "agree",
+   "rubric": "agree (3+4+4+2=13)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 2",
+    "2": "agree: 3 evictions on 6",
+    "3": "agree: 1 (T2 cell of 32)",
+    "4": "agree: cycle, rehash (10 evictions then repeated state)"
+   },
+   "firstDivergence": null
+  }
+ },
+ "mcqSpotCheck": {
+  "1a": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1b": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1c": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1d": {
+   "answer": "True",
+   "verdict": "agree"
+  },
+  "1e": {
+   "answer": "False",
+   "verdict": "agree"
+  }
+ }
+}

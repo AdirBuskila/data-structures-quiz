@@ -1,0 +1,198 @@
+{
+ "examCode": "22S-C",
+ "refuter": "data-structures refuter (22S-A/B/C, 22B-B batch)",
+ "answers": {
+  "1a": {
+   "answer": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own enumeration of full binary trees up to 17 nodes: every one with equal leaf depths is perfect and AVL (4 shapes). Sorted inorder = BST."
+  },
+  "1b": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own DP over all AVL shapes n<=60: the shallowest node with a missing child has depth growing with n (0,0,1,1,1,2,2,3 at n=1,2,3,5,10,20,40,60), so best case is Omega(log n)."
+  },
+  "1c": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Output has n cells: Omega(n); sqrt(n) log n = o(n)."
+  },
+  "1d": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Max of a min-heap is one of ~n/2 leaves; raising any single leaf keeps a valid heap (checked), so Omega(n)."
+  },
+  "1e": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "h=1, f=n, g=n^2 is a counterexample."
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Tree 8(5(3(2(1,.),4),7(6,.)),11(10(9,.),12)) is AVL height 4, 12 nodes. Own sim: delete 12 -> LL at 11 then LL at 8 -> 5(3(2(1,.),4),8(7(6,.),10(9,11))), two rotations. Note: the solution's side claim 'deleting 11 also gives two rotations' holds with successor replacement (LL at 12, LL at 8) but with predecessor replacement only one rotation, so it is convention dependent."
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Perfect-tree leaves = 2^h induction correct (also checked h 0..7)."
+  },
+  "3a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Pointer-with-dummy merge scan: 5000 random pairs vs brute force, 0 mismatches; iterations <= 2N (max ratio 0.95). Example output a,c,d,f / e,h,i,j reproduced."
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "HOLD agreed: read literally, WHAT(A[i..j]) with i>1 repeats the same range (WHAT(3,8) calls WHAT(3,8)); own sim: non-terminating for every n in 2..20. Intended T(n)=T(n/4)+T(3n/4)+n gives Theta(n log n) (T/(n log2 n) stable near 1.3)."
+  },
+  "4a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "DFS visiting only nodes > x: at most 2m+1 visits, 3000 random heaps, 0 mismatches. Example heap 50,40,30,20,10,25,5 with x=35 visits 5 nodes (1,2,3,4,5)."
+  },
+  "4b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "h(0,*)=0; 5: 0 then (0+2)%5=2; 25: 0, 2, then 4. 3 collisions, table 0:0, 2:5, 4:25."
+  }
+ },
+ "items": {
+  "1a": {
+   "solution": "agree",
+   "rubric": "agree (2+2+2+2=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1b": {
+   "solution": "agree",
+   "rubric": "agree (2+3+3=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1c": {
+   "solution": "agree",
+   "rubric": "agree (2+4+2=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1d": {
+   "solution": "agree",
+   "rubric": "agree (2+3+3=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1e": {
+   "solution": "agree",
+   "rubric": "agree (2+4+2=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "2a": {
+   "solution": "agree (side remark about deleting 11 is convention dependent)",
+   "rubric": "agree (4+3+3+3=13)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 12",
+    "2": "agree: bal(11)=2",
+    "3": "agree: LL (choice a)",
+    "4": "agree: bal(8)=2",
+    "5": "agree: 2 rotations"
+   },
+   "firstDivergence": null
+  },
+  "2b": {
+   "solution": "agree",
+   "rubric": "agree (2+2+2+3+3=12)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 32",
+    "2": "agree: order",
+    "3": "agree: findbug index 2"
+   },
+   "firstDivergence": null
+  },
+  "3a": {
+   "solution": "agree",
+   "rubric": "agree (4+3+3+3=13)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a",
+    "2": "agree: fillblank 'p1.next' blankIndex 2, unique",
+    "3": "agree: order",
+    "4": "agree: O(N)"
+   },
+   "firstDivergence": null
+  },
+  "3b": {
+   "solution": "hold (agree with hold reason)",
+   "rubric": "n/a",
+   "pitfalls": "n/a",
+   "steps": {},
+   "firstDivergence": "literal code non-terminating"
+  },
+  "4a": {
+   "solution": "agree",
+   "rubric": "agree (3+4+3+3=13)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a",
+    "2": "agree: 5 visits",
+    "3": "agree: fillblank 'A[i] <= x' blankIndex 1 unique",
+    "4": "agree: O(m)"
+   },
+   "firstDivergence": null
+  },
+  "4b": {
+   "solution": "agree",
+   "rubric": "agree (1+3+4+2+2=12)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 2",
+    "2": "agree: 2",
+    "3": "agree: 4",
+    "4": "agree: 3"
+   },
+   "firstDivergence": null
+  }
+ },
+ "mcqSpotCheck": {
+  "1a": {
+   "answer": "True",
+   "verdict": "agree"
+  },
+  "1b": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1c": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1d": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1e": {
+   "answer": "False",
+   "verdict": "agree"
+  }
+ }
+}

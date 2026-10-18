@@ -1,0 +1,174 @@
+{
+ "examCode": "22B-B",
+ "refuter": "data-structures refuter (22S-A/B/C, 22B-B batch)",
+ "answers": {
+  "1a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Own AVL sim with successor replacement over all 12 keys: only 12, 15, 20 need no rotation. Tree on page 2 transcribed identically (34(12(5(3),22(20(15),28)),51(42,64(.,87))))."
+  },
+  "1b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Delete 34: successor 42, RR at 51, then LR at 42 -> 22(12(5(3,.),20(15,.)),42(28,64(51,87))), height 3. Matches."
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Perfect 63-node heap: internal cell needs two larger values, only 63 exists; every leaf cell 32..63 achievable. Points: page prints '(5 נקודות)' here."
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Select + increment + (needed) BUILD-HEAP: 4000 random heaps with duplicates, 0 mismatches vs top-k increment; without BUILD-HEAP 855/4000 invalid. Theta(n)."
+  },
+  "3a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Sort + balanced build; 300 random arrays, inorder = input. Note: step 2 explanation says the tree from 3,8,15,21,30 is 15(8(3),21(,30)) but with mid=floor((lo+hi)/2) the tree is 15(3(.,8),21(.,30)); numeric answers 15 and height 2 still right."
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Standard comparison lower bound reduction. ceil(log2 5!)=7."
+  },
+  "4a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Alternating f,g counterexample correct."
+  },
+  "4b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Probes 8:[1] 1:[1,3] 15:[1,2] 4:[4] 16:[2,4,6]; table _,8,15,1,4,_,16."
+  },
+  "5": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Yes. Union-by-size sequence reaches depths [0,1,1,2,1,2,2,3] (height 3); find(8) -> height 2. Exhaustive random union orders under size and rank rules: every height-3 8-set has exactly one node at depth 3, and find on it always yields height exactly 2. But the solution's sentence 'height 3 arises only when every union merges two equal-size sets (1+1,2+2,4+4)' is false: union(1,2),(1,3),(1,4) builds a size-4 star, then union(star,B2) gives height 3 (profile 0,1,1,1,1,2,2,3). Conclusion holds, justification is wrong."
+  }
+ },
+ "items": {
+  "1a": {
+   "solution": "agree",
+   "rubric": "agree (6+2+2=10, invented weights, see printedPoints)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: height 4",
+    "2": "agree: bal(34)=+1",
+    "3": "agree: bal(12)=-2 after deleting 3",
+    "4": "agree: choice a (12,15,20)"
+   },
+   "firstDivergence": null
+  },
+  "1b": {
+   "solution": "agree",
+   "rubric": "agree (3+3+4+2+3=15, invented weights)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 42",
+    "2": "agree: RR at 51",
+    "3": "agree: bal=2",
+    "4": "agree: LR",
+    "5": "agree: 22"
+   },
+   "firstDivergence": null
+  },
+  "2a": {
+   "solution": "agree",
+   "rubric": "agree (2+3=5, matches printed 5)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 2",
+    "2": "agree: 1",
+    "3": "agree: choice a"
+   },
+   "firstDivergence": null
+  },
+  "2b": {
+   "solution": "agree",
+   "rubric": "agree (5+4+3+3+2+3=20 = 25-5 implied)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: SELECT",
+    "2": "agree: v=2",
+    "3": "agree: 1 copy",
+    "4": "agree: choice a (note explain array shows only the parent raise)",
+    "5": "agree: O(n)"
+   },
+   "firstDivergence": null
+  },
+  "3a": {
+   "solution": "agree",
+   "rubric": "agree (3+4+1+2=10, invented)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: O(n log n)",
+    "2": "agree: 15",
+    "3": "agree numerically (height 2) but explanation describes the wrong tree (see answers 3a)",
+    "4": "agree: fillblank mid - 1, blankIndex 5"
+   },
+   "firstDivergence": "step 3 explain text only"
+  },
+  "3b": {
+   "solution": "agree",
+   "rubric": "agree (4+4+3+4=15, invented)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 7",
+    "2": "agree: order",
+    "3": "agree: findbug index 2 (preorder)"
+   },
+   "firstDivergence": null
+  },
+  "4a": {
+   "solution": "agree",
+   "rubric": "agree (1+5+3+3=12, invented)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a",
+    "2": "agree: 100",
+    "3": "agree: 101"
+   },
+   "firstDivergence": null
+  },
+  "4b": {
+   "solution": "agree",
+   "rubric": "agree (1+3+3+3+3=13, invented)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 3",
+    "2": "agree: 2",
+    "3": "agree: 3 probes",
+    "4": "agree: choice a unique"
+   },
+   "firstDivergence": null
+  },
+  "5": {
+   "solution": "disagree (justification sentence only; answer yes is right)",
+   "rubric": "agree (2+5+3+3+2=15, matches printed 15 for the bonus)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: yes",
+    "2": "agree: 3",
+    "3": "agree: 1 node at depth 3",
+    "4": "agree: 2. Step-1 explain/solution claim 'only equal-size unions' is false though."
+   },
+   "firstDivergence": "solution paragraph 'למה בהכרח 2', claim 'only 1+1,2+2,4+4'"
+  }
+ },
+ "printedPoints": {
+  "page_reading": "Page 1: 4 questions of 25 points plus a bonus of 15; total up to 115. Page 2: 'שאלה 1 (25 נקודות) – לשאלה 2 סעיפים' with no split. Page 4: 'שאלה 2 (25 נקודות)' and sub-item 2a is printed '(5 נקודות)', 2b has no points (implies 20). Page 6: 'שאלה 3 (25 נקודות)' no split. Page 7: 'שאלה 4 (25 נקודות) – לשאלה 2 סעיפים (אין קשר בין הסעיפים)' no split. Page 9: 'שאלה 5 (15 נקודות) – שאלת הבונוס'.",
+  "verdict": "Only these are really printed: Q1=25, Q2=25 with 2a=5 (so 2b=20), Q3=25, Q4=25, bonus=15. The splits 10+15 (Q1), 10+15 (Q3), 12+13 (Q4) are the step-author's inventions; 5+20 for Q2 is consistent with the print; bonus 15 matches."
+ },
+ "mcqSpotCheck": {}
+}

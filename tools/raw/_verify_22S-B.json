@@ -1,0 +1,202 @@
+{
+ "examCode": "22S-B",
+ "refuter": "data-structures refuter (22S-A/B/C, 22B-B batch)",
+ "answers": {
+  "1a": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Postorder of valid max-heap 100,50,30,12,10,15 = 12,10,50,15,30,100."
+  },
+  "1b": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "T1=5(2(1),6) is AVL, preorder 5,2,1,6; inserting 5,2,1 needs an LL rotation (own sim)."
+  },
+  "1c": {
+   "answer": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Insert larger than parent: one comparison."
+  },
+  "1d": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "f=1/n: f/f^2=n not -> 0."
+  },
+  "1e": {
+   "answer": false,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "min then n-1 O(1) successors would sort in O(n)."
+  },
+  "2a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Figure image 22S-B-Q2a-fig.png matches page 6: 8(3(.,6),22(13(10,17),25)). Own AVL sim: insert 15 -> one LR at 22 -> 8(3(.,6),17(13(10,15),22(.,25))); delete 3 -> bal(8)=-2 -> one RL at 8 -> 13(8(6,10),22(17,25)). Matches the official page 6/7."
+  },
+  "2b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Perfect-tree induction correct."
+  },
+  "3a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Both solutions valid: sorted array + merge Theta(n+k log k) (merge <= n+k-1 comparisons, 500 random runs), AVL Theta(n+k log n)."
+  },
+  "3b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Official find + identical. 3000 random BST pairs vs brute force: 0 mismatches. Solution (and page) give no complexity analysis although the question asks for it (find O(h) + identical O(|B|))."
+  },
+  "4a": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "T(n)=3T(n/3)+n+1 -> Theta(n log n). Caveat: the printed pseudocode, read literally with (i+j)/3 on subarrays with i>1, never terminates (own sim); the official page also uses the idealised recurrence. Not a key error."
+  },
+  "4b": {
+   "agrees": true,
+   "confident": true,
+   "transcriptionIssues": "",
+   "note": "Probes: 7:[7] 1:[1] 6:[6] 16:[6,8] 14:[4] 8:[8,9] 21:[1,4,7,0] 12:[2]; table 21,1,12,_,14,_,6,7,16,8 matches page 11."
+  }
+ },
+ "items": {
+  "1a": {
+   "solution": "agree",
+   "rubric": "agree (2+3+3=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1b": {
+   "solution": "agree",
+   "rubric": "agree (2+3+3=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1c": {
+   "solution": "agree",
+   "rubric": "agree (2+4+2=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1d": {
+   "solution": "agree",
+   "rubric": "agree (2+3+3=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "1e": {
+   "solution": "agree",
+   "rubric": "agree (2+4+2=8)",
+   "pitfalls": "agree",
+   "steps": {},
+   "firstDivergence": null
+  },
+  "2a": {
+   "solution": "agree",
+   "rubric": "agree (2+4+2+4=12)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: LR (bal22=2, bal13=-1)",
+    "2": "agree: 17",
+    "3": "agree: -2",
+    "4": "agree: RL (bal22=+1)",
+    "5": "agree: 13"
+   },
+   "firstDivergence": null
+  },
+  "2b": {
+   "solution": "agree",
+   "rubric": "agree (3+2+3+3+2=13)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 15",
+    "2": "agree: order (decompose, IH, sum)",
+    "3": "agree: findbug index 1"
+   },
+   "firstDivergence": null
+  },
+  "3a": {
+   "solution": "agree",
+   "rubric": "agree (3+4+3+5=15)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: O(k log k)",
+    "2": "agree: O(n+k log k)",
+    "3": "agree: O(n+k log n)",
+    "4": "agree: choice a (assumes k<=n)"
+   },
+   "firstDivergence": null
+  },
+  "3b": {
+   "solution": "agree (no complexity analysis, which the question requires)",
+   "rubric": "agree (3+4+1+2=10; no row for complexity)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a (distinct values)",
+    "2": "agree: order (empty checks, find, identical)",
+    "3": "agree: fillblank TRUE, blankIndex 3 correct and unique"
+   },
+   "firstDivergence": null
+  },
+  "4a": {
+   "solution": "agree (see caveat on literal pseudocode)",
+   "rubric": "agree (4+3+3+3=13)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: choice a",
+    "2": "agree: 9",
+    "3": "agree: 6 (729=3^6)",
+    "4": "agree: O(n log n). Minor: explain says T/(n log3 n) stays in 0.9..1.6; with T(1)=1 it is 1.72 at n=9, 1.49 at n=27 then falls to 1.2 (not wrong asymptotically)"
+   },
+   "firstDivergence": null
+  },
+  "4b": {
+   "solution": "agree",
+   "rubric": "agree (3+2+2+3+2=12)",
+   "pitfalls": "agree",
+   "steps": {
+    "1": "agree: 8",
+    "2": "agree: 9",
+    "3": "agree: 4 probes",
+    "4": "agree: choice a unique"
+   },
+   "firstDivergence": null
+  }
+ },
+ "mcqSpotCheck": {
+  "1a": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1b": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1c": {
+   "answer": "True",
+   "verdict": "agree"
+  },
+  "1d": {
+   "answer": "False",
+   "verdict": "agree"
+  },
+  "1e": {
+   "answer": "False",
+   "verdict": "agree"
+  }
+ }
+}
